@@ -2,54 +2,57 @@ import React from 'react';
 import { playCyberTone } from '../utils/audio';
 import { motion } from 'framer-motion';
 import {
-  Cpu,
+  Zap,
   CheckCircle2,
   ArrowRight,
   Database,
-  Bot,
-  CloudLightning,
+  Globe,
+  MessageCircle,
+  Sparkles,
+  Layers,
+  Search,
 } from 'lucide-react';
 
-export default function SolutionsPage({ onOpenPrototypeModal, isDark }) {
+export default function SolutionsPage({ onOpenPrototypeModal, onNavigateToWork, isDark }) {
   const solutions = [
     {
       id: 'pillar-1',
-      title: 'High-Conversion Industrial & Product Engines',
-      tag: 'FLAGSHIP ARCHITECTURE',
-      desc: 'Engineered specifically for heavy machinery, manufacturing, wholesale, and direct B2B sellers. Replaces slow PDF downloads and static pages with reactive, lightning-fast product portals.',
+      title: 'Fast Business & Product Websites',
+      tag: 'WEBSITE SOLUTIONS',
+      desc: 'High-speed modern websites designed to turn visitors into paying customers. Perfect for local businesses, industrial suppliers, retail brands, and professional services.',
       highlights: [
-        'Sub-0.4s Global Edge Load Times across mobile & desktop',
-        'Direct WhatsApp Quotation Engine with SKU pre-fill',
-        'Instant Search, Technical Spec Tables & High-Res Machinery Gallery',
-        'Zero monthly hosting or database maintenance overhead',
+        'Sub-0.4s lightning load speed on mobile & desktop',
+        'Direct WhatsApp button for instant customer inquiries',
+        'High Google SEO score so customers can find you easily',
+        'Zero monthly maintenance or hosting overhead fees',
       ],
-      icon: CloudLightning,
+      icon: Globe,
     },
     {
       id: 'pillar-2',
-      title: 'Autonomous Client Admin Cockpits',
-      tag: '100% SELF-OPERATED',
-      desc: 'Never send an email or pay an agency fee just to change a product price, update your phone number, or upload a festival banner. Full sovereign control at your fingertips.',
+      title: 'Easy Self-Serve Admin Panel',
+      tag: '100% SELF OPERATED',
+      desc: 'Never pay an agency a monthly fee or wait days just to change a price or phone number. We include a visual control panel that anyone can use from their phone.',
       highlights: [
-        'Intuitive visual editor accessible from any phone or laptop',
-        'Add, edit, or archive machinery and products in seconds',
-        'Manage live site alerts and promotional banners on demand',
-        'Instant CSV download of all inbound customer leads and inquiries',
+        'Update text, photos, and announcements in 10 seconds',
+        'Add and manage products or machinery catalogs on demand',
+        'Receive and download customer inquiries directly to Excel / CSV',
+        'Runs in the cloud with zero software installation required',
       ],
       icon: Database,
     },
     {
       id: 'pillar-3',
-      title: 'Next-Generation Autonomous AI Concierge',
-      tag: 'FRONTIER INTELLIGENCE',
-      desc: 'Embed intelligent multimodal AI conversational agents into your platform that qualify incoming business leads, explain complex technical machinery specs, and transfer ready buyers directly to your WhatsApp.',
+      title: 'Custom Business Software & ERP',
+      tag: 'OPERATIONAL SOFTWARE',
+      desc: 'Tailor-made software tools for businesses that outgrew manual spreadsheets. Manage inventory, automate customer invoices, and streamline your daily operations.',
       highlights: [
-        '24/7 lead qualification without hiring overnight support staff',
-        'Understands technical catalogs, machinery dimensions & power specs',
-        'Zero hallucination boundaries tailored strictly to your inventory',
-        'Instant notification dispatch to your team phone on qualified leads',
+        'Secure cloud database (PostgreSQL) with automatic backups',
+        'Role-based access for staff, managers, and owners',
+        'Instant WhatsApp notifications for new orders & leads',
+        '100% code ownership with zero monthly user license fees',
       ],
-      icon: Bot,
+      icon: Layers,
     },
   ];
 
@@ -59,27 +62,60 @@ export default function SolutionsPage({ onOpenPrototypeModal, isDark }) {
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
-        className="text-center max-w-3xl mx-auto mb-20"
+        className="text-center max-w-3xl mx-auto mb-16"
       >
-        <div className={`inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-mono mb-4 border ${
+        <div className={`inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-mono font-bold mb-4 border ${
           isDark 
-            ? 'bg-[#181818] border-luxury-gold/30 text-luxury-gold shadow-gold-glow' 
+            ? 'bg-[#1C1829] border-[#8B5CF6] text-white shadow-[0_0_20px_rgba(139,92,246,0.4)]' 
             : 'bg-fresh-tint border-fresh-border text-fresh-green shadow-emerald-glow'
         }`}>
-          <Cpu className="w-3.5 h-3.5" />
-          <span>SOLUTIONS MATRIX // ENTERPRISE STANDARDS</span>
+          <Sparkles className="w-3.5 h-3.5 text-emerald-400" />
+          <span>WHAT WE DELIVER • ZERO MAINTENANCE</span>
         </div>
+
         <h1 className="text-4xl sm:text-6xl font-extrabold tracking-tight font-display mb-6">
-          WE ENGINEER ASSETS. <br />
-          <span className="text-gradient-main">NOT EXPENDABLE BROCHURES.</span>
+          <span className={isDark ? 'text-white drop-shadow-[0_2px_12px_rgba(0,0,0,0.8)]' : 'text-slate-900'}>
+            DIGITAL SOLUTIONS
+          </span> <br />
+          <span className="text-gradient-main">BUILT FOR YOUR BUSINESS</span>
         </h1>
-        <p className="opacity-75 text-base sm:text-lg">
-          Explore the three core engineering pillars we deploy for high-growth enterprises, industrial manufacturers, and modern digital brands.
+
+        <p className={`text-base sm:text-lg max-w-2xl mx-auto ${isDark ? 'text-slate-200' : 'text-slate-600'}`}>
+          Whether you need a high-ranking business website, a product catalog, or custom software to run your daily operations, we deliver complete solutions with zero maintenance fees.
         </p>
+
+        {/* Action Header CTAs */}
+        <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
+          <button
+            onClick={() => {
+              playCyberTone('click');
+              onOpenPrototypeModal();
+            }}
+            className={`px-6 py-3.5 rounded-xl font-bold font-mono text-xs tracking-wider flex items-center gap-2 shadow-lg transition-all hover:scale-105 active:scale-95 cursor-pointer ${
+              isDark
+                ? 'bg-gradient-to-r from-luxury-gold via-amber-300 to-luxury-gold text-black shadow-gold-glow'
+                : 'bg-gradient-to-r from-fresh-emerald to-fresh-green text-white shadow-emerald-glow'
+            }`}
+          >
+            <span>GET A FREE QUOTE</span>
+            <ArrowRight className="w-4 h-4" />
+          </button>
+
+          <a
+            href="https://wa.me/917358618789?text=Hi%20Jagadish!%20I%20am%20interested%20in%20your%20website%20and%20software%20solutions."
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={() => playCyberTone('click')}
+            className="px-5 py-3.5 rounded-xl bg-[#25D366] hover:bg-[#20BA5A] text-white font-mono font-bold text-xs flex items-center gap-2 shadow-md transition-all hover:scale-105 cursor-pointer"
+          >
+            <MessageCircle className="w-4 h-4 fill-current" />
+            <span>WhatsApp: +91 73586 18789</span>
+          </a>
+        </div>
       </motion.div>
 
-      {/* 3 Pillars Deep Dive */}
-      <div className="space-y-12 mb-24">
+      {/* 3 Solutions Cards */}
+      <div className="space-y-10 mb-20">
         {solutions.map((item, idx) => {
           const Icon = item.icon;
           return (
@@ -89,74 +125,55 @@ export default function SolutionsPage({ onOpenPrototypeModal, isDark }) {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: idx * 0.15 }}
-              className="p-8 sm:p-12 rounded-3xl theme-card relative overflow-hidden"
+              className={`p-8 sm:p-12 rounded-3xl border shadow-xl transition-all ${
+                isDark 
+                  ? 'bg-[#18181D] border-[#8B5CF6]/40 hover:border-[#8B5CF6]' 
+                  : 'bg-white border-black/10 hover:border-fresh-emerald/40'
+              }`}
             >
               <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-                <div className="lg:col-span-7 space-y-6">
+                <div className="lg:col-span-8 space-y-5">
                   <div className="flex items-center gap-3">
-                    <span className={`px-3 py-1 rounded-full text-xs font-mono border ${
+                    <span className={`px-3 py-1 rounded-full text-xs font-mono font-bold border ${
                       isDark 
-                        ? 'border-luxury-gold/30 bg-luxury-gold/10 text-luxury-gold' 
+                        ? 'border-[#8B5CF6]/50 bg-[#221C35] text-[#C4B5FD]' 
                         : 'border-fresh-border bg-fresh-tint text-fresh-green'
                     }`}>
                       {item.tag}
                     </span>
-                    <span className="text-xs font-mono opacity-50">PILLAR 0{idx + 1}</span>
                   </div>
 
-                  <h3 className="text-2xl sm:text-4xl font-extrabold font-display">
+                  <h2 className={`text-2xl sm:text-4xl font-extrabold font-display ${
+                    isDark ? 'text-white' : 'text-slate-900'
+                  }`}>
                     {item.title}
-                  </h3>
+                  </h2>
 
-                  <p className="opacity-80 text-sm sm:text-base leading-relaxed">
+                  <p className={`text-sm sm:text-base leading-relaxed ${
+                    isDark ? 'text-slate-300' : 'text-slate-600'
+                  }`}>
                     {item.desc}
                   </p>
 
-                  <div className="space-y-3 pt-2">
-                    {item.highlights.map((h, hIdx) => (
-                      <div key={hIdx} className="flex items-center gap-3 text-xs sm:text-sm">
-                        <CheckCircle2 className={`w-4 h-4 shrink-0 ${
-                          isDark ? 'text-luxury-gold' : 'text-fresh-emerald'
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2">
+                    {item.highlights.map((point, pIdx) => (
+                      <div key={pIdx} className="flex items-start gap-2.5 text-xs sm:text-sm">
+                        <CheckCircle2 className={`w-4 h-4 shrink-0 mt-0.5 ${
+                          isDark ? 'text-emerald-400' : 'text-fresh-emerald'
                         }`} />
-                        <span>{h}</span>
+                        <span className={isDark ? 'text-slate-200' : 'text-slate-700'}>{point}</span>
                       </div>
                     ))}
                   </div>
                 </div>
 
-                <div className="lg:col-span-5 flex justify-center">
-                  <div className={`w-full max-w-sm p-6 rounded-2xl border shadow-2xl relative ${
-                    isDark ? 'bg-black/60 border-white/10' : 'bg-slate-50 border-black/10'
+                <div className="lg:col-span-4 flex justify-center">
+                  <div className={`w-32 h-32 rounded-3xl border flex items-center justify-center shadow-lg ${
+                    isDark 
+                      ? 'bg-[#221C35] border-[#8B5CF6]/50 text-[#C4B5FD]' 
+                      : 'bg-[#F5F2FF] border-[#673DE6]/20 text-[#673DE6]'
                   }`}>
-                    <div className={`w-12 h-12 rounded-xl border flex items-center justify-center mb-4 ${
-                      isDark 
-                        ? 'bg-luxury-gold/15 border-luxury-gold/30 text-luxury-gold' 
-                        : 'bg-fresh-tint border-fresh-border text-fresh-green'
-                    }`}>
-                      <Icon className="w-6 h-6" />
-                    </div>
-                    <div className={`text-xs font-mono font-bold mb-1 ${
-                      isDark ? 'text-luxury-gold' : 'text-fresh-green'
-                    }`}>
-                      ENTERPRISE SPECIFICATION
-                    </div>
-                    <div className="text-base font-bold mb-2 font-display">
-                      Autonomous Operational Architecture
-                    </div>
-                    <div className="text-xs opacity-75 space-y-2">
-                      <div className="flex justify-between border-b border-black/5 dark:border-white/5 py-1">
-                        <span>Maintenance Cost:</span>
-                        <span className={`font-bold ${isDark ? 'text-luxury-gold' : 'text-fresh-emerald'}`}>$0 / Month</span>
-                      </div>
-                      <div className="flex justify-between border-b border-black/5 dark:border-white/5 py-1">
-                        <span>Admin Access:</span>
-                        <span className="font-semibold">100% Sovereign</span>
-                      </div>
-                      <div className="flex justify-between border-b border-black/5 dark:border-white/5 py-1">
-                        <span>Speed Latency:</span>
-                        <span className={`font-bold ${isDark ? 'text-luxury-gold' : 'text-fresh-green'}`}>&lt; 350ms TTFB</span>
-                      </div>
-                    </div>
+                    <Icon className="w-14 h-14" />
                   </div>
                 </div>
               </div>
@@ -165,32 +182,46 @@ export default function SolutionsPage({ onOpenPrototypeModal, isDark }) {
         })}
       </div>
 
-      {/* CTA Box */}
-      <div className={`p-8 sm:p-12 rounded-3xl border text-center flex flex-col items-center ${
-        isDark 
-          ? 'bg-gradient-to-b from-[#181818] to-[#121212] border-luxury-gold/35 shadow-black/80' 
-          : 'bg-white border-fresh-border shadow-emerald-950/10'
+      {/* Prominent Page Bottom CTA */}
+      <div className={`p-8 sm:p-12 rounded-3xl border text-center max-w-4xl mx-auto shadow-2xl ${
+        isDark ? 'bg-[#18181C] border-[#8B5CF6]/40' : 'bg-[#F9F7FF] border-[#673DE6]/30'
       }`}>
-        <h3 className="text-2xl sm:text-4xl font-extrabold font-display mb-4">
-          Ready to Build Your Custom Business Engine?
+        <h3 className={`text-2xl sm:text-3xl font-extrabold font-display mb-3 ${
+          isDark ? 'text-white' : 'text-slate-900'
+        }`}>
+          Ready to Upgrade Your Business Website?
         </h3>
-        <p className="opacity-75 text-sm sm:text-base max-w-xl mb-8">
-          We build live interactive staging links in 48 hours for you to test on your own mobile and computer before any commitment.
+        <p className={`text-sm max-w-xl mx-auto mb-8 ${isDark ? 'text-slate-300' : 'text-slate-600'}`}>
+          Get a professional website with an easy admin panel, zero maintenance charges, and 100% full ownership.
         </p>
-        <button
-          onClick={() => {
-            playCyberTone('click');
-            onOpenPrototypeModal();
-          }}
-          className={`px-8 py-4 rounded-xl font-mono font-bold text-sm flex items-center gap-3 transition-all hover:scale-105 active:scale-95 cursor-pointer ${
-            isDark 
-              ? 'bg-gradient-to-r from-luxury-gold via-amber-300 to-luxury-gold text-black shadow-gold-glow' 
-              : 'bg-gradient-to-r from-fresh-emerald to-fresh-green text-white shadow-emerald-glow'
-          }`}
-        >
-          <span>REQUEST 48H STAGING PROTOTYPE</span>
-          <ArrowRight className="w-4 h-4" />
-        </button>
+
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+          <button
+            onClick={() => {
+              playCyberTone('click');
+              onOpenPrototypeModal();
+            }}
+            className={`w-full sm:w-auto px-8 py-4 rounded-xl font-bold font-mono text-sm tracking-wider flex items-center justify-center gap-2.5 shadow-lg transition-all hover:scale-105 active:scale-95 cursor-pointer ${
+              isDark
+                ? 'bg-gradient-to-r from-luxury-gold via-amber-300 to-luxury-gold text-black shadow-gold-glow'
+                : 'bg-gradient-to-r from-fresh-emerald to-fresh-green text-white shadow-emerald-glow'
+            }`}
+          >
+            <span>GET A FREE QUOTE</span>
+            <ArrowRight className="w-4 h-4" />
+          </button>
+
+          <a
+            href="https://wa.me/917358618789?text=Hi%20Jagadish!%20I%20would%20like%20to%20discuss%20a%20website%20solution."
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={() => playCyberTone('click')}
+            className="w-full sm:w-auto px-6 py-4 rounded-xl bg-[#25D366] hover:bg-[#20BA5A] text-white font-mono font-bold text-sm flex items-center justify-center gap-2 shadow-md transition-all hover:scale-105 cursor-pointer"
+          >
+            <MessageCircle className="w-5 h-5 fill-current" />
+            <span>Chat on WhatsApp (+91 73586 18789)</span>
+          </a>
+        </div>
       </div>
     </div>
   );

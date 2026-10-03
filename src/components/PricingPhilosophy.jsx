@@ -143,24 +143,36 @@ export default function PricingPhilosophy({ onOpenPrototypeModal, isDark }) {
 
           {/* Action Row */}
           <div className="flex flex-col sm:flex-row items-center justify-between gap-6 pt-6 border-t border-black/10 dark:border-white/10">
-            <div className="text-xs font-mono opacity-70 text-center sm:text-left">
-              Includes 48-hour live staging link on *.jagadish.online before you pay for any domain.
+            <div className={`text-xs font-mono text-center sm:text-left ${isDark ? 'text-slate-300' : 'text-slate-600'}`}>
+              One-time investment • 100% full ownership • No recurring maintenance bills
             </div>
 
-            <button
-              onClick={() => {
-                playCyberTone('click');
-                onOpenPrototypeModal();
-              }}
-              className={`w-full sm:w-auto px-8 py-4 rounded-xl font-bold font-mono text-sm tracking-wider flex items-center justify-center gap-2.5 transition-all hover:scale-105 active:scale-95 cursor-pointer ${
-                isDark
-                  ? 'bg-gradient-to-r from-luxury-gold via-amber-300 to-luxury-gold text-black shadow-gold-glow'
-                  : 'bg-gradient-to-r from-fresh-emerald to-fresh-green text-white shadow-emerald-glow'
-              }`}
-            >
-              <span>REQUEST 48H STAGING LINK</span>
-              <ArrowRight className="w-4 h-4" />
-            </button>
+            <div className="flex flex-wrap items-center gap-3 w-full sm:w-auto">
+              <button
+                onClick={() => {
+                  playCyberTone('click');
+                  onOpenPrototypeModal();
+                }}
+                className={`w-full sm:w-auto px-7 py-3.5 rounded-xl font-bold font-mono text-xs tracking-wider flex items-center justify-center gap-2 shadow-lg transition-all hover:scale-105 active:scale-95 cursor-pointer ${
+                  isDark
+                    ? 'bg-gradient-to-r from-luxury-gold via-amber-300 to-luxury-gold text-black shadow-gold-glow'
+                    : 'bg-gradient-to-r from-fresh-emerald to-fresh-green text-white shadow-emerald-glow'
+                }`}
+              >
+                <span>GET A FREE QUOTE</span>
+                <ArrowRight className="w-4 h-4" />
+              </button>
+
+              <a
+                href="https://wa.me/917358618789?text=Hi%20Jagadish!%20I%20want%20to%20enquire%20about%20your%20website%20packages."
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => playCyberTone('click')}
+                className="w-full sm:w-auto px-5 py-3.5 rounded-xl bg-[#25D366] hover:bg-[#20BA5A] text-white font-mono font-bold text-xs flex items-center justify-center gap-2 shadow-md transition-all hover:scale-105 cursor-pointer"
+              >
+                <span>WhatsApp: +91 73586 18789</span>
+              </a>
+            </div>
           </div>
         </div>
       </div>

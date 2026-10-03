@@ -113,41 +113,37 @@ body.light::-webkit-scrollbar-thumb:hover {
   -webkit-text-fill-color: transparent;
 }
 
-/* Atmospheric Glow Orbs */
+/* Atmospheric Glow Orbs (Hardware-accelerated) */
 .dark .glow-ambient-1 {
   position: absolute;
   border-radius: 50%;
-  filter: blur(140px);
   pointer-events: none;
-  opacity: 0.16;
-  background: radial-gradient(circle, #E6C687 0%, rgba(18, 18, 18, 0) 70%);
+  opacity: 0.18;
+  background: radial-gradient(circle, rgba(230, 198, 135, 0.4) 0%, transparent 70%);
 }
 
 .dark .glow-ambient-2 {
   position: absolute;
   border-radius: 50%;
-  filter: blur(160px);
   pointer-events: none;
-  opacity: 0.18;
-  background: radial-gradient(circle, #C8A464 0%, rgba(18, 18, 18, 0) 70%);
+  opacity: 0.20;
+  background: radial-gradient(circle, rgba(139, 92, 246, 0.35) 0%, transparent 70%);
 }
 
 .light .glow-ambient-1 {
   position: absolute;
   border-radius: 50%;
-  filter: blur(140px);
   pointer-events: none;
-  opacity: 0.22;
-  background: radial-gradient(circle, #00C853 0%, rgba(247, 250, 248, 0) 70%);
+  opacity: 0.20;
+  background: radial-gradient(circle, rgba(0, 200, 83, 0.3) 0%, transparent 70%);
 }
 
 .light .glow-ambient-2 {
   position: absolute;
   border-radius: 50%;
-  filter: blur(160px);
   pointer-events: none;
-  opacity: 0.15;
-  background: radial-gradient(circle, #059669 0%, rgba(247, 250, 248, 0) 70%);
+  opacity: 0.18;
+  background: radial-gradient(circle, rgba(103, 61, 230, 0.25) 0%, transparent 70%);
 }
 
 /* Adaptive subtle pattern */

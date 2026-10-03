@@ -33,11 +33,11 @@ export default function Navbar({
   }, []);
 
   const navItems = [
-    { id: 'home', label: 'Overview' },
+    { id: 'home', label: 'Home' },
     { id: 'solutions', label: 'Solutions' },
     { id: 'work', label: 'Projects' },
     { id: 'about', label: 'About' },
-    { id: 'prototype', label: 'No Maintenance' },
+    { id: 'prototype', label: 'Pricing' },
   ];
 
   const handleNavClick = (id) => {
@@ -71,34 +71,18 @@ export default function Navbar({
             : 'bg-transparent border border-black/5'
         }`}
       >
-        {/* Brand */}
+        {/* Brand Logo Only */}
         <button
           onClick={() => handleNavClick('home')}
-          className="flex items-center gap-3 group text-left cursor-pointer"
+          className="flex items-center gap-2 group cursor-pointer"
+          aria-label="Home"
         >
-          <div className={`w-9 h-9 rounded-xl flex items-center justify-center font-mono font-black text-base transition-transform group-hover:scale-105 ${
+          <div className={`w-10 h-10 rounded-2xl flex items-center justify-center font-mono font-black text-lg transition-transform group-hover:scale-105 ${
             isDark 
               ? 'bg-gradient-to-br from-luxury-gold via-amber-300 to-luxury-gold text-black shadow-gold-glow' 
               : 'bg-gradient-to-br from-fresh-emerald to-fresh-green text-white shadow-emerald-glow'
           }`}>
             ⚡
-          </div>
-          <div>
-            <div className="flex items-center gap-1.5">
-              <span className="font-display font-extrabold text-base tracking-tight transition-colors">
-                JAGADISH
-              </span>
-              <span className={`text-[10px] font-mono px-1.5 py-0.5 rounded border ${
-                isDark 
-                  ? 'bg-[#1E1B15] text-luxury-gold border-luxury-gold/40' 
-                  : 'bg-fresh-tint text-fresh-green border-fresh-border'
-              }`}>
-                STUDIO
-              </span>
-            </div>
-            <div className="text-[10px] font-mono opacity-60 hidden sm:block">
-              EX-AMAZON &bull; NEXT-GEN MULTIMODAL AI
-            </div>
           </div>
         </button>
 
@@ -176,7 +160,7 @@ export default function Navbar({
             <span>AI CONCIERGE</span>
           </button>
 
-          {/* Prototype CTA */}
+          {/* Enquire CTA */}
           <button
             onClick={() => {
               playCyberTone('click');
@@ -188,7 +172,7 @@ export default function Navbar({
                 : 'bg-gradient-to-r from-fresh-emerald to-fresh-green text-white shadow-emerald-glow'
             }`}
           >
-            <span>GET PROTOTYPE</span>
+            <span>ENQUIRE NOW</span>
             <ChevronRight className="w-3.5 h-3.5" />
           </button>
 

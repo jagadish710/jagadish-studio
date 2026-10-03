@@ -1,6 +1,6 @@
 import React from 'react';
 import { playCyberTone } from '../utils/audio';
-import { ArrowUpRight } from 'lucide-react';
+import { ArrowUpRight, MessageCircle } from 'lucide-react';
 
 export default function Footer({ setActivePage, isDark }) {
   const handleNav = (id) => {
@@ -17,66 +17,68 @@ export default function Footer({ setActivePage, isDark }) {
         <div>
           <div className="flex items-center gap-2 mb-2">
             <span className={`w-2.5 h-2.5 rounded-full ${isDark ? 'bg-luxury-gold' : 'bg-fresh-emerald'}`} />
-            <span className="font-bold text-base tracking-wider font-display">
+            <span className={`font-bold text-base tracking-wider font-display ${isDark ? 'text-white' : 'text-slate-900'}`}>
               JAGADISH.ONLINE
             </span>
           </div>
-          <p className="opacity-75 max-w-sm text-xs font-sans leading-relaxed">
-            Engineering autonomous digital assets &amp; multimodal AI web systems. Built with Ex-Amazon engineering standards and next-generation AI architectures.
+          <p className={`max-w-sm text-xs font-sans leading-relaxed ${isDark ? 'text-slate-300' : 'text-slate-600'}`}>
+            Modern business websites and custom software solutions with an easy self-serve admin panel, zero maintenance charges, and 100% full ownership.
           </p>
         </div>
 
         <div className="flex flex-wrap items-center gap-6 text-xs">
           <button
             onClick={() => handleNav('home')}
-            className={`transition-colors cursor-pointer ${isDark ? 'hover:text-luxury-gold' : 'hover:text-fresh-green'}`}
+            className={`transition-colors cursor-pointer ${isDark ? 'hover:text-white' : 'hover:text-fresh-green'}`}
           >
-            Overview
+            Home
           </button>
           <button
             onClick={() => handleNav('solutions')}
-            className={`transition-colors cursor-pointer ${isDark ? 'hover:text-luxury-gold' : 'hover:text-fresh-green'}`}
+            className={`transition-colors cursor-pointer ${isDark ? 'hover:text-white' : 'hover:text-fresh-green'}`}
           >
             Solutions
           </button>
           <button
             onClick={() => handleNav('work')}
-            className={`transition-colors cursor-pointer ${isDark ? 'hover:text-luxury-gold' : 'hover:text-fresh-green'}`}
+            className={`transition-colors cursor-pointer ${isDark ? 'hover:text-white' : 'hover:text-fresh-green'}`}
           >
-            Live Work (PMS)
+            Projects
           </button>
           <button
             onClick={() => handleNav('about')}
-            className={`transition-colors cursor-pointer ${isDark ? 'hover:text-luxury-gold' : 'hover:text-fresh-green'}`}
+            className={`transition-colors cursor-pointer ${isDark ? 'hover:text-white' : 'hover:text-fresh-green'}`}
           >
-            Pedigree
+            About
           </button>
           <button
             onClick={() => handleNav('prototype')}
-            className={`transition-colors cursor-pointer ${isDark ? 'hover:text-luxury-gold' : 'hover:text-fresh-green'}`}
+            className={`transition-colors cursor-pointer ${isDark ? 'hover:text-white' : 'hover:text-fresh-green'}`}
           >
-            $0 Maintenance
+            Pricing
           </button>
           <a
-            href="https://wa.me/?text=Hi%20Jagadish%2C%20I%20want%20to%20talk%20about%20a%20project."
+            href="https://wa.me/917358618789?text=Hi%20Jagadish!%20I%20want%20to%20talk%20about%20a%20website%20project."
             target="_blank"
-            rel="noreferrer"
-            className={`font-bold flex items-center gap-1 ${isDark ? 'text-luxury-gold' : 'text-fresh-green'}`}
+            rel="noopener noreferrer"
+            onClick={() => playCyberTone('click')}
+            className="font-bold flex items-center gap-1.5 text-emerald-400 hover:text-emerald-300"
           >
-            <span>WhatsApp Direct</span>
+            <MessageCircle className="w-3.5 h-3.5 fill-current" />
+            <span>WhatsApp (+91 73586 18789)</span>
             <ArrowUpRight className="w-3.5 h-3.5" />
           </a>
         </div>
       </div>
 
-      <div className="max-w-7xl mx-auto pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-[11px] opacity-70">
+      <div className="max-w-7xl mx-auto pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-[11px] opacity-75">
         <div>
-          &copy; {new Date().getFullYear()} Jagadish Studio. All Rights Reserved. Full Client Sovereignty &bull; $0 Monthly Retainers.
+          &copy; {new Date().getFullYear()} Jagadish Studio. All Rights Reserved. ₹0 Maintenance Charges &bull; 100% Code Ownership.
         </div>
         <div className="flex items-center gap-4">
           <span className={`flex items-center gap-1.5 ${isDark ? 'text-luxury-gold' : 'text-fresh-green'}`}>
             <span className={`w-1.5 h-1.5 rounded-full animate-pulse ${isDark ? 'bg-luxury-gold' : 'bg-fresh-emerald'}`} />
-            STAGING INFRASTRUCTURE: OPERATIONAL
+            ALL SYSTEMS ONLINE
           </span>
         </div>
       </div>

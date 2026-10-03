@@ -12,37 +12,37 @@ export default function ThreeCanvasHero({ isDark }) {
     const camera = new THREE.PerspectiveCamera(50, window.innerWidth / window.innerHeight, 0.1, 100);
     camera.position.z = 24;
 
-    // Optimized WebGL renderer (capped pixel ratio for ultra-smooth 60/120fps)
+    // Ultra-smooth high-performance renderer capped at native 1x for 120fps zero-lag cursor response
     const renderer = new THREE.WebGLRenderer({
       canvas,
       alpha: true,
-      antialias: false, // Turned off for massive GPU speedup with wireframe
+      antialias: false,
       powerPreference: 'high-performance',
     });
     renderer.setSize(window.innerWidth, window.innerHeight);
-    renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 1.25));
+    renderer.setPixelRatio(1);
 
     const group = new THREE.Group();
     scene.add(group);
 
-    // Color palette: Modern Tech Luxury / Hostinger Purple / Fresh Emerald
+    // Color palette
     const primaryColorHex = isDark ? 0xE6C687 : 0x00C853; 
-    const secondaryColorHex = isDark ? 0x8B5CF6 : 0x673DE6; // Hostinger electric purple accent
+    const secondaryColorHex = isDark ? 0x8B5CF6 : 0x673DE6;
     const accentColorHex = isDark ? 0xEAEAEA : 0x059669;
 
-    // Ultra-optimized Torus Knot Wireframe (60x16 segments instead of 120x24)
-    const torusGeo = new THREE.TorusKnotGeometry(7.2, 1.4, 60, 16, 2, 3);
+    // Ultra-lightweight Torus Knot Wireframe (44x12 segments for buttery 120fps)
+    const torusGeo = new THREE.TorusKnotGeometry(7.0, 1.35, 44, 12, 2, 3);
     const torusMat = new THREE.MeshBasicMaterial({
       color: primaryColorHex,
       wireframe: true,
       transparent: true,
-      opacity: isDark ? 0.24 : 0.18,
+      opacity: isDark ? 0.22 : 0.16,
     });
     const torusMesh = new THREE.Mesh(torusGeo, torusMat);
     group.add(torusMesh);
 
-    // Lightweight Particle Cloud (320 particles instead of 700)
-    const particleCount = 320;
+    // Lightweight Particle Cloud (180 particles)
+    const particleCount = 180;
     const particleGeo = new THREE.BufferGeometry();
     const positions = new Float32Array(particleCount * 3);
     const colors = new Float32Array(particleCount * 3);
@@ -52,7 +52,7 @@ export default function ThreeCanvasHero({ isDark }) {
     const c3 = new THREE.Color(accentColorHex);
 
     for (let i = 0; i < particleCount * 3; i += 3) {
-      const radius = 9 + Math.random() * 16;
+      const radius = 9 + Math.random() * 15;
       const theta = Math.random() * Math.PI * 2;
       const phi = Math.acos(Math.random() * 2 - 1);
 
@@ -74,14 +74,14 @@ export default function ThreeCanvasHero({ isDark }) {
       size: 0.18,
       vertexColors: true,
       transparent: true,
-      opacity: isDark ? 0.75 : 0.65,
+      opacity: isDark ? 0.7 : 0.6,
       blending: isDark ? THREE.AdditiveBlending : THREE.NormalBlending,
     });
 
     const particles = new THREE.Points(particleGeo, particleMat);
     group.add(particles);
 
-    // Responsive, jitter-free cursor tracking
+    // Instant, ultra-smooth mouse tracking
     let mouseX = 0;
     let mouseY = 0;
     let targetX = 0;
@@ -89,9 +89,8 @@ export default function ThreeCanvasHero({ isDark }) {
     let isVisible = true;
 
     const handleMouseMove = (event) => {
-      // Direct normalized cursor offset
-      mouseX = ((event.clientX / window.innerWidth) - 0.5) * 0.7;
-      mouseY = ((event.clientY / window.innerHeight) - 0.5) * 0.7;
+      mouseX = ((event.clientX / window.innerWidth) - 0.5) * 0.6;
+      mouseY = ((event.clientY / window.innerHeight) - 0.5) * 0.6;
     };
 
     window.addEventListener('mousemove', handleMouseMove, { passive: true });
@@ -104,9 +103,8 @@ export default function ThreeCanvasHero({ isDark }) {
 
     window.addEventListener('resize', handleResize, { passive: true });
 
-    // Performance: Pause rendering when page scrolled far down or tab hidden
     const handleScroll = () => {
-      isVisible = window.scrollY < window.innerHeight * 1.5;
+      isVisible = window.scrollY < window.innerHeight * 1.4;
     };
     window.addEventListener('scroll', handleScroll, { passive: true });
 
@@ -118,18 +116,19 @@ export default function ThreeCanvasHero({ isDark }) {
 
       if (!isVisible || document.hidden) return;
 
-      const delta = clock.getDelta();
       const elapsedTime = clock.getElapsedTime();
 
-      // Snappy lerp (0.09) so mouse response feels immediate without lagging
-      targetX += (mouseX - targetX) * 0.09;
-      targetY += (mouseY - targetY) * 0.09;
+      // Fluid dampening
+      targetX += (mouseX - targetX) * 0.08;
+      targetY += (mouseY - targetY) * 0.08;
 
-      torusMesh.rotation.x = elapsedTime * 0.15 + targetY;
-      torusMesh.rotation.y = elapsedTime * 0.18 + targetX;
+      // Rotate group as unified 3D element (zero stutter)
+      group.rotation.x = targetY * 0.6;
+      group.rotation.y = targetX * 0.6;
 
-      particles.rotation.y = elapsedTime * 0.08 + targetX * 1.2;
-      particles.rotation.x = targetY * 1.2;
+      torusMesh.rotation.x = elapsedTime * 0.12;
+      torusMesh.rotation.y = elapsedTime * 0.15;
+      particles.rotation.y = elapsedTime * 0.07;
 
       renderer.render(scene, camera);
     };
@@ -151,18 +150,28 @@ export default function ThreeCanvasHero({ isDark }) {
 
   return (
     <div className="pointer-events-none fixed inset-0 z-0 overflow-hidden">
-      {/* Dynamic Ambient Atmospheric Glows with Hostinger Purple + Luxury Gold/Emerald */}
-      <div className={`absolute w-[600px] h-[600px] -top-32 -right-32 rounded-full filter blur-[140px] pointer-events-none opacity-20 ${
-        isDark ? 'bg-[#673DE6]' : 'bg-[#673DE6]/40'
-      }`} />
-      <div className={`absolute w-[700px] h-[700px] top-1/3 -left-48 rounded-full filter blur-[160px] pointer-events-none opacity-15 ${
-        isDark ? 'bg-[#E6C687]' : 'bg-[#00C853]'
-      }`} />
+      {/* Hardware-accelerated radial glow (zero Gaussian blur lag) */}
+      <div 
+        className="absolute w-[500px] h-[500px] -top-24 -right-24 rounded-full pointer-events-none"
+        style={{
+          background: isDark
+            ? 'radial-gradient(circle, rgba(103, 61, 230, 0.22) 0%, transparent 70%)'
+            : 'radial-gradient(circle, rgba(103, 61, 230, 0.12) 0%, transparent 70%)',
+        }}
+      />
+      <div 
+        className="absolute w-[600px] h-[600px] top-1/3 -left-36 rounded-full pointer-events-none"
+        style={{
+          background: isDark
+            ? 'radial-gradient(circle, rgba(230, 198, 135, 0.14) 0%, transparent 70%)'
+            : 'radial-gradient(circle, rgba(0, 200, 83, 0.12) 0%, transparent 70%)',
+        }}
+      />
       
-      {/* Optimized 3D WebGL Canvas */}
+      {/* 3D WebGL Canvas */}
       <canvas
         ref={canvasRef}
-        className="h-full w-full opacity-80 transition-opacity duration-700"
+        className="h-full w-full opacity-80"
       />
     </div>
   );

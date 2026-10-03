@@ -5,26 +5,20 @@ import {
   X,
   Sparkles,
   ArrowRight,
-  Globe,
+  MessageCircle,
   CheckCircle2,
-  Edit2,
+  Phone,
+  Send,
 } from 'lucide-react';
 import { saveInquiry } from '../lib/supabase';
 
 export default function PrototypeModal({ isOpen, onClose, isDark }) {
   const [businessName, setBusinessName] = useState('');
-  const [industry, setIndustry] = useState('Industrial / Machinery / Manufacturing');
-  const [customIndustry, setCustomIndustry] = useState('');
+  const [projectType, setProjectType] = useState('Business Website');
   const [phone, setPhone] = useState('');
   const [submitted, setSubmitted] = useState(false);
 
   if (!isOpen) return null;
-
-  const displayIndustry = industry === 'Other' ? (customIndustry || 'Custom Solutions') : industry;
-
-  const cleanSlug = businessName
-    ? businessName.toLowerCase().replace(/[^a-z0-9]/g, '')
-    : 'yourbrand';
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -36,25 +30,24 @@ export default function PrototypeModal({ isOpen, onClose, isDark }) {
         spread: 70,
         origin: { y: 0.6 },
       });
-    } catch {
-      // Confetti fallback
-    }
+    } catch {}
 
-    // Persist to Supabase if configured
     saveInquiry({
       businessName,
-      industry: displayIndustry,
+      industry: projectType,
       phone,
-      targetUrl: `${cleanSlug}.jagadish.online`,
+      targetUrl: 'jagadish.online',
     });
 
+    setSubmitted(true);
+
     const msg = encodeURIComponent(
-      `Hi Jagadish! I would like to request a 48-hour live staging prototype for my business: "${businessName}" (${displayIndustry}). Staging preview target: ${cleanSlug}.jagadish.online. My phone: ${phone}`
+      `Hi Jagadish! I would like to get a quote for my project:\n- Business Name: ${businessName}\n- Project Type: ${projectType}\n- Phone: ${phone}`
     );
 
     setTimeout(() => {
       window.open(`https://wa.me/917358618789?text=${msg}`, '_blank');
-    }, 1200);
+    }, 1000);
   };
 
   return (
@@ -71,6 +64,7 @@ export default function PrototypeModal({ isOpen, onClose, isDark }) {
             onClose();
           }}
           className="absolute top-6 right-6 p-2 rounded-xl opacity-60 hover:opacity-100 transition-opacity cursor-pointer"
+          aria-label="Close"
         >
           <X className="w-5 h-5" />
         </button>
@@ -83,30 +77,17 @@ export default function PrototypeModal({ isOpen, onClose, isDark }) {
                 : 'bg-fresh-tint border-fresh-border text-fresh-green'
             }`}>
               <Sparkles className="w-3.5 h-3.5" />
-              <span>NO COMMITMENT &bull; 100% FREE PREVIEW</span>
+              <span>QUICK ENQUIRY &bull; DIRECT RESPONSE</span>
             </div>
 
             <h3 className="text-2xl sm:text-3xl font-extrabold font-display mb-2">
-              CLAIM YOUR 48-HOUR <br />
-              <span className="text-gradient-main">LIVE STAGING PROTOTYPE</span>
+              Get a Free Quote &amp; <br />
+              <span className="text-gradient-main">Project Consultation</span>
             </h3>
 
             <p className="text-xs sm:text-sm opacity-75 mb-6">
-              Experience your business on a live subdomain with zero upfront domain purchases or retainers.
+              Share your business details below or chat with us directly on WhatsApp. We respond within minutes.
             </p>
-
-            {/* Live Subdomain Generator Preview */}
-            <div className={`p-3.5 rounded-xl border mb-6 flex items-center gap-3 font-mono text-xs ${
-              isDark 
-                ? 'bg-[#121212] border-luxury-gold/30' 
-                : 'bg-fresh-tint border-fresh-border'
-            }`}>
-              <Globe className={`w-4 h-4 shrink-0 ${isDark ? 'text-luxury-gold' : 'text-fresh-green'}`} />
-              <span className="opacity-70">Target Staging URL:</span>
-              <span className={`font-bold truncate ${isDark ? 'text-luxury-gold' : 'text-fresh-green'}`}>
-                {cleanSlug}.jagadish.online
-              </span>
-            </div>
 
             <form onSubmit={handleSubmit} className="space-y-4">
               <div>
@@ -116,7 +97,7 @@ export default function PrototypeModal({ isOpen, onClose, isDark }) {
                 <input
                   type="text"
                   required
-                  placeholder="e.g. Apex Industrial Systems"
+                  placeholder="e.g. Modern Retailers / Your Brand"
                   value={businessName}
                   onChange={(e) => setBusinessName(e.target.value)}
                   className={`w-full px-4 py-2.5 rounded-xl border text-sm focus:outline-none transition-colors ${
@@ -129,13 +110,13 @@ export default function PrototypeModal({ isOpen, onClose, isDark }) {
 
               <div>
                 <label className="block text-xs font-mono opacity-80 mb-1">
-                  Industry / Product Line
+                  What type of website or software do you need?
                 </label>
                 <select
-                  value={industry}
+                  value={projectType}
                   onChange={(e) => {
                     playCyberTone('click');
-                    setIndustry(e.target.value);
+                    setProjectType(e.target.value);
                   }}
                   className={`w-full px-4 py-2.5 rounded-xl border text-sm focus:outline-none transition-colors cursor-pointer ${
                     isDark 
@@ -143,41 +124,16 @@ export default function PrototypeModal({ isOpen, onClose, isDark }) {
                       : 'bg-white border-black/15 text-fresh-forest focus:border-fresh-emerald'
                   }`}
                 >
-                  <option value="Industrial / Machinery / Manufacturing">Industrial / Machinery / Manufacturing</option>
-                  <option value="Wholesale & Distribution">Wholesale & Distribution</option>
-                  <option value="E-Commerce & Retail">E-Commerce & Retail</option>
-                  <option value="Logistics & Supply Chain">Logistics & Supply Chain</option>
-                  <option value="Healthcare & Diagnostics">Healthcare & Diagnostics</option>
-                  <option value="Corporate & Professional Services">Corporate & Professional Services</option>
-                  <option value="Other">Other (Click to specify your industry)</option>
+                  <option value="Business Website">Business Website (Under ₹15,000)</option>
+                  <option value="Premium Luxury Website">Premium Luxury Website (Under ₹20,000)</option>
+                  <option value="Starter Affordable Website">Starter Website (Under ₹10,000)</option>
+                  <option value="E-Commerce & Online Store">E-Commerce &amp; Online Store</option>
+                  <option value="Industrial Catalog & Quotation">Industrial Machinery &amp; Product Catalog</option>
+                  <option value="Academy / School Portal">Academy / School / Sports Club Platform</option>
+                  <option value="Custom Software & ERP">Custom Software / ERP / Admin Cockpit</option>
+                  <option value="Website Redesign & Speed Fix">Website Redesign (Zero Maintenance Fix)</option>
                 </select>
               </div>
-
-              {/* Dynamic Input if "Other" is selected */}
-              {industry === 'Other' && (
-                <div className={`p-3 rounded-xl border animate-fade-in ${
-                  isDark ? 'bg-luxury-gold/10 border-luxury-gold/30' : 'bg-fresh-tint border-fresh-border'
-                }`}>
-                  <label className={`block text-xs font-mono mb-1 flex items-center gap-1.5 ${
-                    isDark ? 'text-luxury-gold' : 'text-fresh-green'
-                  }`}>
-                    <Edit2 className="w-3 h-3" />
-                    <span>Enter Your Custom Industry / Product Type:</span>
-                  </label>
-                  <input
-                    type="text"
-                    required
-                    placeholder="e.g. Solar Energy, Organic Foods, Drone Tech..."
-                    value={customIndustry}
-                    onChange={(e) => setCustomIndustry(e.target.value)}
-                    className={`w-full px-3.5 py-2 rounded-lg border text-sm focus:outline-none ${
-                      isDark 
-                        ? 'bg-[#121212] border-luxury-gold/40 text-white focus:border-luxury-gold' 
-                        : 'bg-white border-fresh-border text-fresh-forest focus:border-fresh-emerald'
-                    }`}
-                  />
-                </div>
-              )}
 
               <div>
                 <label className="block text-xs font-mono opacity-80 mb-1">
@@ -186,7 +142,7 @@ export default function PrototypeModal({ isOpen, onClose, isDark }) {
                 <input
                   type="tel"
                   required
-                  placeholder="+91 98765 43210"
+                  placeholder="+91 73586 18789"
                   value={phone}
                   onChange={(e) => setPhone(e.target.value)}
                   className={`w-full px-4 py-2.5 rounded-xl border text-sm focus:outline-none transition-colors ${
@@ -197,49 +153,67 @@ export default function PrototypeModal({ isOpen, onClose, isDark }) {
                 />
               </div>
 
-              <div className="pt-2">
-                <button
-                  type="submit"
-                  onMouseEnter={() => playCyberTone('hover')}
-                  className={`w-full py-3.5 rounded-xl font-mono font-bold text-sm tracking-wider flex items-center justify-center gap-2 transition-all hover:scale-[1.02] active:scale-95 cursor-pointer ${
-                    isDark 
-                      ? 'bg-gradient-to-r from-luxury-gold via-amber-300 to-luxury-gold text-black shadow-gold-glow' 
-                      : 'bg-gradient-to-r from-fresh-emerald to-fresh-green text-white shadow-emerald-glow'
-                  }`}
-                >
-                  <span>GENERATE PROTOTYPE INQUIRY</span>
-                  <ArrowRight className="w-4 h-4" />
-                </button>
-              </div>
+              <button
+                type="submit"
+                className={`w-full py-3.5 rounded-xl font-bold font-mono text-sm tracking-wider flex items-center justify-center gap-2 transition-all hover:scale-102 active:scale-98 cursor-pointer shadow-lg mt-2 ${
+                  isDark
+                    ? 'bg-gradient-to-r from-luxury-gold via-amber-300 to-luxury-gold text-black shadow-gold-glow'
+                    : 'bg-gradient-to-r from-fresh-emerald to-fresh-green text-white shadow-emerald-glow'
+                }`}
+              >
+                <Send className="w-4 h-4" />
+                <span>SUBMIT ENQUIRY</span>
+              </button>
             </form>
+
+            <div className="relative my-5 text-center">
+              <div className="absolute inset-0 flex items-center">
+                <div className="w-full border-t border-black/10 dark:border-white/10" />
+              </div>
+              <span className={`relative px-3 text-xs font-mono uppercase opacity-60 ${
+                isDark ? 'bg-[#181818]' : 'bg-white'
+              }`}>
+                or connect instantly
+              </span>
+            </div>
+
+            {/* Direct WhatsApp Callout */}
+            <a
+              href="https://wa.me/917358618789?text=Hi%20Jagadish!%20I%20am%20looking%20for%20a%20website%20solution."
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() => playCyberTone('click')}
+              className="w-full py-3 rounded-xl bg-[#25D366] hover:bg-[#20BA5A] text-white font-mono font-bold text-xs flex items-center justify-center gap-2 shadow-sm transition-transform hover:scale-102 cursor-pointer"
+            >
+              <MessageCircle className="w-4 h-4 fill-current" />
+              <span>Chat on WhatsApp: +91 73586 18789</span>
+            </a>
           </div>
         ) : (
           <div className="py-8 text-center space-y-4">
-            <div className={`w-14 h-14 rounded-2xl flex items-center justify-center mx-auto mb-4 animate-bounce border ${
-              isDark 
-                ? 'bg-luxury-gold/15 text-luxury-gold border-luxury-gold/30' 
-                : 'bg-fresh-tint text-fresh-green border-fresh-border'
-            }`}>
-              <CheckCircle2 className="w-8 h-8" />
+            <div className="w-16 h-16 rounded-full bg-emerald-500/20 text-emerald-400 mx-auto flex items-center justify-center">
+              <CheckCircle2 className="w-10 h-10" />
             </div>
 
             <h4 className="text-2xl font-bold font-display">
-              Prototype Request Dispatched!
+              Enquiry Received!
             </h4>
 
             <p className="text-sm opacity-80 max-w-sm mx-auto">
-              Redirecting you to WhatsApp with your staging specifications for{' '}
-              <strong className={isDark ? 'text-luxury-gold' : 'text-fresh-green'}>{cleanSlug}.jagadish.online</strong> ({displayIndustry}).
+              Thank you, <strong className={isDark ? 'text-luxury-gold' : 'text-fresh-green'}>{businessName}</strong>. We are opening WhatsApp to connect directly with you right now.
             </p>
 
-            <div className="pt-4">
-              <button
-                onClick={onClose}
-                className="px-6 py-2 rounded-xl border text-xs font-mono opacity-80 hover:opacity-100"
-              >
-                Close Window
-              </button>
-            </div>
+            <a
+              href={`https://wa.me/917358618789?text=${encodeURIComponent(
+                `Hi Jagadish! I just submitted an enquiry for "${businessName}" (${projectType}). Phone: ${phone}`
+              )}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-[#25D366] text-white font-mono font-bold text-xs shadow-md mt-4"
+            >
+              <MessageCircle className="w-4 h-4 fill-current" />
+              <span>Open WhatsApp Conversation (+91 73586 18789)</span>
+            </a>
           </div>
         )}
       </div>

@@ -10,7 +10,6 @@ import AboutPage from './pages/AboutPage';
 import PrototypePage from './pages/PrototypePage';
 import ChatbotWidget from './components/ChatbotWidget';
 import PrototypeModal from './components/PrototypeModal';
-import FloatingWhatsApp from './components/FloatingWhatsApp';
 import Footer from './components/Footer';
 
 export default function App() {
@@ -202,15 +201,12 @@ export default function App() {
         isDark={isDark}
       />
 
-      {/* 48h Prototype Request Modal */}
+      {/* Quick Enquiry & Quote Modal */}
       <PrototypeModal
         isOpen={prototypeModalOpen}
         onClose={() => setPrototypeModalOpen(false)}
         isDark={isDark}
       />
-
-      {/* Direct WhatsApp Floating CTA (Number: +91 7358618789) */}
-      <FloatingWhatsApp isDark={isDark} />
     </div>
   );
 }

@@ -155,32 +155,35 @@ export default function Hero({ onOpenPrototypeModal, onNavigateToWork, onNavigat
           </div>
         </motion.div>
 
-        {/* Live Staging Alert Callout */}
+        {/* Live Staging & 100+ Projects Track Record Callout */}
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.8, delay: 0.5 }}
-          className={`mt-8 p-3 rounded-2xl text-xs font-mono flex flex-col sm:flex-row items-center justify-between gap-3 w-full border ${
+          className={`mt-8 p-3.5 rounded-2xl text-xs font-mono flex flex-col sm:flex-row items-center justify-between gap-3 w-full border ${
             isDark 
-              ? 'bg-[#181818]/90 border-luxury-gold/30 text-luxury-platinum' 
-              : 'bg-fresh-tint border-fresh-border text-fresh-forest'
+              ? 'bg-[#181818]/90 border-[#673DE6]/40 text-luxury-platinum shadow-[0_0_20px_rgba(103,61,230,0.2)]' 
+              : 'bg-[#F5F2FF] border-[#673DE6]/25 text-[#2F1C6A]'
           }`}
         >
-          <div className="flex items-center gap-2">
-            <span className={`w-2 h-2 rounded-full animate-pulse ${isDark ? 'bg-luxury-gold' : 'bg-fresh-emerald'}`} />
-            <span>FEATURED CLIENT STAGING PREVIEW:</span>
-            <span className={`font-bold ${isDark ? 'text-luxury-gold' : 'text-fresh-green'}`}>pmssolution.jagadish.online</span>
+          <div className="flex flex-wrap items-center gap-2 text-left">
+            <span className="w-2.5 h-2.5 rounded-full animate-ping bg-[#8B5CF6]" />
+            <span className="font-bold">PROVEN EXCELLENCE:</span>
+            <span>100+ Systems &amp; Softwares Launched &bull; Featured:</span>
+            <span className="font-bold px-1.5 py-0.5 rounded bg-black/20 dark:bg-white/10 text-emerald-400">upskskarate.com</span>
+            <span>&amp;</span>
+            <span className="font-bold px-1.5 py-0.5 rounded bg-black/20 dark:bg-white/10 text-amber-300">pmssolution</span>
           </div>
           <button
             onClick={() => {
               playCyberTone('click');
               onNavigateToWork();
             }}
-            className={`flex items-center gap-1.5 underline underline-offset-4 font-semibold cursor-pointer ${
-              isDark ? 'text-luxury-gold hover:text-white' : 'text-fresh-green hover:text-fresh-forest'
+            className={`flex items-center gap-1.5 underline underline-offset-4 font-semibold cursor-pointer shrink-0 ${
+              isDark ? 'text-luxury-gold hover:text-white' : 'text-[#673DE6] hover:text-[#5327DE]'
             }`}
           >
-            <span>Inspect Live Case Study</span>
+            <span>View Deployments</span>
             <ExternalLink className="w-3.5 h-3.5" />
           </button>
         </motion.div>

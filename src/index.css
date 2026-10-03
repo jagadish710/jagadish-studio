@@ -1,0 +1,166 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  
+  /* Dark Mode Default */
+  html.dark, body.dark {
+    background-color: #121212;
+    color: #EAEAEA;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    overflow-x: hidden;
+  }
+  
+  /* Light Mode Default */
+  html.light, body.light {
+    background-color: #F7FAF8;
+    color: #0C1F16;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    overflow-x: hidden;
+  }
+
+  #root {
+    width: 100%;
+    min-height: 100vh;
+  }
+}
+
+/* Custom Adaptive Scrollbar */
+html.dark::-webkit-scrollbar,
+body.dark::-webkit-scrollbar {
+  width: 7px;
+}
+html.dark::-webkit-scrollbar-track,
+body.dark::-webkit-scrollbar-track {
+  background: #121212;
+}
+html.dark::-webkit-scrollbar-thumb,
+body.dark::-webkit-scrollbar-thumb {
+  background: #2A2A2A;
+  border-radius: 4px;
+}
+html.dark::-webkit-scrollbar-thumb:hover,
+body.dark::-webkit-scrollbar-thumb:hover {
+  background: #E6C687;
+}
+
+html.light::-webkit-scrollbar,
+body.light::-webkit-scrollbar {
+  width: 7px;
+}
+html.light::-webkit-scrollbar-track,
+body.light::-webkit-scrollbar-track {
+  background: #F0F4F2;
+}
+html.light::-webkit-scrollbar-thumb,
+body.light::-webkit-scrollbar-thumb {
+  background: #CBDAD1;
+  border-radius: 4px;
+}
+html.light::-webkit-scrollbar-thumb:hover,
+body.light::-webkit-scrollbar-thumb:hover {
+  background: #00C853;
+}
+
+/* Luxury Champagne Gold Glassmorphic Card (Dark Mode) */
+.dark .theme-card {
+  background: linear-gradient(135deg, rgba(230, 198, 135, 0.04) 0%, rgba(255, 255, 255, 0.015) 100%);
+  background-color: #181818;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(230, 198, 135, 0.18);
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.dark .theme-card:hover {
+  border-color: rgba(230, 198, 135, 0.45);
+  box-shadow: 0 16px 40px -10px rgba(230, 198, 135, 0.2);
+  transform: translateY(-3px);
+}
+
+/* Fresh Mint Glassmorphic Card (Light Mode - Inspired by user image) */
+.light .theme-card {
+  background: #FFFFFF;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(5, 150, 105, 0.14);
+  box-shadow: 0 10px 30px -8px rgba(12, 31, 22, 0.06);
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.light .theme-card:hover {
+  border-color: rgba(0, 200, 83, 0.4);
+  box-shadow: 0 16px 40px -10px rgba(0, 200, 83, 0.18);
+  transform: translateY(-3px);
+}
+
+/* High-Contrast Luxury Text Gradients */
+.dark .text-gradient-main {
+  background: linear-gradient(135deg, #FFFFFF 15%, #E6C687 70%, #F5DEB3 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.light .text-gradient-main {
+  background: linear-gradient(135deg, #0C1F16 20%, #00C853 75%, #059669 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Atmospheric Glow Orbs */
+.dark .glow-ambient-1 {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(140px);
+  pointer-events: none;
+  opacity: 0.16;
+  background: radial-gradient(circle, #E6C687 0%, rgba(18, 18, 18, 0) 70%);
+}
+
+.dark .glow-ambient-2 {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(160px);
+  pointer-events: none;
+  opacity: 0.18;
+  background: radial-gradient(circle, #C8A464 0%, rgba(18, 18, 18, 0) 70%);
+}
+
+.light .glow-ambient-1 {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(140px);
+  pointer-events: none;
+  opacity: 0.22;
+  background: radial-gradient(circle, #00C853 0%, rgba(247, 250, 248, 0) 70%);
+}
+
+.light .glow-ambient-2 {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(160px);
+  pointer-events: none;
+  opacity: 0.15;
+  background: radial-gradient(circle, #059669 0%, rgba(247, 250, 248, 0) 70%);
+}
+
+/* Adaptive subtle pattern */
+.dark .adaptive-grid {
+  background-size: 52px 52px;
+  background-image: 
+    linear-gradient(to right, rgba(230, 198, 135, 0.035) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(230, 198, 135, 0.035) 1px, transparent 1px);
+}
+
+.light .adaptive-grid {
+  background-size: 52px 52px;
+  background-image: 
+    linear-gradient(to right, rgba(5, 150, 105, 0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(5, 150, 105, 0.04) 1px, transparent 1px);
+}

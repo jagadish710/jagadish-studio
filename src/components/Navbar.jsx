@@ -11,6 +11,7 @@ import {
   Moon,
   Monitor,
 } from 'lucide-react';
+import Logo from './Logo';
 
 export default function Navbar({ 
   activePage, 
@@ -77,13 +78,7 @@ export default function Navbar({
           className="flex items-center gap-2 group cursor-pointer"
           aria-label="Home"
         >
-          <div className={`w-10 h-10 rounded-2xl flex items-center justify-center font-mono font-black text-lg transition-transform group-hover:scale-105 ${
-            isDark 
-              ? 'bg-gradient-to-br from-luxury-gold via-amber-300 to-luxury-gold text-black shadow-gold-glow' 
-              : 'bg-gradient-to-br from-fresh-emerald to-fresh-green text-white shadow-emerald-glow'
-          }`}>
-            ⚡
-          </div>
+          <Logo isDark={isDark} className="w-10 h-10" />
         </button>
 
         {/* Desktop Navigation Pages */}

@@ -1,6 +1,7 @@
 import React from 'react';
 import { playCyberTone } from '../utils/audio';
 import { ArrowUpRight, MessageCircle } from 'lucide-react';
+import Logo from './Logo';
 
 export default function Footer({ setActivePage, isDark }) {
   const handleNav = (id) => {
@@ -15,8 +16,8 @@ export default function Footer({ setActivePage, isDark }) {
     }`}>
       <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-start md:items-center justify-between gap-8 pb-12 border-b border-black/5 dark:border-white/5">
         <div>
-          <div className="flex items-center gap-2 mb-2">
-            <span className={`w-2.5 h-2.5 rounded-full ${isDark ? 'bg-luxury-gold' : 'bg-fresh-emerald'}`} />
+          <div className="flex items-center gap-2.5 mb-2">
+            <Logo isDark={isDark} className="w-6 h-6" />
             <span className={`font-bold text-base tracking-wider font-display ${isDark ? 'text-white' : 'text-slate-900'}`}>
               JAGADISH.ONLINE
             </span>

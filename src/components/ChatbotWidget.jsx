@@ -7,6 +7,7 @@ import {
   Bot,
   MessageCircle,
 } from 'lucide-react';
+import Logo from './Logo';
 
 export default function ChatbotWidget({ isOpen, setIsOpen, isDark }) {
   const [messages, setMessages] = useState([
@@ -127,13 +128,7 @@ export default function ChatbotWidget({ isOpen, setIsOpen, isDark }) {
             isDark ? 'bg-[#1C1C1C] border-white/10' : 'bg-[#F2F7F4] border-black/10'
           }`}>
             <div className="flex items-center gap-3">
-              <div className={`w-8 h-8 rounded-xl flex items-center justify-center font-bold ${
-                isDark 
-                  ? 'bg-luxury-gold text-black shadow-gold-glow' 
-                  : 'bg-fresh-emerald text-white shadow-emerald-glow'
-              }`}>
-                ⚡
-              </div>
+              <Logo isDark={isDark} className="w-8 h-8" />
               <div>
                 <div className="flex items-center gap-1.5">
                   <span className={`font-display font-bold text-sm ${isDark ? 'text-white' : 'text-slate-900'}`}>

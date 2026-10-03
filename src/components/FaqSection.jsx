@@ -7,12 +7,12 @@ export default function FaqSection({ isDark }) {
 
   const faqs = [
     {
-      q: 'How much does a website cost? Are there packages under ₹10k, ₹15k, or ₹20k?',
-      a: 'Yes! We offer clear, upfront pricing tailored for growing businesses with packages starting under ₹10,000, ₹15,000, and ₹20,000. You receive a premium, modern design, fast mobile speed, and zero recurring maintenance fees.',
+      q: 'How is project pricing calculated?',
+      a: 'Every project is scoped to your exact business requirements. We believe in 100% transparent, one-time investment with zero recurring monthly or yearly maintenance charges. You own your code, files, and domain completely.',
     },
     {
       q: 'Are there really no monthly or yearly maintenance charges?',
-      a: 'Zero. Most traditional web agencies charge ₹3,000 to ₹10,000 every month just to "keep the site online". We build using modern cloud edge technology, meaning you pay once and never receive recurring maintenance bills.',
+      a: 'Zero. Most traditional web agencies charge recurring monthly fees just to "keep the site online". We build using modern cloud edge technology, meaning you pay once and never receive recurring maintenance bills.',
     },
     {
       q: 'Can I edit text, prices, and products myself without a developer?',
@@ -20,15 +20,15 @@ export default function FaqSection({ isDark }) {
     },
     {
       q: 'How fast will my website load on mobile phones?',
-      a: 'Under 0.4 seconds. Unlike heavy WordPress themes packed with 30+ slow plugins, our clean code scores 99+ on Google PageSpeed, giving you top rankings and stopping customers from bouncing.',
+      a: 'Under 0.4 seconds. Unlike heavy WordPress themes packed with slow plugins, our clean code scores 99+ on Google PageSpeed, giving you top rankings and stopping customers from bouncing.',
     },
     {
-      q: 'How does the 48-hour live preview link work?',
-      a: 'We set up a working prototype on a test link (like yourbusiness.jagadish.online) within 48 hours. You test everything on your phone before spending on a final domain name.',
+      q: 'Can I test and preview the website before launching?',
+      a: 'Yes! We set up a live preview staging link for you to test all pages, buttons, and mobile layouts on your phone before connecting your final domain.',
     },
     {
-      q: 'How do I start or get a quick quote?',
-      a: 'Send a message directly on WhatsApp to +91 7358618789. Tell us your business name and requirements, and we will send a tailored proposal and live demo preview.',
+      q: 'How do I start or enquire about a project?',
+      a: 'Send a message directly on WhatsApp to +91 73586 18789 or click Enquire Now. Tell us your business requirements, and we will get back to you with a tailored plan.',
     },
   ];
 

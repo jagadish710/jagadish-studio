@@ -74,7 +74,7 @@ export default function Hero({ onOpenPrototypeModal, onNavigateToWork, onNavigat
           transition={{ duration: 0.7, delay: 0.3 }}
           className="flex flex-col sm:flex-row items-center gap-4 w-full sm:w-auto mb-14"
         >
-          {/* Free Quote Button */}
+          {/* Enquire CTA Button */}
           <button
             onClick={() => {
               playCyberTone('click');
@@ -87,7 +87,7 @@ export default function Hero({ onOpenPrototypeModal, onNavigateToWork, onNavigat
                 : 'bg-gradient-to-r from-fresh-emerald to-fresh-green text-white shadow-emerald-glow'
             }`}
           >
-            <span>GET A FREE QUOTE</span>
+            <span>ENQUIRE NOW</span>
             <ArrowRight className="w-4 h-4" />
           </button>
 

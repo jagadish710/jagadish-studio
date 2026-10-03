@@ -4,10 +4,8 @@ import confetti from 'canvas-confetti';
 import {
   X,
   Sparkles,
-  ArrowRight,
   MessageCircle,
   CheckCircle2,
-  Phone,
   Send,
 } from 'lucide-react';
 import { saveInquiry } from '../lib/supabase';
@@ -42,7 +40,7 @@ export default function PrototypeModal({ isOpen, onClose, isDark }) {
     setSubmitted(true);
 
     const msg = encodeURIComponent(
-      `Hi Jagadish! I would like to get a quote for my project:\n- Business Name: ${businessName}\n- Project Type: ${projectType}\n- Phone: ${phone}`
+      `Hi Jagadish! I would like to discuss my project:\n- Business Name: ${businessName}\n- Project Type: ${projectType}\n- Phone: ${phone}`
     );
 
     setTimeout(() => {
@@ -77,16 +75,16 @@ export default function PrototypeModal({ isOpen, onClose, isDark }) {
                 : 'bg-fresh-tint border-fresh-border text-fresh-green'
             }`}>
               <Sparkles className="w-3.5 h-3.5" />
-              <span>QUICK ENQUIRY &bull; DIRECT RESPONSE</span>
+              <span>DIRECT ENQUIRY &bull; FAST RESPONSE</span>
             </div>
 
             <h3 className="text-2xl sm:text-3xl font-extrabold font-display mb-2">
-              Get a Free Quote &amp; <br />
-              <span className="text-gradient-main">Project Consultation</span>
+              Start Your Project &amp; <br />
+              <span className="text-gradient-main">Get in Touch</span>
             </h3>
 
             <p className="text-xs sm:text-sm opacity-75 mb-6">
-              Share your business details below or chat with us directly on WhatsApp. We respond within minutes.
+              Share your business details below or message directly on WhatsApp. We respond within minutes.
             </p>
 
             <form onSubmit={handleSubmit} className="space-y-4">
@@ -124,14 +122,13 @@ export default function PrototypeModal({ isOpen, onClose, isDark }) {
                       : 'bg-white border-black/15 text-fresh-forest focus:border-fresh-emerald'
                   }`}
                 >
-                  <option value="Business Website">Business Website (Under ₹15,000)</option>
-                  <option value="Premium Luxury Website">Premium Luxury Website (Under ₹20,000)</option>
-                  <option value="Starter Affordable Website">Starter Website (Under ₹10,000)</option>
+                  <option value="Business Website">Business Website</option>
+                  <option value="Premium Custom Website">Premium Custom Website</option>
                   <option value="E-Commerce & Online Store">E-Commerce &amp; Online Store</option>
-                  <option value="Industrial Catalog & Quotation">Industrial Machinery &amp; Product Catalog</option>
-                  <option value="Academy / School Portal">Academy / School / Sports Club Platform</option>
-                  <option value="Custom Software & ERP">Custom Software / ERP / Admin Cockpit</option>
-                  <option value="Website Redesign & Speed Fix">Website Redesign (Zero Maintenance Fix)</option>
+                  <option value="Industrial Machinery Catalog">Industrial Machinery &amp; Product Catalog</option>
+                  <option value="Academy / School Platform">Academy / School / Sports Club Platform</option>
+                  <option value="Custom Business Software & ERP">Custom Software / ERP / Admin Panel</option>
+                  <option value="Website Redesign">Website Redesign (Speed &amp; Modern UI)</option>
                 </select>
               </div>
 
@@ -173,7 +170,7 @@ export default function PrototypeModal({ isOpen, onClose, isDark }) {
               <span className={`relative px-3 text-xs font-mono uppercase opacity-60 ${
                 isDark ? 'bg-[#181818]' : 'bg-white'
               }`}>
-                or connect instantly
+                or connect directly
               </span>
             </div>
 

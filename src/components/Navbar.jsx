@@ -144,20 +144,20 @@ export default function Navbar({
             </span>
           </button>
 
-          {/* AI Concierge Trigger */}
+          {/* AI Trigger */}
           <button
             onClick={() => {
               playCyberTone('click');
               onOpenChat();
             }}
-            className={`hidden sm:flex items-center gap-2 px-3 py-2 rounded-xl border text-xs font-mono transition-all cursor-pointer ${
+            className={`hidden sm:flex items-center gap-1.5 px-3 py-2 rounded-xl border text-xs font-mono transition-all cursor-pointer ${
               isDark 
                 ? 'bg-[#1A1A1A] border-white/10 hover:border-luxury-gold/40 text-slate-300 hover:text-white' 
                 : 'bg-white border-black/10 hover:border-fresh-emerald/40 text-slate-700 hover:text-fresh-forest shadow-sm'
             }`}
           >
             <MessageSquare className={`w-3.5 h-3.5 ${isDark ? 'text-luxury-gold' : 'text-fresh-green'}`} />
-            <span>AI CONCIERGE</span>
+            <span>AI</span>
           </button>
 
           {/* Enquire CTA */}

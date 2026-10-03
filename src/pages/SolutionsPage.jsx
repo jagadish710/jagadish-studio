@@ -97,7 +97,7 @@ export default function SolutionsPage({ onOpenPrototypeModal, onNavigateToWork, 
                 : 'bg-gradient-to-r from-fresh-emerald to-fresh-green text-white shadow-emerald-glow'
             }`}
           >
-            <span>GET A FREE QUOTE</span>
+            <span>ENQUIRE NOW</span>
             <ArrowRight className="w-4 h-4" />
           </button>
 
@@ -207,7 +207,7 @@ export default function SolutionsPage({ onOpenPrototypeModal, onNavigateToWork, 
                 : 'bg-gradient-to-r from-fresh-emerald to-fresh-green text-white shadow-emerald-glow'
             }`}
           >
-            <span>GET A FREE QUOTE</span>
+            <span>ENQUIRE NOW</span>
             <ArrowRight className="w-4 h-4" />
           </button>
 

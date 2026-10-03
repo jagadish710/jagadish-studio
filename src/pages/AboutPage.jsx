@@ -17,13 +17,13 @@ export default function AboutPage({ onOpenPrototypeModal, isDark }) {
   const seoStrengths = [
     {
       title: 'Affordable Luxury Websites',
-      subtitle: 'Starting Under ₹10k, ₹15k, and ₹20k',
-      desc: 'We believe premium digital quality should be accessible to all businesses. We provide luxury designs with zero monthly maintenance charges.',
+      subtitle: 'Tailored Scope & Value',
+      desc: 'We believe premium digital quality should be accessible to all businesses. We provide high-end, luxury designs with zero recurring monthly maintenance charges.',
     },
     {
       title: 'Zero Maintenance Fees Forever',
       subtitle: 'One-Time Investment Guarantee',
-      desc: 'Traditional agencies bill ₹3,000 to ₹10,000 every month just for basic hosting and text updates. With us, you pay once and own your website forever.',
+      desc: 'Traditional agencies bill recurring monthly fees just for basic hosting and small text updates. With us, you pay once and own your website forever.',
     },
     {
       title: 'Built For Top Google Rankings',
@@ -64,10 +64,10 @@ export default function AboutPage({ onOpenPrototypeModal, isDark }) {
         <p className={`text-base sm:text-lg max-w-2xl mx-auto leading-relaxed ${
           isDark ? 'text-slate-200' : 'text-slate-600'
         }`}>
-          We are a dedicated local web design and software studio delivering high-speed, modern websites for businesses across India and worldwide. One-time transparent pricing with zero recurring maintenance fees.
+          We are a dedicated local web design and software studio delivering high-speed, modern websites for businesses across India and worldwide. One-time transparent investment with zero recurring maintenance fees.
         </p>
 
-        {/* WhatsApp & Quote CTAs */}
+        {/* Action CTAs */}
         <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
           <button
             onClick={() => {
@@ -80,7 +80,7 @@ export default function AboutPage({ onOpenPrototypeModal, isDark }) {
                 : 'bg-gradient-to-r from-fresh-emerald to-fresh-green text-white shadow-emerald-glow'
             }`}
           >
-            <span>GET A FREE QUOTE</span>
+            <span>ENQUIRE NOW</span>
             <ArrowRight className="w-4 h-4" />
           </button>
 
@@ -149,7 +149,7 @@ export default function AboutPage({ onOpenPrototypeModal, isDark }) {
           <p className={`text-sm sm:text-base leading-relaxed ${
             isDark ? 'text-slate-300' : 'text-slate-600'
           }`}>
-            Looking for the <strong>best website builder</strong>, <strong>affordable website under ₹10,000, ₹15,000, or ₹20,000</strong>, or a <strong>local web developer in Chennai and India</strong>? Most agencies charge high recurring retainer fees for basic websites that take weeks to launch. At Jagadish Studio, we build premium, luxury-grade web solutions and custom software with an easy-to-use visual admin panel, zero maintenance charges, and sub-0.4s Google loading speeds.
+            Looking for the <strong>best website builder</strong>, an <strong>affordable luxury business website</strong>, or a <strong>local web developer in Chennai and India</strong>? Most agencies charge high recurring retainer fees for basic websites that take weeks to launch. At Jagadish Studio, we build premium web solutions and custom software with an easy-to-use visual admin panel, zero maintenance charges, and sub-0.4s Google loading speeds.
           </p>
 
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 text-center font-mono text-xs pt-4">
@@ -183,7 +183,7 @@ export default function AboutPage({ onOpenPrototypeModal, isDark }) {
           Let&apos;s Build Your Business Website
         </h3>
         <p className={`text-sm max-w-xl mx-auto mb-8 ${isDark ? 'text-slate-300' : 'text-slate-600'}`}>
-          Send an enquiry or message directly on WhatsApp. We discuss your requirements and share an instant transparent quote.
+          Send an enquiry or message directly on WhatsApp. We discuss your exact requirements and share a personalized plan.
         </p>
 
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
@@ -198,7 +198,7 @@ export default function AboutPage({ onOpenPrototypeModal, isDark }) {
                 : 'bg-gradient-to-r from-fresh-emerald to-fresh-green text-white shadow-emerald-glow'
             }`}
           >
-            <span>GET A FREE QUOTE</span>
+            <span>ENQUIRE NOW</span>
             <ArrowRight className="w-4 h-4" />
           </button>
 

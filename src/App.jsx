@@ -194,14 +194,14 @@ export default function App() {
         onOpenPrototypeModal={() => setPrototypeModalOpen(true)}
       />
 
-      {/* Embedded Intelligent AI Concierge */}
+      {/* Embedded Intelligent AI Assistant */}
       <ChatbotWidget
         isOpen={chatOpen}
         setIsOpen={setChatOpen}
         isDark={isDark}
       />
 
-      {/* Quick Enquiry & Quote Modal */}
+      {/* Quick Enquiry Modal */}
       <PrototypeModal
         isOpen={prototypeModalOpen}
         onClose={() => setPrototypeModalOpen(false)}

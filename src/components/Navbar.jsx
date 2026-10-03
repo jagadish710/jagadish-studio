@@ -35,9 +35,9 @@ export default function Navbar({
   const navItems = [
     { id: 'home', label: 'Overview' },
     { id: 'solutions', label: 'Solutions' },
-    { id: 'work', label: 'Live Work (PMS)' },
-    { id: 'about', label: 'Pedigree' },
-    { id: 'prototype', label: '$0 Maintenance' },
+    { id: 'work', label: 'Projects' },
+    { id: 'about', label: 'About' },
+    { id: 'prototype', label: 'No Maintenance' },
   ];
 
   const handleNavClick = (id) => {

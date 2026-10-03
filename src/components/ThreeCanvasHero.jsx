@@ -41,18 +41,6 @@ export default function ThreeCanvasHero({ isDark }) {
     const torusMesh = new THREE.Mesh(torusGeo, torusMat);
     group.add(torusMesh);
 
-    // Inner Floating Halo Ring
-    const innerRingGeo = new THREE.TorusGeometry(5, 0.18, 12, 64);
-    const innerRingMat = new THREE.MeshBasicMaterial({
-      color: secondaryColorHex,
-      transparent: true,
-      opacity: isDark ? 0.35 : 0.28,
-      wireframe: true,
-    });
-    const innerRing = new THREE.Mesh(innerRingGeo, innerRingMat);
-    innerRing.rotation.x = Math.PI / 2;
-    group.add(innerRing);
-
     // Lightweight Particle Cloud (320 particles instead of 700)
     const particleCount = 320;
     const particleGeo = new THREE.BufferGeometry();
@@ -140,8 +128,6 @@ export default function ThreeCanvasHero({ isDark }) {
       torusMesh.rotation.x = elapsedTime * 0.15 + targetY;
       torusMesh.rotation.y = elapsedTime * 0.18 + targetX;
 
-      innerRing.rotation.z = -elapsedTime * 0.25;
-
       particles.rotation.y = elapsedTime * 0.08 + targetX * 1.2;
       particles.rotation.x = targetY * 1.2;
 
@@ -158,8 +144,6 @@ export default function ThreeCanvasHero({ isDark }) {
       renderer.dispose();
       torusGeo.dispose();
       torusMat.dispose();
-      innerRingGeo.dispose();
-      innerRingMat.dispose();
       particleGeo.dispose();
       particleMat.dispose();
     };

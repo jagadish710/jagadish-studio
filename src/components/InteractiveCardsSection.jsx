@@ -1,26 +1,23 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { 
-  Layers, 
-  RotateCw, 
+  Award,
   Zap, 
   Search, 
   Bot, 
-  ShieldCheck, 
-  ExternalLink, 
+  RotateCw, 
   CheckCircle2, 
   Sparkles,
-  Award
 } from 'lucide-react';
 import { playCyberTone } from '../utils/audio';
 
-export default function InteractiveCardsSection({ isDark, onOpenPrototypeModal }) {
+export default function InteractiveCardsSection({ isDark }) {
   // Auto-typing headline like Hostinger
   const typingWords = [
     'Martial Arts Academies (upskskarate.com)',
-    'Industrial Heavy Machinery (pmssolution)',
-    'Custom Enterprise SaaS & ERP Systems',
-    'High-Conversion Digital Assets',
+    'Industrial Businesses (pmssolution)',
+    'Enterprise Software & ERP Tools',
+    'Custom High-Conversion Businesses',
   ];
   const [currentWordIdx, setCurrentWordIdx] = useState(0);
   const [displayText, setDisplayText] = useState('');
@@ -28,13 +25,13 @@ export default function InteractiveCardsSection({ isDark, onOpenPrototypeModal }
 
   useEffect(() => {
     const currentWord = typingWords[currentWordIdx];
-    const typingSpeed = isDeleting ? 30 : 60;
+    const typingSpeed = isDeleting ? 25 : 55;
 
     const timer = setTimeout(() => {
       if (!isDeleting) {
         setDisplayText(currentWord.substring(0, displayText.length + 1));
         if (displayText.length === currentWord.length) {
-          setTimeout(() => setIsDeleting(true), 2000);
+          setTimeout(() => setIsDeleting(true), 2200);
         }
       } else {
         setDisplayText(currentWord.substring(0, displayText.length - 1));
@@ -60,76 +57,76 @@ export default function InteractiveCardsSection({ isDark, onOpenPrototypeModal }
     {
       id: 0,
       icon: Award,
-      badge: 'PROVEN SCALE',
-      title: '100+ Projects Delivered',
-      tagline: 'Excellence Across High-Stakes Industries',
+      badge: '100+ PROJECTS',
+      title: '100+ Systems Delivered',
+      tagline: 'Proven results across businesses',
       frontBullets: [
-        '100+ custom systems launched worldwide',
-        '<0.38s Time-To-First-Byte edge performance',
-        'Built with Ex-Amazon operational rigor',
+        '100+ real-world platforms delivered',
+        'Sub-0.4s instant page loading speed',
+        'Engineered with Ex-Amazon scale',
       ],
-      backTitle: 'Selected Flagship Deployments',
+      backTitle: 'Notable Deliveries',
       backBullets: [
         { label: 'upskskarate.com', desc: 'Martial Arts Academy platform & student enrollment portal' },
-        { label: 'pmssolution', desc: 'Precision industrial packaging machinery & quotation engine' },
-        { label: 'Bespoke Softwares', desc: 'Multi-tenant ERPs, inventory sync & internal management cockpits' },
+        { label: 'pmssolution', desc: 'Industrial machinery catalog & instant quotation engine' },
+        { label: 'Custom Softwares', desc: 'Internal business ERPs, inventory sync & management cockpits' },
       ],
-      glowColor: '#673DE6', // Hostinger purple
+      glowColor: '#673DE6',
     },
     {
       id: 1,
       icon: Zap,
-      badge: '$0 MAINTENANCE',
-      title: 'Solutions, Not Just Websites',
-      tagline: 'Radical Client Sovereignty & Control',
+      badge: 'NO RETAINER',
+      title: 'Solutions, Not Websites',
+      tagline: 'You own everything. Zero lock-in.',
       frontBullets: [
-        'Zero monthly maintenance retainers',
-        'Self-serve visual admin portal included',
-        '100% source code & domain ownership',
+        'No monthly or yearly maintenance fees',
+        'Self-serve admin panel to edit text in seconds',
+        '100% full ownership of your code & domain',
       ],
-      backTitle: 'What "Solution" Actually Means',
+      backTitle: 'What You Receive',
       backBullets: [
-        { label: 'Visual Admin Portal', desc: 'Add products, update pricing & edit copy in 1 click' },
-        { label: 'Source Code Freedom', desc: 'Full GitHub repository transferred directly to your name' },
-        { label: 'Edge Infrastructure', desc: 'Hosted on global serverless edge with free auto-renewing SSL' },
+        { label: 'Visual Admin Panel', desc: 'Add new products, change text, and edit prices yourself' },
+        { label: 'Full Code Ownership', desc: 'Source code in your own private GitHub. No vendor lock-in' },
+        { label: 'Fast Cloud Hosting', desc: 'Runs on fast global servers with free auto-renewing SSL' },
       ],
       glowColor: isDark ? '#E6C687' : '#00C853',
     },
     {
       id: 2,
       icon: Search,
-      badge: 'TOP RANKINGS',
-      title: 'Dominant SEO & CWV',
-      tagline: 'Engineered for Page 1 Google Discoverability',
+      badge: 'RANK #1',
+      title: 'Top Google SEO',
+      tagline: 'Get found by real customers',
       frontBullets: [
-        '100/100 Google Core Web Vitals optimization',
-        'Automated JSON-LD rich snippet schemas',
-        'OpenGraph social cards pre-configured',
+        '100/100 Google page speed performance',
+        'Structured Google rich snippet data included',
+        'Instant social sharing previews on WhatsApp',
       ],
-      backTitle: 'Engineered SEO Architecture',
+      backTitle: 'SEO Built Into Code',
       backBullets: [
-        { label: 'Structured Data', desc: 'Pre-indexed schemas for LocalBusiness, Products & Reviews' },
-        { label: 'Zero Bloat', desc: 'No heavy WordPress themes or slow SQL bottlenecks' },
-        { label: 'Instant Indexing', desc: 'Automated XML sitemaps & dynamic robots directives' },
+        { label: 'Google Schemas', desc: 'Pre-configured data for local business, reviews & products' },
+        { label: 'Zero Lag', desc: 'No heavy plugins or slow databases to hurt your rankings' },
+        { label: 'Fast Mobile Index', desc: 'Instant mobile loading so customers never click away' },
       ],
       glowColor: '#673DE6',
     },
     {
       id: 3,
       icon: Bot,
-      badge: 'AUTONOMOUS AI',
-      title: 'AI Workflow Concierge',
-      tagline: 'Convert Cold Traffic Into Paying Clients',
+      badge: '24/7 AI CHAT',
+      title: 'Smart AI Assistant',
+      tagline: 'Turn visitors into direct leads',
       frontBullets: [
-        '24/7 intelligent customer inquiry qualification',
-        'Direct WhatsApp & CRM pipeline integration',
-        'Zero monthly third-party chatbot fees',
+        'Answers customer questions day and night',
+        'Sends inquiries straight to your WhatsApp',
+        'Zero recurring monthly chatbot fees',
       ],
-      backTitle: 'Intelligent Lead Acceleration',
+      backTitle: 'Automated Lead Capture',
       backBullets: [
-        { label: 'Natural Language', desc: 'Answers questions accurately about your specific services' },
-        { label: 'Lead Verification', desc: 'Collects verified phone numbers & business requirements' },
-        { label: 'Instant Routing', desc: 'Delivers qualified leads straight to your WhatsApp inbox' },
+        { label: 'Custom Trained', desc: 'Answers questions accurately about your services & prices' },
+        { label: 'Lead Collection', desc: 'Collects verified phone numbers & customer requests' },
+        { label: 'WhatsApp Routing', desc: 'Alerts you on your phone the moment a lead asks for a quote' },
       ],
       glowColor: isDark ? '#E6C687' : '#00C853',
     },
@@ -145,16 +142,16 @@ export default function InteractiveCardsSection({ isDark, onOpenPrototypeModal }
             : 'bg-[#F3EFFE] border-[#673DE6]/25 text-[#673DE6]'
         }`}>
           <Sparkles className="w-3.5 h-3.5" />
-          <span>SOLUTIONS MATRIX • 100+ DEPLOYMENTS</span>
+          <span>PROVEN WORK • 100+ DEPLOYMENTS</span>
         </div>
 
         <h2 className="text-3xl sm:text-5xl font-extrabold font-display tracking-tight mb-4">
-          WE ENGINEER TAILORED SYSTEMS FOR
+          WE BUILD DIGITAL SOLUTIONS FOR
         </h2>
 
         {/* Animated Typing Industry Text (Hostinger-inspired) */}
         <div className="min-h-[44px] flex items-center justify-center">
-          <span className={`text-xl sm:text-2xl font-mono font-bold px-4 py-1 rounded-xl border ${
+          <span className={`text-lg sm:text-2xl font-mono font-bold px-4 py-1 rounded-xl border ${
             isDark
               ? 'bg-[#181818]/90 text-luxury-gold border-luxury-gold/40 shadow-gold-glow'
               : 'bg-white text-fresh-green border-fresh-border shadow-sm'
@@ -167,19 +164,25 @@ export default function InteractiveCardsSection({ isDark, onOpenPrototypeModal }
         <p className={`mt-4 text-sm sm:text-base font-normal max-w-xl mx-auto ${
           isDark ? 'text-slate-400' : 'text-slate-600'
         }`}>
-          Click on any card to flip and inspect the technical architecture and real client impact.
+          Click on any floating card below to flip and see what is included.
         </p>
       </div>
 
-      {/* 3D Interactive Flip Card Grid */}
+      {/* 3D Floating Interactive Flip Card Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
         {cardsData.map((card, idx) => {
           const isFlipped = flipped[idx];
           const Icon = card.icon;
 
           return (
-            <div
+            <motion.div
               key={card.id}
+              animate={{ y: [0, -8, 0] }}
+              transition={{
+                duration: 4 + idx * 0.7,
+                repeat: Infinity,
+                ease: 'easeInOut',
+              }}
               className="perspective-1000 h-[380px] w-full cursor-pointer select-none group"
               onClick={() => toggleFlip(idx)}
               onMouseEnter={() => playCyberTone('hover')}
@@ -191,7 +194,7 @@ export default function InteractiveCardsSection({ isDark, onOpenPrototypeModal }
               >
                 {/* FRONT FACE */}
                 <div
-                  className={`absolute inset-0 backface-hidden rounded-3xl p-6 flex flex-col justify-between border card-glow-hostinger ${
+                  className={`absolute inset-0 backface-hidden rounded-3xl p-6 flex flex-col justify-between border card-glow-hostinger shadow-lg ${
                     isDark ? 'bg-[#151518]' : 'bg-white'
                   }`}
                   style={{
@@ -291,7 +294,7 @@ export default function InteractiveCardsSection({ isDark, onOpenPrototypeModal }
                   </div>
                 </div>
               </div>
-            </div>
+            </motion.div>
           );
         })}
       </div>

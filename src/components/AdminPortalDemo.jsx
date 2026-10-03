@@ -10,9 +10,9 @@ import {
 
 export default function AdminPortalDemo({ isDark }) {
   const [activeTab, setActiveTab] = useState('split');
-  const [companyName, setCompanyName] = useState('PMS Machine Solutions');
-  const [heroTagline, setHeroTagline] = useState('Industrial Machinery & High-Precision Packaging Solutions');
-  const [promoText, setPromoText] = useState('Exclusive 10% Discount on Band Sealer Units this Month!');
+  const [companyName, setCompanyName] = useState('Your Company / Brand Name');
+  const [heroTagline, setHeroTagline] = useState('Modern Digital Solutions & Instant Client Booking');
+  const [promoText, setPromoText] = useState('Special Launch Offer: 10% Off New Client Enrollments!');
   const [promoActive, setPromoActive] = useState(true);
   const [savedNotice, setSavedNotice] = useState(false);
 
@@ -294,14 +294,14 @@ export default function AdminPortalDemo({ isDark }) {
                         {heroTagline || 'Your Custom Tagline Appears Instantly Here'}
                       </h3>
                       <p className="text-xs opacity-70 max-w-sm mx-auto mb-4">
-                        High performance packaging, band sealers, and automated assembly solutions.
+                        Autonomous digital operations, instant customer scheduling, and live product catalog.
                       </p>
                       <button className={`px-4 py-2 rounded-lg font-bold text-xs font-mono ${
                         isDark 
                           ? 'bg-luxury-gold text-black' 
                           : 'bg-fresh-emerald text-white'
                       }`}>
-                        Request Quote
+                        Explore Offerings
                       </button>
                     </div>
 
@@ -312,16 +312,16 @@ export default function AdminPortalDemo({ isDark }) {
                       <div className={`p-2.5 rounded-lg border ${
                         isDark ? 'bg-black/50 border-white/5' : 'bg-slate-50 border-black/5'
                       }`}>
-                        <div className={`text-[10px] font-mono ${isDark ? 'text-luxury-gold' : 'text-fresh-green'}`}>INVENTORY #104</div>
-                        <div className="text-xs font-bold mt-0.5">Continuous Band Sealer</div>
-                        <div className="text-[10px] text-emerald-500 mt-1">Status: In Stock</div>
+                        <div className={`text-[10px] font-mono ${isDark ? 'text-luxury-gold' : 'text-fresh-green'}`}>PRODUCT #01</div>
+                        <div className="text-xs font-bold mt-0.5">Core Client Package</div>
+                        <div className="text-[10px] text-emerald-500 mt-1">Status: Active &bull; Instant Booking</div>
                       </div>
                       <div className={`p-2.5 rounded-lg border ${
                         isDark ? 'bg-black/50 border-white/5' : 'bg-slate-50 border-black/5'
                       }`}>
-                        <div className={`text-[10px] font-mono ${isDark ? 'text-luxury-gold' : 'text-fresh-green'}`}>INVENTORY #105</div>
-                        <div className="text-xs font-bold mt-0.5">Vacuum Packaging Machine</div>
-                        <div className="text-[10px] text-emerald-500 mt-1">Status: In Stock</div>
+                        <div className={`text-[10px] font-mono ${isDark ? 'text-luxury-gold' : 'text-fresh-green'}`}>PRODUCT #02</div>
+                        <div className="text-xs font-bold mt-0.5">Custom Business Solution</div>
+                        <div className="text-[10px] text-emerald-500 mt-1">Status: Active &bull; Instant Booking</div>
                       </div>
                     </div>
                   </div>

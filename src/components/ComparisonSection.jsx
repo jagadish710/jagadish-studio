@@ -5,45 +5,45 @@ import {
   CheckCircle2,
   AlertTriangle,
   Zap,
-  Cpu,
+  Check,
 } from 'lucide-react';
 
 export default function ComparisonSection({ isDark }) {
-  const agencyDownsides = [
+  const traditionalAgencies = [
     {
       title: 'Hidden Monthly Maintenance Fees',
-      desc: 'They charge $100 to $300 every month just to "keep the site online" or apply security patches to fragile plugins.',
+      desc: 'They charge recurring fees every single month just to "keep the website alive" and update basic plugins.',
     },
     {
-      title: 'Hostage Developer Lock-in',
-      desc: 'Need to change a phone number or upload a product? You must open a ticket and wait 3–5 business days.',
+      title: 'Slow 5-Day Edits',
+      desc: 'Need to change a phone number or product price? You have to email them and wait days for a simple edit.',
     },
     {
-      title: 'Bloated WordPress & Fragile Plugins',
-      desc: '35+ third-party plugins that conflict, slow down to 4.2s page loads, and crash on every PHP update.',
+      title: 'Slow, Crashing Plugins',
+      desc: 'Dozens of third-party plugins that conflict, slow your website down, and crash after every update.',
     },
     {
-      title: 'Zero Code or Asset Sovereignty',
-      desc: 'You don\'t truly own the code or infrastructure. If you cancel their retainer, your website is held hostage.',
+      title: 'They Hold Your Site Hostage',
+      desc: 'You do not own the source code. If you stop paying their monthly retainer, they shut your business site down.',
     },
   ];
 
-  const jagadishStandard = [
+  const ourSolution = [
     {
-      title: '$0 Maintenance Charges Guaranteed',
-      desc: 'Modern static-edge compilation means zero database rot, zero plugin vulnerabilities, and zero mandatory retainers.',
+      title: 'No Maintenance Charges (One-Time Cost)',
+      desc: 'You pay once. There are zero monthly maintenance fees and zero yearly recurring developer charges.',
     },
     {
-      title: 'Self-Service Visual Admin Portal',
-      desc: 'Intuitive dashboard where your team can edit text, swap photos, add inventory, and download leads in real-time.',
+      title: 'Self-Serve Admin Portal Included',
+      desc: 'Change text, update prices, add products, and view incoming customer inquiries yourself in 10 seconds.',
     },
     {
-      title: 'Sub-300ms Global Edge Speed',
-      desc: 'Engineered with React and modern build pipelines for 99+ Google Lighthouse performance scores.',
+      title: 'Sub-Second Lightning Speed (<0.4s)',
+      desc: 'Built with modern code that loads instantly on any phone, ensuring top rank on Google search.',
     },
     {
-      title: '100% Client Ownership & Source Access',
-      desc: 'You receive all repository code, admin credentials, and domain DNS autonomy with zero lock-in.',
+      title: '100% Complete Ownership',
+      desc: 'You own 100% of your source code, domain name, and files. No vendor lock-in, forever.',
     },
   ];
 
@@ -54,29 +54,29 @@ export default function ComparisonSection({ isDark }) {
       <div className="max-w-7xl mx-auto">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <div className={`inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-mono mb-4 border ${
+          <div className={`inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-mono mb-4 border ${
             isDark 
-              ? 'bg-[#181818] border-luxury-gold/30 text-luxury-gold shadow-gold-glow' 
-              : 'bg-fresh-tint border-fresh-border text-fresh-green shadow-emerald-glow'
+              ? 'bg-[#181818] border-[#673DE6]/40 text-[#A78BFA] shadow-[0_0_20px_rgba(103,61,230,0.3)]' 
+              : 'bg-[#F5F2FF] border-[#673DE6]/25 text-[#673DE6]'
           }`}>
-            <Cpu className="w-3.5 h-3.5" />
-            <span>THE ANTI-AGENCY MANIFESTO</span>
+            <Zap className="w-3.5 h-3.5" />
+            <span>SOLUTIONS VS TRADITIONAL WEBSITES</span>
           </div>
           <h2 className="text-3xl sm:text-5xl font-extrabold tracking-tight font-display mb-4">
-            WHY BUSINESS LEADERS FIRE AGENCIES <br />
-            <span className="text-gradient-main">&amp; PARTNER WITH US</span>
+            WE PROVIDE SOLUTIONS, <br />
+            <span className="text-gradient-main">NOT JUST A WEBSITE</span>
           </h2>
-          <p className="opacity-75 text-sm sm:text-base font-sans">
-            Most web designers build recurring fee dependencies. We build autonomous software assets that fuel your revenue without perpetual tax.
+          <p className={`text-base sm:text-lg max-w-2xl mx-auto ${isDark ? 'text-slate-300' : 'text-slate-600'}`}>
+            Most web agencies trap you with monthly retainers. We deliver a complete business system that you fully control and own forever.
           </p>
         </div>
 
         {/* Side-by-Side Comparison Bento Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch">
           {/* Left: Traditional Agency Traps */}
-          <div className={`p-6 sm:p-8 rounded-2xl border flex flex-col justify-between ${
+          <div className={`p-6 sm:p-8 rounded-3xl border flex flex-col justify-between ${
             isDark 
-              ? 'bg-[#161214] border-red-500/20 text-slate-300' 
+              ? 'bg-[#161214] border-red-500/25 text-slate-300' 
               : 'bg-white border-red-500/20 text-slate-700 shadow-sm'
           }`}>
             <div>
@@ -91,11 +91,11 @@ export default function ComparisonSection({ isDark }) {
               </div>
 
               <div className="space-y-6">
-                {agencyDownsides.map((item, idx) => (
-                  <div key={idx} className="flex items-start gap-3.5 group">
+                {traditionalAgencies.map((item, idx) => (
+                  <div key={idx} className="flex items-start gap-3.5">
                     <XCircle className="w-5 h-5 text-red-500 shrink-0 mt-0.5" />
                     <div>
-                      <h4 className={`text-sm sm:text-base font-semibold group-hover:text-red-400 transition-colors ${
+                      <h4 className={`text-sm sm:text-base font-bold ${
                         isDark ? 'text-white' : 'text-slate-900'
                       }`}>
                         {item.title}
@@ -110,48 +110,40 @@ export default function ComparisonSection({ isDark }) {
             </div>
 
             <div className="mt-8 pt-6 border-t border-red-500/20 text-xs font-mono opacity-60">
-              * Average 3-year cost of maintenance retainers: $3,600 – $10,800 with zero asset appreciation.
+              * The hidden trap: paying \$100 to \$300 every month for years just for small edits.
             </div>
           </div>
 
-          {/* Right: Jagadish Studio Standard */}
-          <div className={`p-6 sm:p-8 rounded-2xl border flex flex-col justify-between relative overflow-hidden ${
+          {/* Right: Our Solution */}
+          <div className={`p-6 sm:p-8 rounded-3xl border flex flex-col justify-between relative overflow-hidden card-glow-hostinger ${
             isDark 
-              ? 'bg-[#181818] border-luxury-gold/40 shadow-gold-glow' 
-              : 'bg-white border-fresh-border shadow-emerald-glow'
+              ? 'bg-[#18181D]' 
+              : 'bg-white shadow-xl'
           }`}>
             <div>
-              <div className={`flex items-center justify-between border-b pb-4 mb-6 ${
-                isDark ? 'border-luxury-gold/25' : 'border-fresh-border'
-              }`}>
+              <div className="flex items-center justify-between border-b border-emerald-500/25 pb-4 mb-6">
                 <div className={`flex items-center gap-2 font-mono text-sm font-bold ${
                   isDark ? 'text-luxury-gold' : 'text-fresh-green'
                 }`}>
-                  <Zap className="w-5 h-5" />
-                  <span>JAGADISH STUDIO ARCHITECTURE</span>
+                  <Zap className="w-5 h-5 text-[#8B5CF6]" />
+                  <span>WHAT WE DELIVER</span>
                 </div>
-                <span className={`text-xs font-mono px-2.5 py-0.5 rounded-full font-bold border ${
-                  isDark 
-                    ? 'bg-luxury-gold/15 text-luxury-gold border-luxury-gold/30' 
-                    : 'bg-fresh-tint text-fresh-green border-fresh-border'
-                }`}>
-                  AUTONOMOUS ASSET
+                <span className="text-xs font-mono px-2.5 py-0.5 rounded-full font-bold border bg-emerald-500/15 text-emerald-400 border-emerald-500/30">
+                  ONE-TIME INVESTMENT
                 </span>
               </div>
 
               <div className="space-y-6">
-                {jagadishStandard.map((item, idx) => (
-                  <div key={idx} className="flex items-start gap-3.5 group">
-                    <CheckCircle2 className={`w-5 h-5 shrink-0 mt-0.5 ${
-                      isDark ? 'text-luxury-gold' : 'text-fresh-emerald'
-                    }`} />
+                {ourSolution.map((item, idx) => (
+                  <div key={idx} className="flex items-start gap-3.5">
+                    <CheckCircle2 className="w-5 h-5 text-emerald-400 shrink-0 mt-0.5" />
                     <div>
-                      <h4 className={`text-sm sm:text-base font-semibold transition-colors ${
-                        isDark ? 'text-white group-hover:text-luxury-gold' : 'text-slate-900 group-hover:text-fresh-green'
+                      <h4 className={`text-sm sm:text-base font-bold ${
+                        isDark ? 'text-white' : 'text-slate-900'
                       }`}>
                         {item.title}
                       </h4>
-                      <p className="text-xs sm:text-sm opacity-75 mt-1 leading-relaxed">
+                      <p className="text-xs sm:text-sm opacity-80 mt-1 leading-relaxed">
                         {item.desc}
                       </p>
                     </div>
@@ -161,10 +153,10 @@ export default function ComparisonSection({ isDark }) {
             </div>
 
             <div className={`mt-8 pt-6 border-t flex items-center justify-between text-xs font-mono ${
-              isDark ? 'border-luxury-gold/20 text-luxury-gold' : 'border-fresh-border text-fresh-green'
+              isDark ? 'border-white/10 text-luxury-gold' : 'border-black/10 text-fresh-green'
             }`}>
-              <span>ZERO VENDOR LOCK-IN GUARANTEE</span>
-              <span className="font-bold">100% OWNERSHIP</span>
+              <span className="font-bold">ZERO MAINTENANCE CHARGES</span>
+              <span>100% OWNERSHIP</span>
             </div>
           </div>
         </div>

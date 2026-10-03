@@ -36,6 +36,10 @@ export default function PrototypeModal({ isOpen, onClose, isDark }) {
         spread: 70,
         origin: { y: 0.6 },
       });
+    } catch {
+      // Confetti fallback
+    }
+
     // Persist to Supabase if configured
     saveInquiry({
       businessName,

@@ -1,21 +1,17 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { motion } from 'framer-motion';
 import {
-  Layers,
-  ExternalLink,
   Award,
-  Zap,
-  ShieldCheck,
-  Search,
+  ExternalLink,
   CheckCircle2,
+  MessageCircle,
   ArrowRight,
-  Database,
-  Smartphone,
-  Laptop
+  ShieldCheck,
+  Zap,
 } from 'lucide-react';
 import { playCyberTone } from '../utils/audio';
 
-export default function WorkPage({ isDark }) {
+export default function WorkPage({ isDark, onOpenPrototypeModal }) {
   const projects = [
     {
       id: 'upsks',
@@ -23,19 +19,19 @@ export default function WorkPage({ isDark }) {
       client: 'United Professional Shito-Ryu Karate-Do Shotokai',
       domain: 'upskskarate.com',
       liveUrl: 'https://upskskarate.com',
-      tag: 'MARTIAL ARTS & STUDENT PORTAL',
-      highlightBadge: 'LIVE IN PRODUCTION',
+      tag: 'Martial Arts Platform',
+      highlightBadge: 'Live in Production',
       badgeColor: '#10B981',
-      summary: 'A complete academy operating system replacing outdated static pages. Powers automated student enrollment, belt progression management, tournament ticketing, and hyper-fast mobile access.',
+      summary: 'A complete academy operating system. Powers automated student enrollment, belt progression tracking, and instant mobile access with zero maintenance fees.',
       deliverables: [
-        'Automated Student Registration & Verification',
-        'Official Belt & Certification Records System',
-        '100/100 Core Web Vitals Performance',
-        'Integrated WhatsApp Student Support Concierge',
+        'Automated Student Registration',
+        'Official Belt & Records System',
+        '100/100 Mobile PageSpeed',
+        'WhatsApp Student Support',
       ],
       metrics: [
-        { label: 'Mobile PageSpeed', val: '99/100' },
-        { label: 'Monthly Retainer', val: '$0' },
+        { label: 'Mobile Speed', val: '99/100' },
+        { label: 'Yearly Retainer', val: '₹0' },
         { label: 'Enrollment Lift', val: '+280%' },
       ],
     },
@@ -45,71 +41,94 @@ export default function WorkPage({ isDark }) {
       client: 'PMS Solutions India',
       domain: 'pmssolution.jagadish.online',
       liveUrl: 'https://pmssolution.jagadish.online',
-      tag: 'INDUSTRIAL MACHINERY & RFQ ENGINE',
-      highlightBadge: 'ACTIVE STAGING PIPELINE',
+      tag: 'Industrial Machinery',
+      highlightBadge: 'Live Staging Ready',
       badgeColor: '#F59E0B',
-      summary: 'Engineered custom digital catalog for continuous band sealers and vacuum packaging machinery. Replaced a sluggish WordPress setup with lightning-fast sub-0.4s response times and instant WhatsApp quote generation.',
+      summary: 'Custom digital catalog for continuous band sealers and vacuum packaging machinery. Replaced a sluggish WordPress setup with sub-0.4s response times and instant WhatsApp quote generation.',
       deliverables: [
-        'Dynamic Industrial Machinery Specification Catalog',
-        'Direct WhatsApp Quotation Prefill Engine',
-        'Self-Serve Client Admin Dashboard to edit prices & specs',
-        'Zero monthly maintenance fee guarantee',
+        'Industrial Machinery Catalog',
+        'WhatsApp Quote Automation',
+        'Visual Client Admin Portal',
+        'Zero Maintenance Guarantee',
       ],
       metrics: [
-        { label: 'RFQ Conversion', val: '+340%' },
+        { label: 'Quote Conversions', val: '+340%' },
         { label: 'Page Load Speed', val: '0.38s' },
-        { label: 'Platform Ownership', val: '100%' },
+        { label: 'Code Ownership', val: '100%' },
       ],
     },
     {
       id: 'software',
-      title: 'Bespoke Enterprise Software & SaaS',
+      title: 'Custom Business Softwares & ERP',
       client: 'Multi-Industry Clients',
-      domain: 'Custom Deployments',
+      domain: 'Private Cloud Deployments',
       liveUrl: null,
-      tag: 'INTERNAL BUSINESS AUTOMATION',
-      highlightBadge: 'ENTERPRISE ARCHITECTURE',
-      badgeColor: '#8B5CF6', // Hostinger purple
+      tag: 'Business Automation',
+      highlightBadge: 'Enterprise Software',
+      badgeColor: '#8B5CF6',
       summary: 'High-security custom ERPs, internal inventory synchronization, and operational management cockpits built for companies that outgrew spreadsheet chaos.',
       deliverables: [
-        'Automated Multi-Channel Inventory & Invoice Tracking',
-        'Role-Based Admin Access (Superadmin, Manager, Staff)',
-        'PostgreSQL Real-Time Data Pipeline & Backup Automations',
-        'REST / GraphQL Edge Microservice Architecture',
+        'Real-Time Inventory & Invoices',
+        'Role-Based Admin Access',
+        'PostgreSQL Cloud Database',
+        'REST & GraphQL APIs',
       ],
       metrics: [
-        { label: 'Admin Hours Saved', val: '25h/wk' },
+        { label: 'Admin Time Saved', val: '25h/wk' },
         { label: 'Data Accuracy', val: '99.9%' },
-        { label: 'Hosting Cost', val: '$0/mo base' },
+        { label: 'Maintenance Cost', val: '₹0' },
       ],
     },
   ];
 
   return (
     <div className="pt-32 pb-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
-      {/* Page Header */}
+      {/* High-Contrast Page Header */}
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         className="text-center max-w-3xl mx-auto mb-16"
       >
-        <div className={`inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-mono mb-4 border ${
+        {/* Crystal Clear High Contrast Badge */}
+        <div className={`inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-mono font-bold mb-5 border backdrop-blur-md ${
           isDark 
-            ? 'bg-[#181818] border-[#673DE6]/40 text-[#A78BFA] shadow-[0_0_20px_rgba(103,61,230,0.3)]' 
-            : 'bg-[#F5F2FF] border-[#673DE6]/25 text-[#673DE6]'
+            ? 'bg-[#1C1829] border-[#8B5CF6] text-white shadow-[0_0_20px_rgba(139,92,246,0.5)]' 
+            : 'bg-[#F5F2FF] border-[#673DE6]/40 text-[#673DE6]'
         }`}>
-          <Award className="w-3.5 h-3.5" />
-          <span>PROVEN TRACK RECORD • 100+ DEPLOYMENTS</span>
+          <Award className="w-4 h-4 text-emerald-400" />
+          <span>PROVEN TRACK RECORD • 100+ CLIENT SYSTEMS</span>
         </div>
 
-        <h1 className="text-4xl sm:text-6xl font-extrabold tracking-tight font-display mb-6">
-          100+ SYSTEMS DELIVERED <br />
-          <span className="text-gradient-main">WITH ZERO MAINTENANCE FEES</span>
+        {/* High Contrast Title with Solid Color */}
+        <h1 className="text-4xl sm:text-6xl font-extrabold tracking-tight font-display mb-6 leading-tight">
+          <span className={isDark ? 'text-white drop-shadow-[0_2px_12px_rgba(0,0,0,0.8)]' : 'text-slate-900'}>
+            100+ Systems Delivered
+          </span>
+          <br />
+          <span className={isDark ? 'text-luxury-gold drop-shadow-[0_0_25px_rgba(230,198,135,0.4)]' : 'text-fresh-green'}>
+            Zero Maintenance Fees
+          </span>
         </h1>
 
-        <p className={`text-base sm:text-lg leading-relaxed ${isDark ? 'text-slate-300' : 'text-slate-600'}`}>
-          We have engineered and deployed over 100 high-performance web systems, custom softwares, and autonomous digital solutions. Here are a few notable flagship deliveries:
+        <p className={`text-base sm:text-lg max-w-2xl mx-auto leading-relaxed ${
+          isDark ? 'text-slate-200 drop-shadow-sm' : 'text-slate-600'
+        }`}>
+          We have engineered over 100 high-performance websites and business softwares. Here are a few notable flagship deliveries:
         </p>
+
+        {/* Direct WhatsApp Callout in Header */}
+        <div className="mt-6 flex flex-wrap items-center justify-center gap-4">
+          <a
+            href="https://wa.me/917358618789?text=Hi%20Jagadish!%20I%20am%20looking%20for%20a%20website%20solution%20and%20saw%20your%20projects."
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={() => playCyberTone('click')}
+            className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-[#25D366] hover:bg-[#20BA5A] text-white font-mono font-bold text-xs shadow-md transition-all hover:scale-105 cursor-pointer"
+          >
+            <MessageCircle className="w-4 h-4 fill-current" />
+            <span>Chat on WhatsApp: +91 73586 18789</span>
+          </a>
+        </div>
       </motion.div>
 
       {/* Projects Showcase Cards Grid */}
@@ -158,14 +177,14 @@ export default function WorkPage({ isDark }) {
                       : 'bg-[#673DE6] hover:bg-[#5327DE] text-white shadow-md'
                   }`}
                 >
-                  <span>VISIT LIVE PLATFORM ({proj.domain})</span>
+                  <span>VISIT LIVE PLATFORM • {proj.domain}</span>
                   <ExternalLink className="w-3.5 h-3.5" />
                 </a>
               ) : (
                 <div className={`px-4 py-2 rounded-xl text-xs font-mono border ${
                   isDark ? 'bg-black/40 border-white/10 text-slate-400' : 'bg-slate-100 border-black/10 text-slate-600'
                 }`}>
-                  Enterprise Confidential / Client Hosted
+                  Private Enterprise Architecture
                 </div>
               )}
             </div>
@@ -220,23 +239,35 @@ export default function WorkPage({ isDark }) {
           WHY WE PROVIDE SOLUTIONS, NOT WEBSITES
         </h3>
         <p className={`text-sm max-w-xl mx-auto mb-8 ${isDark ? 'text-slate-300' : 'text-slate-600'}`}>
-          Traditional web designers deliver a pretty page and trap you into a \$150/month maintenance fee for basic edits. We build autonomous engines.
+          Traditional agencies charge monthly fees for basic edits. We build systems you own and control completely.
         </p>
 
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 text-left font-mono text-xs">
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 text-left font-mono text-xs mb-8">
           <div className={`p-5 rounded-2xl border ${isDark ? 'bg-black/50 border-white/10' : 'bg-white border-black/10'}`}>
-            <div className="text-base font-bold text-[#A78BFA] mb-1">$0 Retainer</div>
-            <div className="text-[11px] opacity-75">No hidden monthly charges. Once delivered, the system runs with zero recurring maintenance fees.</div>
+            <div className="text-base font-bold text-[#A78BFA] mb-1">Zero Retainers</div>
+            <div className="text-[11px] opacity-75">Pay once. The system runs forever with zero recurring monthly bills.</div>
           </div>
           <div className={`p-5 rounded-2xl border ${isDark ? 'bg-black/50 border-white/10' : 'bg-white border-black/10'}`}>
             <div className="text-base font-bold text-emerald-400 mb-1">100% Control</div>
-            <div className="text-[11px] opacity-75">Visual admin portal lets you add products, change pricing, and edit copy instantly from your phone.</div>
+            <div className="text-[11px] opacity-75">Visual admin portal lets you add products and change prices in 10 seconds.</div>
           </div>
           <div className={`p-5 rounded-2xl border ${isDark ? 'bg-black/50 border-white/10' : 'bg-white border-black/10'}`}>
-            <div className="text-base font-bold text-amber-300 mb-1">Google SEO #1</div>
-            <div className="text-[11px] opacity-75">Clean semantic code, automated JSON-LD schemas, and sub-0.4s load speeds ensure maximum search rankings.</div>
+            <div className="text-base font-bold text-amber-300 mb-1">Top Google Rank</div>
+            <div className="text-[11px] opacity-75">Clean code and sub-0.4s load speed ensure maximum search engine visibility.</div>
           </div>
         </div>
+
+        <a
+          href="https://wa.me/917358618789?text=Hi%20Jagadish!%20I%20would%20like%20to%20discuss%20a%20website%20solution%20for%20my%20business."
+          target="_blank"
+          rel="noopener noreferrer"
+          onClick={() => playCyberTone('click')}
+          className="inline-flex items-center gap-2.5 px-8 py-4 rounded-xl bg-[#25D366] hover:bg-[#20BA5A] text-white font-mono font-bold text-sm shadow-lg hover:scale-105 active:scale-95 transition-all cursor-pointer"
+        >
+          <MessageCircle className="w-5 h-5 fill-current" />
+          <span>Chat Directly on WhatsApp: +91 73586 18789</span>
+          <ArrowRight className="w-4 h-4" />
+        </a>
       </div>
     </div>
   );

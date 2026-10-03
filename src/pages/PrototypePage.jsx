@@ -49,7 +49,7 @@ export default function PrototypePage({ onOpenPrototypeModal, isDark }) {
     );
 
     setTimeout(() => {
-      window.open(`https://wa.me/?text=${msg}`, '_blank');
+      window.open(`https://wa.me/917358618789?text=${msg}`, '_blank');
     }, 1200);
   };
 

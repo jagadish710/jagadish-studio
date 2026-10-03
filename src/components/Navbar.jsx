@@ -192,6 +192,18 @@ export default function Navbar({
             <ChevronRight className="w-3.5 h-3.5" />
           </button>
 
+          {/* WhatsApp Direct CTA */}
+          <a
+            href="https://wa.me/917358618789?text=Hi%20Jagadish!%20I%20am%20interested%20in%20a%20website%20solution."
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={() => playCyberTone('click')}
+            className="hidden sm:flex items-center gap-1.5 px-3 py-2 rounded-xl bg-[#25D366] hover:bg-[#20BA5A] text-white font-mono font-bold text-xs shadow-sm hover:scale-105 transition-all cursor-pointer"
+            title="Chat on WhatsApp (+91 7358618789)"
+          >
+            <span>WhatsApp</span>
+          </a>
+
           {/* Mobile Menu Button */}
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
@@ -224,6 +236,15 @@ export default function Navbar({
               {item.label}
             </button>
           ))}
+
+          <a
+            href="https://wa.me/917358618789?text=Hi%20Jagadish!%20I%20am%20interested%20in%20a%20website%20solution."
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mt-2 p-3 rounded-xl bg-[#25D366] text-white font-bold text-center flex items-center justify-center gap-2"
+          >
+            <span>WhatsApp: +91 73586 18789</span>
+          </a>
         </div>
       )}
     </header>

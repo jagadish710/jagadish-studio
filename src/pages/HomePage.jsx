@@ -5,6 +5,7 @@ import InteractiveCardsSection from '../components/InteractiveCardsSection';
 import ComparisonSection from '../components/ComparisonSection';
 import AdminPortalDemo from '../components/AdminPortalDemo';
 import PricingPhilosophy from '../components/PricingPhilosophy';
+import FaqSection from '../components/FaqSection';
 
 export default function HomePage({ onOpenPrototypeModal, setActivePage, isDark }) {
   return (
@@ -41,11 +42,14 @@ export default function HomePage({ onOpenPrototypeModal, setActivePage, isDark }
       {/* 6. Self-Service Client Admin Cockpit Sandbox */}
       <AdminPortalDemo isDark={isDark} />
 
-      {/* 7. Pricing Philosophy ($0 Monthly Maintenance Guarantee) */}
+      {/* 7. Pricing Philosophy (No Maintenance Charges) */}
       <PricingPhilosophy
         isDark={isDark}
         onOpenPrototypeModal={onOpenPrototypeModal}
       />
+
+      {/* 8. Frequently Asked Questions (SEO Boost & Client Clarity) */}
+      <FaqSection isDark={isDark} />
     </div>
   );
 }

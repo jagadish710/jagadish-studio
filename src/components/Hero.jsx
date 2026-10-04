@@ -25,15 +25,15 @@ export default function Hero({ onOpenPrototypeModal, onNavigateToWork, onNavigat
           className={`inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full text-xs font-mono font-bold mb-6 backdrop-blur-xl border ${
             isDark
               ? 'bg-[#181818] border-luxury-gold/40 text-luxury-gold shadow-gold-glow'
-              : 'bg-fresh-tint border-fresh-border text-fresh-green shadow-emerald-glow'
+              : 'bg-slate-100 border-slate-200 text-slate-800'
           }`}
         >
           <span className="flex h-2 w-2 relative">
             <span className={`animate-ping absolute inline-flex h-full w-full rounded-full opacity-75 ${
-              isDark ? 'bg-luxury-gold' : 'bg-fresh-emerald'
+              isDark ? 'bg-luxury-gold' : 'bg-blue-600'
             }`} />
             <span className={`relative inline-flex rounded-full h-2 w-2 ${
-              isDark ? 'bg-luxury-gold' : 'bg-fresh-emerald'
+              isDark ? 'bg-luxury-gold' : 'bg-blue-600'
             }`} />
           </span>
           <span>AFFORDABLE LUXURY WEBSITES • ZERO MAINTENANCE CHARGES • ONE-TIME COST</span>
@@ -80,11 +80,10 @@ export default function Hero({ onOpenPrototypeModal, onNavigateToWork, onNavigat
               playCyberTone('click');
               onOpenPrototypeModal();
             }}
-            onMouseEnter={() => playCyberTone('hover')}
-            className={`w-full sm:w-auto px-8 py-4 rounded-xl font-extrabold font-mono text-sm tracking-wider flex items-center justify-center gap-3 transition-all duration-200 hover:scale-105 active:scale-95 cursor-pointer shadow-lg ${
+            className={`w-full sm:w-auto px-8 py-4 rounded-xl font-extrabold font-mono text-sm tracking-wider flex items-center justify-center gap-3 transition-all duration-200 hover:scale-105 active:scale-95 cursor-pointer shadow-md ${
               isDark
                 ? 'bg-gradient-to-r from-luxury-gold via-amber-300 to-luxury-gold text-black shadow-gold-glow'
-                : 'bg-gradient-to-r from-fresh-emerald to-fresh-green text-white shadow-emerald-glow'
+                : 'bg-slate-900 hover:bg-slate-800 text-white'
             }`}
           >
             <span>ENQUIRE NOW</span>
@@ -112,10 +111,10 @@ export default function Hero({ onOpenPrototypeModal, onNavigateToWork, onNavigat
           className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 w-full text-left"
         >
           <div className={`p-5 rounded-2xl border transition-all ${
-            isDark ? 'bg-[#18181A] border-white/10 hover:border-luxury-gold/40' : 'bg-white border-black/10 hover:border-fresh-emerald/40 shadow-sm'
+            isDark ? 'bg-[#18181A] border-white/10 hover:border-luxury-gold/40' : 'bg-white border-slate-200 hover:border-slate-300 shadow-xs'
           }`}>
             <div className={`w-8 h-8 rounded-lg flex items-center justify-center mb-2.5 border ${
-              isDark ? 'bg-luxury-gold/15 text-luxury-gold border-luxury-gold/30' : 'bg-fresh-tint text-fresh-green border-fresh-border'
+              isDark ? 'bg-luxury-gold/15 text-luxury-gold border-luxury-gold/30' : 'bg-slate-100 text-slate-800 border-slate-200'
             }`}>
               <Zap className="w-4 h-4" />
             </div>
@@ -128,10 +127,10 @@ export default function Hero({ onOpenPrototypeModal, onNavigateToWork, onNavigat
           </div>
 
           <div className={`p-5 rounded-2xl border transition-all ${
-            isDark ? 'bg-[#18181A] border-white/10 hover:border-luxury-gold/40' : 'bg-white border-black/10 hover:border-fresh-emerald/40 shadow-sm'
+            isDark ? 'bg-[#18181A] border-white/10 hover:border-luxury-gold/40' : 'bg-white border-slate-200 hover:border-slate-300 shadow-xs'
           }`}>
             <div className={`w-8 h-8 rounded-lg flex items-center justify-center mb-2.5 border ${
-              isDark ? 'bg-luxury-gold/15 text-luxury-gold border-luxury-gold/30' : 'bg-fresh-tint text-fresh-green border-fresh-border'
+              isDark ? 'bg-luxury-gold/15 text-luxury-gold border-luxury-gold/30' : 'bg-slate-100 text-slate-800 border-slate-200'
             }`}>
               <Layers className="w-4 h-4" />
             </div>
@@ -144,10 +143,10 @@ export default function Hero({ onOpenPrototypeModal, onNavigateToWork, onNavigat
           </div>
 
           <div className={`p-5 rounded-2xl border transition-all ${
-            isDark ? 'bg-[#18181A] border-white/10 hover:border-luxury-gold/40' : 'bg-white border-black/10 hover:border-fresh-emerald/40 shadow-sm'
+            isDark ? 'bg-[#18181A] border-white/10 hover:border-luxury-gold/40' : 'bg-white border-slate-200 hover:border-slate-300 shadow-xs'
           }`}>
             <div className={`w-8 h-8 rounded-lg flex items-center justify-center mb-2.5 border ${
-              isDark ? 'bg-luxury-gold/15 text-luxury-gold border-luxury-gold/30' : 'bg-fresh-tint text-fresh-green border-fresh-border'
+              isDark ? 'bg-luxury-gold/15 text-luxury-gold border-luxury-gold/30' : 'bg-slate-100 text-slate-800 border-slate-200'
             }`}>
               <ShieldCheck className="w-4 h-4" />
             </div>
@@ -160,10 +159,10 @@ export default function Hero({ onOpenPrototypeModal, onNavigateToWork, onNavigat
           </div>
 
           <div className={`p-5 rounded-2xl border transition-all ${
-            isDark ? 'bg-[#18181A] border-white/10 hover:border-luxury-gold/40' : 'bg-white border-black/10 hover:border-fresh-emerald/40 shadow-sm'
+            isDark ? 'bg-[#18181A] border-white/10 hover:border-luxury-gold/40' : 'bg-white border-slate-200 hover:border-slate-300 shadow-xs'
           }`}>
             <div className={`w-8 h-8 rounded-lg flex items-center justify-center mb-2.5 border ${
-              isDark ? 'bg-luxury-gold/15 text-luxury-gold border-luxury-gold/30' : 'bg-fresh-tint text-fresh-green border-fresh-border'
+              isDark ? 'bg-luxury-gold/15 text-luxury-gold border-luxury-gold/30' : 'bg-slate-100 text-slate-800 border-slate-200'
             }`}>
               <Search className="w-4 h-4" />
             </div>
@@ -184,16 +183,16 @@ export default function Hero({ onOpenPrototypeModal, onNavigateToWork, onNavigat
           className={`mt-8 p-4 rounded-2xl text-xs font-mono flex flex-col sm:flex-row items-center justify-between gap-3 w-full border ${
             isDark 
               ? 'bg-[#181818] border-[#8B5CF6]/50 text-white shadow-[0_0_20px_rgba(139,92,246,0.25)]' 
-              : 'bg-[#F5F2FF] border-[#673DE6]/25 text-[#2F1C6A]'
+              : 'bg-slate-50 border-slate-200/90 text-slate-800 shadow-xs'
           }`}
         >
           <div className="flex flex-wrap items-center gap-2 text-left">
-            <span className="w-2.5 h-2.5 rounded-full animate-ping bg-[#8B5CF6]" />
-            <span className="font-bold text-emerald-400">WORKED ON 100+ PROJECTS:</span>
-            <span className={isDark ? 'text-slate-200' : 'text-slate-800'}>Delivered with excellence. Featured:</span>
-            <span className="font-bold px-1.5 py-0.5 rounded bg-black/40 text-emerald-300">upskskarate.com</span>
+            <span className={`w-2.5 h-2.5 rounded-full ${isDark ? 'animate-ping bg-[#8B5CF6]' : 'bg-blue-600'}`} />
+            <span className={`font-bold ${isDark ? 'text-emerald-400' : 'text-blue-700'}`}>WORKED ON 100+ PROJECTS:</span>
+            <span className={isDark ? 'text-slate-200' : 'text-slate-700'}>Delivered with excellence. Featured:</span>
+            <span className={`font-bold px-2 py-0.5 rounded border ${isDark ? 'bg-black/40 text-emerald-300 border-emerald-500/30' : 'bg-white text-slate-900 border-slate-200'}`}>upskskarate.com</span>
             <span>&amp;</span>
-            <span className="font-bold px-1.5 py-0.5 rounded bg-black/40 text-amber-300">pmssolution</span>
+            <span className={`font-bold px-2 py-0.5 rounded border ${isDark ? 'bg-black/40 text-amber-300 border-amber-500/30' : 'bg-white text-slate-900 border-slate-200'}`}>pmssolution</span>
             <span className={isDark ? 'text-slate-300' : 'text-slate-600'}>+ custom business softwares.</span>
           </div>
           <button
@@ -202,7 +201,7 @@ export default function Hero({ onOpenPrototypeModal, onNavigateToWork, onNavigat
               onNavigateToWork();
             }}
             className={`flex items-center gap-1.5 underline underline-offset-4 font-bold cursor-pointer shrink-0 ${
-              isDark ? 'text-luxury-gold hover:text-white' : 'text-[#673DE6] hover:text-[#5327DE]'
+              isDark ? 'text-luxury-gold hover:text-white' : 'text-slate-900 hover:text-blue-600'
             }`}
           >
             <span>View Projects</span>

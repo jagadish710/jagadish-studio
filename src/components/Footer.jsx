@@ -12,7 +12,7 @@ export default function Footer({ setActivePage, isDark }) {
 
   return (
     <footer className={`py-16 px-4 sm:px-6 lg:px-8 border-t relative z-10 font-mono text-xs ${
-      isDark ? 'border-white/10 bg-[#0E0E0E] text-slate-400' : 'border-black/10 bg-[#F0F4F2] text-slate-600'
+      isDark ? 'border-white/10 bg-[#0E0E0E] text-slate-400' : 'border-slate-200 bg-[#F8FAFC] text-slate-600'
     }`}>
       <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-start md:items-center justify-between gap-8 pb-12 border-b border-black/5 dark:border-white/5">
         <div>
@@ -30,31 +30,31 @@ export default function Footer({ setActivePage, isDark }) {
         <div className="flex flex-wrap items-center gap-6 text-xs">
           <button
             onClick={() => handleNav('home')}
-            className={`transition-colors cursor-pointer ${isDark ? 'hover:text-white' : 'hover:text-fresh-green'}`}
+            className={`transition-colors cursor-pointer ${isDark ? 'hover:text-white' : 'hover:text-slate-900'}`}
           >
             Home
           </button>
           <button
             onClick={() => handleNav('solutions')}
-            className={`transition-colors cursor-pointer ${isDark ? 'hover:text-white' : 'hover:text-fresh-green'}`}
+            className={`transition-colors cursor-pointer ${isDark ? 'hover:text-white' : 'hover:text-slate-900'}`}
           >
             Solutions
           </button>
           <button
             onClick={() => handleNav('work')}
-            className={`transition-colors cursor-pointer ${isDark ? 'hover:text-white' : 'hover:text-fresh-green'}`}
+            className={`transition-colors cursor-pointer ${isDark ? 'hover:text-white' : 'hover:text-slate-900'}`}
           >
             Projects
           </button>
           <button
             onClick={() => handleNav('about')}
-            className={`transition-colors cursor-pointer ${isDark ? 'hover:text-white' : 'hover:text-fresh-green'}`}
+            className={`transition-colors cursor-pointer ${isDark ? 'hover:text-white' : 'hover:text-slate-900'}`}
           >
             About
           </button>
           <button
             onClick={() => handleNav('prototype')}
-            className={`transition-colors cursor-pointer ${isDark ? 'hover:text-white' : 'hover:text-fresh-green'}`}
+            className={`transition-colors cursor-pointer ${isDark ? 'hover:text-white' : 'hover:text-slate-900'}`}
           >
             Pricing
           </button>
@@ -63,7 +63,7 @@ export default function Footer({ setActivePage, isDark }) {
             target="_blank"
             rel="noopener noreferrer"
             onClick={() => playCyberTone('click')}
-            className="font-bold flex items-center gap-1.5 text-emerald-400 hover:text-emerald-300"
+            className={`font-bold flex items-center gap-1.5 ${isDark ? 'text-emerald-400 hover:text-emerald-300' : 'text-emerald-700 hover:text-emerald-800'}`}
           >
             <MessageCircle className="w-3.5 h-3.5 fill-current" />
             <span>WhatsApp (+91 73586 18789)</span>
@@ -77,8 +77,8 @@ export default function Footer({ setActivePage, isDark }) {
           &copy; {new Date().getFullYear()} Jagadish Studio. All Rights Reserved. ₹0 Maintenance Charges &bull; 100% Code Ownership.
         </div>
         <div className="flex items-center gap-4">
-          <span className={`flex items-center gap-1.5 ${isDark ? 'text-luxury-gold' : 'text-fresh-green'}`}>
-            <span className={`w-1.5 h-1.5 rounded-full animate-pulse ${isDark ? 'bg-luxury-gold' : 'bg-fresh-emerald'}`} />
+          <span className={`flex items-center gap-1.5 ${isDark ? 'text-luxury-gold' : 'text-emerald-700 font-semibold'}`}>
+            <span className={`w-1.5 h-1.5 rounded-full animate-pulse ${isDark ? 'bg-luxury-gold' : 'bg-emerald-500'}`} />
             ALL SYSTEMS ONLINE
           </span>
         </div>

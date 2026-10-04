@@ -67,9 +67,9 @@ export default function SolutionsPage({ onOpenPrototypeModal, onNavigateToWork, 
         <div className={`inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-mono font-bold mb-4 border ${
           isDark 
             ? 'bg-[#1C1829] border-[#8B5CF6] text-white shadow-[0_0_20px_rgba(139,92,246,0.4)]' 
-            : 'bg-fresh-tint border-fresh-border text-fresh-green shadow-emerald-glow'
+            : 'bg-slate-100 border-slate-200 text-slate-800'
         }`}>
-          <Sparkles className="w-3.5 h-3.5 text-emerald-400" />
+          <Sparkles className={`w-3.5 h-3.5 ${isDark ? 'text-emerald-400' : 'text-blue-600'}`} />
           <span>WHAT WE DELIVER • ZERO MAINTENANCE</span>
         </div>
 
@@ -91,10 +91,10 @@ export default function SolutionsPage({ onOpenPrototypeModal, onNavigateToWork, 
               playCyberTone('click');
               onOpenPrototypeModal();
             }}
-            className={`px-6 py-3.5 rounded-xl font-bold font-mono text-xs tracking-wider flex items-center gap-2 shadow-lg transition-all hover:scale-105 active:scale-95 cursor-pointer ${
+            className={`px-6 py-3.5 rounded-xl font-bold font-mono text-xs tracking-wider flex items-center gap-2 shadow-sm transition-all hover:scale-105 active:scale-95 cursor-pointer ${
               isDark
                 ? 'bg-gradient-to-r from-luxury-gold via-amber-300 to-luxury-gold text-black shadow-gold-glow'
-                : 'bg-gradient-to-r from-fresh-emerald to-fresh-green text-white shadow-emerald-glow'
+                : 'bg-slate-900 hover:bg-slate-800 text-white'
             }`}
           >
             <span>ENQUIRE NOW</span>
@@ -106,7 +106,7 @@ export default function SolutionsPage({ onOpenPrototypeModal, onNavigateToWork, 
             target="_blank"
             rel="noopener noreferrer"
             onClick={() => playCyberTone('click')}
-            className="px-5 py-3.5 rounded-xl bg-[#25D366] hover:bg-[#20BA5A] text-white font-mono font-bold text-xs flex items-center gap-2 shadow-md transition-all hover:scale-105 cursor-pointer"
+            className="px-5 py-3.5 rounded-xl bg-[#25D366] hover:bg-[#20BA5A] text-white font-mono font-bold text-xs flex items-center gap-2 shadow-xs transition-all hover:scale-105 cursor-pointer"
           >
             <MessageCircle className="w-4 h-4 fill-current" />
             <span>WhatsApp: +91 73586 18789</span>
@@ -128,7 +128,7 @@ export default function SolutionsPage({ onOpenPrototypeModal, onNavigateToWork, 
               className={`p-8 sm:p-12 rounded-3xl border shadow-xl transition-all ${
                 isDark 
                   ? 'bg-[#18181D] border-[#8B5CF6]/40 hover:border-[#8B5CF6]' 
-                  : 'bg-white border-black/10 hover:border-fresh-emerald/40'
+                  : 'bg-white border-slate-200 hover:border-slate-300'
               }`}
             >
               <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
@@ -137,7 +137,7 @@ export default function SolutionsPage({ onOpenPrototypeModal, onNavigateToWork, 
                     <span className={`px-3 py-1 rounded-full text-xs font-mono font-bold border ${
                       isDark 
                         ? 'border-[#8B5CF6]/50 bg-[#221C35] text-[#C4B5FD]' 
-                        : 'border-fresh-border bg-fresh-tint text-fresh-green'
+                        : 'border-slate-200 bg-slate-100 text-slate-800'
                     }`}>
                       {item.tag}
                     </span>
@@ -159,7 +159,7 @@ export default function SolutionsPage({ onOpenPrototypeModal, onNavigateToWork, 
                     {item.highlights.map((point, pIdx) => (
                       <div key={pIdx} className="flex items-start gap-2.5 text-xs sm:text-sm">
                         <CheckCircle2 className={`w-4 h-4 shrink-0 mt-0.5 ${
-                          isDark ? 'text-emerald-400' : 'text-fresh-emerald'
+                          isDark ? 'text-emerald-400' : 'text-emerald-600'
                         }`} />
                         <span className={isDark ? 'text-slate-200' : 'text-slate-700'}>{point}</span>
                       </div>
@@ -168,10 +168,10 @@ export default function SolutionsPage({ onOpenPrototypeModal, onNavigateToWork, 
                 </div>
 
                 <div className="lg:col-span-4 flex justify-center">
-                  <div className={`w-32 h-32 rounded-3xl border flex items-center justify-center shadow-lg ${
+                  <div className={`w-32 h-32 rounded-3xl border flex items-center justify-center shadow-xs ${
                     isDark 
                       ? 'bg-[#221C35] border-[#8B5CF6]/50 text-[#C4B5FD]' 
-                      : 'bg-[#F5F2FF] border-[#673DE6]/20 text-[#673DE6]'
+                      : 'bg-slate-100 border-slate-200 text-slate-800'
                   }`}>
                     <Icon className="w-14 h-14" />
                   </div>
@@ -183,8 +183,8 @@ export default function SolutionsPage({ onOpenPrototypeModal, onNavigateToWork, 
       </div>
 
       {/* Prominent Page Bottom CTA */}
-      <div className={`p-8 sm:p-12 rounded-3xl border text-center max-w-4xl mx-auto shadow-2xl ${
-        isDark ? 'bg-[#18181C] border-[#8B5CF6]/40' : 'bg-[#F9F7FF] border-[#673DE6]/30'
+      <div className={`p-8 sm:p-12 rounded-3xl border text-center max-w-4xl mx-auto shadow-xl ${
+        isDark ? 'bg-[#18181C] border-[#8B5CF6]/40' : 'bg-slate-50 border-slate-200'
       }`}>
         <h3 className={`text-2xl sm:text-3xl font-extrabold font-display mb-3 ${
           isDark ? 'text-white' : 'text-slate-900'
@@ -201,10 +201,10 @@ export default function SolutionsPage({ onOpenPrototypeModal, onNavigateToWork, 
               playCyberTone('click');
               onOpenPrototypeModal();
             }}
-            className={`w-full sm:w-auto px-8 py-4 rounded-xl font-bold font-mono text-sm tracking-wider flex items-center justify-center gap-2.5 shadow-lg transition-all hover:scale-105 active:scale-95 cursor-pointer ${
+            className={`w-full sm:w-auto px-8 py-4 rounded-xl font-bold font-mono text-sm tracking-wider flex items-center justify-center gap-2.5 shadow-sm transition-all hover:scale-105 active:scale-95 cursor-pointer ${
               isDark
                 ? 'bg-gradient-to-r from-luxury-gold via-amber-300 to-luxury-gold text-black shadow-gold-glow'
-                : 'bg-gradient-to-r from-fresh-emerald to-fresh-green text-white shadow-emerald-glow'
+                : 'bg-slate-900 hover:bg-slate-800 text-white'
             }`}
           >
             <span>ENQUIRE NOW</span>
@@ -216,7 +216,7 @@ export default function SolutionsPage({ onOpenPrototypeModal, onNavigateToWork, 
             target="_blank"
             rel="noopener noreferrer"
             onClick={() => playCyberTone('click')}
-            className="w-full sm:w-auto px-6 py-4 rounded-xl bg-[#25D366] hover:bg-[#20BA5A] text-white font-mono font-bold text-sm flex items-center justify-center gap-2 shadow-md transition-all hover:scale-105 cursor-pointer"
+            className="w-full sm:w-auto px-6 py-4 rounded-xl bg-[#25D366] hover:bg-[#20BA5A] text-white font-mono font-bold text-sm flex items-center justify-center gap-2 shadow-xs transition-all hover:scale-105 cursor-pointer"
           >
             <MessageCircle className="w-5 h-5 fill-current" />
             <span>Chat on WhatsApp (+91 73586 18789)</span>

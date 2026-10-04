@@ -13,7 +13,7 @@ import PrototypeModal from './components/PrototypeModal';
 import Footer from './components/Footer';
 
 export default function App() {
-  const [introFinished, setIntroFinished] = useState(false);
+  const [introFinished, setIntroFinished] = useState(true);
   const [chatOpen, setChatOpen] = useState(false);
   const [prototypeModalOpen, setPrototypeModalOpen] = useState(false);
   const [activePage, setActivePage] = useState('home');
@@ -78,7 +78,7 @@ export default function App() {
     <div className={`min-h-screen relative transition-colors duration-500 ${
       isDark 
         ? 'bg-[#121212] text-[#EAEAEA] selection:bg-luxury-gold selection:text-black' 
-        : 'bg-[#F7FAF8] text-[#0C1F16] selection:bg-fresh-emerald selection:text-white'
+        : 'bg-[#FFFFFF] text-[#0F172A] selection:bg-[#2563EB] selection:text-white'
     }`}>
       {/* 3D Cinematic Entrance Loader */}
       {!introFinished && (

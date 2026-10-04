@@ -48,9 +48,9 @@ export default function AboutPage({ onOpenPrototypeModal, isDark }) {
         <div className={`inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-mono font-bold mb-4 border ${
           isDark 
             ? 'bg-[#1C1829] border-[#8B5CF6] text-white shadow-[0_0_20px_rgba(139,92,246,0.4)]' 
-            : 'bg-fresh-tint border-fresh-border text-fresh-green shadow-emerald-glow'
+            : 'bg-slate-100 border-slate-200 text-slate-800'
         }`}>
-          <Sparkles className="w-3.5 h-3.5 text-emerald-400" />
+          <Sparkles className={`w-3.5 h-3.5 ${isDark ? 'text-emerald-400' : 'text-blue-600'}`} />
           <span>ABOUT OUR STUDIO &bull; LOCAL &bull; AFFORDABLE LUXURY</span>
         </div>
 
@@ -74,10 +74,10 @@ export default function AboutPage({ onOpenPrototypeModal, isDark }) {
               playCyberTone('click');
               onOpenPrototypeModal();
             }}
-            className={`px-6 py-3.5 rounded-xl font-bold font-mono text-xs tracking-wider flex items-center gap-2 shadow-lg transition-all hover:scale-105 active:scale-95 cursor-pointer ${
+            className={`px-6 py-3.5 rounded-xl font-bold font-mono text-xs tracking-wider flex items-center gap-2 shadow-sm transition-all hover:scale-105 active:scale-95 cursor-pointer ${
               isDark
                 ? 'bg-gradient-to-r from-luxury-gold via-amber-300 to-luxury-gold text-black shadow-gold-glow'
-                : 'bg-gradient-to-r from-fresh-emerald to-fresh-green text-white shadow-emerald-glow'
+                : 'bg-slate-900 hover:bg-slate-800 text-white'
             }`}
           >
             <span>ENQUIRE NOW</span>
@@ -89,7 +89,7 @@ export default function AboutPage({ onOpenPrototypeModal, isDark }) {
             target="_blank"
             rel="noopener noreferrer"
             onClick={() => playCyberTone('click')}
-            className="px-5 py-3.5 rounded-xl bg-[#25D366] hover:bg-[#20BA5A] text-white font-mono font-bold text-xs flex items-center gap-2 shadow-md transition-all hover:scale-105 cursor-pointer"
+            className="px-5 py-3.5 rounded-xl bg-[#25D366] hover:bg-[#20BA5A] text-white font-mono font-bold text-xs flex items-center gap-2 shadow-xs transition-all hover:scale-105 cursor-pointer"
           >
             <MessageCircle className="w-4 h-4 fill-current" />
             <span>Chat on WhatsApp: +91 73586 18789</span>
@@ -109,12 +109,12 @@ export default function AboutPage({ onOpenPrototypeModal, isDark }) {
             className={`p-8 sm:p-10 rounded-3xl border transition-all shadow-md ${
               isDark 
                 ? 'bg-[#18181D] border-[#8B5CF6]/30 hover:border-[#8B5CF6]' 
-                : 'bg-white border-black/10 hover:border-fresh-emerald/40'
+                : 'bg-white border-slate-200 hover:border-slate-300'
             }`}
           >
             <div className="flex items-center gap-2 text-xs font-mono font-bold mb-3">
               <span className={`px-2.5 py-0.5 rounded-full border ${
-                isDark ? 'bg-[#221C35] text-[#C4B5FD] border-[#8B5CF6]/40' : 'bg-[#F5F2FF] text-[#673DE6] border-[#673DE6]/20'
+                isDark ? 'bg-[#221C35] text-[#C4B5FD] border-[#8B5CF6]/40' : 'bg-slate-100 text-slate-800 border-slate-200'
               }`}>
                 {pillar.subtitle}
               </span>
@@ -137,7 +137,7 @@ export default function AboutPage({ onOpenPrototypeModal, isDark }) {
 
       {/* Why Choose Us & SEO Keyword Section */}
       <div className={`p-8 sm:p-12 rounded-3xl border mb-20 ${
-        isDark ? 'bg-[#18181D] border-[#8B5CF6]/30' : 'bg-[#F9F7FF] border-[#673DE6]/25'
+        isDark ? 'bg-[#18181D] border-[#8B5CF6]/30' : 'bg-slate-50 border-slate-200'
       }`}>
         <div className="max-w-3xl mx-auto text-center space-y-6">
           <h3 className={`text-2xl sm:text-3xl font-extrabold font-display ${
@@ -153,29 +153,29 @@ export default function AboutPage({ onOpenPrototypeModal, isDark }) {
           </p>
 
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 text-center font-mono text-xs pt-4">
-            <div className={`p-4 rounded-2xl border ${isDark ? 'bg-black/50 border-white/10' : 'bg-white border-black/10'}`}>
+            <div className={`p-4 rounded-2xl border ${isDark ? 'bg-black/50 border-white/10' : 'bg-white border-slate-200'}`}>
               <div className={`text-xl font-bold ${isDark ? 'text-white' : 'text-slate-900'}`}>100+</div>
-              <div className="opacity-70 mt-1">Projects Delivered</div>
+              <div className={`opacity-70 mt-1 ${isDark ? 'text-slate-300' : 'text-slate-600'}`}>Projects Delivered</div>
             </div>
-            <div className={`p-4 rounded-2xl border ${isDark ? 'bg-black/50 border-white/10' : 'bg-white border-black/10'}`}>
-              <div className="text-xl font-bold text-emerald-400">₹0 / yr</div>
-              <div className="opacity-70 mt-1">Maintenance Fees</div>
+            <div className={`p-4 rounded-2xl border ${isDark ? 'bg-black/50 border-white/10' : 'bg-white border-slate-200'}`}>
+              <div className="text-xl font-bold text-emerald-600 dark:text-emerald-400">₹0 / yr</div>
+              <div className={`opacity-70 mt-1 ${isDark ? 'text-slate-300' : 'text-slate-600'}`}>Maintenance Fees</div>
             </div>
-            <div className={`p-4 rounded-2xl border ${isDark ? 'bg-black/50 border-white/10' : 'bg-white border-black/10'}`}>
-              <div className={`text-xl font-bold ${isDark ? 'text-luxury-gold' : 'text-[#673DE6]'}`}>&lt; 0.4s</div>
-              <div className="opacity-70 mt-1">Page Load Speed</div>
+            <div className={`p-4 rounded-2xl border ${isDark ? 'bg-black/50 border-white/10' : 'bg-white border-slate-200'}`}>
+              <div className={`text-xl font-bold ${isDark ? 'text-luxury-gold' : 'text-slate-900'}`}>&lt; 0.4s</div>
+              <div className={`opacity-70 mt-1 ${isDark ? 'text-slate-300' : 'text-slate-600'}`}>Page Load Speed</div>
             </div>
-            <div className={`p-4 rounded-2xl border ${isDark ? 'bg-black/50 border-white/10' : 'bg-white border-black/10'}`}>
-              <div className="text-xl font-bold text-emerald-400">100%</div>
-              <div className="opacity-70 mt-1">Code Ownership</div>
+            <div className={`p-4 rounded-2xl border ${isDark ? 'bg-black/50 border-white/10' : 'bg-white border-slate-200'}`}>
+              <div className="text-xl font-bold text-emerald-600 dark:text-emerald-400">100%</div>
+              <div className={`opacity-70 mt-1 ${isDark ? 'text-slate-300' : 'text-slate-600'}`}>Code Ownership</div>
             </div>
           </div>
         </div>
       </div>
 
       {/* Prominent Bottom WhatsApp Contact CTA */}
-      <div className={`p-8 sm:p-12 rounded-3xl border text-center max-w-4xl mx-auto shadow-2xl ${
-        isDark ? 'bg-[#18181C] border-[#8B5CF6]/40' : 'bg-white border-black/10'
+      <div className={`p-8 sm:p-12 rounded-3xl border text-center max-w-4xl mx-auto shadow-xl ${
+        isDark ? 'bg-[#18181D] border-[#8B5CF6]/40' : 'bg-white border-slate-200'
       }`}>
         <h3 className={`text-2xl sm:text-3xl font-extrabold font-display mb-3 ${
           isDark ? 'text-white' : 'text-slate-900'
@@ -192,10 +192,10 @@ export default function AboutPage({ onOpenPrototypeModal, isDark }) {
               playCyberTone('click');
               onOpenPrototypeModal();
             }}
-            className={`w-full sm:w-auto px-8 py-4 rounded-xl font-bold font-mono text-sm tracking-wider flex items-center justify-center gap-2.5 shadow-lg transition-all hover:scale-105 active:scale-95 cursor-pointer ${
+            className={`w-full sm:w-auto px-8 py-4 rounded-xl font-bold font-mono text-sm tracking-wider flex items-center justify-center gap-2.5 shadow-sm transition-all hover:scale-105 active:scale-95 cursor-pointer ${
               isDark
                 ? 'bg-gradient-to-r from-luxury-gold via-amber-300 to-luxury-gold text-black shadow-gold-glow'
-                : 'bg-gradient-to-r from-fresh-emerald to-fresh-green text-white shadow-emerald-glow'
+                : 'bg-slate-900 hover:bg-slate-800 text-white'
             }`}
           >
             <span>ENQUIRE NOW</span>
@@ -207,7 +207,7 @@ export default function AboutPage({ onOpenPrototypeModal, isDark }) {
             target="_blank"
             rel="noopener noreferrer"
             onClick={() => playCyberTone('click')}
-            className="w-full sm:w-auto px-6 py-4 rounded-xl bg-[#25D366] hover:bg-[#20BA5A] text-white font-mono font-bold text-sm flex items-center justify-center gap-2 shadow-md transition-all hover:scale-105 cursor-pointer"
+            className="w-full sm:w-auto px-6 py-4 rounded-xl bg-[#25D366] hover:bg-[#20BA5A] text-white font-mono font-bold text-sm flex items-center justify-center gap-2 shadow-xs transition-all hover:scale-105 cursor-pointer"
           >
             <MessageCircle className="w-5 h-5 fill-current" />
             <span>Chat on WhatsApp (+91 73586 18789)</span>

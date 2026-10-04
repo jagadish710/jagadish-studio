@@ -52,16 +52,16 @@ export default function PrototypePage({ onOpenPrototypeModal, isDark }) {
       <PricingPhilosophy onOpenPrototypeModal={onOpenPrototypeModal} isDark={isDark} />
 
       {/* Clean Enquiry Form (No clutter, No preview URL box) */}
-      <div className={`p-8 sm:p-14 rounded-3xl border max-w-3xl mx-auto shadow-2xl ${
-        isDark ? 'bg-[#18181D] border-[#8B5CF6]/40' : 'bg-white border-black/10'
+      <div className={`p-8 sm:p-14 rounded-3xl border max-w-3xl mx-auto shadow-xl ${
+        isDark ? 'bg-[#18181D] border-[#8B5CF6]/40' : 'bg-white border-slate-200'
       }`}>
         <div className="text-center max-w-xl mx-auto mb-10">
           <div className={`inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-mono font-bold mb-4 border ${
             isDark 
               ? 'bg-[#1C1829] border-[#8B5CF6] text-white shadow-[0_0_20px_rgba(139,92,246,0.4)]' 
-              : 'bg-fresh-tint border-fresh-border text-fresh-green shadow-emerald-glow'
+              : 'bg-slate-50 border-slate-200 text-slate-800'
           }`}>
-            <Sparkles className="w-3.5 h-3.5 text-emerald-400" />
+            <Sparkles className="w-3.5 h-3.5 text-blue-600 dark:text-emerald-400" />
             <span>START YOUR PROJECT &bull; DIRECT CONTACT</span>
           </div>
 
@@ -91,7 +91,7 @@ export default function PrototypePage({ onOpenPrototypeModal, isDark }) {
                 className={`w-full px-4 py-3 rounded-xl border text-sm focus:outline-none transition-colors ${
                   isDark 
                     ? 'bg-[#121212] border-white/15 text-white focus:border-luxury-gold' 
-                    : 'bg-white border-black/15 text-fresh-forest focus:border-fresh-emerald'
+                    : 'bg-slate-50 border-slate-200 text-slate-900 focus:border-blue-600 focus:bg-white'
                 }`}
               />
             </div>
@@ -109,7 +109,7 @@ export default function PrototypePage({ onOpenPrototypeModal, isDark }) {
                 className={`w-full px-4 py-3 rounded-xl border text-sm focus:outline-none transition-colors cursor-pointer ${
                   isDark 
                     ? 'bg-[#121212] border-white/15 text-white focus:border-luxury-gold' 
-                    : 'bg-white border-black/15 text-fresh-forest focus:border-fresh-emerald'
+                    : 'bg-slate-50 border-slate-200 text-slate-900 focus:border-blue-600 focus:bg-white'
                 }`}
               >
                 <option value="Business Website">Business Website</option>
@@ -135,17 +135,17 @@ export default function PrototypePage({ onOpenPrototypeModal, isDark }) {
                 className={`w-full px-4 py-3 rounded-xl border text-sm focus:outline-none transition-colors ${
                   isDark 
                     ? 'bg-[#121212] border-white/15 text-white focus:border-luxury-gold' 
-                    : 'bg-white border-black/15 text-fresh-forest focus:border-fresh-emerald'
+                    : 'bg-slate-50 border-slate-200 text-slate-900 focus:border-blue-600 focus:bg-white'
                 }`}
               />
             </div>
 
             <button
               type="submit"
-              className={`w-full py-4 rounded-xl font-bold font-mono text-sm tracking-wider flex items-center justify-center gap-2.5 shadow-lg transition-all hover:scale-102 active:scale-98 cursor-pointer mt-4 ${
+              className={`w-full py-4 rounded-xl font-bold font-mono text-sm tracking-wider flex items-center justify-center gap-2.5 shadow-md transition-all hover:scale-101 active:scale-98 cursor-pointer mt-4 ${
                 isDark
                   ? 'bg-gradient-to-r from-luxury-gold via-amber-300 to-luxury-gold text-black shadow-gold-glow'
-                  : 'bg-gradient-to-r from-fresh-emerald to-fresh-green text-white shadow-emerald-glow'
+                  : 'bg-slate-900 hover:bg-slate-800 text-white'
               }`}
             >
               <Send className="w-4 h-4" />
@@ -159,7 +159,7 @@ export default function PrototypePage({ onOpenPrototypeModal, isDark }) {
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={() => playCyberTone('click')}
-                className="w-full py-3.5 rounded-xl bg-[#25D366] hover:bg-[#20BA5A] text-white font-mono font-bold text-xs flex items-center justify-center gap-2 shadow-sm transition-transform hover:scale-102 cursor-pointer"
+                className="w-full py-3.5 rounded-xl bg-[#25D366] hover:bg-[#20BA5A] text-white font-mono font-bold text-xs flex items-center justify-center gap-2 shadow-sm transition-transform hover:scale-101 cursor-pointer"
               >
                 <MessageCircle className="w-4 h-4 fill-current" />
                 <span>Chat Directly on WhatsApp (+91 73586 18789)</span>
@@ -168,7 +168,7 @@ export default function PrototypePage({ onOpenPrototypeModal, isDark }) {
           </form>
         ) : (
           <div className="py-12 text-center max-w-lg mx-auto space-y-4">
-            <div className="w-16 h-16 rounded-full bg-emerald-500/20 text-emerald-400 mx-auto flex items-center justify-center">
+            <div className="w-16 h-16 rounded-full bg-emerald-500/20 text-emerald-600 dark:text-emerald-400 mx-auto flex items-center justify-center">
               <CheckCircle2 className="w-10 h-10" />
             </div>
 
@@ -177,7 +177,7 @@ export default function PrototypePage({ onOpenPrototypeModal, isDark }) {
             </h3>
 
             <p className={`text-sm ${isDark ? 'text-slate-300' : 'text-slate-600'}`}>
-              Thank you, <strong className={isDark ? 'text-luxury-gold' : 'text-fresh-green'}>{businessName}</strong>. We are opening WhatsApp to connect directly with you right now.
+              Thank you, <strong className={isDark ? 'text-luxury-gold' : 'text-slate-900 font-bold'}>{businessName}</strong>. We are opening WhatsApp to connect directly with you right now.
             </p>
 
             <a

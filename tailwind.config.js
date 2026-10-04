@@ -20,16 +20,16 @@ export default {
           goldHover: "#F0D49E",
           goldGlow: "rgba(230, 198, 135, 0.35)",
         },
-        // Light Theme Palette: Inspired by modern healthcare & tech advertising
+        // Light Theme Palette: Crisp, Trustworthy Enterprise Standard (Stripe / Linear / Apple grade)
         fresh: {
-          bg: "#F7FAF8",
+          bg: "#FFFFFF",
           card: "#FFFFFF",
-          forest: "#0C1F16",
-          muted: "#4A5D53",
-          emerald: "#00C853",
-          green: "#059669",
-          tint: "#E6F7EF",
-          border: "rgba(5, 150, 105, 0.15)",
+          forest: "#0F172A",      // Deep authoritative Slate-900
+          muted: "#475569",       // Refined Slate-600
+          emerald: "#2563EB",     // Trustworthy Royal Blue / Indigo
+          green: "#059669",       // Refined Forest Emerald for verified badges
+          tint: "#F8FAFC",        // Clean Slate-50 surface
+          border: "#E2E8F0",      // Crisp hairline Slate-200 border
         }
       },
       fontFamily: {
@@ -39,9 +39,9 @@ export default {
       },
       boxShadow: {
         'gold-glow': '0 0 35px -5px rgba(230, 198, 135, 0.35)',
-        'emerald-glow': '0 0 35px -5px rgba(0, 200, 83, 0.35)',
+        'emerald-glow': '0 4px 20px -2px rgba(37, 99, 235, 0.25)',
         'luxury-card': '0 16px 40px -10px rgba(0, 0, 0, 0.5)',
-        'light-card': '0 12px 36px -10px rgba(12, 31, 22, 0.08)',
+        'light-card': '0 4px 24px -4px rgba(15, 23, 42, 0.06)',
       }
     },
   },

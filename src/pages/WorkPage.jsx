@@ -88,9 +88,9 @@ export default function WorkPage({ isDark, onOpenPrototypeModal }) {
         <div className={`inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-mono font-bold mb-4 border backdrop-blur-md ${
           isDark 
             ? 'bg-[#1C1829] border-[#8B5CF6] text-white shadow-[0_0_20px_rgba(139,92,246,0.45)]' 
-            : 'bg-[#F5F2FF] border-[#673DE6]/40 text-[#673DE6]'
+            : 'bg-slate-100 border-slate-200 text-slate-800'
         }`}>
-          <Sparkles className="w-4 h-4 text-emerald-400" />
+          <Sparkles className={`w-4 h-4 ${isDark ? 'text-emerald-400' : 'text-blue-600'}`} />
           <span>PROVEN TRACK RECORD • 100+ DEPLOYMENTS</span>
         </div>
 
@@ -100,7 +100,7 @@ export default function WorkPage({ isDark, onOpenPrototypeModal }) {
             100+ Systems Delivered
           </span>
           <br />
-          <span className={isDark ? 'text-luxury-gold drop-shadow-[0_0_20px_rgba(230,198,135,0.4)]' : 'text-fresh-green'}>
+          <span className={isDark ? 'text-luxury-gold drop-shadow-[0_0_20px_rgba(230,198,135,0.4)]' : 'text-gradient-main'}>
             With Zero Maintenance Fees
           </span>
         </h1>
@@ -118,10 +118,10 @@ export default function WorkPage({ isDark, onOpenPrototypeModal }) {
               playCyberTone('click');
               onOpenPrototypeModal();
             }}
-            className={`px-6 py-3.5 rounded-xl font-bold font-mono text-xs tracking-wider flex items-center gap-2 shadow-lg transition-all hover:scale-105 active:scale-95 cursor-pointer ${
+            className={`px-6 py-3.5 rounded-xl font-bold font-mono text-xs tracking-wider flex items-center gap-2 shadow-sm transition-all hover:scale-105 active:scale-95 cursor-pointer ${
               isDark
                 ? 'bg-gradient-to-r from-luxury-gold via-amber-300 to-luxury-gold text-black shadow-gold-glow'
-                : 'bg-gradient-to-r from-fresh-emerald to-fresh-green text-white shadow-emerald-glow'
+                : 'bg-slate-900 hover:bg-slate-800 text-white'
             }`}
           >
             <span>ENQUIRE NOW</span>
@@ -133,7 +133,7 @@ export default function WorkPage({ isDark, onOpenPrototypeModal }) {
             target="_blank"
             rel="noopener noreferrer"
             onClick={() => playCyberTone('click')}
-            className="inline-flex items-center gap-2 px-5 py-3.5 rounded-xl bg-[#25D366] hover:bg-[#20BA5A] text-white font-mono font-bold text-xs shadow-md transition-all hover:scale-105 cursor-pointer"
+            className="inline-flex items-center gap-2 px-5 py-3.5 rounded-xl bg-[#25D366] hover:bg-[#20BA5A] text-white font-mono font-bold text-xs shadow-xs transition-all hover:scale-105 cursor-pointer"
           >
             <MessageCircle className="w-4 h-4 fill-current" />
             <span>Chat on WhatsApp: +91 73586 18789</span>
@@ -151,14 +151,14 @@ export default function WorkPage({ isDark, onOpenPrototypeModal }) {
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: idx * 0.1 }}
             className={`rounded-3xl p-6 sm:p-8 border shadow-xl ${
-              isDark ? 'bg-[#18181D] border-[#8B5CF6]/40' : 'bg-white border-black/10'
+              isDark ? 'bg-[#18181D] border-[#8B5CF6]/40' : 'bg-white border-slate-200'
             }`}
           >
             <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-4 border-b border-black/10 dark:border-white/10 pb-5 mb-5">
               <div>
                 <div className="flex items-center gap-2 mb-2">
                   <span className={`text-[10px] font-mono font-bold tracking-wider px-2.5 py-0.5 rounded-full border ${
-                    isDark ? 'bg-[#221C35] text-[#C4B5FD] border-[#8B5CF6]/40' : 'bg-[#F5F2FF] text-[#673DE6] border-[#673DE6]/20'
+                    isDark ? 'bg-[#221C35] text-[#C4B5FD] border-[#8B5CF6]/40' : 'bg-slate-100 text-slate-800 border-slate-200'
                   }`}>
                     {proj.tag}
                   </span>
@@ -180,7 +180,7 @@ export default function WorkPage({ isDark, onOpenPrototypeModal }) {
                   className={`inline-flex items-center gap-2 px-5 py-2.5 rounded-xl font-mono text-xs font-bold tracking-wide transition-all hover:scale-105 active:scale-95 cursor-pointer self-start lg:self-auto ${
                     isDark
                       ? 'bg-gradient-to-r from-[#673DE6] to-[#8B5CF6] text-white shadow-[0_0_20px_rgba(103,61,230,0.4)]'
-                      : 'bg-[#673DE6] hover:bg-[#5327DE] text-white shadow-md'
+                      : 'bg-slate-900 hover:bg-slate-800 text-white shadow-xs'
                   }`}
                 >
                   <span>Visit Platform • {proj.domain}</span>
@@ -188,7 +188,7 @@ export default function WorkPage({ isDark, onOpenPrototypeModal }) {
                 </a>
               ) : (
                 <div className={`px-4 py-2 rounded-xl text-xs font-mono border ${
-                  isDark ? 'bg-black/50 border-white/10 text-slate-300' : 'bg-slate-100 border-black/10 text-slate-700'
+                  isDark ? 'bg-black/50 border-white/10 text-slate-300' : 'bg-slate-100 border-slate-200 text-slate-700'
                 }`}>
                   Custom Enterprise Software
                 </div>
@@ -206,7 +206,7 @@ export default function WorkPage({ isDark, onOpenPrototypeModal }) {
                   {proj.deliverables.map((item, dIdx) => (
                     <div key={dIdx} className="flex items-start gap-2.5 text-xs sm:text-sm">
                       <CheckCircle2 className={`w-4 h-4 shrink-0 mt-0.5 ${
-                        isDark ? 'text-emerald-400' : 'text-fresh-emerald'
+                        isDark ? 'text-emerald-400' : 'text-emerald-600'
                       }`} />
                       <span className={isDark ? 'text-slate-200' : 'text-slate-700'}>{item}</span>
                     </div>
@@ -220,12 +220,12 @@ export default function WorkPage({ isDark, onOpenPrototypeModal }) {
                   <div
                     key={mIdx}
                     className={`p-3 rounded-2xl border text-center lg:text-left flex flex-col lg:flex-row items-center justify-between ${
-                      isDark ? 'bg-black/50 border-white/10' : 'bg-slate-50 border-black/10'
+                      isDark ? 'bg-black/50 border-white/10' : 'bg-slate-50 border-slate-200'
                     }`}
                   >
                     <span className={`text-xs font-mono ${isDark ? 'text-slate-300' : 'text-slate-600'}`}>{metric.label}</span>
                     <span className={`text-base font-mono font-bold ${
-                      isDark ? 'text-luxury-gold' : 'text-[#673DE6]'
+                      isDark ? 'text-luxury-gold' : 'text-slate-900'
                     }`}>
                       {metric.val}
                     </span>
@@ -238,8 +238,8 @@ export default function WorkPage({ isDark, onOpenPrototypeModal }) {
       </div>
 
       {/* Philosophy Banner: Solutions, Not Just A Website */}
-      <div className={`p-8 sm:p-12 rounded-3xl border text-center max-w-4xl mx-auto shadow-2xl ${
-        isDark ? 'bg-[#18181C] border-[#8B5CF6]/40' : 'bg-[#F9F7FF] border-[#673DE6]/30'
+      <div className={`p-8 sm:p-12 rounded-3xl border text-center max-w-4xl mx-auto shadow-xl ${
+        isDark ? 'bg-[#18181C] border-[#8B5CF6]/40' : 'bg-slate-50 border-slate-200'
       }`}>
         <h3 className={`text-2xl sm:text-3xl font-extrabold font-display mb-3 ${
           isDark ? 'text-white' : 'text-slate-900'
@@ -251,20 +251,20 @@ export default function WorkPage({ isDark, onOpenPrototypeModal }) {
         </p>
 
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 text-left font-mono text-xs mb-8">
-          <div className={`p-5 rounded-2xl border ${isDark ? 'bg-black/50 border-white/10' : 'bg-white border-black/10'}`}>
-            <div className="text-sm font-bold text-[#C4B5FD] mb-1">Zero Retainers</div>
+          <div className={`p-5 rounded-2xl border ${isDark ? 'bg-black/50 border-white/10' : 'bg-white border-slate-200'}`}>
+            <div className={`text-sm font-bold mb-1 ${isDark ? 'text-[#C4B5FD]' : 'text-slate-900'}`}>Zero Retainers</div>
             <div className={`text-[11px] ${isDark ? 'text-slate-300' : 'text-slate-600'}`}>
               Pay once. The system runs forever with zero recurring monthly bills.
             </div>
           </div>
-          <div className={`p-5 rounded-2xl border ${isDark ? 'bg-black/50 border-white/10' : 'bg-white border-black/10'}`}>
-            <div className="text-sm font-bold text-emerald-400 mb-1">100% Control</div>
+          <div className={`p-5 rounded-2xl border ${isDark ? 'bg-black/50 border-white/10' : 'bg-white border-slate-200'}`}>
+            <div className="text-sm font-bold text-emerald-600 dark:text-emerald-400 mb-1">100% Control</div>
             <div className={`text-[11px] ${isDark ? 'text-slate-300' : 'text-slate-600'}`}>
               Visual admin portal lets you add products and change prices in 10 seconds.
             </div>
           </div>
-          <div className={`p-5 rounded-2xl border ${isDark ? 'bg-black/50 border-white/10' : 'bg-white border-black/10'}`}>
-            <div className="text-sm font-bold text-amber-300 mb-1">Top Google Rank</div>
+          <div className={`p-5 rounded-2xl border ${isDark ? 'bg-black/50 border-white/10' : 'bg-white border-slate-200'}`}>
+            <div className={`text-sm font-bold mb-1 ${isDark ? 'text-amber-300' : 'text-slate-900'}`}>Top Google Rank</div>
             <div className={`text-[11px] ${isDark ? 'text-slate-300' : 'text-slate-600'}`}>
               Clean modern code and sub-0.4s load speed ensure maximum search engine visibility.
             </div>
@@ -277,10 +277,10 @@ export default function WorkPage({ isDark, onOpenPrototypeModal }) {
               playCyberTone('click');
               onOpenPrototypeModal();
             }}
-            className={`w-full sm:w-auto px-8 py-4 rounded-xl font-bold font-mono text-sm tracking-wider flex items-center justify-center gap-2.5 shadow-lg transition-all hover:scale-105 active:scale-95 cursor-pointer ${
+            className={`w-full sm:w-auto px-8 py-4 rounded-xl font-bold font-mono text-sm tracking-wider flex items-center justify-center gap-2.5 shadow-sm transition-all hover:scale-105 active:scale-95 cursor-pointer ${
               isDark
                 ? 'bg-gradient-to-r from-luxury-gold via-amber-300 to-luxury-gold text-black shadow-gold-glow'
-                : 'bg-gradient-to-r from-fresh-emerald to-fresh-green text-white shadow-emerald-glow'
+                : 'bg-slate-900 hover:bg-slate-800 text-white'
             }`}
           >
             <span>ENQUIRE NOW</span>
@@ -292,7 +292,7 @@ export default function WorkPage({ isDark, onOpenPrototypeModal }) {
             target="_blank"
             rel="noopener noreferrer"
             onClick={() => playCyberTone('click')}
-            className="w-full sm:w-auto px-6 py-4 rounded-xl bg-[#25D366] hover:bg-[#20BA5A] text-white font-mono font-bold text-sm flex items-center justify-center gap-2 shadow-md transition-all hover:scale-105 cursor-pointer"
+            className="w-full sm:w-auto px-6 py-4 rounded-xl bg-[#25D366] hover:bg-[#20BA5A] text-white font-mono font-bold text-sm flex items-center justify-center gap-2 shadow-xs transition-all hover:scale-105 cursor-pointer"
           >
             <MessageCircle className="w-5 h-5 fill-current" />
             <span>Chat Directly on WhatsApp (+91 73586 18789)</span>

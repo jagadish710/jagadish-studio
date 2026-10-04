@@ -140,9 +140,9 @@ export default function InteractiveCardsSection({ isDark, onOpenPrototypeModal }
         <div className={`inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-mono font-bold mb-4 border backdrop-blur-md ${
           isDark 
             ? 'bg-[#1C1829] border-[#8B5CF6] text-white shadow-[0_0_20px_rgba(139,92,246,0.45)]' 
-            : 'bg-[#F3EFFE] border-[#673DE6]/30 text-[#673DE6]'
+            : 'bg-slate-100 border-slate-200 text-slate-800'
         }`}>
-          <Sparkles className="w-3.5 h-3.5 text-emerald-400" />
+          <Sparkles className={`w-3.5 h-3.5 ${isDark ? 'text-emerald-400' : 'text-blue-600'}`} />
           <span>PROVEN TRACK RECORD • 100+ DEPLOYMENTS</span>
         </div>
 
@@ -157,7 +157,7 @@ export default function InteractiveCardsSection({ isDark, onOpenPrototypeModal }
           <span className={`text-lg sm:text-2xl font-mono font-bold px-4 py-1.5 rounded-xl border ${
             isDark
               ? 'bg-[#1A1A1E] text-luxury-gold border-luxury-gold/50 shadow-gold-glow'
-              : 'bg-white text-fresh-green border-fresh-border shadow-sm'
+              : 'bg-slate-50 text-slate-900 border-slate-200 shadow-sm'
           }`}>
             {displayText}
             <span className="animate-pulse ml-0.5 font-normal opacity-80">|</span>
@@ -167,28 +167,21 @@ export default function InteractiveCardsSection({ isDark, onOpenPrototypeModal }
         <p className={`mt-4 text-xs sm:text-sm font-normal max-w-xl mx-auto ${
           isDark ? 'text-slate-300' : 'text-slate-600'
         }`}>
-          Click on any 3D card below to flip and explore the details.
+          Click on any card to view detailed delivery specs and real-world examples.
         </p>
       </div>
 
-      {/* 3D Floating Interactive Flip Card Grid */}
+      {/* Interactive Enterprise Bento Card Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
         {cardsData.map((card, idx) => {
           const isFlipped = flipped[idx];
           const Icon = card.icon;
 
           return (
-            <motion.div
+            <div
               key={card.id}
-              animate={{ y: [0, -6, 0] }}
-              transition={{
-                duration: 3.5 + idx * 0.6,
-                repeat: Infinity,
-                ease: 'easeInOut',
-              }}
-              className="perspective-1000 h-[370px] w-full cursor-pointer select-none group"
+              className="perspective-1000 h-[380px] w-full cursor-pointer select-none group transition-transform duration-300 hover:-translate-y-1.5"
               onClick={() => toggleFlip(idx)}
-              onMouseEnter={() => playCyberTone('hover')}
             >
               <div
                 className={`relative w-full h-full duration-500 transform-style-3d transition-transform ${
@@ -197,26 +190,26 @@ export default function InteractiveCardsSection({ isDark, onOpenPrototypeModal }
               >
                 {/* FRONT FACE */}
                 <div
-                  className={`absolute inset-0 backface-hidden rounded-3xl p-6 flex flex-col justify-between border shadow-lg transition-all ${
+                  className={`absolute inset-0 backface-hidden rounded-3xl p-6 flex flex-col justify-between border transition-all ${
                     isDark 
-                      ? 'bg-[#18181C] border-[#8B5CF6]/40 hover:border-[#8B5CF6] hover:shadow-[0_0_25px_rgba(139,92,246,0.3)]' 
-                      : 'bg-white border-black/10 hover:border-fresh-emerald/50 hover:shadow-md'
+                      ? 'bg-[#18181C] border-[#8B5CF6]/40 hover:border-[#8B5CF6] hover:shadow-[0_0_25px_rgba(139,92,246,0.3)] shadow-lg' 
+                      : 'bg-white border-slate-200/90 hover:border-slate-300 hover:shadow-xl shadow-sm'
                   }`}
                 >
                   <div>
                     {/* Top Row: Icon & Badge */}
                     <div className="flex items-center justify-between mb-4">
-                      <div className={`w-11 h-11 rounded-2xl flex items-center justify-center border shadow-sm ${
+                      <div className={`w-11 h-11 rounded-2xl flex items-center justify-center border shadow-xs ${
                         isDark 
                           ? 'bg-[#221C35] text-[#C4B5FD] border-[#8B5CF6]/40' 
-                          : 'bg-[#F5F2FF] text-[#673DE6] border-[#673DE6]/20'
+                          : 'bg-slate-100 text-slate-800 border-slate-200'
                       }`}>
                         <Icon className="w-5 h-5" />
                       </div>
                       <span className={`text-[10px] font-mono font-bold tracking-widest px-2.5 py-1 rounded-full border ${
                         isDark 
                           ? 'bg-[#1D1B26] text-luxury-gold border-luxury-gold/40' 
-                          : 'bg-[#F2FAF5] text-fresh-green border-fresh-border'
+                          : 'bg-slate-100 text-slate-700 border-slate-200'
                       }`}>
                         {card.badge}
                       </span>
@@ -237,7 +230,7 @@ export default function InteractiveCardsSection({ isDark, onOpenPrototypeModal }
                       {card.frontBullets.map((bullet, bIdx) => (
                         <div key={bIdx} className="flex items-start gap-2.5 text-xs font-medium">
                           <CheckCircle2 className={`w-4 h-4 shrink-0 mt-0.5 ${
-                            isDark ? 'text-emerald-400' : 'text-fresh-emerald'
+                            isDark ? 'text-emerald-400' : 'text-emerald-600'
                           }`} />
                           <span className={isDark ? 'text-slate-200' : 'text-slate-700'}>{bullet}</span>
                         </div>
@@ -247,13 +240,13 @@ export default function InteractiveCardsSection({ isDark, onOpenPrototypeModal }
 
                   {/* Flip Action Hint */}
                   <div className={`pt-3 border-t flex items-center justify-between text-[11px] font-mono ${
-                    isDark ? 'border-white/10 text-slate-300 group-hover:text-white' : 'border-black/10 text-slate-500 group-hover:text-black'
+                    isDark ? 'border-white/10 text-slate-300 group-hover:text-white' : 'border-slate-100 text-slate-500 group-hover:text-slate-900'
                   }`}>
                     <span className="flex items-center gap-1.5">
                       <RotateCw className="w-3.5 h-3.5 group-hover:rotate-180 transition-transform duration-500" />
-                      <span>Click to flip</span>
+                      <span>Click to view details</span>
                     </span>
-                    <span className="text-xs">→</span>
+                    <span className="text-xs font-bold">→</span>
                   </div>
                 </div>
 
@@ -262,13 +255,13 @@ export default function InteractiveCardsSection({ isDark, onOpenPrototypeModal }
                   className={`absolute inset-0 backface-hidden rotate-y-180 rounded-3xl p-6 flex flex-col justify-between border ${
                     isDark
                       ? 'bg-gradient-to-b from-[#1C172E] to-[#12101B] border-[#8B5CF6]/70 text-white shadow-[0_0_30px_rgba(139,92,246,0.35)]'
-                      : 'bg-gradient-to-b from-[#FAF8FF] to-[#FFFFFF] border-[#673DE6]/40 text-slate-900 shadow-xl'
+                      : 'bg-white border-slate-200 text-slate-900 shadow-xl'
                   }`}
                 >
                   <div>
-                    <div className="flex items-center justify-between mb-3 pb-2 border-b border-white/15 dark:border-white/15">
+                    <div className="flex items-center justify-between mb-3 pb-2 border-b border-black/10 dark:border-white/15">
                       <span className={`text-[11px] font-mono font-bold uppercase tracking-wider ${
-                        isDark ? 'text-[#C4B5FD]' : 'text-[#673DE6]'
+                        isDark ? 'text-[#C4B5FD]' : 'text-slate-800'
                       }`}>
                         {card.backTitle}
                       </span>
@@ -278,10 +271,10 @@ export default function InteractiveCardsSection({ isDark, onOpenPrototypeModal }
                     <div className="space-y-3 mt-3">
                       {card.backBullets.map((item, iIdx) => (
                         <div key={iIdx} className={`p-2.5 rounded-xl border text-left ${
-                          isDark ? 'bg-black/60 border-white/10' : 'bg-white border-black/10 shadow-xs'
+                          isDark ? 'bg-black/60 border-white/10' : 'bg-slate-50 border-slate-200/80'
                         }`}>
                           <div className={`text-xs font-mono font-bold ${
-                            isDark ? 'text-luxury-gold' : 'text-[#673DE6]'
+                            isDark ? 'text-luxury-gold' : 'text-slate-900'
                           }`}>
                             {item.label}
                           </div>
@@ -296,13 +289,13 @@ export default function InteractiveCardsSection({ isDark, onOpenPrototypeModal }
                   </div>
 
                   <div className={`pt-2 text-center text-[10px] font-mono ${
-                    isDark ? 'text-slate-400' : 'opacity-60'
+                    isDark ? 'text-slate-400' : 'text-slate-500'
                   }`}>
-                    Click again to return
+                    Click again to flip back
                   </div>
                 </div>
               </div>
-            </motion.div>
+            </div>
           );
         })}
       </div>

@@ -66,10 +66,10 @@ export default function Navbar({
           scrolled
             ? isDark
               ? 'bg-[#121212]/92 backdrop-blur-xl border border-luxury-gold/25 shadow-2xl shadow-black/80'
-              : 'bg-[#FFFFFF]/92 backdrop-blur-xl border border-fresh-border shadow-lg shadow-emerald-950/5'
+              : 'bg-white/95 backdrop-blur-xl border border-slate-200/90 shadow-sm'
             : isDark
             ? 'bg-transparent border border-white/5'
-            : 'bg-transparent border border-black/5'
+            : 'bg-transparent border border-slate-200/40'
         }`}
       >
         {/* Brand Logo Only */}
@@ -83,7 +83,7 @@ export default function Navbar({
 
         {/* Desktop Navigation Pages */}
         <nav className={`hidden md:flex items-center gap-1 p-1 rounded-xl border backdrop-blur-md ${
-          isDark ? 'bg-white/5 border-white/10' : 'bg-black/5 border-black/10'
+          isDark ? 'bg-white/5 border-white/10' : 'bg-slate-100/80 border-slate-200/60'
         }`}>
           {navItems.map((item) => {
             const isActive = activePage === item.id;
@@ -93,7 +93,7 @@ export default function Navbar({
                 onClick={() => handleNavClick(item.id)}
                 className={`relative px-4 py-1.5 rounded-lg text-xs font-mono transition-all cursor-pointer ${
                   isActive
-                    ? isDark ? 'text-white font-bold' : 'text-fresh-forest font-bold'
+                    ? isDark ? 'text-white font-bold' : 'text-slate-900 font-bold'
                     : 'opacity-70 hover:opacity-100'
                 }`}
               >
@@ -103,7 +103,7 @@ export default function Navbar({
                     className={`absolute inset-0 rounded-lg border ${
                       isDark 
                         ? 'bg-luxury-gold/15 border-luxury-gold/40' 
-                        : 'bg-fresh-tint border-fresh-emerald/40'
+                        : 'bg-white border-slate-200 shadow-xs'
                     }`}
                     transition={{ type: 'spring', stiffness: 380, damping: 30 }}
                   />
@@ -112,7 +112,7 @@ export default function Navbar({
                   {item.label}
                   {item.id === 'work' && (
                     <span className={`w-1.5 h-1.5 rounded-full animate-pulse ${
-                      isDark ? 'bg-luxury-gold' : 'bg-fresh-emerald'
+                      isDark ? 'bg-luxury-gold' : 'bg-blue-600'
                     }`} />
                   )}
                 </span>
@@ -129,9 +129,9 @@ export default function Navbar({
             className={`p-2 rounded-xl border text-xs font-mono flex items-center gap-1.5 transition-all cursor-pointer ${
               isDark 
                 ? 'bg-[#1A1A1A] border-luxury-gold/30 text-luxury-gold hover:bg-[#222222]' 
-                : 'bg-white border-fresh-border text-fresh-green hover:bg-fresh-tint shadow-sm'
+                : 'bg-white border-slate-200 text-slate-700 hover:bg-slate-50 shadow-xs'
             }`}
-            title={`Current Theme: ${isDark ? 'Dark (Champagne & Obsidian)' : 'Light (Mint & Porcelain)'}. Click to switch.`}
+            title={`Current Theme: ${isDark ? 'Dark (Champagne & Obsidian)' : 'Light (Minimal & Trustworthy)'}. Click to switch.`}
           >
             {isDark ? <Sun className="w-4 h-4" /> : <Moon className="w-4 h-4" />}
             <span className="hidden lg:inline text-[10px] uppercase font-bold">
@@ -148,10 +148,10 @@ export default function Navbar({
             className={`hidden sm:flex items-center gap-1.5 px-3 py-2 rounded-xl border text-xs font-mono transition-all cursor-pointer ${
               isDark 
                 ? 'bg-[#1A1A1A] border-white/10 hover:border-luxury-gold/40 text-slate-300 hover:text-white' 
-                : 'bg-white border-black/10 hover:border-fresh-emerald/40 text-slate-700 hover:text-fresh-forest shadow-sm'
+                : 'bg-white border-slate-200 hover:border-slate-300 text-slate-700 shadow-xs'
             }`}
           >
-            <MessageSquare className={`w-3.5 h-3.5 ${isDark ? 'text-luxury-gold' : 'text-fresh-green'}`} />
+            <MessageSquare className={`w-3.5 h-3.5 ${isDark ? 'text-luxury-gold' : 'text-blue-600'}`} />
             <span>AI</span>
           </button>
 
@@ -164,7 +164,7 @@ export default function Navbar({
             className={`px-4 py-2 rounded-xl font-bold text-xs font-mono flex items-center gap-1.5 transition-all hover:scale-105 active:scale-95 cursor-pointer ${
               isDark 
                 ? 'bg-gradient-to-r from-luxury-gold via-amber-300 to-luxury-gold text-black shadow-gold-glow' 
-                : 'bg-gradient-to-r from-fresh-emerald to-fresh-green text-white shadow-emerald-glow'
+                : 'bg-slate-900 hover:bg-slate-800 text-white shadow-xs'
             }`}
           >
             <span>ENQUIRE NOW</span>
@@ -177,7 +177,7 @@ export default function Navbar({
             target="_blank"
             rel="noopener noreferrer"
             onClick={() => playCyberTone('click')}
-            className="hidden sm:flex items-center gap-1.5 px-3 py-2 rounded-xl bg-[#25D366] hover:bg-[#20BA5A] text-white font-mono font-bold text-xs shadow-sm hover:scale-105 transition-all cursor-pointer"
+            className="hidden sm:flex items-center gap-1.5 px-3 py-2 rounded-xl bg-[#25D366] hover:bg-[#20BA5A] text-white font-mono font-bold text-xs shadow-xs hover:scale-105 transition-all cursor-pointer"
             title="Chat on WhatsApp (+91 7358618789)"
           >
             <span>WhatsApp</span>
@@ -187,7 +187,7 @@ export default function Navbar({
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             className={`md:hidden p-2 rounded-xl border ${
-              isDark ? 'bg-white/5 border-white/10 text-white' : 'bg-black/5 border-black/10 text-black'
+              isDark ? 'bg-white/5 border-white/10 text-white' : 'bg-slate-100 border-slate-200 text-slate-800'
             }`}
           >
             {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
@@ -198,7 +198,7 @@ export default function Navbar({
       {/* Mobile Drawer */}
       {mobileMenuOpen && (
         <div className={`md:hidden mt-2 p-4 rounded-2xl border shadow-2xl flex flex-col gap-2 font-mono text-xs ${
-          isDark ? 'bg-[#181818] border-white/10' : 'bg-white border-black/10'
+          isDark ? 'bg-[#181818] border-white/10' : 'bg-white border-slate-200'
         }`}>
           {navItems.map((item) => (
             <button
@@ -208,7 +208,7 @@ export default function Navbar({
                 activePage === item.id
                   ? isDark 
                     ? 'bg-luxury-gold/15 text-luxury-gold font-bold border border-luxury-gold/30' 
-                    : 'bg-fresh-tint text-fresh-green font-bold border border-fresh-border'
+                    : 'bg-slate-100 text-slate-900 font-bold border border-slate-200'
                   : 'opacity-70 hover:opacity-100'
               }`}
             >

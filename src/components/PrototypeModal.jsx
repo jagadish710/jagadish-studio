@@ -53,7 +53,7 @@ export default function PrototypeModal({ isOpen, onClose, isDark }) {
       <div className={`relative w-full max-w-lg rounded-3xl p-6 sm:p-8 shadow-2xl border ${
         isDark 
           ? 'bg-[#181818] border-luxury-gold/40 shadow-black/90 text-[#EAEAEA]' 
-          : 'bg-white border-fresh-border shadow-emerald-950/20 text-[#0C1F16]'
+          : 'bg-white border-slate-200 shadow-2xl text-slate-900'
       }`}>
         {/* Close Button */}
         <button
@@ -72,9 +72,9 @@ export default function PrototypeModal({ isOpen, onClose, isDark }) {
             <div className={`inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-mono mb-4 border ${
               isDark 
                 ? 'bg-luxury-gold/10 border-luxury-gold/30 text-luxury-gold' 
-                : 'bg-fresh-tint border-fresh-border text-fresh-green'
+                : 'bg-slate-50 border-slate-200 text-slate-800'
             }`}>
-              <Sparkles className="w-3.5 h-3.5" />
+              <Sparkles className="w-3.5 h-3.5 text-blue-600 dark:text-luxury-gold" />
               <span>DIRECT ENQUIRY &bull; FAST RESPONSE</span>
             </div>
 
@@ -101,7 +101,7 @@ export default function PrototypeModal({ isOpen, onClose, isDark }) {
                   className={`w-full px-4 py-2.5 rounded-xl border text-sm focus:outline-none transition-colors ${
                     isDark 
                       ? 'bg-[#121212] border-white/15 text-white focus:border-luxury-gold' 
-                      : 'bg-white border-black/15 text-fresh-forest focus:border-fresh-emerald'
+                      : 'bg-slate-50 border-slate-200 text-slate-900 focus:border-blue-600 focus:bg-white'
                   }`}
                 />
               </div>
@@ -119,7 +119,7 @@ export default function PrototypeModal({ isOpen, onClose, isDark }) {
                   className={`w-full px-4 py-2.5 rounded-xl border text-sm focus:outline-none transition-colors cursor-pointer ${
                     isDark 
                       ? 'bg-[#121212] border-white/15 text-white focus:border-luxury-gold' 
-                      : 'bg-white border-black/15 text-fresh-forest focus:border-fresh-emerald'
+                      : 'bg-slate-50 border-slate-200 text-slate-900 focus:border-blue-600 focus:bg-white'
                   }`}
                 >
                   <option value="Business Website">Business Website</option>
@@ -145,17 +145,17 @@ export default function PrototypeModal({ isOpen, onClose, isDark }) {
                   className={`w-full px-4 py-2.5 rounded-xl border text-sm focus:outline-none transition-colors ${
                     isDark 
                       ? 'bg-[#121212] border-white/15 text-white focus:border-luxury-gold' 
-                      : 'bg-white border-black/15 text-fresh-forest focus:border-fresh-emerald'
+                      : 'bg-slate-50 border-slate-200 text-slate-900 focus:border-blue-600 focus:bg-white'
                   }`}
                 />
               </div>
 
               <button
                 type="submit"
-                className={`w-full py-3.5 rounded-xl font-bold font-mono text-sm tracking-wider flex items-center justify-center gap-2 transition-all hover:scale-102 active:scale-98 cursor-pointer shadow-lg mt-2 ${
+                className={`w-full py-3.5 rounded-xl font-bold font-mono text-sm tracking-wider flex items-center justify-center gap-2 transition-all hover:scale-101 active:scale-98 cursor-pointer shadow-md mt-2 ${
                   isDark
                     ? 'bg-gradient-to-r from-luxury-gold via-amber-300 to-luxury-gold text-black shadow-gold-glow'
-                    : 'bg-gradient-to-r from-fresh-emerald to-fresh-green text-white shadow-emerald-glow'
+                    : 'bg-slate-900 hover:bg-slate-800 text-white'
                 }`}
               >
                 <Send className="w-4 h-4" />
@@ -165,7 +165,7 @@ export default function PrototypeModal({ isOpen, onClose, isDark }) {
 
             <div className="relative my-5 text-center">
               <div className="absolute inset-0 flex items-center">
-                <div className="w-full border-t border-black/10 dark:border-white/10" />
+                <div className="w-full border-t border-slate-200 dark:border-white/10" />
               </div>
               <span className={`relative px-3 text-xs font-mono uppercase opacity-60 ${
                 isDark ? 'bg-[#181818]' : 'bg-white'
@@ -180,7 +180,7 @@ export default function PrototypeModal({ isOpen, onClose, isDark }) {
               target="_blank"
               rel="noopener noreferrer"
               onClick={() => playCyberTone('click')}
-              className="w-full py-3 rounded-xl bg-[#25D366] hover:bg-[#20BA5A] text-white font-mono font-bold text-xs flex items-center justify-center gap-2 shadow-sm transition-transform hover:scale-102 cursor-pointer"
+              className="w-full py-3 rounded-xl bg-[#25D366] hover:bg-[#20BA5A] text-white font-mono font-bold text-xs flex items-center justify-center gap-2 shadow-sm transition-transform hover:scale-101 cursor-pointer"
             >
               <MessageCircle className="w-4 h-4 fill-current" />
               <span>Chat on WhatsApp: +91 73586 18789</span>
@@ -188,7 +188,7 @@ export default function PrototypeModal({ isOpen, onClose, isDark }) {
           </div>
         ) : (
           <div className="py-8 text-center space-y-4">
-            <div className="w-16 h-16 rounded-full bg-emerald-500/20 text-emerald-400 mx-auto flex items-center justify-center">
+            <div className="w-16 h-16 rounded-full bg-emerald-500/20 text-emerald-600 dark:text-emerald-400 mx-auto flex items-center justify-center">
               <CheckCircle2 className="w-10 h-10" />
             </div>
 
@@ -197,7 +197,7 @@ export default function PrototypeModal({ isOpen, onClose, isDark }) {
             </h4>
 
             <p className="text-sm opacity-80 max-w-sm mx-auto">
-              Thank you, <strong className={isDark ? 'text-luxury-gold' : 'text-fresh-green'}>{businessName}</strong>. We are opening WhatsApp to connect directly with you right now.
+              Thank you, <strong className={isDark ? 'text-luxury-gold' : 'text-slate-900 font-bold'}>{businessName}</strong>. We are opening WhatsApp to connect directly with you right now.
             </p>
 
             <a

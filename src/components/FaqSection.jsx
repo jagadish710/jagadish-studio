@@ -39,19 +39,21 @@ export default function FaqSection({ isDark }) {
 
   return (
     <section id="faq" className={`py-24 px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto border-t ${
-      isDark ? 'border-white/5' : 'border-black/5'
+      isDark ? 'border-white/5' : 'border-slate-200'
     }`}>
       {/* Header */}
       <div className="text-center max-w-2xl mx-auto mb-16">
         <div className={`inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-mono mb-4 border ${
           isDark 
             ? 'bg-[#181818] border-[#673DE6]/40 text-[#A78BFA] shadow-[0_0_20px_rgba(103,61,230,0.3)]' 
-            : 'bg-[#F5F2FF] border-[#673DE6]/25 text-[#673DE6]'
+            : 'bg-slate-100 border-slate-200 text-slate-800'
         }`}>
-          <HelpCircle className="w-3.5 h-3.5" />
+          <HelpCircle className={`w-3.5 h-3.5 ${isDark ? 'text-[#A78BFA]' : 'text-blue-600'}`} />
           <span>FREQUENTLY ASKED QUESTIONS</span>
         </div>
-        <h2 className="text-3xl sm:text-5xl font-extrabold font-display tracking-tight mb-4">
+        <h2 className={`text-3xl sm:text-5xl font-extrabold font-display tracking-tight mb-4 ${
+          isDark ? 'text-white' : 'text-slate-900'
+        }`}>
           EVERYTHING YOU NEED TO KNOW
         </h2>
         <p className={`text-base sm:text-lg ${isDark ? 'text-slate-300' : 'text-slate-600'}`}>
@@ -70,10 +72,10 @@ export default function FaqSection({ isDark }) {
                 isOpen
                   ? isDark
                     ? 'bg-[#18181C] border-[#673DE6]/60 shadow-[0_0_25px_rgba(103,61,230,0.2)]'
-                    : 'bg-white border-[#673DE6]/40 shadow-md'
+                    : 'bg-white border-slate-300 shadow-sm'
                   : isDark
                     ? 'bg-[#151518] border-white/5 hover:border-white/15'
-                    : 'bg-white/80 border-black/5 hover:border-black/15'
+                    : 'bg-slate-50/70 border-slate-200 hover:border-slate-300'
               }`}
             >
               <button
@@ -89,7 +91,7 @@ export default function FaqSection({ isDark }) {
                 </span>
                 <ChevronDown
                   className={`w-5 h-5 shrink-0 transition-transform duration-300 ${
-                    isOpen ? 'rotate-180 text-[#8B5CF6]' : 'opacity-50'
+                    isOpen ? `rotate-180 ${isDark ? 'text-[#8B5CF6]' : 'text-blue-600'}` : 'opacity-40'
                   }`}
                 />
               </button>
@@ -108,10 +110,10 @@ export default function FaqSection({ isDark }) {
 
       {/* Quick WhatsApp Assistance Banner */}
       <div className={`p-8 rounded-3xl border flex flex-col sm:flex-row items-center justify-between gap-6 text-center sm:text-left ${
-        isDark ? 'bg-[#161619] border-[#25D366]/30' : 'bg-[#F2FAF5] border-[#25D366]/40 shadow-sm'
+        isDark ? 'bg-[#161619] border-[#25D366]/30' : 'bg-slate-50 border-slate-200 shadow-xs'
       }`}>
         <div>
-          <h3 className="text-xl font-bold font-display">Have a specific question about your business?</h3>
+          <h3 className={`text-xl font-bold font-display ${isDark ? 'text-white' : 'text-slate-900'}`}>Have a specific question about your business?</h3>
           <p className={`text-sm mt-1 ${isDark ? 'text-slate-400' : 'text-slate-600'}`}>
             Talk directly to Jagadish on WhatsApp for instant pricing &amp; feasibility advice.
           </p>
@@ -122,7 +124,7 @@ export default function FaqSection({ isDark }) {
           target="_blank"
           rel="noopener noreferrer"
           onClick={() => playCyberTone('click')}
-          className="inline-flex items-center gap-2.5 px-6 py-3.5 rounded-xl bg-[#25D366] hover:bg-[#20BA5A] text-white font-mono font-bold text-sm shadow-md hover:scale-105 active:scale-95 transition-all shrink-0 cursor-pointer"
+          className="inline-flex items-center gap-2.5 px-6 py-3.5 rounded-xl bg-[#25D366] hover:bg-[#20BA5A] text-white font-mono font-bold text-sm shadow-xs hover:scale-105 active:scale-95 transition-all shrink-0 cursor-pointer"
         >
           <MessageCircle className="w-4 h-4 fill-current" />
           <span>Chat on WhatsApp (+91 7358618789)</span>

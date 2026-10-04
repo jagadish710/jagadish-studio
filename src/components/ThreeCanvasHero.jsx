@@ -26,19 +26,20 @@ export default function ThreeCanvasHero({ isDark }) {
     scene.add(group);
 
     // Color palette
-    const primaryColorHex = isDark ? 0xE6C687 : 0x00C853; 
-    const secondaryColorHex = isDark ? 0x8B5CF6 : 0x673DE6;
-    const accentColorHex = isDark ? 0xEAEAEA : 0x059669;
+    const primaryColorHex = isDark ? 0xE6C687 : 0x94A3B8; 
+    const secondaryColorHex = isDark ? 0x8B5CF6 : 0x64748B;
+    const accentColorHex = isDark ? 0xEAEAEA : 0xCBD5E1;
 
-    // Ultra-lightweight Torus Knot Wireframe (44x12 segments for buttery 120fps)
+    // Ultra-lightweight Torus Knot Wireframe (Visible only in Dark mode for aesthetic constellation)
     const torusGeo = new THREE.TorusKnotGeometry(7.0, 1.35, 44, 12, 2, 3);
     const torusMat = new THREE.MeshBasicMaterial({
       color: primaryColorHex,
       wireframe: true,
       transparent: true,
-      opacity: isDark ? 0.22 : 0.16,
+      opacity: isDark ? 0.22 : 0,
     });
     const torusMesh = new THREE.Mesh(torusGeo, torusMat);
+    torusMesh.visible = isDark;
     group.add(torusMesh);
 
     // Lightweight Particle Cloud (180 particles)
@@ -71,10 +72,10 @@ export default function ThreeCanvasHero({ isDark }) {
     particleGeo.setAttribute('color', new THREE.BufferAttribute(colors, 3));
 
     const particleMat = new THREE.PointsMaterial({
-      size: 0.18,
+      size: isDark ? 0.18 : 0.13,
       vertexColors: true,
       transparent: true,
-      opacity: isDark ? 0.7 : 0.6,
+      opacity: isDark ? 0.7 : 0.35,
       blending: isDark ? THREE.AdditiveBlending : THREE.NormalBlending,
     });
 
@@ -150,13 +151,13 @@ export default function ThreeCanvasHero({ isDark }) {
 
   return (
     <div className="pointer-events-none fixed inset-0 z-0 overflow-hidden">
-      {/* Hardware-accelerated radial glow (zero Gaussian blur lag) */}
+      {/* Hardware-accelerated radial glow (clean and subtle) */}
       <div 
         className="absolute w-[500px] h-[500px] -top-24 -right-24 rounded-full pointer-events-none"
         style={{
           background: isDark
             ? 'radial-gradient(circle, rgba(103, 61, 230, 0.22) 0%, transparent 70%)'
-            : 'radial-gradient(circle, rgba(103, 61, 230, 0.12) 0%, transparent 70%)',
+            : 'radial-gradient(circle, rgba(37, 99, 235, 0.04) 0%, transparent 70%)',
         }}
       />
       <div 
@@ -164,7 +165,7 @@ export default function ThreeCanvasHero({ isDark }) {
         style={{
           background: isDark
             ? 'radial-gradient(circle, rgba(230, 198, 135, 0.14) 0%, transparent 70%)'
-            : 'radial-gradient(circle, rgba(0, 200, 83, 0.12) 0%, transparent 70%)',
+            : 'radial-gradient(circle, rgba(99, 102, 241, 0.03) 0%, transparent 70%)',
         }}
       />
       

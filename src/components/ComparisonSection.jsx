@@ -49,7 +49,7 @@ export default function ComparisonSection({ isDark }) {
 
   return (
     <section id="why-solutions" className={`py-24 px-4 sm:px-6 lg:px-8 relative z-10 border-t ${
-      isDark ? 'border-white/5 bg-[#0F0F0F]' : 'border-black/5 bg-[#F2F6F4]'
+      isDark ? 'border-white/5 bg-[#0F0F0F]' : 'border-slate-200 bg-[#F8FAFC]'
     }`}>
       <div className="max-w-7xl mx-auto">
         {/* Section Header */}
@@ -57,12 +57,14 @@ export default function ComparisonSection({ isDark }) {
           <div className={`inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-mono mb-4 border ${
             isDark 
               ? 'bg-[#181818] border-[#673DE6]/40 text-[#A78BFA] shadow-[0_0_20px_rgba(103,61,230,0.3)]' 
-              : 'bg-[#F5F2FF] border-[#673DE6]/25 text-[#673DE6]'
+              : 'bg-slate-100 border-slate-200 text-slate-800'
           }`}>
-            <Zap className="w-3.5 h-3.5" />
+            <Zap className={`w-3.5 h-3.5 ${isDark ? 'text-[#A78BFA]' : 'text-blue-600'}`} />
             <span>SOLUTIONS VS TRADITIONAL WEBSITES</span>
           </div>
-          <h2 className="text-3xl sm:text-5xl font-extrabold tracking-tight font-display mb-4">
+          <h2 className={`text-3xl sm:text-5xl font-extrabold tracking-tight font-display mb-4 ${
+            isDark ? 'text-white' : 'text-slate-900'
+          }`}>
             WE PROVIDE SOLUTIONS, <br />
             <span className="text-gradient-main">NOT JUST A WEBSITE</span>
           </h2>
@@ -77,15 +79,15 @@ export default function ComparisonSection({ isDark }) {
           <div className={`p-6 sm:p-8 rounded-3xl border flex flex-col justify-between ${
             isDark 
               ? 'bg-[#161214] border-red-500/25 text-slate-300' 
-              : 'bg-white border-red-500/20 text-slate-700 shadow-sm'
+              : 'bg-white border-red-200 text-slate-700 shadow-sm'
           }`}>
             <div>
               <div className="flex items-center justify-between border-b border-red-500/20 pb-4 mb-6">
-                <div className="flex items-center gap-2 text-red-500 font-mono text-sm font-bold">
+                <div className="flex items-center gap-2 text-red-600 font-mono text-sm font-bold">
                   <AlertTriangle className="w-5 h-5 text-red-500" />
                   <span>TRADITIONAL WEB AGENCIES</span>
                 </div>
-                <span className="text-xs font-mono px-2 py-0.5 rounded bg-red-500/10 text-red-500 border border-red-500/20">
+                <span className="text-xs font-mono px-2 py-0.5 rounded bg-red-50 text-red-600 border border-red-200">
                   RECURRING EXPENSE
                 </span>
               </div>
@@ -100,7 +102,7 @@ export default function ComparisonSection({ isDark }) {
                       }`}>
                         {item.title}
                       </h4>
-                      <p className="text-xs sm:text-sm opacity-75 mt-1 leading-relaxed">
+                      <p className={`text-xs sm:text-sm mt-1 leading-relaxed ${isDark ? 'text-slate-300' : 'text-slate-600'}`}>
                         {item.desc}
                       </p>
                     </div>
@@ -109,26 +111,34 @@ export default function ComparisonSection({ isDark }) {
               </div>
             </div>
 
-            <div className="mt-8 pt-6 border-t border-red-500/20 text-xs font-mono opacity-60">
+            <div className={`mt-8 pt-6 border-t text-xs font-mono ${
+              isDark ? 'border-red-500/20 text-slate-400' : 'border-slate-100 text-slate-500'
+            }`}>
               * The hidden trap: paying \$100 to \$300 every month for years just for small edits.
             </div>
           </div>
 
           {/* Right: Our Solution */}
-          <div className={`p-6 sm:p-8 rounded-3xl border flex flex-col justify-between relative overflow-hidden card-glow-hostinger ${
+          <div className={`p-6 sm:p-8 rounded-3xl border flex flex-col justify-between relative overflow-hidden ${
             isDark 
-              ? 'bg-[#18181D]' 
-              : 'bg-white shadow-xl'
+              ? 'bg-[#18181D] border-[#8B5CF6]/40 shadow-xl' 
+              : 'bg-white border-slate-200 text-slate-800 shadow-lg'
           }`}>
             <div>
-              <div className="flex items-center justify-between border-b border-emerald-500/25 pb-4 mb-6">
+              <div className={`flex items-center justify-between border-b pb-4 mb-6 ${
+                isDark ? 'border-emerald-500/25' : 'border-slate-100'
+              }`}>
                 <div className={`flex items-center gap-2 font-mono text-sm font-bold ${
-                  isDark ? 'text-luxury-gold' : 'text-fresh-green'
+                  isDark ? 'text-luxury-gold' : 'text-slate-900'
                 }`}>
-                  <Zap className="w-5 h-5 text-[#8B5CF6]" />
+                  <Zap className={`w-5 h-5 ${isDark ? 'text-[#8B5CF6]' : 'text-blue-600'}`} />
                   <span>WHAT WE DELIVER</span>
                 </div>
-                <span className="text-xs font-mono px-2.5 py-0.5 rounded-full font-bold border bg-emerald-500/15 text-emerald-400 border-emerald-500/30">
+                <span className={`text-xs font-mono px-2.5 py-0.5 rounded-full font-bold border ${
+                  isDark 
+                    ? 'bg-emerald-500/15 text-emerald-400 border-emerald-500/30' 
+                    : 'bg-emerald-50 text-emerald-700 border-emerald-200'
+                }`}>
                   ONE-TIME INVESTMENT
                 </span>
               </div>
@@ -136,14 +146,18 @@ export default function ComparisonSection({ isDark }) {
               <div className="space-y-6">
                 {ourSolution.map((item, idx) => (
                   <div key={idx} className="flex items-start gap-3.5">
-                    <CheckCircle2 className="w-5 h-5 text-emerald-400 shrink-0 mt-0.5" />
+                    <CheckCircle2 className={`w-5 h-5 shrink-0 mt-0.5 ${
+                      isDark ? 'text-emerald-400' : 'text-emerald-600'
+                    }`} />
                     <div>
                       <h4 className={`text-sm sm:text-base font-bold ${
                         isDark ? 'text-white' : 'text-slate-900'
                       }`}>
                         {item.title}
                       </h4>
-                      <p className="text-xs sm:text-sm opacity-80 mt-1 leading-relaxed">
+                      <p className={`text-xs sm:text-sm mt-1 leading-relaxed ${
+                        isDark ? 'text-slate-300' : 'text-slate-600'
+                      }`}>
                         {item.desc}
                       </p>
                     </div>
@@ -153,7 +167,7 @@ export default function ComparisonSection({ isDark }) {
             </div>
 
             <div className={`mt-8 pt-6 border-t flex items-center justify-between text-xs font-mono ${
-              isDark ? 'border-white/10 text-luxury-gold' : 'border-black/10 text-fresh-green'
+              isDark ? 'border-white/10 text-luxury-gold' : 'border-slate-100 text-slate-800 font-semibold'
             }`}>
               <span className="font-bold">ZERO MAINTENANCE CHARGES</span>
               <span>100% OWNERSHIP</span>

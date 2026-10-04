@@ -23,7 +23,7 @@ export default function PricingPhilosophy({ onOpenPrototypeModal, isDark }) {
 
   return (
     <section id="pricing-philosophy" className={`py-20 px-4 sm:px-6 lg:px-8 relative z-10 border-t ${
-      isDark ? 'border-white/5 bg-[#121212]' : 'border-black/5 bg-[#F7FAF8]'
+      isDark ? 'border-white/5 bg-[#121212]' : 'border-slate-200 bg-[#F8FAFC]'
     }`}>
       <div className="max-w-5xl mx-auto">
         {/* Section Header */}
@@ -31,9 +31,9 @@ export default function PricingPhilosophy({ onOpenPrototypeModal, isDark }) {
           <div className={`inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-mono font-bold mb-4 border ${
             isDark 
               ? 'bg-[#181818] border-[#8B5CF6]/50 text-[#C4B5FD] shadow-[0_0_20px_rgba(139,92,246,0.3)]' 
-              : 'bg-[#F5F2FF] border-[#673DE6]/25 text-[#673DE6]'
+              : 'bg-slate-100 border-slate-200 text-slate-800'
           }`}>
-            <Zap className="w-3.5 h-3.5" />
+            <Zap className={`w-3.5 h-3.5 ${isDark ? 'text-[#C4B5FD]' : 'text-blue-600'}`} />
             <span>ONE-TIME INVESTMENT • NO HIDDEN FEES</span>
           </div>
           <h2 className={`text-3xl sm:text-5xl font-extrabold tracking-tight font-display mb-4 ${
@@ -48,24 +48,24 @@ export default function PricingPhilosophy({ onOpenPrototypeModal, isDark }) {
         </div>
 
         {/* Flagship Package Card */}
-        <div className={`p-6 sm:p-12 rounded-3xl border shadow-2xl relative ${
+        <div className={`p-6 sm:p-12 rounded-3xl border shadow-xl relative ${
           isDark 
             ? 'bg-gradient-to-b from-[#18181C] via-[#141416] to-[#101012] border-[#8B5CF6]/40' 
-            : 'bg-white shadow-xl border-black/10'
+            : 'bg-white border-slate-200'
         }`}>
           {/* Prominent Badges */}
           <div className="flex flex-wrap items-center justify-between gap-4 mb-8">
             <div className={`inline-flex items-center gap-2 px-4 py-1.5 rounded-full font-mono font-bold text-xs tracking-wider ${
               isDark 
                 ? 'bg-gradient-to-r from-[#673DE6] to-[#8B5CF6] text-white shadow-[0_0_20px_rgba(103,61,230,0.4)]' 
-                : 'bg-[#673DE6] text-white shadow-md'
+                : 'bg-slate-900 text-white shadow-xs'
             }`}>
               <Star className="w-3.5 h-3.5 fill-current" />
               <span>COMPLETE BUSINESS SOLUTION</span>
             </div>
 
             <div className={`text-xs font-mono px-3 py-1 rounded-full border ${
-              isDark ? 'bg-black/60 border-white/10 text-emerald-400' : 'bg-emerald-50 border-emerald-200 text-emerald-700'
+              isDark ? 'bg-black/60 border-white/10 text-emerald-400' : 'bg-slate-100 border-slate-200 text-slate-800'
             }`}>
               ● Scope-Based Transparent Pricing
             </div>
@@ -85,16 +85,16 @@ export default function PricingPhilosophy({ onOpenPrototypeModal, isDark }) {
 
             <div className="text-left md:text-right">
               <div className={`text-xs font-mono uppercase tracking-widest font-bold ${
-                isDark ? 'text-luxury-gold' : 'text-emerald-600'
+                isDark ? 'text-luxury-gold' : 'text-slate-500'
               }`}>
                 MAINTENANCE CHARGES
               </div>
               <div className={`text-4xl sm:text-5xl font-extrabold font-mono ${
-                isDark ? 'text-luxury-gold' : 'text-fresh-green'
+                isDark ? 'text-luxury-gold' : 'text-slate-900'
               }`}>
-                ₹0 <span className="text-sm opacity-70 font-normal">/ forever</span>
+                ₹0 <span className={`text-sm font-normal ${isDark ? 'opacity-70' : 'text-slate-500'}`}>/ forever</span>
               </div>
-              <div className="text-[11px] font-mono opacity-60 mt-0.5">
+              <div className={`text-[11px] font-mono mt-0.5 ${isDark ? 'opacity-60' : 'text-slate-500'}`}>
                 One-time project investment • Zero monthly bills
               </div>
             </div>
@@ -105,7 +105,7 @@ export default function PricingPhilosophy({ onOpenPrototypeModal, isDark }) {
             {highlights.map((item, idx) => (
               <div key={idx} className="flex items-start gap-3">
                 <div className={`w-5 h-5 rounded-full flex items-center justify-center shrink-0 mt-0.5 ${
-                  isDark ? 'bg-emerald-500/20 text-emerald-400' : 'bg-emerald-100 text-emerald-700'
+                  isDark ? 'bg-emerald-500/20 text-emerald-400' : 'bg-emerald-50 text-emerald-700 border border-emerald-200'
                 }`}>
                   <Check className="w-3.5 h-3.5" />
                 </div>
@@ -130,10 +130,10 @@ export default function PricingPhilosophy({ onOpenPrototypeModal, isDark }) {
                   playCyberTone('click');
                   onOpenPrototypeModal();
                 }}
-                className={`w-full sm:w-auto px-7 py-3.5 rounded-xl font-bold font-mono text-xs tracking-wider flex items-center justify-center gap-2 shadow-lg transition-all hover:scale-105 active:scale-95 cursor-pointer ${
+                className={`w-full sm:w-auto px-7 py-3.5 rounded-xl font-bold font-mono text-xs tracking-wider flex items-center justify-center gap-2 shadow-sm transition-all hover:scale-105 active:scale-95 cursor-pointer ${
                   isDark
                     ? 'bg-gradient-to-r from-luxury-gold via-amber-300 to-luxury-gold text-black shadow-gold-glow'
-                    : 'bg-gradient-to-r from-fresh-emerald to-fresh-green text-white shadow-emerald-glow'
+                    : 'bg-slate-900 hover:bg-slate-800 text-white'
                 }`}
               >
                 <span>ENQUIRE NOW</span>
@@ -145,7 +145,7 @@ export default function PricingPhilosophy({ onOpenPrototypeModal, isDark }) {
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={() => playCyberTone('click')}
-                className="w-full sm:w-auto px-5 py-3.5 rounded-xl bg-[#25D366] hover:bg-[#20BA5A] text-white font-mono font-bold text-xs flex items-center justify-center gap-2 shadow-md transition-all hover:scale-105 cursor-pointer"
+                className="w-full sm:w-auto px-5 py-3.5 rounded-xl bg-[#25D366] hover:bg-[#20BA5A] text-white font-mono font-bold text-xs flex items-center justify-center gap-2 shadow-xs transition-all hover:scale-105 cursor-pointer"
               >
                 <MessageCircle className="w-4 h-4 fill-current" />
                 <span>WhatsApp: +91 73586 18789</span>

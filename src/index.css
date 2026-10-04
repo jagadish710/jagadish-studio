@@ -19,8 +19,8 @@
   
   /* Light Mode Default */
   html.light, body.light {
-    background-color: #F7FAF8;
-    color: #0C1F16;
+    background-color: #FFFFFF;
+    color: #0F172A;
     font-family: 'Inter', system-ui, -apple-system, sans-serif;
     overflow-x: hidden;
   }
@@ -56,16 +56,16 @@ body.light::-webkit-scrollbar {
 }
 html.light::-webkit-scrollbar-track,
 body.light::-webkit-scrollbar-track {
-  background: #F0F4F2;
+  background: #F8FAFC;
 }
 html.light::-webkit-scrollbar-thumb,
 body.light::-webkit-scrollbar-thumb {
-  background: #CBDAD1;
+  background: #CBD5E1;
   border-radius: 4px;
 }
 html.light::-webkit-scrollbar-thumb:hover,
 body.light::-webkit-scrollbar-thumb:hover {
-  background: #00C853;
+  background: #94A3B8;
 }
 
 /* Luxury Champagne Gold Glassmorphic Card (Dark Mode) */
@@ -84,20 +84,18 @@ body.light::-webkit-scrollbar-thumb:hover {
   transform: translateY(-3px);
 }
 
-/* Fresh Mint Glassmorphic Card (Light Mode - Inspired by user image) */
+/* Clean Enterprise Card (Light Mode - Stripe / Linear / Apple grade) */
 .light .theme-card {
   background: #FFFFFF;
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border: 1px solid rgba(5, 150, 105, 0.14);
-  box-shadow: 0 10px 30px -8px rgba(12, 31, 22, 0.06);
+  border: 1px solid #E2E8F0;
+  box-shadow: 0 4px 20px -2px rgba(15, 23, 42, 0.05);
   transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .light .theme-card:hover {
-  border-color: rgba(0, 200, 83, 0.4);
-  box-shadow: 0 16px 40px -10px rgba(0, 200, 83, 0.18);
-  transform: translateY(-3px);
+  border-color: #CBD5E1;
+  box-shadow: 0 12px 30px -4px rgba(15, 23, 42, 0.08);
+  transform: translateY(-2px);
 }
 
 /* High-Contrast Luxury Text Gradients */
@@ -108,7 +106,7 @@ body.light::-webkit-scrollbar-thumb:hover {
 }
 
 .light .text-gradient-main {
-  background: linear-gradient(135deg, #0C1F16 20%, #00C853 75%, #059669 100%);
+  background: linear-gradient(135deg, #0F172A 0%, #1E293B 45%, #2563EB 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
@@ -134,16 +132,16 @@ body.light::-webkit-scrollbar-thumb:hover {
   position: absolute;
   border-radius: 50%;
   pointer-events: none;
-  opacity: 0.20;
-  background: radial-gradient(circle, rgba(0, 200, 83, 0.3) 0%, transparent 70%);
+  opacity: 0.06;
+  background: radial-gradient(circle, rgba(37, 99, 235, 0.4) 0%, transparent 70%);
 }
 
 .light .glow-ambient-2 {
   position: absolute;
   border-radius: 50%;
   pointer-events: none;
-  opacity: 0.18;
-  background: radial-gradient(circle, rgba(103, 61, 230, 0.25) 0%, transparent 70%);
+  opacity: 0.05;
+  background: radial-gradient(circle, rgba(99, 102, 241, 0.3) 0%, transparent 70%);
 }
 
 /* Adaptive subtle pattern */
@@ -157,8 +155,8 @@ body.light::-webkit-scrollbar-thumb:hover {
 .light .adaptive-grid {
   background-size: 52px 52px;
   background-image: 
-    linear-gradient(to right, rgba(5, 150, 105, 0.04) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(5, 150, 105, 0.04) 1px, transparent 1px);
+    linear-gradient(to right, rgba(15, 23, 42, 0.025) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(15, 23, 42, 0.025) 1px, transparent 1px);
 }
 
 /* ==========================================================================
@@ -200,13 +198,18 @@ body.light::-webkit-scrollbar-thumb:hover {
 }
 
 .light .text-outline-green {
-  -webkit-text-stroke: 1.5px rgba(5, 150, 105, 0.7);
-  color: transparent;
+  color: #64748B;
+  font-weight: 700;
 }
 
 .text-outline-purple {
   -webkit-text-stroke: 1.5px #8B5CF6;
   color: transparent;
+}
+
+.light .text-outline-purple {
+  color: #475569;
+  font-weight: 700;
 }
 
 /* ==========================================================================
@@ -246,14 +249,14 @@ body.light::-webkit-scrollbar-thumb:hover {
 .light .card-glow-hostinger {
   position: relative;
   background-color: #FFFFFF;
-  border: 1px solid rgba(103, 61, 230, 0.2);
-  box-shadow: 0 8px 24px -6px rgba(12, 31, 22, 0.05);
+  border: 1px solid #E2E8F0;
+  box-shadow: 0 4px 20px -2px rgba(15, 23, 42, 0.05);
   transition: all 0.35s ease;
 }
 
 .light .card-glow-hostinger:hover {
-  border-color: rgba(103, 61, 230, 0.6);
-  box-shadow: 0 12px 35px -8px rgba(103, 61, 230, 0.25), 0 0 15px 0 rgba(0, 200, 83, 0.2);
-  transform: translateY(-4px);
+  border-color: #2563EB;
+  box-shadow: 0 12px 32px -4px rgba(37, 99, 235, 0.12);
+  transform: translateY(-3px);
 }
 

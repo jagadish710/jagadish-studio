@@ -14,7 +14,7 @@ export default function ChatbotWidget({ isOpen, setIsOpen, isDark }) {
     {
       id: 1,
       sender: 'bot',
-      text: "Hello! I am Jagadish's AI assistant. Ask me anything about our websites, custom software, admin portal, or zero maintenance guarantee.",
+      text: "Hello! I am Merquri Cloud's AI assistant. Ask me anything about our web platforms, custom software, Karate & Sports SaaS, or our zero maintenance guarantee.",
       time: 'Just now',
     },
   ]);
@@ -132,7 +132,7 @@ export default function ChatbotWidget({ isOpen, setIsOpen, isDark }) {
               <div>
                 <div className="flex items-center gap-1.5">
                   <span className={`font-display font-bold text-sm ${isDark ? 'text-white' : 'text-slate-900'}`}>
-                    JAGADISH AI
+                    MERQURI AI
                   </span>
                   <span className={`w-2 h-2 rounded-full animate-pulse ${
                     isDark ? 'bg-luxury-gold' : 'bg-emerald-500'
@@ -141,7 +141,7 @@ export default function ChatbotWidget({ isOpen, setIsOpen, isDark }) {
                 <div className={`text-[10px] font-mono ${
                   isDark ? 'text-luxury-gold' : 'text-slate-500'
                 }`}>
-                  Instant Project Assistant
+                  Cloud Software &amp; Web Assistant
                 </div>
               </div>
             </div>

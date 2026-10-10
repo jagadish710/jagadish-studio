@@ -13,7 +13,7 @@ export default function Logo({ className = "w-10 h-10", isDark = true }) {
       }`}>
         <img
           src="/logo.png"
-          alt="Jagadish Logo"
+          alt="Merquri Cloud Logo"
           className="w-full h-full object-cover transform scale-105 transition-transform duration-300 group-hover:scale-110"
           loading="eager"
         />

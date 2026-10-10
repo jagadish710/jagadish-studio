@@ -17,13 +17,13 @@ export default function Footer({ setActivePage, isDark }) {
       <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-start md:items-center justify-between gap-8 pb-12 border-b border-black/5 dark:border-white/5">
         <div>
           <div className="flex items-center gap-2.5 mb-2">
-            <Logo isDark={isDark} className="w-6 h-6" />
+            <Logo isDark={isDark} className="w-7 h-7" />
             <span className={`font-bold text-base tracking-wider font-display ${isDark ? 'text-white' : 'text-slate-900'}`}>
-              JAGADISH.ONLINE
+              MERQURI CLOUD
             </span>
           </div>
           <p className={`max-w-sm text-xs font-sans leading-relaxed ${isDark ? 'text-slate-300' : 'text-slate-600'}`}>
-            Modern business websites and custom software solutions with an easy self-serve admin panel, zero maintenance charges, and 100% full ownership.
+            Next-generation cloud software ecosystem &amp; high-performance web platforms with self-serve admin cockpits, zero maintenance charges, and 100% full ownership.
           </p>
         </div>
 
@@ -74,7 +74,7 @@ export default function Footer({ setActivePage, isDark }) {
 
       <div className="max-w-7xl mx-auto pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-[11px] opacity-75">
         <div>
-          &copy; {new Date().getFullYear()} Jagadish Studio. All Rights Reserved. ₹0 Maintenance Charges &bull; 100% Code Ownership.
+          &copy; {new Date().getFullYear()} Merquri Cloud. All Rights Reserved. ₹0 Maintenance Charges &bull; 100% Code Ownership.
         </div>
         <div className="flex items-center gap-4">
           <span className={`flex items-center gap-1.5 ${isDark ? 'text-luxury-gold' : 'text-emerald-700 font-semibold'}`}>

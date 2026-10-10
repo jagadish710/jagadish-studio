@@ -72,13 +72,25 @@ export default function Navbar({
             : 'bg-transparent border border-slate-200/40'
         }`}
       >
-        {/* Brand Logo Only */}
+        {/* Brand Logo & Wordmark */}
         <button
           onClick={() => handleNavClick('home')}
-          className="flex items-center gap-2 group cursor-pointer"
+          className="flex items-center gap-3 group cursor-pointer"
           aria-label="Home"
         >
           <Logo isDark={isDark} className="w-10 h-10" />
+          <div className="flex flex-col text-left">
+            <span className={`font-display font-extrabold text-sm tracking-widest leading-none ${
+              isDark ? 'text-white' : 'text-slate-900'
+            }`}>
+              MERQURI
+            </span>
+            <span className={`text-[9px] font-mono font-bold tracking-[0.25em] mt-1 ${
+              isDark ? 'text-luxury-gold' : 'text-blue-600'
+            }`}>
+              CLOUD
+            </span>
+          </div>
         </button>
 
         {/* Desktop Navigation Pages */}

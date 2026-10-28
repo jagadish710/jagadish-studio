@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 import {
   Sparkles,
   MessageSquare,
+  MessageCircle,
   ChevronRight,
   Menu,
   X,

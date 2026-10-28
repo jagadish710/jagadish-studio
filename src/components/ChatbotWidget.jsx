@@ -233,6 +233,7 @@ export default function ChatbotWidget({ isOpen, setIsOpen, isDark }) {
           }`}>
             <input
               type="text"
+              maxLength={500}
               placeholder="Ask a question..."
               value={inputText}
               onChange={(e) => setInputText(e.target.value)}

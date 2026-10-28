@@ -227,7 +227,7 @@ export default function AdminPortalDemo({ isDark }) {
                     onClick={handleSave}
                     className={`px-5 py-2.5 rounded-lg font-mono font-bold text-xs flex items-center gap-2 transition-all cursor-pointer ${
                       isDark 
-                        ? 'bg-zinc-200 hover:bg-amber-300 text-black shadow-gold-glow' 
+                        ? 'bg-white hover:bg-zinc-200 text-black shadow-sm' 
                         : 'bg-slate-900 hover:bg-slate-800 text-white shadow-sm'
                     }`}
                   >

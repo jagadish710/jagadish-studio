@@ -20,7 +20,8 @@ export const supabase = isSupabaseConfigured
  */
 export async function saveInquiry({ businessName, industry, phone, targetUrl, notes = '' }) {
   if (!isSupabaseConfigured || !supabase) {
-    console.log('[Offline Fallback] Staging inquiry received:', { businessName, industry, phone, targetUrl });
+    // Defensive logging: Never disclose customer PII (phone/name) in client browser console
+    console.info('[Client Telemetry] Staging inquiry processed locally');
     return { success: true, offline: true };
   }
 

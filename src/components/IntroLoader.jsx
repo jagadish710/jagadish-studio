@@ -48,7 +48,7 @@ export default function IntroLoader({ onComplete, isDark }) {
     renderer.setSize(window.innerWidth, window.innerHeight);
     renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
 
-    const primaryColorHex = isDark ? 0xE6C687 : 0x00C853; // Champagne Gold or Emerald Green
+    const primaryColorHex = isDark ? 0xE2E8F0 : 0x00C853; // Champagne Gold or Emerald Green
     const secondaryColorHex = isDark ? 0xEAEAEA : 0x059669;
 
     // Outer Wireframe Orb
@@ -170,12 +170,12 @@ export default function IntroLoader({ onComplete, isDark }) {
         isDark ? 'border-white/10 text-slate-400' : 'border-emerald-900/10 text-slate-600'
       }`}>
         <div className="flex items-center gap-2">
-          <span className={`w-2 h-2 rounded-full animate-ping ${isDark ? 'bg-luxury-gold' : 'bg-fresh-emerald'}`} />
-          <span className="font-bold tracking-wider">JAGADISH.ONLINE</span>
+          <span className={`w-2 h-2 rounded-full animate-ping ${isDark ? 'bg-zinc-400' : 'bg-fresh-emerald'}`} />
+          <span className="font-bold tracking-wider">MERQURIE</span>
           <span className="hidden sm:inline opacity-60">| DIGITAL PRODUCT &amp; AI STUDIO</span>
         </div>
-        <div className={`text-xs font-mono font-semibold ${isDark ? 'text-luxury-gold' : 'text-fresh-green'}`}>
-          EX-AMAZON ARCHITECT
+        <div className={`text-xs font-mono font-semibold ${isDark ? 'text-zinc-300' : 'text-fresh-green'}`}>
+          ENTERPRISE SYSTEMS
         </div>
       </div>
 
@@ -183,11 +183,11 @@ export default function IntroLoader({ onComplete, isDark }) {
       <div className="relative z-10 text-center my-auto flex flex-col items-center max-w-xl">
         <div className={`inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-mono mb-6 backdrop-blur-md border ${
           isDark 
-            ? 'bg-[#1A1815] border-luxury-gold/40 text-luxury-gold shadow-gold-glow' 
+            ? 'bg-[#1A1815] border-zinc-700 text-zinc-300 shadow-sm' 
             : 'bg-fresh-tint border-fresh-border text-fresh-green shadow-emerald-glow'
         }`}>
           <Sparkles className="w-3.5 h-3.5" />
-          <span>EX-AMAZON &bull; NEXT-GEN MULTIMODAL AI ARCHITECTURES</span>
+          <span>ENTERPRISE CLOUD ARCHITECTURE &bull; ZERO RETAINERS</span>
         </div>
 
         <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight mb-4 font-display">
@@ -203,7 +203,7 @@ export default function IntroLoader({ onComplete, isDark }) {
         <div className="w-full max-w-xs flex flex-col items-center gap-4">
           <div className="w-full flex justify-between text-xs font-mono">
             <span>PREPARING ENVIRONMENT</span>
-            <span className={`font-bold ${isDark ? 'text-luxury-gold' : 'text-fresh-green'}`}>{progress}%</span>
+            <span className={`font-bold ${isDark ? 'text-zinc-300' : 'text-fresh-green'}`}>{progress}%</span>
           </div>
 
           <div className={`w-full h-1.5 rounded-full overflow-hidden border ${
@@ -212,7 +212,7 @@ export default function IntroLoader({ onComplete, isDark }) {
             <div
               className={`h-full transition-all duration-150 ease-out ${
                 isDark 
-                  ? 'bg-gradient-to-r from-slate-400 via-luxury-gold to-amber-300' 
+                  ? 'bg-gradient-to-r from-zinc-500 via-zinc-300 to-white' 
                   : 'bg-gradient-to-r from-emerald-400 to-green-600'
               }`}
               style={{ width: `${progress}%` }}
@@ -225,7 +225,7 @@ export default function IntroLoader({ onComplete, isDark }) {
               onMouseEnter={() => playCyberTone('hover')}
               className={`mt-4 px-8 py-3.5 rounded-xl font-bold font-mono text-sm tracking-wider flex items-center gap-3 hover:scale-105 active:scale-95 transition-all duration-200 cursor-pointer ${
                 isDark 
-                  ? 'bg-gradient-to-r from-luxury-gold via-amber-300 to-luxury-gold text-black shadow-gold-glow' 
+                  ? 'bg-white hover:bg-zinc-200 text-black shadow-md' 
                   : 'bg-gradient-to-r from-fresh-emerald to-fresh-green text-white shadow-emerald-glow'
               }`}
             >

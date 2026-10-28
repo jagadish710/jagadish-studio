@@ -226,7 +226,7 @@ export default function ShowcaseSection({ onSelectProject }) {
                       <a
                         href={`https://${proj.subdomain}`}
                         target="_blank"
-                        rel="noreferrer"
+                        rel="noopener noreferrer"
                         onClick={(e) => {
                           // Prevent actual 404 until domain DNS is pointed
                           e.preventDefault();

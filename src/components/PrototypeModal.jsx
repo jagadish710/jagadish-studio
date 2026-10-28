@@ -22,6 +22,9 @@ export default function PrototypeModal({ isOpen, onClose, isDark }) {
     e.preventDefault();
     playCyberTone('success');
 
+    const cleanBusinessName = (businessName || '').trim().slice(0, 100);
+    const cleanPhone = (phone || '').trim().replace(/[^\d+()\s-]/g, '').slice(0, 30);
+
     try {
       confetti({
         particleCount: 80,
@@ -31,20 +34,20 @@ export default function PrototypeModal({ isOpen, onClose, isDark }) {
     } catch {}
 
     saveInquiry({
-      businessName,
+      businessName: cleanBusinessName,
       industry: projectType,
-      phone,
+      phone: cleanPhone,
       targetUrl: 'jagadish.online',
     });
 
     setSubmitted(true);
 
     const msg = encodeURIComponent(
-      `Hi Merqurie Team! I would like to discuss a project:\n- Organization: ${businessName}\n- Division/Type: ${projectType}\n- Contact: ${phone}`
+      `Hi Merqurie Team! I would like to discuss a project:\n- Organization: ${cleanBusinessName}\n- Division/Type: ${projectType}\n- Contact: ${cleanPhone}`
     );
 
     setTimeout(() => {
-      window.open(`https://wa.me/917358618789?text=${msg}`, '_blank');
+      window.open(`https://wa.me/917358618789?text=${msg}`, '_blank', 'noopener,noreferrer');
     }, 1000);
   };
 
@@ -95,6 +98,7 @@ export default function PrototypeModal({ isOpen, onClose, isDark }) {
                 <input
                   type="text"
                   required
+                  maxLength={100}
                   placeholder="e.g. Acme Enterprise / Modern Brand"
                   value={businessName}
                   onChange={(e) => setBusinessName(e.target.value)}
@@ -138,6 +142,9 @@ export default function PrototypeModal({ isOpen, onClose, isDark }) {
                 <input
                   type="tel"
                   required
+                  maxLength={30}
+                  pattern="[+0-9\s\-()]{7,25}"
+                  title="Please enter a valid phone number with country code"
                   placeholder="+91 98765 43210"
                   value={phone}
                   onChange={(e) => setPhone(e.target.value)}

@@ -20,6 +20,9 @@ export default function PrototypePage({ onOpenPrototypeModal, isDark }) {
     e.preventDefault();
     playCyberTone('success');
 
+    const cleanBusinessName = (businessName || '').trim().slice(0, 100);
+    const cleanPhone = (phone || '').trim().replace(/[^\d+()\s-]/g, '').slice(0, 30);
+
     try {
       confetti({
         particleCount: 90,
@@ -29,20 +32,20 @@ export default function PrototypePage({ onOpenPrototypeModal, isDark }) {
     } catch {}
 
     saveInquiry({
-      businessName,
+      businessName: cleanBusinessName,
       industry: projectType,
-      phone,
+      phone: cleanPhone,
       targetUrl: 'jagadish.online',
     });
 
     setSubmitted(true);
 
     const msg = encodeURIComponent(
-      `Hi Merqurie Team! I would like to initiate an architectural consultation:\n- Organization: ${businessName}\n- Division/Scope: ${projectType}\n- Phone: ${phone}`
+      `Hi Merqurie Team! I would like to initiate an architectural consultation:\n- Organization: ${cleanBusinessName}\n- Division/Scope: ${projectType}\n- Phone: ${cleanPhone}`
     );
 
     setTimeout(() => {
-      window.open(`https://wa.me/917358618789?text=${msg}`, '_blank');
+      window.open(`https://wa.me/917358618789?text=${msg}`, '_blank', 'noopener,noreferrer');
     }, 1000);
   };
 
@@ -85,6 +88,7 @@ export default function PrototypePage({ onOpenPrototypeModal, isDark }) {
               <input
                 type="text"
                 required
+                maxLength={100}
                 placeholder="e.g. Apex Industrial Systems / Your Brand"
                 value={businessName}
                 onChange={(e) => setBusinessName(e.target.value)}
@@ -129,6 +133,9 @@ export default function PrototypePage({ onOpenPrototypeModal, isDark }) {
               <input
                 type="tel"
                 required
+                maxLength={30}
+                pattern="[+0-9\s\-()]{7,25}"
+                title="Please enter a valid phone number with country code"
                 placeholder="+91 98765 43210"
                 value={phone}
                 onChange={(e) => setPhone(e.target.value)}

@@ -175,7 +175,7 @@ export default function ShowcaseSection({ onSelectProject }) {
                       <span className="text-slate-500">https://</span>
                       <span>{proj.subdomain}</span>
                     </div>
-                    <div className="text-xs text-slate-500">🔒 SSL</div>
+                    <div className="text-xs text-slate-500">SSL Certified</div>
                   </div>
 
                   {/* Browser Screen Simulation */}

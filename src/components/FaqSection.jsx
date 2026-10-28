@@ -1,6 +1,7 @@
+import WhatsAppIcon from './WhatsAppIcon';
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { ChevronDown, HelpCircle, MessageCircle } from 'lucide-react';
+import { ChevronDown, HelpCircle} from 'lucide-react';
 import { playCyberTone } from '../utils/audio';
 
 export default function FaqSection({ isDark = true }) {
@@ -145,7 +146,7 @@ export default function FaqSection({ isDark = true }) {
               : 'bg-white hover:bg-slate-100 border-slate-200 text-slate-900'
           }`}
         >
-          <MessageCircle className="w-3.5 h-3.5 text-emerald-500 fill-current" />
+          <WhatsAppIcon className="w-3.5 h-3.5 text-emerald-500 fill-current" />
           <span>WhatsApp</span>
         </a>
       </div>

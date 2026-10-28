@@ -1,9 +1,9 @@
+import WhatsAppIcon from '../components/WhatsAppIcon';
 import React, { useState } from 'react';
 import { playCyberTone } from '../utils/audio';
 import confetti from 'canvas-confetti';
 import {
   CheckCircle2,
-  MessageCircle,
   Sparkles,
   Send,
 } from 'lucide-react';
@@ -172,7 +172,7 @@ export default function PrototypePage({ onOpenPrototypeModal, isDark }) {
                     : 'bg-slate-100 hover:bg-slate-200 border-slate-200 text-slate-900'
                 }`}
               >
-                <MessageCircle className="w-4 h-4 text-emerald-500 fill-current" />
+                <WhatsAppIcon className="w-4 h-4 text-emerald-500 fill-current" />
                 <span>Chat Directly on WhatsApp</span>
               </a>
             </div>
@@ -199,7 +199,7 @@ export default function PrototypePage({ onOpenPrototypeModal, isDark }) {
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-white hover:bg-zinc-200 text-zinc-950 font-mono font-bold text-xs shadow-md mt-4 transition-all"
             >
-              <MessageCircle className="w-4 h-4 text-emerald-600 fill-current" />
+              <WhatsAppIcon className="w-4 h-4 text-emerald-600 fill-current" />
               <span>Open WhatsApp Chat</span>
             </a>
           </div>

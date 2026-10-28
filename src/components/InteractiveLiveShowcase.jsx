@@ -5,14 +5,15 @@ import {
   Activity, 
   Cpu, 
   Settings, 
-  Check, 
+  Check,
+  Star, 
   ExternalLink,
   Plus,
   Minus,
-  MessageCircle,
   ShieldCheck,
   ArrowRight,
 } from 'lucide-react';
+import WhatsAppIcon from './WhatsAppIcon';
 import { playCyberTone } from '../utils/audio';
 
 export default function InteractiveLiveShowcase({ onOpenPrototypeModal, isDark = true }) {
@@ -267,7 +268,7 @@ export default function InteractiveLiveShowcase({ onOpenPrototypeModal, isDark =
                             Featured Item
                           </span>
                           <span className="text-xs font-mono text-emerald-500 font-bold">
-                            ★ 4.9 (128 reviews)
+                            <span className="inline-flex items-center gap-1"><Star className="w-3.5 h-3.5 fill-current text-amber-400" /> 4.9 (128 reviews)</span>
                           </span>
                         </div>
 
@@ -328,7 +329,7 @@ export default function InteractiveLiveShowcase({ onOpenPrototypeModal, isDark =
                               : 'bg-slate-950 hover:bg-slate-800 text-white'
                           }`}
                         >
-                          <MessageCircle className="w-3.5 h-3.5 text-emerald-500 fill-current" />
+                          <WhatsAppIcon className="w-3.5 h-3.5 text-emerald-500 fill-current" />
                           <span>WhatsApp Instant Order Flow</span>
                         </a>
                       </div>
@@ -562,7 +563,7 @@ export default function InteractiveLiveShowcase({ onOpenPrototypeModal, isDark =
                             : 'bg-slate-950 hover:bg-slate-800 text-white'
                         }`}
                       >
-                        <MessageCircle className="w-3.5 h-3.5 text-emerald-500 fill-current" />
+                        <WhatsAppIcon className="w-3.5 h-3.5 text-emerald-500 fill-current" />
                         <span>Request Machinery Catalog Architecture</span>
                       </a>
                     </div>
@@ -674,7 +675,7 @@ export default function InteractiveLiveShowcase({ onOpenPrototypeModal, isDark =
                       </div>
 
                       <div className={`pt-3 border-t text-[11px] font-mono ${isDark ? 'border-zinc-800 text-zinc-400' : 'border-slate-200 text-slate-600'}`}>
-                        ✓ No agency ticketing &bull; No monthly retainers &bull; Live in seconds
+                        • No agency ticketing &bull; No monthly retainers &bull; Live in seconds
                       </div>
                     </div>
                   </div>

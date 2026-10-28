@@ -6,6 +6,8 @@ import {
   Edit3,
   Save,
   Check,
+  Megaphone,
+  Settings,
 } from 'lucide-react';
 
 export default function AdminPortalDemo({ isDark }) {
@@ -268,7 +270,7 @@ export default function AdminPortalDemo({ isDark }) {
                           ? 'bg-zinc-200/15 border-zinc-200/40 text-zinc-200' 
                           : 'bg-blue-50 border-blue-200 text-blue-700'
                       }`}>
-                        📣 {promoText}
+                        <span className="inline-flex items-center gap-1.5"><Megaphone className="w-3.5 h-3.5" />{promoText}</span>
                       </div>
                     )}
 
@@ -276,7 +278,7 @@ export default function AdminPortalDemo({ isDark }) {
                       isDark ? 'border-white/10' : 'border-slate-100'
                     }`}>
                       <div className="font-display font-extrabold text-base tracking-wide flex items-center gap-2">
-                        <span className={isDark ? 'text-zinc-200' : 'text-blue-600'}>⚙️</span>
+                        <Settings className="w-4 h-4 text-emerald-500 shrink-0" />
                         <span className={isDark ? 'text-white' : 'text-slate-900'}>{companyName || 'Your Business Name'}</span>
                       </div>
                       <div className="flex gap-2">

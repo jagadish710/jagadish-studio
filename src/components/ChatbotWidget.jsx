@@ -5,9 +5,9 @@ import {
   Send,
   Sparkles,
   Bot,
-  MessageCircle,
 } from 'lucide-react';
 import Logo from './Logo';
+import WhatsAppIcon from './WhatsAppIcon';
 
 export default function ChatbotWidget({ isOpen, setIsOpen, isDark }) {
   const [messages, setMessages] = useState([
@@ -102,7 +102,7 @@ export default function ChatbotWidget({ isOpen, setIsOpen, isDark }) {
             setIsOpen(true);
           }}
           onMouseEnter={() => playCyberTone('hover')}
-          className={`fixed bottom-6 right-6 z-40 px-3.5 py-2.5 rounded-2xl flex items-center gap-2 transition-all duration-300 hover:scale-105 active:scale-95 cursor-pointer group shadow-xl border ${
+          className={`hidden md:flex fixed bottom-6 right-6 z-40 px-3.5 py-2.5 rounded-2xl items-center gap-2 transition-all duration-300 hover:scale-105 active:scale-95 cursor-pointer group shadow-xl border ${
             isDark
               ? 'bg-zinc-900 hover:bg-zinc-800 text-white border-zinc-700 shadow-2xl'
               : 'bg-slate-900 hover:bg-slate-800 text-white shadow-lg border-slate-800'
@@ -118,7 +118,7 @@ export default function ChatbotWidget({ isOpen, setIsOpen, isDark }) {
 
       {/* Expanded Chat Drawer */}
       {isOpen && (
-        <div className={`fixed bottom-6 right-4 sm:right-6 z-50 w-[92vw] sm:w-[400px] h-[550px] max-h-[85vh] rounded-3xl border shadow-2xl flex flex-col overflow-hidden backdrop-blur-2xl ${
+        <div className={`fixed bottom-0 md:bottom-6 right-0 md:right-6 z-50 w-full sm:w-[400px] h-[85vh] sm:h-[550px] rounded-t-3xl sm:rounded-3xl border shadow-2xl flex flex-col overflow-hidden backdrop-blur-2xl ${
           isDark 
             ? 'bg-[#0E0E12] border-zinc-800 shadow-black/90 text-[#EAEAEA]' 
             : 'bg-white border-slate-200 shadow-2xl text-slate-900'
@@ -260,10 +260,10 @@ export default function ChatbotWidget({ isOpen, setIsOpen, isDark }) {
               href="https://wa.me/917358618789?text=Hi%20Merqurie%20Team!%20I%20am%20chatting%20from%20your%20website%20AI%20and%20want%20to%20connect."
               target="_blank"
               rel="noopener noreferrer"
-              className="p-2 rounded-xl bg-zinc-800 text-emerald-400 hover:bg-zinc-700 border border-zinc-700 cursor-pointer"
+              className="p-2 rounded-xl bg-zinc-800 text-emerald-400 hover:bg-zinc-700 border border-zinc-700 cursor-pointer transition-transform active:scale-95"
               title="Chat directly on WhatsApp"
             >
-              <MessageCircle className="w-3.5 h-3.5 fill-current" />
+              <WhatsAppIcon className="w-4 h-4 fill-current" />
             </a>
           </div>
         </div>

@@ -1,12 +1,11 @@
+import WhatsAppIcon from './WhatsAppIcon';
 import React from 'react';
 import { motion } from 'framer-motion';
 import { 
   ShieldCheck, 
   Check, 
   ArrowRight, 
-  Lock, 
-  MessageCircle 
-} from 'lucide-react';
+  Lock} from 'lucide-react';
 import { playCyberTone } from '../utils/audio';
 
 export default function PricingPhilosophy({ onOpenPrototypeModal, isDark = true }) {
@@ -155,7 +154,7 @@ export default function PricingPhilosophy({ onOpenPrototypeModal, isDark = true 
                       : 'border-slate-200 bg-white hover:bg-slate-100 text-slate-900 shadow-2xs'
                   }`}
                 >
-                  <MessageCircle className="w-3.5 h-3.5 text-emerald-500 fill-current" />
+                  <WhatsAppIcon className="w-3.5 h-3.5 text-emerald-500 fill-current" />
                   <span>WhatsApp Scope Discussion</span>
                 </a>
               </div>

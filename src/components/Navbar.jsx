@@ -3,14 +3,12 @@ import { playCyberTone } from '../utils/audio';
 import { motion } from 'framer-motion';
 import {
   MessageSquare,
-  MessageCircle,
   ChevronRight,
-  Menu,
-  X,
   Sun,
   Moon,
 } from 'lucide-react';
 import Logo from './Logo';
+import WhatsAppIcon from './WhatsAppIcon';
 
 export default function Navbar({ 
   activePage, 
@@ -22,11 +20,10 @@ export default function Navbar({
   setThemeMode,
 }) {
   const [scrolled, setScrolled] = useState(false);
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
-      setScrolled(window.scrollY > 30);
+      setScrolled(window.scrollY > 20);
     };
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
@@ -35,15 +32,15 @@ export default function Navbar({
   const navItems = [
     { id: 'home', label: 'Overview' },
     { id: 'solutions', label: 'Solutions' },
-    { id: 'work', label: 'Deployments' },
-    { id: 'about', label: 'Engineering' },
-    { id: 'prototype', label: 'Specifications' },
+    { id: 'work', label: 'Live Demo' },
+    { id: 'about', label: 'Architecture' },
+    { id: 'prototype', label: 'Consultation' },
   ];
 
   const handleNavClick = (id) => {
     playCyberTone('click');
     setActivePage(id);
-    setMobileMenuOpen(false);
+    window.location.hash = id;
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
@@ -59,9 +56,9 @@ export default function Navbar({
   };
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-40 px-4 sm:px-8 pt-4 transition-all duration-300">
+    <header className="fixed top-0 left-0 right-0 z-40 px-3 sm:px-8 pt-3 sm:pt-4 transition-all duration-300">
       <div
-        className={`max-w-7xl mx-auto flex items-center justify-between px-5 py-3 rounded-2xl transition-all duration-300 ${
+        className={`max-w-7xl mx-auto flex items-center justify-between px-3.5 sm:px-5 py-2 sm:py-3 rounded-2xl transition-all duration-300 ${
           scrolled
             ? isDark
               ? 'bg-[#09090b]/92 backdrop-blur-xl border border-zinc-800 shadow-2xl'
@@ -71,15 +68,15 @@ export default function Navbar({
               : 'bg-transparent border border-slate-200/40'
         }`}
       >
-        {/* Brand Logo & Wordmark - Tamil Word Removed */}
+        {/* Brand Logo & Wordmark */}
         <button
           onClick={() => handleNavClick('home')}
-          className="flex items-center gap-3 group cursor-pointer"
+          className="flex items-center gap-2.5 sm:gap-3 group cursor-pointer"
           aria-label="MERQURIE Home"
         >
-          <Logo isDark={isDark} className="w-9 h-9" />
+          <Logo isDark={isDark} className="w-8 h-8 sm:w-9 sm:h-9" />
           <div className="flex items-center gap-2">
-            <span className={`font-display font-extrabold text-base tracking-[0.2em] leading-none ${
+            <span className={`font-display font-extrabold text-sm sm:text-base tracking-[0.2em] leading-none ${
               isDark ? 'text-white' : 'text-slate-900'
             }`}>
               MERQURIE
@@ -87,7 +84,7 @@ export default function Navbar({
           </div>
         </button>
 
-        {/* Desktop Navigation Pages */}
+        {/* Desktop Navigation Pages (md & up) */}
         <nav className={`hidden md:flex items-center gap-1 p-1 rounded-xl border backdrop-blur-md ${
           isDark 
             ? 'bg-zinc-950/80 border-zinc-800' 
@@ -128,123 +125,71 @@ export default function Navbar({
         </nav>
 
         {/* Action Controls & Theme Toggle */}
-        <div className="flex items-center gap-2.5">
+        <div className="flex items-center gap-2 sm:gap-2.5">
           {/* Theme Mode Toggle Button */}
           <button
             onClick={toggleTheme}
-            className={`p-2 rounded-xl border text-xs font-mono flex items-center gap-1.5 transition-all cursor-pointer ${
+            className={`p-2 rounded-xl border text-xs font-mono flex items-center gap-1.5 transition-all cursor-pointer active:scale-95 ${
               isDark 
-                ? 'bg-zinc-900 border-zinc-800 text-zinc-300 hover:text-white' 
-                : 'bg-slate-100 border-slate-200 text-slate-700 hover:text-slate-950'
+                ? 'bg-zinc-900 border-zinc-800 text-zinc-300 hover:text-white hover:border-zinc-700' 
+                : 'bg-slate-100 border-slate-200 text-slate-700 hover:text-slate-950 hover:border-slate-300'
             }`}
-            title="Toggle theme"
+            title="Toggle light / dark mode"
+            aria-label="Toggle theme"
           >
             {isDark ? <Sun className="w-3.5 h-3.5" /> : <Moon className="w-3.5 h-3.5" />}
           </button>
 
-          {/* AI Trigger */}
+          {/* Desktop AI Concierge Trigger */}
           <button
             onClick={() => {
               playCyberTone('click');
               onOpenChat();
             }}
-            className={`hidden sm:flex items-center gap-1.5 px-3 py-2 rounded-xl border text-xs font-mono transition-all cursor-pointer ${
+            className={`hidden sm:flex items-center gap-1.5 px-3 py-2 rounded-xl border text-xs font-mono transition-all cursor-pointer active:scale-95 ${
               isDark 
-                ? 'bg-zinc-900 border-zinc-800 text-zinc-300 hover:text-white' 
-                : 'bg-slate-100 border-slate-200 text-slate-700 hover:text-slate-950'
+                ? 'bg-zinc-900 border-zinc-800 text-zinc-300 hover:text-white hover:border-zinc-700' 
+                : 'bg-slate-100 border-slate-200 text-slate-700 hover:text-slate-950 hover:border-slate-300'
             }`}
           >
             <MessageSquare className={`w-3.5 h-3.5 ${isDark ? 'text-zinc-300' : 'text-slate-700'}`} />
             <span>AI</span>
           </button>
 
-          {/* Enquire CTA */}
+          {/* Consultation CTA (Adaptive for mobile: compact pill) */}
           <button
             onClick={() => {
               playCyberTone('click');
               onOpenPrototypeModal();
             }}
-            className={`px-4 py-2 rounded-xl font-bold text-xs font-mono flex items-center gap-1.5 transition-all hover:scale-105 active:scale-95 cursor-pointer shadow-sm ${
+            className={`px-3 py-1.5 sm:px-4 sm:py-2 rounded-xl font-bold text-[11px] sm:text-xs font-mono flex items-center gap-1 transition-all hover:scale-102 active:scale-95 cursor-pointer shadow-sm ${
               isDark 
                 ? 'bg-white hover:bg-zinc-200 text-zinc-950' 
                 : 'bg-slate-950 hover:bg-slate-800 text-white'
             }`}
           >
             <span>CONSULTATION</span>
-            <ChevronRight className="w-3.5 h-3.5" />
+            <ChevronRight className="w-3 h-3 sm:w-3.5 sm:h-3.5" />
           </button>
 
-          {/* WhatsApp Direct CTA */}
+          {/* Desktop WhatsApp CTA */}
           <a
             href="https://wa.me/917358618789?text=Hi%20Merqurie%20Team!%20I%20am%20interested%20in%20a%20website%20solution."
             target="_blank"
             rel="noopener noreferrer"
             onClick={() => playCyberTone('click')}
-            className={`hidden sm:flex items-center gap-1.5 px-3.5 py-2 rounded-xl font-mono font-semibold text-xs shadow-xs hover:scale-105 transition-all cursor-pointer border ${
+            className={`hidden lg:flex items-center gap-1.5 px-3.5 py-2 rounded-xl font-mono font-semibold text-xs shadow-xs hover:scale-102 active:scale-95 transition-all cursor-pointer border ${
               isDark
                 ? 'bg-zinc-900 hover:bg-zinc-800 border-zinc-700 text-white'
                 : 'bg-slate-100 hover:bg-slate-200 border-slate-200 text-slate-900'
             }`}
             title="Chat on WhatsApp"
           >
-            <MessageCircle className="w-3.5 h-3.5 text-emerald-500 fill-current" />
+            <WhatsAppIcon className="w-3.5 h-3.5 text-emerald-400 fill-current" />
             <span>WhatsApp</span>
           </a>
-
-          {/* Mobile Menu Button */}
-          <button
-            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className={`md:hidden p-2 rounded-xl border ${
-              isDark 
-                ? 'bg-zinc-900 border-zinc-800 text-white' 
-                : 'bg-slate-100 border-slate-200 text-slate-900'
-            }`}
-          >
-            {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
-          </button>
         </div>
       </div>
-
-      {/* Mobile Drawer */}
-      {mobileMenuOpen && (
-        <div className={`md:hidden mt-2 p-4 rounded-2xl border shadow-2xl flex flex-col gap-2 font-mono text-xs ${
-          isDark 
-            ? 'border-zinc-800 bg-[#0E0E12] text-white' 
-            : 'border-slate-200 bg-white text-slate-900'
-        }`}>
-          {navItems.map((item) => (
-            <button
-              key={item.id}
-              onClick={() => handleNavClick(item.id)}
-              className={`p-3 rounded-xl text-left cursor-pointer transition-colors ${
-                activePage === item.id
-                  ? isDark 
-                    ? 'bg-zinc-800 text-white font-bold border border-zinc-700' 
-                    : 'bg-slate-100 text-slate-950 font-bold border border-slate-200'
-                  : isDark 
-                    ? 'text-zinc-400 hover:text-white hover:bg-zinc-900' 
-                    : 'text-slate-600 hover:text-slate-950 hover:bg-slate-50'
-              }`}
-            >
-              {item.label}
-            </button>
-          ))}
-
-          <a
-            href="https://wa.me/917358618789?text=Hi%20Merqurie%20Team!%20I%20am%20interested%20in%20a%20website%20solution."
-            target="_blank"
-            rel="noopener noreferrer"
-            className={`mt-2 p-3 rounded-xl font-bold text-center flex items-center justify-center gap-2 cursor-pointer border ${
-              isDark 
-                ? 'bg-zinc-900 hover:bg-zinc-800 border-zinc-700 text-white' 
-                : 'bg-slate-100 hover:bg-slate-200 border-slate-200 text-slate-900'
-            }`}
-          >
-            <MessageCircle className="w-4 h-4 text-emerald-500 fill-current" />
-            <span>WhatsApp</span>
-          </a>
-        </div>
-      )}
     </header>
   );
 }

@@ -40,7 +40,10 @@ export default function HomePage({
       />
 
       {/* 4. Comparison Matrix: Merqurie Engineering vs Legacy Agencies */}
-      <ComparisonSection isDark={isDark} />
+      <ComparisonSection 
+        isDark={isDark} 
+        onOpenPrototypeModal={onOpenPrototypeModal} 
+      />
 
       {/* 5. Transparent Milestone Pricing (Zero Recurring Retainers) */}
       <PricingPhilosophy

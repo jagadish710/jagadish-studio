@@ -10,6 +10,7 @@ import PrototypePage from './pages/PrototypePage';
 import ChatbotWidget from './components/ChatbotWidget';
 import PrototypeModal from './components/PrototypeModal';
 import Footer from './components/Footer';
+import MobileBottomNav from './components/MobileBottomNav';
 
 export default function App() {
   const [introFinished, setIntroFinished] = useState(true);
@@ -111,7 +112,7 @@ export default function App() {
       />
 
       {/* Multi-Page Views with Smooth Transitions */}
-      <main className="relative z-10 flex flex-col min-h-[85vh]">
+      <main className="relative z-10 flex flex-col min-h-[85vh] pb-16 md:pb-0">
         <AnimatePresence mode="wait">
           {activePage === 'home' && (
             <motion.div
@@ -210,6 +211,15 @@ export default function App() {
       <PrototypeModal
         isOpen={prototypeModalOpen}
         onClose={() => setPrototypeModalOpen(false)}
+        isDark={isDark}
+      />
+
+      {/* Modern App-Style Mobile Bottom Navigation Bar (PMS Style) */}
+      <MobileBottomNav
+        activePage={activePage}
+        setActivePage={handlePageChange}
+        onOpenChat={() => setChatOpen(true)}
+        chatOpen={chatOpen}
         isDark={isDark}
       />
     </div>

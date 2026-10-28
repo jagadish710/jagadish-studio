@@ -1,10 +1,10 @@
+import WhatsAppIcon from '../components/WhatsAppIcon';
 import React from 'react';
 import { motion } from 'framer-motion';
 import {
   Award,
   ExternalLink,
   CheckCircle2,
-  MessageCircle,
   ArrowRight,
   Globe,
   Database,
@@ -141,7 +141,7 @@ export default function WorkPage({ isDark = true, onOpenPrototypeModal }) {
                 : 'bg-slate-100 hover:bg-slate-200 border-slate-200 text-slate-900'
             }`}
           >
-            <MessageCircle className="w-4 h-4 text-emerald-500 fill-current" />
+            <WhatsAppIcon className="w-4 h-4 text-emerald-500 fill-current" />
             <span>WhatsApp</span>
           </a>
         </div>

@@ -1,9 +1,9 @@
+import WhatsAppIcon from '../components/WhatsAppIcon';
 import React from 'react';
 import { playCyberTone } from '../utils/audio';
 import { motion } from 'framer-motion';
 import {
   ArrowRight,
-  MessageCircle,
   Sparkles,
   Cpu,
 } from 'lucide-react';
@@ -91,7 +91,7 @@ export default function AboutPage({ onOpenPrototypeModal, isDark = true }) {
                 : 'bg-slate-100 hover:bg-slate-200 border-slate-200 text-slate-900'
             }`}
           >
-            <MessageCircle className="w-4 h-4 text-emerald-500 fill-current" />
+            <WhatsAppIcon className="w-4 h-4 text-emerald-500 fill-current" />
             <span>WhatsApp</span>
           </a>
         </div>

@@ -1,6 +1,7 @@
+import WhatsAppIcon from './WhatsAppIcon';
 import React from 'react';
 import { playCyberTone } from '../utils/audio';
-import { ArrowUpRight, MessageCircle } from 'lucide-react';
+import { ArrowUpRight} from 'lucide-react';
 import Logo from './Logo';
 
 export default function Footer({ setActivePage, isDark = true }) {
@@ -79,7 +80,7 @@ export default function Footer({ setActivePage, isDark = true }) {
               isDark ? 'text-zinc-300 hover:text-white' : 'text-slate-800 hover:text-slate-950'
             }`}
           >
-            <MessageCircle className="w-3.5 h-3.5 fill-current text-emerald-500" />
+            <WhatsAppIcon className="w-3.5 h-3.5 fill-current text-emerald-500" />
             <span>WhatsApp</span>
             <ArrowUpRight className="w-3.5 h-3.5 opacity-60" />
           </a>

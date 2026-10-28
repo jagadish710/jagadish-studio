@@ -1,85 +1,127 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { playCyberTone } from '../utils/audio';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import {
   ArrowRight,
-  MessageCircle,
+  Sparkles,
+  Zap,
+  Smartphone,
+  Laptop,
 } from 'lucide-react';
+import WhatsAppIcon from './WhatsAppIcon';
 
 export default function Hero({ 
   onOpenPrototypeModal, 
   onNavigateToWork, 
   isDark = true,
 }) {
-  return (
-    <section className="relative pt-32 sm:pt-36 pb-12 flex flex-col justify-center items-center px-4 sm:px-6 lg:px-8 overflow-hidden">
-      {/* Background Subtle Ambient Entrance Glow */}
-      <motion.div 
-        initial={{ opacity: 0, scale: 0.8 }}
-        animate={{ opacity: isDark ? 0.15 : 0.08, scale: 1 }}
-        transition={{ duration: 1.2, ease: "easeOut" }}
-        className={`absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[350px] rounded-full blur-[120px] pointer-events-none ${
-          isDark ? 'bg-zinc-400' : 'bg-slate-400'
-        }`}
-      />
+  const [activeShowcase, setActiveShowcase] = useState('website'); // 'website' | 'admin' | 'ecommerce'
 
-      <div className="relative z-10 max-w-4xl mx-auto text-center flex flex-col items-center">
+  const showcases = {
+    website: {
+      title: 'High-Converting Business Storefront',
+      speed: '0.24s Google PageSpeed',
+      desc: 'Edge-rendered digital platform built to turn visitors into inquiries via direct WhatsApp routing.',
+      image: '/images/showcase_business_website.jpg',
+      badge: '99/100 Core Web Vitals',
+      client: 'Live Production: upskskarate.com',
+    },
+    admin: {
+      title: 'Self-Serve Visual Admin Cockpit',
+      speed: '10s Instant Edit Latency',
+      desc: 'Update headlines, prices, announcements, and catalog items directly from your mobile phone with zero developer dependency.',
+      image: '/images/showcase_admin_portal.jpg',
+      badge: 'Zero Retainer Fees',
+      client: 'Visual Content Management',
+    },
+    ecommerce: {
+      title: 'Interactive E-Commerce & Product Catalog',
+      speed: 'Sub-second Checkout Flow',
+      desc: 'Instant one-tap WhatsApp order flow with dynamic spec configurator and inventory management.',
+      image: '/images/showcase_ecommerce_catalog.jpg',
+      badge: 'Live at pmssolution.co.in',
+      client: 'Machinery & Equipment Catalog',
+    },
+  };
+
+  const current = showcases[activeShowcase];
+
+  return (
+    <section className="relative pt-24 sm:pt-32 pb-12 sm:pb-16 flex flex-col justify-center items-center px-3 sm:px-6 lg:px-8 overflow-hidden">
+      
+      {/* Background Animated Motion Grid & Ambient Video Shimmer */}
+      <div className="absolute inset-0 pointer-events-none overflow-hidden z-0">
+        <div 
+          className={`absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[340px] sm:w-[700px] h-[340px] sm:h-[450px] rounded-full blur-[100px] sm:blur-[140px] pointer-events-none transition-opacity duration-700 ${
+            isDark ? 'bg-zinc-700/20' : 'bg-slate-300/40'
+          }`}
+        />
+        <div 
+          className={`absolute -bottom-20 right-10 w-[280px] sm:w-[500px] h-[280px] sm:h-[500px] rounded-full blur-[120px] pointer-events-none ${
+            isDark ? 'bg-emerald-950/20' : 'bg-emerald-100/40'
+          }`}
+        />
+        {/* Subtle Sci-Fi Perspective Grid */}
+        <div className={`absolute inset-0 opacity-[0.03] dark:opacity-[0.07] bg-[radial-gradient(#ffffff_1px,transparent_1px)] [background-size:24px_24px]`} />
+      </div>
+
+      <div className="relative z-10 max-w-5xl mx-auto text-center flex flex-col items-center w-full">
         
-        {/* Sleek Monochrome Badge (No Tamil text, pure institutional velocity) */}
+        {/* Top Velocity Badge */}
         <motion.div
-          initial={{ opacity: 0, y: -16, filter: 'blur(6px)' }}
-          animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
-          transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-          className={`inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full text-xs font-mono font-medium mb-6 border transition-colors ${
+          initial={{ opacity: 0, y: -12 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+          className={`inline-flex items-center gap-2 px-3 py-1 rounded-full text-[10px] sm:text-xs font-mono font-medium mb-4 sm:mb-5 border transition-all ${
             isDark 
-              ? 'bg-zinc-950 border-zinc-800 text-zinc-300' 
-              : 'bg-slate-100 border-slate-200 text-slate-800 shadow-2xs'
+              ? 'bg-zinc-950 border-zinc-800 text-zinc-300 shadow-sm' 
+              : 'bg-slate-100 border-slate-200 text-slate-800 shadow-xs'
           }`}
         >
           <span className="flex h-2 w-2 relative">
-            <span className={`animate-ping absolute inline-flex h-full w-full rounded-full opacity-60 ${
-              isDark ? 'bg-white' : 'bg-slate-900'
+            <span className={`animate-ping absolute inline-flex h-full w-full rounded-full opacity-75 ${
+              isDark ? 'bg-emerald-400' : 'bg-emerald-600'
             }`} />
             <span className={`relative inline-flex rounded-full h-2 w-2 ${
-              isDark ? 'bg-zinc-100' : 'bg-slate-900'
+              isDark ? 'bg-emerald-400' : 'bg-emerald-600'
             }`} />
           </span>
-          <span className="tracking-widest">MERQURIE &bull; SYSTEMS ARCHITECTURE &bull; MOVE AT THE SPEED OF MERCURY</span>
+          <span className="tracking-widest uppercase">MERQURIE &bull; ENTERPRISE WEBSITE ARCHITECTURE</span>
         </motion.div>
 
-        {/* Clean, Restrained Headline */}
+        {/* Headline: Mobile-Optimized with Reduced Font Size & High Legibility */}
         <motion.h1
-          initial={{ opacity: 0, y: 20, filter: 'blur(8px)' }}
-          animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
-          transition={{ duration: 0.7, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
-          className={`text-3xl sm:text-5xl md:text-6xl font-bold tracking-tight font-display leading-[1.12] mb-5 max-w-3xl ${
+          initial={{ opacity: 0, y: 16 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.08, ease: [0.16, 1, 0.3, 1] }}
+          className={`text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight font-display leading-[1.15] mb-3 sm:mb-4 max-w-3xl ${
             isDark ? 'text-white' : 'text-slate-950'
           }`}
         >
-          Minimalist Websites.{' '}
+          High-Converting Websites.{' '}
           <span className={isDark ? 'text-zinc-400' : 'text-slate-500'}>
-            Zero Maintenance Debt.
+            Zero Maintenance Retainers.
           </span>
         </motion.h1>
 
-        {/* Concise Subtitle */}
+        {/* Subtitle */}
         <motion.p
-          initial={{ opacity: 0, y: 20, filter: 'blur(6px)' }}
-          animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
-          transition={{ duration: 0.7, delay: 0.18, ease: [0.16, 1, 0.3, 1] }}
-          className={`max-w-xl text-xs sm:text-sm font-normal leading-relaxed mb-8 ${
+          initial={{ opacity: 0, y: 14 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.14, ease: [0.16, 1, 0.3, 1] }}
+          className={`max-w-xl text-xs sm:text-sm font-normal leading-relaxed mb-6 sm:mb-8 px-2 ${
             isDark ? 'text-zinc-400' : 'text-slate-600'
           }`}
         >
-          We engineer high-speed digital platforms, self-serve client admin cockpits, and e-commerce systems with zero recurring agency retainer fees.
+          Custom-engineered digital storefronts with sub-second mobile speed, a self-serve visual admin dashboard, and permanent code sovereignty. Pay once. Never pay monthly retainer fees.
         </motion.p>
 
-        {/* Clean Action Buttons (WhatsApp with icon only, no numbers in buttons) */}
+        {/* CTA Buttons */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.25, ease: [0.16, 1, 0.3, 1] }}
-          className="flex flex-col sm:flex-row items-center gap-3 w-full sm:w-auto mb-10"
+          transition={{ duration: 0.5, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
+          className="flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-2.5 w-full max-w-md sm:max-w-none mb-8 sm:mb-12 px-2"
         >
           {/* Consultation CTA */}
           <button
@@ -87,88 +129,221 @@ export default function Hero({
               playCyberTone('click');
               onOpenPrototypeModal();
             }}
-            className={`w-full sm:w-auto px-6 py-3 rounded-xl font-semibold font-mono text-xs tracking-wider flex items-center justify-center gap-2 transition-all hover:scale-102 active:scale-98 cursor-pointer shadow-sm ${
+            className={`px-5 sm:px-7 py-3 rounded-xl font-bold font-mono text-xs sm:text-sm tracking-wider flex items-center justify-center gap-2 transition-all hover:scale-102 active:scale-95 cursor-pointer shadow-md group ${
               isDark
                 ? 'bg-white hover:bg-zinc-200 text-zinc-950'
                 : 'bg-slate-950 hover:bg-slate-800 text-white'
             }`}
           >
-            <span>REQUEST ARCHITECTURE</span>
-            <ArrowRight className="w-3.5 h-3.5" />
+            <span>GET A WEBSITE BLUEPRINT</span>
+            <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
           </button>
 
-          {/* WhatsApp Direct */}
+          {/* WhatsApp Direct with Official WhatsApp SVG */}
           <a
             href="https://wa.me/917358618789?text=Hi%20Merqurie%20Team!%20I%20would%20like%20to%20discuss%20a%20website%20solution."
             target="_blank"
             rel="noopener noreferrer"
             onClick={() => playCyberTone('click')}
-            className={`w-full sm:w-auto px-5 py-3 rounded-xl font-mono text-xs font-semibold flex items-center justify-center gap-2 border transition-all hover:scale-102 active:scale-98 cursor-pointer ${
+            className={`px-5 sm:px-6 py-3 rounded-xl font-mono text-xs sm:text-sm font-semibold flex items-center justify-center gap-2 border transition-all hover:scale-102 active:scale-95 cursor-pointer group ${
               isDark
-                ? 'bg-zinc-950 hover:bg-zinc-900 text-white border-zinc-800'
-                : 'bg-slate-100 hover:bg-slate-200 text-slate-900 border-slate-200'
+                ? 'bg-zinc-950 hover:bg-zinc-900 text-white border-zinc-800 hover:border-emerald-500/50'
+                : 'bg-white hover:bg-slate-50 text-slate-900 border-slate-200 hover:border-emerald-500/50 shadow-xs'
             }`}
           >
-            <MessageCircle className="w-4 h-4 text-emerald-500 fill-current" />
-            <span>WhatsApp</span>
+            <WhatsAppIcon className="w-4 h-4 text-emerald-500 fill-current group-hover:scale-110 transition-transform" />
+            <span>Chat on WhatsApp</span>
           </a>
         </motion.div>
 
-        {/* 4 Sleek Micro-Metric Badges */}
+        {/* VISUALS FIRST: Interactive Device Workstation Frame */}
         <motion.div
-          initial={{ opacity: 0, y: 24 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 0.32, ease: [0.16, 1, 0.3, 1] }}
-          className="grid grid-cols-2 md:grid-cols-4 gap-3 w-full max-w-3xl text-left"
-        >
-          <div className={`p-3.5 rounded-xl border transition-all ${
+          initial={{ opacity: 0, y: 24, scale: 0.98 }}
+          animate={{ opacity: 1, y: 0, scale: 1 }}
+          transition={{ duration: 0.7, delay: 0.28, ease: [0.16, 1, 0.3, 1] }}
+          className={`w-full rounded-2xl sm:rounded-3xl border overflow-hidden shadow-2xl transition-all duration-300 ${
             isDark 
-              ? 'bg-zinc-950/80 border-zinc-800/80' 
-              : 'bg-white border-slate-200/90 shadow-2xs'
+              ? 'bg-[#0E0E12] border-zinc-800 shadow-black/90' 
+              : 'bg-white border-slate-200 shadow-xl'
+          }`}
+        >
+          {/* Mockup Top Window Bar */}
+          <div className={`px-4 py-3 border-b flex flex-col sm:flex-row items-center justify-between gap-3 ${
+            isDark ? 'bg-zinc-950/90 border-zinc-800' : 'bg-slate-100/90 border-slate-200'
           }`}>
-            <span className={`text-[10px] font-mono uppercase block mb-1 ${
-              isDark ? 'text-zinc-500' : 'text-slate-400'
-            }`}>Performance</span>
-            <span className={`text-sm font-bold ${
-              isDark ? 'text-white' : 'text-slate-950'
-            }`}>&lt; 0.3s Load</span>
+            {/* Window Traffic Lights & Title */}
+            <div className="flex items-center gap-3 w-full sm:w-auto justify-between sm:justify-start">
+              <div className="flex items-center gap-1.5">
+                <span className="w-2.5 h-2.5 rounded-full bg-rose-500/80" />
+                <span className="w-2.5 h-2.5 rounded-full bg-amber-500/80" />
+                <span className="w-2.5 h-2.5 rounded-full bg-emerald-500/80" />
+              </div>
+              <span className={`text-[11px] font-mono font-medium truncate ${
+                isDark ? 'text-zinc-400' : 'text-slate-600'
+              }`}>
+                merqurie.cloud &bull; {current.client}
+              </span>
+            </div>
+
+            {/* Showcase Selector Tabs */}
+            <div className={`flex items-center gap-1 p-1 rounded-xl border w-full sm:w-auto justify-center ${
+              isDark ? 'bg-zinc-900 border-zinc-800' : 'bg-white border-slate-200 shadow-2xs'
+            }`}>
+              {[
+                { id: 'website', label: 'Storefront', icon: Laptop },
+                { id: 'admin', label: 'Admin Portal', icon: Smartphone },
+                { id: 'ecommerce', label: 'E-Store', icon: Zap },
+              ].map((tab) => {
+                const Icon = tab.icon;
+                const isActive = activeShowcase === tab.id;
+                return (
+                  <button
+                    key={tab.id}
+                    onClick={() => {
+                      playCyberTone('click');
+                      setActiveShowcase(tab.id);
+                    }}
+                    className={`px-3 py-1.5 rounded-lg text-xs font-mono flex items-center gap-1.5 transition-all cursor-pointer active:scale-95 ${
+                      isActive
+                        ? isDark
+                          ? 'bg-zinc-800 text-white font-bold shadow-xs'
+                          : 'bg-slate-950 text-white font-bold shadow-xs'
+                        : isDark
+                          ? 'text-zinc-400 hover:text-white'
+                          : 'text-slate-600 hover:text-slate-950'
+                    }`}
+                  >
+                    <Icon className={`w-3.5 h-3.5 ${isActive ? 'fill-current' : ''}`} />
+                    <span>{tab.label}</span>
+                  </button>
+                );
+              })}
+            </div>
           </div>
 
-          <div className={`p-3.5 rounded-xl border transition-all ${
+          {/* Interactive Screen Preview Container */}
+          <div className="relative group overflow-hidden">
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={activeShowcase}
+                initial={{ opacity: 0, scale: 0.99 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 0.3 }}
+                className="relative aspect-[16/10] sm:aspect-[21/9] w-full overflow-hidden bg-black"
+              >
+                {/* Real High-Resolution Mockup Image */}
+                <img
+                  src={current.image}
+                  alt={current.title}
+                  className="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-102"
+                />
+
+                {/* Subtle Gradient Overlay */}
+                <div className={`absolute inset-0 pointer-events-none bg-gradient-to-t ${
+                  isDark 
+                    ? 'from-[#0E0E12] via-transparent to-transparent opacity-80' 
+                    : 'from-white/60 via-transparent to-transparent'
+                }`} />
+
+                {/* Floating Metric Badges on Screen */}
+                <div className="absolute bottom-3 left-3 right-3 sm:bottom-5 sm:left-5 sm:right-5 flex flex-col sm:flex-row items-start sm:items-end justify-between gap-3 pointer-events-none">
+                  <div className={`p-3 rounded-xl backdrop-blur-xl border max-w-md text-left ${
+                    isDark 
+                      ? 'bg-black/85 border-zinc-700/80 text-white' 
+                      : 'bg-white/95 border-slate-200 text-slate-900 shadow-lg'
+                  }`}>
+                    <div className="flex items-center gap-2 mb-1">
+                      <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+                      <span className="text-[10px] font-mono font-bold text-emerald-400 uppercase tracking-wider">
+                        {current.badge}
+                      </span>
+                    </div>
+                    <h4 className="text-sm font-bold font-display leading-tight">{current.title}</h4>
+                    <p className={`text-[11px] leading-relaxed mt-0.5 line-clamp-2 ${
+                      isDark ? 'text-zinc-300' : 'text-slate-600'
+                    }`}>
+                      {current.desc}
+                    </p>
+                  </div>
+
+                  {/* Interactive Action Button */}
+                  <div className="pointer-events-auto">
+                    <button
+                      onClick={() => onNavigateToWork && onNavigateToWork()}
+                      className={`px-3.5 py-2 rounded-xl text-xs font-mono font-bold flex items-center gap-1.5 shadow-lg backdrop-blur-md transition-all active:scale-95 cursor-pointer border ${
+                        isDark 
+                          ? 'bg-zinc-900/90 hover:bg-zinc-800 text-white border-zinc-700' 
+                          : 'bg-white/95 hover:bg-slate-50 text-slate-900 border-slate-200'
+                      }`}
+                    >
+                      <Sparkles className="w-3.5 h-3.5 text-emerald-400 fill-current" />
+                      <span>Test Interactive Demo</span>
+                      <ArrowRight className="w-3 h-3" />
+                    </button>
+                  </div>
+                </div>
+              </motion.div>
+            </AnimatePresence>
+          </div>
+
+        </motion.div>
+
+        {/* 4 Sleek Micro-Metric Badges: Clean, Non-Cramped 2x2 Grid on Mobile */}
+        <motion.div
+          initial={{ opacity: 0, y: 16 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.35, ease: [0.16, 1, 0.3, 1] }}
+          className="grid grid-cols-2 md:grid-cols-4 gap-2 sm:gap-3 w-full max-w-4xl text-left mt-6 sm:mt-8 px-1"
+        >
+          <div className={`p-3 sm:p-3.5 rounded-xl border transition-all ${
             isDark 
               ? 'bg-zinc-950/80 border-zinc-800/80' 
               : 'bg-white border-slate-200/90 shadow-2xs'
           }`}>
-            <span className={`text-[10px] font-mono uppercase block mb-1 ${
+            <span className={`text-[10px] font-mono uppercase block mb-0.5 ${
+              isDark ? 'text-zinc-500' : 'text-slate-400'
+            }`}>Speed</span>
+            <span className={`text-xs sm:text-sm font-bold ${
+              isDark ? 'text-white' : 'text-slate-950'
+            }`}>&lt; 0.3s Load Time</span>
+          </div>
+
+          <div className={`p-3 sm:p-3.5 rounded-xl border transition-all ${
+            isDark 
+              ? 'bg-zinc-950/80 border-zinc-800/80' 
+              : 'bg-white border-slate-200/90 shadow-2xs'
+          }`}>
+            <span className={`text-[10px] font-mono uppercase block mb-0.5 ${
               isDark ? 'text-zinc-500' : 'text-slate-400'
             }`}>Retainer Fees</span>
-            <span className="text-sm font-bold text-emerald-500">₹0 / Year</span>
+            <span className="text-xs sm:text-sm font-bold text-emerald-500">₹0 / Year Forever</span>
           </div>
 
-          <div className={`p-3.5 rounded-xl border transition-all ${
+          <div className={`p-3 sm:p-3.5 rounded-xl border transition-all ${
             isDark 
               ? 'bg-zinc-950/80 border-zinc-800/80' 
               : 'bg-white border-slate-200/90 shadow-2xs'
           }`}>
-            <span className={`text-[10px] font-mono uppercase block mb-1 ${
+            <span className={`text-[10px] font-mono uppercase block mb-0.5 ${
               isDark ? 'text-zinc-500' : 'text-slate-400'
-            }`}>Admin Panel</span>
-            <span className={`text-sm font-bold ${
+            }`}>Admin Dashboard</span>
+            <span className={`text-xs sm:text-sm font-bold ${
               isDark ? 'text-white' : 'text-slate-950'
-            }`}>Self-Serve</span>
+            }`}>Self-Serve Phone</span>
           </div>
 
-          <div className={`p-3.5 rounded-xl border transition-all ${
+          <div className={`p-3 sm:p-3.5 rounded-xl border transition-all ${
             isDark 
               ? 'bg-zinc-950/80 border-zinc-800/80' 
               : 'bg-white border-slate-200/90 shadow-2xs'
           }`}>
-            <span className={`text-[10px] font-mono uppercase block mb-1 ${
+            <span className={`text-[10px] font-mono uppercase block mb-0.5 ${
               isDark ? 'text-zinc-500' : 'text-slate-400'
-            }`}>Code Sovereignty</span>
-            <span className={`text-sm font-bold ${
+            }`}>Ownership</span>
+            <span className={`text-xs sm:text-sm font-bold ${
               isDark ? 'text-white' : 'text-slate-950'
-            }`}>100% Owned</span>
+            }`}>100% Full Code IP</span>
           </div>
         </motion.div>
 

@@ -1,90 +1,76 @@
 import React from 'react';
 
 export default function TechMarquee({ mode = 'tech', isDark }) {
-  // Concise 1-2 word technical items (zero clutter)
   const techItems = [
     { title: 'REACT 19', highlight: true },
     { title: 'NEXT.JS', outline: true },
     { title: 'THREE.JS', highlight: false },
-    { title: 'WEBGL', highlight: true },
-    { title: 'GSAP MOTION', outline: true },
     { title: 'SUPABASE', highlight: true },
     { title: 'POSTGRESQL', outline: false },
     { title: 'TAILWIND CSS', highlight: false },
     { title: 'VERCEL EDGE', outline: true },
     { title: 'NODE.JS', highlight: true },
     { title: 'TYPESCRIPT', outline: false },
-    { title: 'FAST SEO ENGINE', highlight: true },
-    { title: 'REST APIS', outline: true },
+    { title: 'GOOGLE CORE WEB VITALS', highlight: true },
+    { title: 'REST & GRAPHQL', outline: true },
   ];
 
   const solutionItems = [
-    { title: 'BUSINESS WEBSITES', highlight: true },
-    { title: 'CUSTOM SOFTWARES', outline: true },
-    { title: 'E-COMMERCE ENGINES', highlight: false },
-    { title: 'ACADEMY PLATFORMS', outline: false },
-    { title: 'INDUSTRIAL CATALOGS', highlight: true },
-    { title: 'MANAGEMENT ERPS', outline: true },
-    { title: 'ADMIN DASHBOARDS', highlight: true },
-    { title: 'BOOKING ENGINES', outline: false },
-    { title: 'ZERO MAINTENANCE', highlight: true },
-    { title: '100% OWNERSHIP', outline: true },
-    { title: 'WHATSAPP AUTOMATION', highlight: false },
-    { title: 'SUB-SECOND SPEED', highlight: true },
+    { title: 'MERQURIE CLOUD', highlight: true },
+    { title: 'VERTICAL SAAS', outline: true },
+    { title: 'MERQURIE SPORTS', highlight: false },
+    { title: 'MERQURIE HEALTH', outline: false },
+    { title: 'INDUSTRIAL ERPS', highlight: true },
+    { title: 'MERQURIE MOBILITY', outline: true },
+    { title: 'ADMIN COCKPITS', highlight: true },
+    { title: 'ZERO MAINTENANCE ARCHITECTURE', outline: false },
+    { title: '100% CODE SOVEREIGNTY', highlight: true },
+    { title: 'SUB-0.3S LATENCY', highlight: true },
   ];
 
   const items = mode === 'tech' ? techItems : solutionItems;
   const isReverse = mode === 'solutions';
-
-  // Triple items for seamless continuous looping
   const displayItems = [...items, ...items, ...items];
 
   return (
-    <div className="relative w-full py-2 my-4 overflow-hidden select-none">
-      {/* Background Ribbon Border & Gradient */}
-      <div className={`py-3 border-y backdrop-blur-md relative ${
+    <div className="relative w-full py-2 my-2 overflow-hidden select-none">
+      <div className={`py-3.5 border-y backdrop-blur-md relative ${
         isDark
-          ? mode === 'tech'
-            ? 'bg-[#15121E]/90 border-[#8B5CF6]/35 shadow-[0_0_25px_-5px_rgba(139,92,246,0.3)]'
-            : 'bg-[#16140E]/90 border-luxury-gold/30 shadow-[0_0_25px_-5px_rgba(230,198,135,0.25)]'
-          : 'bg-[#F8FAFC]/90 border-slate-200/80 shadow-xs'
+          ? 'bg-[#141417]/60 border-white/5'
+          : 'bg-[#F8FAFC]/80 border-slate-200/60'
       }`}>
         {/* Soft edge gradient fades */}
-        <div className={`absolute left-0 inset-y-0 w-20 z-10 pointer-events-none bg-gradient-to-r ${
+        <div className={`absolute left-0 inset-y-0 w-24 z-10 pointer-events-none bg-gradient-to-r ${
           isDark ? 'from-[#121212] to-transparent' : 'from-[#FFFFFF] to-transparent'
         }`} />
-        <div className={`absolute right-0 inset-y-0 w-20 z-10 pointer-events-none bg-gradient-to-l ${
+        <div className={`absolute right-0 inset-y-0 w-24 z-10 pointer-events-none bg-gradient-to-l ${
           isDark ? 'from-[#121212] to-transparent' : 'from-[#FFFFFF] to-transparent'
         }`} />
 
         {/* Marquee Track */}
-        <div className={isReverse ? 'marquee-track-reverse' : 'marquee-track'}>
-          {displayItems.map((item, idx) => (
+        <div className={`flex items-center gap-10 whitespace-nowrap will-change-transform ${
+          isReverse ? 'animate-marquee-reverse' : 'animate-marquee'
+        }`}>
+          {displayItems.map((item, index) => (
             <div
-              key={idx}
-              className="inline-flex items-center gap-4 px-6 shrink-0 transition-transform duration-200 hover:scale-105"
+              key={`${item.title}-${index}`}
+              className="inline-flex items-center gap-4 text-xs font-mono font-medium tracking-widest uppercase transition-opacity"
             >
-              <span className={`text-xs sm:text-sm font-mono tracking-wider uppercase ${
+              <span className={`transition-colors ${
                 item.highlight
-                  ? isDark
-                    ? mode === 'tech'
-                      ? 'text-[#C4B5FD] font-black drop-shadow-[0_0_10px_rgba(196,181,253,0.5)]'
-                      : 'text-luxury-gold font-black drop-shadow-[0_0_10px_rgba(230,198,135,0.5)]'
-                    : 'text-slate-900 font-extrabold'
-                  : item.outline
-                  ? isDark
-                    ? mode === 'tech' ? 'text-outline-purple font-black' : 'text-outline-gold font-black'
-                    : 'text-slate-500 font-semibold'
-                  : isDark
-                    ? 'text-white font-black'
-                    : 'text-slate-700 font-bold'
+                  ? isDark 
+                    ? 'text-[#E6C687] font-semibold' 
+                    : 'text-slate-900 font-semibold'
+                  : isDark 
+                    ? 'text-slate-400' 
+                    : 'text-slate-500'
               }`}>
                 {item.title}
               </span>
-
-              {/* Separator Diamond */}
-              <span className={`text-xs ${isDark ? 'text-slate-500' : 'text-slate-300'}`}>
-                {idx % 3 === 0 ? '✦' : '•'}
+              <span className={`text-[8px] ${
+                isDark ? 'text-white/20' : 'text-slate-300'
+              }`}>
+                &bull;
               </span>
             </div>
           ))}

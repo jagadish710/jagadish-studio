@@ -4,155 +4,181 @@ import {
   Check,
   Zap,
   ArrowRight,
-  Star,
   ShieldCheck,
   MessageCircle,
+  Cpu,
+  Layers,
+  Lock,
 } from 'lucide-react';
 
 export default function PricingPhilosophy({ onOpenPrototypeModal, isDark }) {
   const highlights = [
-    'Super fast loading speed (<0.4s) on all mobile devices',
-    'Easy admin dashboard — change text & photos in 10 seconds',
-    'Customer inquiries sent directly to your WhatsApp',
-    'Custom tailored to your exact industry and business scope',
-    'No monthly or yearly maintenance bills (₹0 / year forever)',
-    '100% full ownership of your code, files, and domain',
-    'Direct WhatsApp lead capture & instant notifications',
-    'Dedicated support and free tweaks after launch',
+    'Sub-0.3s Core Web Vitals loading speed across all mobile and desktop devices',
+    'Dedicated self-serve administration cockpit — instant content & pricing updates',
+    'Real-time customer inquiry capture routed directly to your executive WhatsApp',
+    'Custom tailored to your exact industry operational workflows and business scope',
+    'Zero ongoing monthly or yearly developer retainer bills (₹0 maintenance fees)',
+    '100% intellectual property sovereignty — transfer of full repositories & database',
+    'Automated enterprise SSL encryption, distributed CDN, and edge routing',
+    'Post-launch stabilization, testing, and dedicated technical deployment advisory',
   ];
 
   return (
     <section id="pricing-philosophy" className={`py-20 px-4 sm:px-6 lg:px-8 relative z-10 border-t ${
-      isDark ? 'border-white/5 bg-[#121212]' : 'border-slate-200 bg-[#F8FAFC]'
+      isDark ? 'border-white/5 bg-[#121214]' : 'border-slate-200/80 bg-[#F8FAFC]'
     }`}>
       <div className="max-w-5xl mx-auto">
+        
         {/* Section Header */}
-        <div className="text-center max-w-2xl mx-auto mb-14">
-          <div className={`inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-mono font-bold mb-4 border ${
+        <div className="text-center max-w-3xl mx-auto mb-14">
+          <div className={`inline-flex items-center gap-2 px-3.5 py-1 rounded-full text-xs font-mono font-medium mb-4 border ${
             isDark 
-              ? 'bg-[#181818] border-[#8B5CF6]/50 text-[#C4B5FD] shadow-[0_0_20px_rgba(139,92,246,0.3)]' 
+              ? 'bg-[#18181C] border-[#E6C687]/30 text-[#E6C687]' 
               : 'bg-slate-100 border-slate-200 text-slate-800'
           }`}>
-            <Zap className={`w-3.5 h-3.5 ${isDark ? 'text-[#C4B5FD]' : 'text-blue-600'}`} />
-            <span>ONE-TIME INVESTMENT • NO HIDDEN FEES</span>
+            <Lock className="w-3.5 h-3.5" />
+            <span className="uppercase tracking-wider">Transparent Architecture Model</span>
           </div>
-          <h2 className={`text-3xl sm:text-5xl font-extrabold tracking-tight font-display mb-4 ${
+
+          <h2 className={`text-3xl sm:text-5xl font-bold tracking-tight font-display mb-4 ${
             isDark ? 'text-white' : 'text-slate-900'
           }`}>
-            ONE-TIME INVESTMENT. <br />
-            <span className="text-gradient-main">NO MAINTENANCE CHARGES.</span>
+            One-Time Capital Investment. <br />
+            <span className={isDark ? 'text-[#E6C687]' : 'text-blue-700'}>
+              Zero Maintenance Retainers.
+            </span>
           </h2>
-          <p className={`text-base sm:text-lg ${isDark ? 'text-slate-300' : 'text-slate-600'}`}>
-            Every project is scoped to your exact business requirements. You pay once for your complete digital system with zero monthly or yearly maintenance fees.
+          <p className={`text-sm sm:text-base leading-relaxed ${
+            isDark ? 'text-slate-400' : 'text-slate-600'
+          }`}>
+            Every engagement is engineered to your exact organizational requirements. You fund the engineering once; you never receive recurring maintenance bills.
           </p>
         </div>
 
-        {/* Flagship Package Card */}
-        <div className={`p-6 sm:p-12 rounded-3xl border shadow-xl relative ${
+        {/* Flagship Architecture Engagement Card */}
+        <div className={`p-6 sm:p-12 rounded-2xl border shadow-lg relative ${
           isDark 
-            ? 'bg-gradient-to-b from-[#18181C] via-[#141416] to-[#101012] border-[#8B5CF6]/40' 
+            ? 'bg-[#151518] border-white/10' 
             : 'bg-white border-slate-200'
         }`}>
-          {/* Prominent Badges */}
-          <div className="flex flex-wrap items-center justify-between gap-4 mb-8">
-            <div className={`inline-flex items-center gap-2 px-4 py-1.5 rounded-full font-mono font-bold text-xs tracking-wider ${
+          {/* Header Badges */}
+          <div className="flex flex-wrap items-center justify-between gap-4 mb-8 pb-6 border-b border-black/5 dark:border-white/5">
+            <div className={`inline-flex items-center gap-2 px-3 py-1 rounded-full font-mono text-xs font-semibold ${
               isDark 
-                ? 'bg-gradient-to-r from-[#673DE6] to-[#8B5CF6] text-white shadow-[0_0_20px_rgba(103,61,230,0.4)]' 
-                : 'bg-slate-900 text-white shadow-xs'
+                ? 'bg-[#1E1E24] text-[#E6C687] border border-[#E6C687]/30' 
+                : 'bg-blue-50 text-blue-700 border border-blue-200'
             }`}>
-              <Star className="w-3.5 h-3.5 fill-current" />
-              <span>COMPLETE BUSINESS SOLUTION</span>
+              <ShieldCheck className="w-3.5 h-3.5" />
+              <span>ENTERPRISE SPECIFICATION</span>
             </div>
 
-            <div className={`text-xs font-mono px-3 py-1 rounded-full border ${
-              isDark ? 'bg-black/60 border-white/10 text-emerald-400' : 'bg-slate-100 border-slate-200 text-slate-800'
+            <div className={`font-mono text-xs flex items-center gap-2 ${
+              isDark ? 'text-slate-400' : 'text-slate-600'
             }`}>
-              ● Scope-Based Transparent Pricing
+              <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
+              <span>CUSTOM SCOPE &bull; TAILORED PROPOSALS</span>
             </div>
           </div>
 
-          <div className="flex flex-col md:flex-row md:items-center justify-between border-b border-black/10 dark:border-white/10 pb-8 mb-8 gap-6">
-            <div>
-              <h3 className={`text-2xl sm:text-3xl font-extrabold font-display ${
+          <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-start mb-8">
+            <div className="md:col-span-8">
+              <h3 className={`text-xl sm:text-2xl font-bold font-display mb-2 ${
                 isDark ? 'text-white' : 'text-slate-900'
               }`}>
-                Tailored To Your Business
+                Full-Stack Digital Platform &amp; Custom Admin Cockpit
               </h3>
-              <p className={`text-sm mt-1 max-w-md ${isDark ? 'text-slate-300' : 'text-slate-600'}`}>
-                Pricing depends on your exact project features and requirements. You receive full ownership with zero recurring maintenance charges.
+              <p className={`text-xs sm:text-sm leading-relaxed mb-6 ${
+                isDark ? 'text-slate-400' : 'text-slate-600'
+              }`}>
+                Comprehensive architectural delivery encompassing front-end interfaces, serverless database configuration, visual management cockpits, and multi-channel lead routing.
               </p>
+
+              {/* Checklist Grid */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                {highlights.map((item, idx) => (
+                  <div key={idx} className="flex items-start gap-2.5 text-xs">
+                    <Check className={`w-3.5 h-3.5 shrink-0 mt-0.5 ${
+                      isDark ? 'text-[#E6C687]' : 'text-blue-600'
+                    }`} />
+                    <span className={isDark ? 'text-slate-300' : 'text-slate-700'}>
+                      {item}
+                    </span>
+                  </div>
+                ))}
+              </div>
             </div>
 
-            <div className="text-left md:text-right">
-              <div className={`text-xs font-mono uppercase tracking-widest font-bold ${
-                isDark ? 'text-luxury-gold' : 'text-slate-500'
-              }`}>
-                MAINTENANCE CHARGES
-              </div>
-              <div className={`text-4xl sm:text-5xl font-extrabold font-mono ${
-                isDark ? 'text-luxury-gold' : 'text-slate-900'
-              }`}>
-                ₹0 <span className={`text-sm font-normal ${isDark ? 'opacity-70' : 'text-slate-500'}`}>/ forever</span>
-              </div>
-              <div className={`text-[11px] font-mono mt-0.5 ${isDark ? 'opacity-60' : 'text-slate-500'}`}>
-                One-time project investment • Zero monthly bills
-              </div>
-            </div>
-          </div>
-
-          {/* Highlights Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-10">
-            {highlights.map((item, idx) => (
-              <div key={idx} className="flex items-start gap-3">
-                <div className={`w-5 h-5 rounded-full flex items-center justify-center shrink-0 mt-0.5 ${
-                  isDark ? 'bg-emerald-500/20 text-emerald-400' : 'bg-emerald-50 text-emerald-700 border border-emerald-200'
+            {/* Right Side Callout */}
+            <div className={`md:col-span-4 p-6 rounded-xl border flex flex-col justify-between h-full ${
+              isDark ? 'bg-[#111113] border-white/5' : 'bg-slate-50 border-slate-200'
+            }`}>
+              <div>
+                <span className={`text-[10px] font-mono uppercase tracking-widest block mb-1 ${
+                  isDark ? 'text-slate-400' : 'text-slate-500'
                 }`}>
-                  <Check className="w-3.5 h-3.5" />
-                </div>
-                <span className={`text-xs sm:text-sm font-medium ${
-                  isDark ? 'text-slate-300' : 'text-slate-700'
-                }`}>
-                  {item}
+                  INVESTMENT STRUCTURE
                 </span>
+                <div className={`text-2xl font-bold font-display mb-2 ${
+                  isDark ? 'text-white' : 'text-slate-900'
+                }`}>
+                  Milestone-Based
+                </div>
+                <p className={`text-xs leading-relaxed mb-6 ${
+                  isDark ? 'text-slate-400' : 'text-slate-600'
+                }`}>
+                  Transparent milestone payments aligned to verified development deliverables. No lock-in, zero hidden fees.
+                </p>
               </div>
-            ))}
-          </div>
 
-          {/* Action Row */}
-          <div className="flex flex-col sm:flex-row items-center justify-between gap-6 pt-6 border-t border-black/10 dark:border-white/10">
-            <div className={`text-xs font-mono text-center sm:text-left ${isDark ? 'text-slate-300' : 'text-slate-600'}`}>
-              One-time investment • 100% full ownership • No recurring maintenance bills
-            </div>
+              <div className="space-y-3">
+                <button
+                  onClick={() => {
+                    playCyberTone('click');
+                    onOpenPrototypeModal();
+                  }}
+                  className={`w-full py-3 px-4 rounded-xl font-mono text-xs font-semibold flex items-center justify-center gap-2 transition-all hover:scale-[1.02] active:scale-[0.98] cursor-pointer ${
+                    isDark
+                      ? 'bg-gradient-to-r from-luxury-gold to-amber-300 text-black'
+                      : 'bg-slate-900 text-white hover:bg-slate-800'
+                  }`}
+                >
+                  <span>Request Custom Proposal</span>
+                  <ArrowRight className="w-3.5 h-3.5" />
+                </button>
 
-            <div className="flex flex-wrap items-center gap-3 w-full sm:w-auto">
-              <button
-                onClick={() => {
-                  playCyberTone('click');
-                  onOpenPrototypeModal();
-                }}
-                className={`w-full sm:w-auto px-7 py-3.5 rounded-xl font-bold font-mono text-xs tracking-wider flex items-center justify-center gap-2 shadow-sm transition-all hover:scale-105 active:scale-95 cursor-pointer ${
-                  isDark
-                    ? 'bg-gradient-to-r from-luxury-gold via-amber-300 to-luxury-gold text-black shadow-gold-glow'
-                    : 'bg-slate-900 hover:bg-slate-800 text-white'
-                }`}
-              >
-                <span>ENQUIRE NOW</span>
-                <ArrowRight className="w-4 h-4" />
-              </button>
-
-              <a
-                href="https://wa.me/917358618789?text=Hi%20Jagadish!%20I%20want%20to%20enquire%20about%20a%20website%20solution."
-                target="_blank"
-                rel="noopener noreferrer"
-                onClick={() => playCyberTone('click')}
-                className="w-full sm:w-auto px-5 py-3.5 rounded-xl bg-[#25D366] hover:bg-[#20BA5A] text-white font-mono font-bold text-xs flex items-center justify-center gap-2 shadow-xs transition-all hover:scale-105 cursor-pointer"
-              >
-                <MessageCircle className="w-4 h-4 fill-current" />
-                <span>WhatsApp: +91 73586 18789</span>
-              </a>
+                <a
+                  href="https://wa.me/917358618789?text=Hi%20Merqurie%20Team!%20I%20would%20like%20to%20discuss%20a%20tailored%20project%20scope."
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={() => playCyberTone('click')}
+                  className={`w-full py-2.5 px-4 rounded-xl font-mono text-xs font-medium flex items-center justify-center gap-2 border transition-all cursor-pointer ${
+                    isDark
+                      ? 'bg-white/5 hover:bg-white/10 text-white border-white/10'
+                      : 'bg-white hover:bg-slate-100 text-slate-800 border-slate-200 shadow-xs'
+                  }`}
+                >
+                  <MessageCircle className="w-3.5 h-3.5 text-[#25D366]" />
+                  <span>WhatsApp Scope Discussion</span>
+                </a>
+              </div>
             </div>
           </div>
+
+          {/* Bottom Trust Guarantee */}
+          <div className={`pt-6 border-t flex flex-col sm:flex-row items-center justify-between gap-4 text-xs ${
+            isDark ? 'border-white/5 text-slate-400' : 'border-slate-100 text-slate-500'
+          }`}>
+            <span className="flex items-center gap-2">
+              <ShieldCheck className={`w-4 h-4 ${isDark ? 'text-[#E6C687]' : 'text-blue-600'}`} />
+              <span>Full Repository Handoff &bull; Clean Architecture &bull; Scalable Foundation</span>
+            </span>
+            <span className="font-mono text-[11px]">
+              Direct Inquiries: +91 73586 18789
+            </span>
+          </div>
+
         </div>
+
       </div>
     </section>
   );

@@ -12,18 +12,27 @@ export default function Footer({ setActivePage, isDark }) {
 
   return (
     <footer className={`py-16 px-4 sm:px-6 lg:px-8 border-t relative z-10 font-mono text-xs ${
-      isDark ? 'border-white/10 bg-[#0E0E0E] text-slate-400' : 'border-slate-200 bg-[#F8FAFC] text-slate-600'
+      isDark ? 'border-white/5 bg-[#0D0D0F] text-slate-400' : 'border-slate-200 bg-[#F8FAFC] text-slate-600'
     }`}>
       <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-start md:items-center justify-between gap-8 pb-12 border-b border-black/5 dark:border-white/5">
         <div>
-          <div className="flex items-center gap-2.5 mb-2">
-            <Logo isDark={isDark} className="w-7 h-7" />
-            <span className={`font-bold text-base tracking-wider font-display ${isDark ? 'text-white' : 'text-slate-900'}`}>
-              MERQURI CLOUD
-            </span>
+          <div className="flex items-center gap-3 mb-2.5">
+            <Logo isDark={isDark} className="w-8 h-8" />
+            <div className="flex flex-col text-left">
+              <span className={`font-display font-extrabold text-sm tracking-[0.2em] leading-none ${
+                isDark ? 'text-white' : 'text-slate-900'
+              }`}>
+                MERQURIE
+              </span>
+              <span className={`text-[8px] font-mono font-bold tracking-[0.28em] mt-0.5 ${
+                isDark ? 'text-luxury-gold' : 'text-blue-600'
+              }`}>
+                GROUP
+              </span>
+            </div>
           </div>
-          <p className={`max-w-sm text-xs font-sans leading-relaxed ${isDark ? 'text-slate-300' : 'text-slate-600'}`}>
-            Next-generation cloud software ecosystem &amp; high-performance web platforms with self-serve admin cockpits, zero maintenance charges, and 100% full ownership.
+          <p className={`max-w-md text-xs font-sans leading-relaxed ${isDark ? 'text-slate-400' : 'text-slate-600'}`}>
+            Next-generation enterprise technology conglomerate &bull; Cloud software ecosystems, vertical SaaS platforms, and future electric mobility. Zero recurring maintenance fees with 100% full intellectual property sovereignty.
           </p>
         </div>
 
@@ -32,38 +41,38 @@ export default function Footer({ setActivePage, isDark }) {
             onClick={() => handleNav('home')}
             className={`transition-colors cursor-pointer ${isDark ? 'hover:text-white' : 'hover:text-slate-900'}`}
           >
-            Home
+            Overview
           </button>
           <button
             onClick={() => handleNav('solutions')}
             className={`transition-colors cursor-pointer ${isDark ? 'hover:text-white' : 'hover:text-slate-900'}`}
           >
-            Solutions
+            Ecosystem
           </button>
           <button
             onClick={() => handleNav('work')}
             className={`transition-colors cursor-pointer ${isDark ? 'hover:text-white' : 'hover:text-slate-900'}`}
           >
-            Projects
+            Platforms
           </button>
           <button
             onClick={() => handleNav('about')}
             className={`transition-colors cursor-pointer ${isDark ? 'hover:text-white' : 'hover:text-slate-900'}`}
           >
-            About
+            Philosophy
           </button>
           <button
             onClick={() => handleNav('prototype')}
             className={`transition-colors cursor-pointer ${isDark ? 'hover:text-white' : 'hover:text-slate-900'}`}
           >
-            Pricing
+            Architecture
           </button>
           <a
-            href="https://wa.me/917358618789?text=Hi%20Jagadish!%20I%20want%20to%20talk%20about%20a%20website%20project."
+            href="https://wa.me/917358618789?text=Hi%20Merqurie%20Team!%20I%20would%20like%20to%20discuss%20a%20technology%20solution."
             target="_blank"
             rel="noopener noreferrer"
             onClick={() => playCyberTone('click')}
-            className={`font-bold flex items-center gap-1.5 ${isDark ? 'text-emerald-400 hover:text-emerald-300' : 'text-emerald-700 hover:text-emerald-800'}`}
+            className={`font-semibold flex items-center gap-1.5 ${isDark ? 'text-emerald-400 hover:text-emerald-300' : 'text-emerald-700 hover:text-emerald-800'}`}
           >
             <MessageCircle className="w-3.5 h-3.5 fill-current" />
             <span>WhatsApp (+91 73586 18789)</span>
@@ -72,14 +81,14 @@ export default function Footer({ setActivePage, isDark }) {
         </div>
       </div>
 
-      <div className="max-w-7xl mx-auto pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-[11px] opacity-75">
+      <div className="max-w-7xl mx-auto pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-[11px] opacity-80">
         <div>
-          &copy; {new Date().getFullYear()} Merquri Cloud. All Rights Reserved. ₹0 Maintenance Charges &bull; 100% Code Ownership.
+          &copy; {new Date().getFullYear()} Merqurie Group. All Rights Reserved. Zero Maintenance Architecture &bull; 100% Intellectual Property Sovereignty.
         </div>
         <div className="flex items-center gap-4">
-          <span className={`flex items-center gap-1.5 ${isDark ? 'text-luxury-gold' : 'text-emerald-700 font-semibold'}`}>
-            <span className={`w-1.5 h-1.5 rounded-full animate-pulse ${isDark ? 'bg-luxury-gold' : 'bg-emerald-500'}`} />
-            ALL SYSTEMS ONLINE
+          <span className={`flex items-center gap-1.5 ${isDark ? 'text-luxury-gold' : 'text-blue-700 font-semibold'}`}>
+            <span className={`w-1.5 h-1.5 rounded-full ${isDark ? 'bg-luxury-gold animate-pulse' : 'bg-blue-600'}`} />
+            MERQURIE ECOSYSTEM ACTIVE
           </span>
         </div>
       </div>

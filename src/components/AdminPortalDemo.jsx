@@ -29,41 +29,43 @@ export default function AdminPortalDemo({ isDark }) {
       <div className="max-w-7xl mx-auto">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-12">
-          <div className={`inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-mono mb-4 border ${
+          <div className={`inline-flex items-center gap-2 px-3.5 py-1 rounded-full text-xs font-mono font-medium mb-4 border ${
             isDark 
-              ? 'bg-[#181818] border-luxury-gold/30 text-luxury-gold shadow-gold-glow' 
+              ? 'bg-[#18181C] border-[#E6C687]/30 text-[#E6C687]' 
               : 'bg-slate-100 border-slate-200 text-slate-800'
           }`}>
-            <LayoutDashboard className={`w-3.5 h-3.5 ${isDark ? 'text-luxury-gold' : 'text-blue-600'}`} />
-            <span>INTERACTIVE EXPERIENCE</span>
+            <LayoutDashboard className={`w-3.5 h-3.5 ${isDark ? 'text-[#E6C687]' : 'text-blue-600'}`} />
+            <span>OPERATIONAL COCKPIT &bull; INTERACTIVE DEMO</span>
           </div>
-          <h2 className={`text-3xl sm:text-5xl font-extrabold tracking-tight font-display mb-4 ${
+          <h2 className={`text-3xl sm:text-5xl font-bold tracking-tight font-display mb-4 ${
             isDark ? 'text-white' : 'text-slate-900'
           }`}>
-            THE CLIENT ADMIN PORTAL <br />
-            <span className="text-gradient-main">TEST-DRIVE IT RIGHT HERE</span>
+            Self-Serve Executive Cockpit <br />
+            <span className={isDark ? 'text-[#E6C687]' : 'text-blue-700'}>
+              Test-Drive Real-Time Updates
+            </span>
           </h2>
-          <p className={`text-sm sm:text-base font-sans ${isDark ? 'text-slate-300' : 'text-slate-600'}`}>
-            Every client gets a dedicated, password-protected management cockpit. Try editing the fields on the left and watch the live website update instantly on the right.
+          <p className={`text-sm sm:text-base ${isDark ? 'text-slate-400' : 'text-slate-600'}`}>
+            Every deployment includes a dedicated, password-protected management cockpit. Modify parameters on the left and observe instantaneous live synchronization on the right.
           </p>
         </div>
 
         {/* Simulator Frame */}
-        <div className={`rounded-2xl border overflow-hidden shadow-xl ${
+        <div className={`rounded-2xl border overflow-hidden shadow-lg ${
           isDark 
-            ? 'border-luxury-gold/30 bg-[#161616] shadow-black/80' 
-            : 'border-slate-200 bg-white shadow-xl'
+            ? 'border-white/10 bg-[#161619]' 
+            : 'border-slate-200 bg-white'
         }`}>
           {/* Top Window Bar */}
           <div className={`px-5 py-3.5 border-b flex items-center justify-between ${
-            isDark ? 'bg-[#1B1B1B] border-white/10' : 'bg-slate-50 border-slate-200'
+            isDark ? 'bg-[#1A1A1E] border-white/5' : 'bg-slate-50 border-slate-200'
           }`}>
             <div className="flex items-center gap-2">
-              <span className="w-3 h-3 rounded-full bg-red-500/80" />
-              <span className="w-3 h-3 rounded-full bg-amber-500/80" />
-              <span className="w-3 h-3 rounded-full bg-emerald-500/80" />
-              <span className={`ml-3 text-xs font-mono hidden sm:inline ${isDark ? 'opacity-60 text-white' : 'text-slate-500'}`}>
-                https://portal.jagadish.online/client/live-sandbox
+              <span className="w-2.5 h-2.5 rounded-full bg-red-500/80" />
+              <span className="w-2.5 h-2.5 rounded-full bg-amber-500/80" />
+              <span className="w-2.5 h-2.5 rounded-full bg-emerald-500/80" />
+              <span className={`ml-3 text-xs font-mono hidden sm:inline ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>
+                https://admin.merqurie.com/cockpit/live-preview
               </span>
             </div>
 

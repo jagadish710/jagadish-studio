@@ -34,11 +34,11 @@ export default function Navbar({
   }, []);
 
   const navItems = [
-    { id: 'home', label: 'Home' },
-    { id: 'solutions', label: 'Solutions' },
-    { id: 'work', label: 'Projects' },
-    { id: 'about', label: 'About' },
-    { id: 'prototype', label: 'Pricing' },
+    { id: 'home', label: 'Overview' },
+    { id: 'solutions', label: 'Ecosystem' },
+    { id: 'work', label: 'Platforms' },
+    { id: 'about', label: 'Philosophy' },
+    { id: 'prototype', label: 'Architecture' },
   ];
 
   const handleNavClick = (id) => {
@@ -76,19 +76,19 @@ export default function Navbar({
         <button
           onClick={() => handleNavClick('home')}
           className="flex items-center gap-3 group cursor-pointer"
-          aria-label="Home"
+          aria-label="MERQURIE Home"
         >
           <Logo isDark={isDark} className="w-10 h-10" />
           <div className="flex flex-col text-left">
-            <span className={`font-display font-extrabold text-sm tracking-widest leading-none ${
+            <span className={`font-display font-extrabold text-base tracking-[0.2em] leading-none ${
               isDark ? 'text-white' : 'text-slate-900'
             }`}>
-              MERQURI
+              MERQURIE
             </span>
-            <span className={`text-[9px] font-mono font-bold tracking-[0.25em] mt-1 ${
+            <span className={`text-[9px] font-mono font-bold tracking-[0.3em] mt-1 ${
               isDark ? 'text-luxury-gold' : 'text-blue-600'
             }`}>
-              CLOUD
+              GROUP
             </span>
           </div>
         </button>
@@ -175,11 +175,11 @@ export default function Navbar({
             }}
             className={`px-4 py-2 rounded-xl font-bold text-xs font-mono flex items-center gap-1.5 transition-all hover:scale-105 active:scale-95 cursor-pointer ${
               isDark 
-                ? 'bg-gradient-to-r from-luxury-gold via-amber-300 to-luxury-gold text-black shadow-gold-glow' 
+                ? 'bg-gradient-to-r from-luxury-gold via-amber-200 to-luxury-gold text-black shadow-gold-glow' 
                 : 'bg-slate-900 hover:bg-slate-800 text-white shadow-xs'
             }`}
           >
-            <span>ENQUIRE NOW</span>
+            <span>CONSULTATION</span>
             <ChevronRight className="w-3.5 h-3.5" />
           </button>
 

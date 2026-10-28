@@ -38,7 +38,7 @@ export default function PrototypePage({ onOpenPrototypeModal, isDark }) {
     setSubmitted(true);
 
     const msg = encodeURIComponent(
-      `Hi Jagadish! I would like to discuss my project:\n- Business Name: ${businessName}\n- Project Type: ${projectType}\n- Phone: ${phone}`
+      `Hi Merqurie Team! I would like to initiate an architectural consultation:\n- Organization: ${businessName}\n- Division/Scope: ${projectType}\n- Phone: ${phone}`
     );
 
     setTimeout(() => {
@@ -51,28 +51,28 @@ export default function PrototypePage({ onOpenPrototypeModal, isDark }) {
       {/* Top Section: The Zero-Maintenance Pricing Manifesto */}
       <PricingPhilosophy onOpenPrototypeModal={onOpenPrototypeModal} isDark={isDark} />
 
-      {/* Clean Enquiry Form (No clutter, No preview URL box) */}
-      <div className={`p-8 sm:p-14 rounded-3xl border max-w-3xl mx-auto shadow-xl ${
-        isDark ? 'bg-[#18181D] border-[#8B5CF6]/40' : 'bg-white border-slate-200'
+      {/* Clean Consultation Form */}
+      <div className={`p-8 sm:p-14 rounded-2xl border max-w-3xl mx-auto shadow-sm ${
+        isDark ? 'bg-[#151518] border-white/10' : 'bg-white border-slate-200'
       }`}>
         <div className="text-center max-w-xl mx-auto mb-10">
-          <div className={`inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-mono font-bold mb-4 border ${
+          <div className={`inline-flex items-center gap-2 px-3.5 py-1 rounded-full text-xs font-mono font-medium mb-4 border ${
             isDark 
-              ? 'bg-[#1C1829] border-[#8B5CF6] text-white shadow-[0_0_20px_rgba(139,92,246,0.4)]' 
+              ? 'bg-[#18181C] border-[#E6C687]/30 text-[#E6C687]' 
               : 'bg-slate-50 border-slate-200 text-slate-800'
           }`}>
-            <Sparkles className="w-3.5 h-3.5 text-blue-600 dark:text-emerald-400" />
-            <span>START YOUR PROJECT &bull; DIRECT CONTACT</span>
+            <Sparkles className="w-3.5 h-3.5 text-blue-600 dark:text-luxury-gold" />
+            <span>ARCHITECTURAL CONSULTATION &bull; DIRECT DESK</span>
           </div>
 
-          <h2 className={`text-3xl sm:text-4xl font-extrabold font-display mb-3 ${
+          <h2 className={`text-3xl sm:text-4xl font-bold font-display mb-3 ${
             isDark ? 'text-white' : 'text-slate-900'
           }`}>
-            Tell Us About Your Project
+            Discuss Your System Requirements
           </h2>
 
-          <p className={`text-sm leading-relaxed ${isDark ? 'text-slate-300' : 'text-slate-600'}`}>
-            Enter your brand details below. We will analyze your project needs and connect directly on WhatsApp.
+          <p className={`text-sm leading-relaxed ${isDark ? 'text-slate-400' : 'text-slate-600'}`}>
+            Submit your organizational parameters below. Our principal engineering advisory will review and respond directly via WhatsApp.
           </p>
         </div>
 

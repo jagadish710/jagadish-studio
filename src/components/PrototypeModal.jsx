@@ -40,7 +40,7 @@ export default function PrototypeModal({ isOpen, onClose, isDark }) {
     setSubmitted(true);
 
     const msg = encodeURIComponent(
-      `Hi Jagadish! I would like to discuss my project:\n- Business Name: ${businessName}\n- Project Type: ${projectType}\n- Phone: ${phone}`
+      `Hi Merqurie Team! I would like to discuss a project:\n- Organization: ${businessName}\n- Division/Type: ${projectType}\n- Contact: ${phone}`
     );
 
     setTimeout(() => {
@@ -75,27 +75,27 @@ export default function PrototypeModal({ isOpen, onClose, isDark }) {
                 : 'bg-slate-50 border-slate-200 text-slate-800'
             }`}>
               <Sparkles className="w-3.5 h-3.5 text-blue-600 dark:text-luxury-gold" />
-              <span>DIRECT ENQUIRY &bull; FAST RESPONSE</span>
+              <span>MERQURIE ARCHITECTURAL CONSULTATION</span>
             </div>
 
             <h3 className="text-2xl sm:text-3xl font-extrabold font-display mb-2">
-              Start Your Project &amp; <br />
-              <span className="text-gradient-main">Get in Touch</span>
+              Initiate Consultation &amp; <br />
+              <span className="text-gradient-main">Discuss Technical Scope</span>
             </h3>
 
             <p className="text-xs sm:text-sm opacity-75 mb-6">
-              Share your business details below or message directly on WhatsApp. We respond within minutes.
+              Connect directly with the Merqurie engineering desk. We review requirements and provide a detailed blueprint.
             </p>
 
             <form onSubmit={handleSubmit} className="space-y-4">
               <div>
                 <label className="block text-xs font-mono opacity-80 mb-1">
-                  Business / Company Name
+                  Organization / Business Name
                 </label>
                 <input
                   type="text"
                   required
-                  placeholder="e.g. Modern Retailers / Your Brand"
+                  placeholder="e.g. Acme Enterprise / Modern Brand"
                   value={businessName}
                   onChange={(e) => setBusinessName(e.target.value)}
                   className={`w-full px-4 py-2.5 rounded-xl border text-sm focus:outline-none transition-colors ${
@@ -108,7 +108,7 @@ export default function PrototypeModal({ isOpen, onClose, isDark }) {
 
               <div>
                 <label className="block text-xs font-mono opacity-80 mb-1">
-                  What type of website or software do you need?
+                  Target Technology Division
                 </label>
                 <select
                   value={projectType}
@@ -122,13 +122,12 @@ export default function PrototypeModal({ isOpen, onClose, isDark }) {
                       : 'bg-slate-50 border-slate-200 text-slate-900 focus:border-blue-600 focus:bg-white'
                   }`}
                 >
-                  <option value="Business Website">Business Website</option>
-                  <option value="Premium Custom Website">Premium Custom Website</option>
-                  <option value="E-Commerce & Online Store">E-Commerce &amp; Online Store</option>
-                  <option value="Industrial Machinery Catalog">Industrial Machinery &amp; Product Catalog</option>
-                  <option value="Academy / School Platform">Academy / School / Sports Club Platform</option>
-                  <option value="Custom Business Software & ERP">Custom Software / ERP / Admin Panel</option>
-                  <option value="Website Redesign">Website Redesign (Speed &amp; Modern UI)</option>
+                  <option value="Merqurie Cloud - Enterprise Platform">Merqurie Cloud &bull; Enterprise Web Platform</option>
+                  <option value="Merqurie Sports - Martial Arts & Academy SaaS">Merqurie Sports &bull; Martial Arts / Academy SaaS</option>
+                  <option value="Merqurie Health - Clinical Management Platform">Merqurie Health &bull; Clinical Operations System</option>
+                  <option value="Merqurie Industrial - Machinery & ERP Catalog">Merqurie Industrial &bull; Machinery / ERP System</option>
+                  <option value="Custom Software & Edge Database Architecture">Custom Software &bull; Edge Database Architecture</option>
+                  <option value="Merqurie Mobility - Hardware & Board Inquiries">Merqurie Mobility &bull; Hardware &amp; Electric Mobility</option>
                 </select>
               </div>
 

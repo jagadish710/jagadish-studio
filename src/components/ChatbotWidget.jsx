@@ -14,7 +14,7 @@ export default function ChatbotWidget({ isOpen, setIsOpen, isDark }) {
     {
       id: 1,
       sender: 'bot',
-      text: "Hello! I am Merquri Cloud's AI assistant. Ask me anything about our web platforms, custom software, Karate & Sports SaaS, or our zero maintenance guarantee.",
+      text: "Welcome to Merqurie Group. I am your executive AI concierge. Inquire about Merqurie Cloud, vertical SaaS platforms (Sports/Dojo & Health), our zero maintenance architecture, or tailored enterprise proposals.",
       time: 'Just now',
     },
   ]);
@@ -55,10 +55,10 @@ export default function ChatbotWidget({ isOpen, setIsOpen, isDark }) {
     }
 
     if (q.includes('start') || q.includes('enquir') || q.includes('contact') || q.includes('hire')) {
-      return "To discuss your project, you can click 'Enquire Now' in the header or message Jagadish directly on WhatsApp (+91 73586 18789). We respond within minutes!";
+      return "To discuss your technology requirements, you can click 'Consultation' in the navigation bar or message our engineering desk directly on WhatsApp (+91 73586 18789).";
     }
 
-    return "Great question! We build fast, modern business websites and custom software with zero maintenance charges and a self-serve admin panel. Would you like to connect directly on WhatsApp (+91 73586 18789) to discuss your project?";
+    return "Thank you for reaching out to Merqurie Group. We architect high-performance cloud platforms, vertical SaaS, and custom software with zero maintenance fees and full IP sovereignty. Would you like to connect directly on WhatsApp (+91 73586 18789)?";
   };
 
   const handleSendMessage = (textToSend) => {
@@ -131,17 +131,17 @@ export default function ChatbotWidget({ isOpen, setIsOpen, isDark }) {
               <Logo isDark={isDark} className="w-8 h-8" />
               <div>
                 <div className="flex items-center gap-1.5">
-                  <span className={`font-display font-bold text-sm ${isDark ? 'text-white' : 'text-slate-900'}`}>
-                    MERQURI AI
+                  <span className={`font-display font-bold text-sm tracking-wider ${isDark ? 'text-white' : 'text-slate-900'}`}>
+                    MERQURIE AI
                   </span>
-                  <span className={`w-2 h-2 rounded-full animate-pulse ${
-                    isDark ? 'bg-luxury-gold' : 'bg-emerald-500'
+                  <span className={`w-2 h-2 rounded-full ${
+                    isDark ? 'bg-luxury-gold animate-pulse' : 'bg-emerald-500'
                   }`} />
                 </div>
                 <div className={`text-[10px] font-mono ${
                   isDark ? 'text-luxury-gold' : 'text-slate-500'
                 }`}>
-                  Cloud Software &amp; Web Assistant
+                  Executive Technology Concierge
                 </div>
               </div>
             </div>

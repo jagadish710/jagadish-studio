@@ -11,60 +11,63 @@ import {
   MessageCircle,
   Sparkles,
   Award,
+  Cpu,
 } from 'lucide-react';
 
 export default function AboutPage({ onOpenPrototypeModal, isDark }) {
-  const seoStrengths = [
+  const tenets = [
     {
-      title: 'Affordable Luxury Websites',
-      subtitle: 'Tailored Scope & Value',
-      desc: 'We believe premium digital quality should be accessible to all businesses. We provide high-end, luxury designs with zero recurring monthly maintenance charges.',
+      title: 'Zero Maintenance Architecture',
+      subtitle: 'Eliminating Technical Debt',
+      desc: 'Traditional software agencies build on bloated CMS platforms that decay over time, forcing endless monthly retainer contracts. We build on immutable serverless edge systems that run reliably for years with zero ongoing maintenance costs.',
     },
     {
-      title: 'Zero Maintenance Fees Forever',
-      subtitle: 'One-Time Investment Guarantee',
-      desc: 'Traditional agencies bill recurring monthly fees just for basic hosting and small text updates. With us, you pay once and own your website forever.',
+      title: 'Full Intellectual Property Sovereignty',
+      subtitle: 'Your Code, Your Assets, Forever',
+      desc: 'We operate with total client respect. Every database table, frontend component, and DNS configuration is transferred directly to your private repositories. Zero vendor lock-in, zero hostage scenarios.',
     },
     {
-      title: 'Built For Top Google Rankings',
-      subtitle: 'Lightning Fast Sub-0.4s Loading',
-      desc: 'Google ranks fast websites higher. We build on React and modern edge servers with full schema metadata so your local business stands out on top.',
+      title: 'Algorithmic Speed & SEO Dominance',
+      subtitle: 'Sub-0.3s Core Web Vitals',
+      desc: 'Google ranks speed. By decoupling the presentation layer from the database and deploying to global edge nodes, our platforms achieve sub-0.3s load times and 98+ PageSpeed ratings automatically.',
     },
     {
-      title: '100% Code & Asset Sovereignty',
-      subtitle: 'Complete Freedom, No Lock-In',
-      desc: 'Your domain, source code, and customer inquiries belong to you. We transfer everything to your private GitHub repository with full control.',
+      title: 'Integrated Multi-Industry Scaling',
+      subtitle: 'From Cloud to Future Mobility',
+      desc: 'The Merqurie philosophy unites web cloud platforms (Merqurie Cloud), martial arts SaaS (Merqurie Sports), healthcare systems (Merqurie Health), and electric micro-mobility hardware (Merqurie Mobility) under one cohesive standard of excellence.',
     },
   ];
 
   return (
-    <div className="pt-32 pb-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+    <div className="pt-32 pb-24 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto">
       {/* Header */}
       <motion.div
-        initial={{ opacity: 0, y: 20 }}
+        initial={{ opacity: 0, y: 15 }}
         animate={{ opacity: 1, y: 0 }}
         className="text-center max-w-3xl mx-auto mb-16"
       >
-        <div className={`inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-mono font-bold mb-4 border ${
+        <div className={`inline-flex items-center gap-2 px-3.5 py-1 rounded-full text-xs font-mono font-medium mb-4 border ${
           isDark 
-            ? 'bg-[#1C1829] border-[#8B5CF6] text-white shadow-[0_0_20px_rgba(139,92,246,0.4)]' 
+            ? 'bg-[#18181C] border-[#E6C687]/30 text-[#E6C687]' 
             : 'bg-slate-100 border-slate-200 text-slate-800'
         }`}>
-          <Sparkles className={`w-3.5 h-3.5 ${isDark ? 'text-emerald-400' : 'text-blue-600'}`} />
-          <span>ABOUT OUR STUDIO &bull; LOCAL &bull; AFFORDABLE LUXURY</span>
+          <Sparkles className="w-3.5 h-3.5 text-blue-600 dark:text-luxury-gold" />
+          <span>ENGINEERING PHILOSOPHY &bull; MERQURIE GROUP</span>
         </div>
 
-        <h1 className="text-4xl sm:text-6xl font-extrabold tracking-tight font-display mb-6 leading-tight">
-          <span className={isDark ? 'text-white drop-shadow-[0_2px_12px_rgba(0,0,0,0.8)]' : 'text-slate-900'}>
-            AFFORDABLE WEBSITES
+        <h1 className="text-4xl sm:text-6xl font-bold tracking-tight font-display mb-6 leading-tight">
+          <span className={isDark ? 'text-white' : 'text-slate-900'}>
+            Engineered For Speed.
           </span> <br />
-          <span className="text-gradient-main">WITHOUT MONTHLY FEES</span>
+          <span className={isDark ? 'text-[#E6C687]' : 'text-blue-700'}>
+            Built To Outlast.
+          </span>
         </h1>
 
         <p className={`text-base sm:text-lg max-w-2xl mx-auto leading-relaxed ${
-          isDark ? 'text-slate-200' : 'text-slate-600'
+          isDark ? 'text-slate-400' : 'text-slate-600'
         }`}>
-          We are a dedicated local web design and software studio delivering high-speed, modern websites for businesses across India and worldwide. One-time transparent investment with zero recurring maintenance fees.
+          Named after the classical archetype of speed and motion, Merqurie was founded on a simple truth: modern digital systems should empower businesses permanently, not burden them with recurring monthly maintenance fees.
         </p>
 
         {/* Action CTAs */}
@@ -74,144 +77,95 @@ export default function AboutPage({ onOpenPrototypeModal, isDark }) {
               playCyberTone('click');
               onOpenPrototypeModal();
             }}
-            className={`px-6 py-3.5 rounded-xl font-bold font-mono text-xs tracking-wider flex items-center gap-2 shadow-sm transition-all hover:scale-105 active:scale-95 cursor-pointer ${
+            className={`px-6 py-3 rounded-xl font-semibold font-mono text-xs tracking-wider flex items-center gap-2 transition-all hover:scale-[1.02] active:scale-[0.98] cursor-pointer ${
               isDark
-                ? 'bg-gradient-to-r from-luxury-gold via-amber-300 to-luxury-gold text-black shadow-gold-glow'
-                : 'bg-slate-900 hover:bg-slate-800 text-white'
+                ? 'bg-gradient-to-r from-luxury-gold to-amber-300 text-black'
+                : 'bg-slate-900 hover:bg-slate-800 text-white shadow-xs'
             }`}
           >
-            <span>ENQUIRE NOW</span>
-            <ArrowRight className="w-4 h-4" />
+            <span>CONSULT WITH LEADERSHIP</span>
+            <ArrowRight className="w-3.5 h-3.5" />
           </button>
 
           <a
-            href="https://wa.me/917358618789?text=Hi%20Jagadish!%20I%20am%20interested%20in%20a%20website%20solution."
+            href="https://wa.me/917358618789?text=Hi%20Merqurie%20Team!%20I%20would%20like%20to%20learn%20more%20about%20your%20architecture."
             target="_blank"
             rel="noopener noreferrer"
             onClick={() => playCyberTone('click')}
-            className="px-5 py-3.5 rounded-xl bg-[#25D366] hover:bg-[#20BA5A] text-white font-mono font-bold text-xs flex items-center gap-2 shadow-xs transition-all hover:scale-105 cursor-pointer"
+            className={`px-5 py-3 rounded-xl border font-mono text-xs font-semibold flex items-center gap-2 transition-all cursor-pointer ${
+              isDark
+                ? 'bg-[#18181C] text-white border-white/10 hover:bg-[#202026]'
+                : 'bg-white text-slate-800 border-slate-200 hover:bg-slate-50 shadow-xs'
+            }`}
           >
-            <MessageCircle className="w-4 h-4 fill-current" />
-            <span>Chat on WhatsApp: +91 73586 18789</span>
+            <MessageCircle className="w-4 h-4 text-[#25D366]" />
+            <span>Direct WhatsApp: +91 73586 18789</span>
           </a>
         </div>
       </motion.div>
 
-      {/* SEO-Rich Core Pillars Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-20">
-        {seoStrengths.map((pillar, idx) => (
+      {/* 4 Architectural Tenets */}
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 mb-20">
+        {tenets.map((tenet, idx) => (
           <motion.div
             key={idx}
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: idx * 0.1 }}
-            className={`p-8 sm:p-10 rounded-3xl border transition-all shadow-md ${
+            transition={{ duration: 0.4, delay: idx * 0.08 }}
+            className={`p-6 sm:p-8 rounded-2xl border transition-all ${
               isDark 
-                ? 'bg-[#18181D] border-[#8B5CF6]/30 hover:border-[#8B5CF6]' 
-                : 'bg-white border-slate-200 hover:border-slate-300'
+                ? 'bg-[#151518] border-white/10 hover:border-white/20' 
+                : 'bg-white border-slate-200/90 hover:border-slate-300 shadow-sm'
             }`}
           >
-            <div className="flex items-center gap-2 text-xs font-mono font-bold mb-3">
-              <span className={`px-2.5 py-0.5 rounded-full border ${
-                isDark ? 'bg-[#221C35] text-[#C4B5FD] border-[#8B5CF6]/40' : 'bg-slate-100 text-slate-800 border-slate-200'
+            <div className="flex items-center gap-2.5 mb-2">
+              <span className={`text-[10px] font-mono font-bold tracking-wider uppercase px-2 py-0.5 rounded border ${
+                isDark 
+                  ? 'bg-black/30 text-[#E6C687] border-[#E6C687]/20' 
+                  : 'bg-blue-50 text-blue-700 border-blue-200'
               }`}>
-                {pillar.subtitle}
+                {tenet.subtitle}
               </span>
             </div>
 
-            <h2 className={`text-2xl font-bold font-display mb-3 ${
-              isDark ? 'text-white' : 'text-slate-900'
-            }`}>
-              {pillar.title}
-            </h2>
+            <h3 className={`text-xl sm:text-2xl font-bold font-display mb-3 ${isDark ? 'text-white' : 'text-slate-900'}`}>
+              {tenet.title}
+            </h3>
 
-            <p className={`text-sm sm:text-base leading-relaxed ${
-              isDark ? 'text-slate-300' : 'text-slate-600'
-            }`}>
-              {pillar.desc}
+            <p className={`text-xs sm:text-sm leading-relaxed ${isDark ? 'text-slate-400' : 'text-slate-600'}`}>
+              {tenet.desc}
             </p>
           </motion.div>
         ))}
       </div>
 
-      {/* Why Choose Us & SEO Keyword Section */}
-      <div className={`p-8 sm:p-12 rounded-3xl border mb-20 ${
-        isDark ? 'bg-[#18181D] border-[#8B5CF6]/30' : 'bg-slate-50 border-slate-200'
+      {/* Leadership Profile Card */}
+      <div className={`p-8 sm:p-12 rounded-2xl border ${
+        isDark ? 'bg-[#141416] border-white/10' : 'bg-slate-50 border-slate-200'
       }`}>
-        <div className="max-w-3xl mx-auto text-center space-y-6">
-          <h3 className={`text-2xl sm:text-3xl font-extrabold font-display ${
-            isDark ? 'text-white' : 'text-slate-900'
+        <div className="flex flex-col md:flex-row items-center gap-8 text-center md:text-left">
+          <div className={`w-24 h-24 rounded-2xl flex items-center justify-center shrink-0 border ${
+            isDark ? 'bg-[#1E1E24] border-[#E6C687]/30 text-[#E6C687]' : 'bg-white border-slate-200 text-blue-600 shadow-sm'
           }`}>
-            Why Businesses Choose Jagadish Studio
-          </h3>
-
-          <p className={`text-sm sm:text-base leading-relaxed ${
-            isDark ? 'text-slate-300' : 'text-slate-600'
-          }`}>
-            Looking for the <strong>best website builder</strong>, an <strong>affordable luxury business website</strong>, or a <strong>local web developer in Chennai and India</strong>? Most agencies charge high recurring retainer fees for basic websites that take weeks to launch. At Jagadish Studio, we build premium web solutions and custom software with an easy-to-use visual admin panel, zero maintenance charges, and sub-0.4s Google loading speeds.
-          </p>
-
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 text-center font-mono text-xs pt-4">
-            <div className={`p-4 rounded-2xl border ${isDark ? 'bg-black/50 border-white/10' : 'bg-white border-slate-200'}`}>
-              <div className={`text-xl font-bold ${isDark ? 'text-white' : 'text-slate-900'}`}>100+</div>
-              <div className={`opacity-70 mt-1 ${isDark ? 'text-slate-300' : 'text-slate-600'}`}>Projects Delivered</div>
-            </div>
-            <div className={`p-4 rounded-2xl border ${isDark ? 'bg-black/50 border-white/10' : 'bg-white border-slate-200'}`}>
-              <div className="text-xl font-bold text-emerald-600 dark:text-emerald-400">₹0 / yr</div>
-              <div className={`opacity-70 mt-1 ${isDark ? 'text-slate-300' : 'text-slate-600'}`}>Maintenance Fees</div>
-            </div>
-            <div className={`p-4 rounded-2xl border ${isDark ? 'bg-black/50 border-white/10' : 'bg-white border-slate-200'}`}>
-              <div className={`text-xl font-bold ${isDark ? 'text-luxury-gold' : 'text-slate-900'}`}>&lt; 0.4s</div>
-              <div className={`opacity-70 mt-1 ${isDark ? 'text-slate-300' : 'text-slate-600'}`}>Page Load Speed</div>
-            </div>
-            <div className={`p-4 rounded-2xl border ${isDark ? 'bg-black/50 border-white/10' : 'bg-white border-slate-200'}`}>
-              <div className="text-xl font-bold text-emerald-600 dark:text-emerald-400">100%</div>
-              <div className={`opacity-70 mt-1 ${isDark ? 'text-slate-300' : 'text-slate-600'}`}>Code Ownership</div>
-            </div>
+            <Cpu className="w-10 h-10" />
           </div>
-        </div>
-      </div>
 
-      {/* Prominent Bottom WhatsApp Contact CTA */}
-      <div className={`p-8 sm:p-12 rounded-3xl border text-center max-w-4xl mx-auto shadow-xl ${
-        isDark ? 'bg-[#18181D] border-[#8B5CF6]/40' : 'bg-white border-slate-200'
-      }`}>
-        <h3 className={`text-2xl sm:text-3xl font-extrabold font-display mb-3 ${
-          isDark ? 'text-white' : 'text-slate-900'
-        }`}>
-          Let&apos;s Build Your Business Website
-        </h3>
-        <p className={`text-sm max-w-xl mx-auto mb-8 ${isDark ? 'text-slate-300' : 'text-slate-600'}`}>
-          Send an enquiry or message directly on WhatsApp. We discuss your exact requirements and share a personalized plan.
-        </p>
-
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-          <button
-            onClick={() => {
-              playCyberTone('click');
-              onOpenPrototypeModal();
-            }}
-            className={`w-full sm:w-auto px-8 py-4 rounded-xl font-bold font-mono text-sm tracking-wider flex items-center justify-center gap-2.5 shadow-sm transition-all hover:scale-105 active:scale-95 cursor-pointer ${
-              isDark
-                ? 'bg-gradient-to-r from-luxury-gold via-amber-300 to-luxury-gold text-black shadow-gold-glow'
-                : 'bg-slate-900 hover:bg-slate-800 text-white'
-            }`}
-          >
-            <span>ENQUIRE NOW</span>
-            <ArrowRight className="w-4 h-4" />
-          </button>
-
-          <a
-            href="https://wa.me/917358618789?text=Hi%20Jagadish!%20I%20saw%20your%20portfolio%20and%20want%20to%20enquire%20about%20a%20website."
-            target="_blank"
-            rel="noopener noreferrer"
-            onClick={() => playCyberTone('click')}
-            className="w-full sm:w-auto px-6 py-4 rounded-xl bg-[#25D366] hover:bg-[#20BA5A] text-white font-mono font-bold text-sm flex items-center justify-center gap-2 shadow-xs transition-all hover:scale-105 cursor-pointer"
-          >
-            <MessageCircle className="w-5 h-5 fill-current" />
-            <span>Chat on WhatsApp (+91 73586 18789)</span>
-          </a>
+          <div className="space-y-2">
+            <span className={`text-xs font-mono font-semibold uppercase tracking-wider ${
+              isDark ? 'text-[#E6C687]' : 'text-blue-700'
+            }`}>
+              Engineering Leadership
+            </span>
+            <h4 className={`text-2xl font-bold font-display ${isDark ? 'text-white' : 'text-slate-900'}`}>
+              Jagadish &bull; Principal Architect &amp; Founder
+            </h4>
+            <p className={`text-xs sm:text-sm leading-relaxed max-w-2xl ${
+              isDark ? 'text-slate-400' : 'text-slate-600'
+            }`}>
+              With over 100 enterprise systems delivered across India and internationally, Jagadish leads the engineering roadmap of Merqurie Group — bridging cloud platforms, sports management SaaS, and future electric mobility hardware.
+            </p>
+          </div>
         </div>
       </div>
     </div>

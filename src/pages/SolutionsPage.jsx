@@ -10,78 +10,111 @@ import {
   MessageCircle,
   Sparkles,
   Layers,
-  Search,
+  Activity,
+  HeartPulse,
+  Cpu,
+  Compass,
 } from 'lucide-react';
 
 export default function SolutionsPage({ onOpenPrototypeModal, onNavigateToWork, isDark }) {
-  const solutions = [
+  const divisions = [
     {
-      id: 'pillar-1',
-      title: 'Fast Business & Product Websites',
-      tag: 'WEBSITE SOLUTIONS',
-      desc: 'High-speed modern websites designed to turn visitors into paying customers. Perfect for local businesses, industrial suppliers, retail brands, and professional services.',
+      id: 'cloud',
+      title: 'Merqurie Cloud',
+      tag: 'ENTERPRISE PLATFORMS',
+      desc: 'High-speed business platforms and custom web software deployed on global edge networks. Includes proprietary visual admin cockpits, lead management, and sub-0.3s page performance with zero ongoing maintenance fees.',
       highlights: [
-        'Sub-0.4s lightning load speed on mobile & desktop',
-        'Direct WhatsApp button for instant customer inquiries',
-        'High Google SEO score so customers can find you easily',
+        'Sub-0.3s lightning load speed on mobile & desktop',
+        'Direct WhatsApp button & lead routing for instant conversions',
+        'Top Google SEO score for organic market leadership',
         'Zero monthly maintenance or hosting overhead fees',
       ],
       icon: Globe,
     },
     {
-      id: 'pillar-2',
-      title: 'Easy Self-Serve Admin Panel',
-      tag: '100% SELF OPERATED',
-      desc: 'Never pay an agency a monthly fee or wait days just to change a price or phone number. We include a visual control panel that anyone can use from their phone.',
+      id: 'sports',
+      title: 'Merqurie Sports & Dojo',
+      tag: 'VERTICAL SAAS',
+      desc: 'Complete athletic and martial arts academy software. Proven production system at upskskarate.com serving 1,000+ students with belt grading, tournament registrations, and automated parent communication.',
       highlights: [
-        'Update text, photos, and announcements in 10 seconds',
-        'Add and manage products or machinery catalogs on demand',
-        'Receive and download customer inquiries directly to Excel / CSV',
-        'Runs in the cloud with zero software installation required',
+        'Student belt progression & grading records',
+        'Tournament & championship registration workflows',
+        'Automated parent notifications via WhatsApp',
+        '100% full code sovereignty with zero monthly per-student tax',
       ],
-      icon: Database,
+      icon: Activity,
     },
     {
-      id: 'pillar-3',
-      title: 'Custom Business Software & ERP',
-      tag: 'OPERATIONAL SOFTWARE',
-      desc: 'Tailor-made software tools for businesses that outgrew manual spreadsheets. Manage inventory, automate customer invoices, and streamline your daily operations.',
+      id: 'health',
+      title: 'Merqurie Health',
+      tag: 'CLINICAL SYSTEMS',
+      desc: 'Clinical operations software engineered for dental studios, specialty clinics, and medical practices. Modern HIPAA-conscious patient intake, doctor schedule management, and instant confirmation flows.',
       highlights: [
-        'Secure cloud database (PostgreSQL) with automatic backups',
-        'Role-based access for staff, managers, and owners',
-        'Instant WhatsApp notifications for new orders & leads',
-        '100% code ownership with zero monthly user license fees',
+        'One-click WhatsApp appointment confirmations',
+        'Digital patient registration & inquiry queues',
+        'Doctor schedule management dashboard',
+        'Zero vendor lock-in or recurring SaaS license traps',
       ],
-      icon: Layers,
+      icon: HeartPulse,
+    },
+    {
+      id: 'industrial',
+      title: 'Merqurie Industrial & ERP',
+      tag: 'MANUFACTURING SYSTEMS',
+      desc: 'Heavy machinery and engineering portals with intelligent digital spec sheets, instant RFQ (Request for Quote) flows, and supplier communication pipelines. Proven at pmssolution.',
+      highlights: [
+        'Comprehensive machinery & engineering catalog viewer',
+        'Instant multi-channel RFQ lead capture',
+        'High-resolution technical documentation portal',
+        'SEO dominance for industrial component discovery',
+      ],
+      icon: Cpu,
+    },
+    {
+      id: 'mobility',
+      title: 'Merqurie Mobility',
+      tag: 'HARDWARE & BOARDS',
+      desc: 'Next-generation electric skateboards and personal urban micro-mobility hardware engineered for speed, endurance, and street performance — Powered by Merqurie.',
+      highlights: [
+        'Precision brushless motor telemetry and control',
+        'Regenerative braking energy recovery',
+        'Companion mobile application architecture',
+        'High-durability carbon and composite decks',
+      ],
+      icon: Compass,
     },
   ];
 
   return (
-    <div className="pt-32 pb-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+    <div className="pt-32 pb-24 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto">
       {/* Header */}
       <motion.div
-        initial={{ opacity: 0, y: 20 }}
+        initial={{ opacity: 0, y: 15 }}
         animate={{ opacity: 1, y: 0 }}
         className="text-center max-w-3xl mx-auto mb-16"
       >
-        <div className={`inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-mono font-bold mb-4 border ${
+        <div className={`inline-flex items-center gap-2 px-3.5 py-1 rounded-full text-xs font-mono font-medium mb-4 border ${
           isDark 
-            ? 'bg-[#1C1829] border-[#8B5CF6] text-white shadow-[0_0_20px_rgba(139,92,246,0.4)]' 
+            ? 'bg-[#18181C] border-[#E6C687]/30 text-[#E6C687]' 
             : 'bg-slate-100 border-slate-200 text-slate-800'
         }`}>
-          <Sparkles className={`w-3.5 h-3.5 ${isDark ? 'text-emerald-400' : 'text-blue-600'}`} />
-          <span>WHAT WE DELIVER • ZERO MAINTENANCE</span>
+          <Sparkles className="w-3.5 h-3.5 text-blue-600 dark:text-luxury-gold" />
+          <span>THE MERQURIE ECOSYSTEM &bull; INDUSTRY PLATFORMS</span>
         </div>
 
-        <h1 className="text-4xl sm:text-6xl font-extrabold tracking-tight font-display mb-6">
-          <span className={isDark ? 'text-white drop-shadow-[0_2px_12px_rgba(0,0,0,0.8)]' : 'text-slate-900'}>
-            DIGITAL SOLUTIONS
+        <h1 className="text-4xl sm:text-6xl font-bold tracking-tight font-display mb-6">
+          <span className={isDark ? 'text-white' : 'text-slate-900'}>
+            ENGINEERED PLATFORMS
           </span> <br />
-          <span className="text-gradient-main">BUILT FOR YOUR BUSINESS</span>
+          <span className={isDark ? 'text-[#E6C687]' : 'text-blue-700'}>
+            BUILT FOR SCALE
+          </span>
         </h1>
 
-        <p className={`text-base sm:text-lg max-w-2xl mx-auto ${isDark ? 'text-slate-200' : 'text-slate-600'}`}>
-          Whether you need a high-ranking business website, a product catalog, or custom software to run your daily operations, we deliver complete solutions with zero maintenance fees.
+        <p className={`text-base sm:text-lg max-w-2xl mx-auto leading-relaxed ${
+          isDark ? 'text-slate-400' : 'text-slate-600'
+        }`}>
+          From enterprise cloud platforms and vertical SaaS to industrial machinery catalogs and future micro-mobility. Built with zero maintenance overhead and full IP sovereignty.
         </p>
 
         {/* Action Header CTAs */}
@@ -91,137 +124,97 @@ export default function SolutionsPage({ onOpenPrototypeModal, onNavigateToWork, 
               playCyberTone('click');
               onOpenPrototypeModal();
             }}
-            className={`px-6 py-3.5 rounded-xl font-bold font-mono text-xs tracking-wider flex items-center gap-2 shadow-sm transition-all hover:scale-105 active:scale-95 cursor-pointer ${
+            className={`px-6 py-3 rounded-xl font-semibold font-mono text-xs tracking-wider flex items-center gap-2 transition-all hover:scale-[1.02] active:scale-[0.98] cursor-pointer ${
               isDark
-                ? 'bg-gradient-to-r from-luxury-gold via-amber-300 to-luxury-gold text-black shadow-gold-glow'
-                : 'bg-slate-900 hover:bg-slate-800 text-white'
+                ? 'bg-gradient-to-r from-luxury-gold to-amber-300 text-black'
+                : 'bg-slate-900 hover:bg-slate-800 text-white shadow-xs'
             }`}
           >
-            <span>ENQUIRE NOW</span>
-            <ArrowRight className="w-4 h-4" />
+            <span>REQUEST CONSULTATION</span>
+            <ArrowRight className="w-3.5 h-3.5" />
           </button>
 
           <a
-            href="https://wa.me/917358618789?text=Hi%20Jagadish!%20I%20am%20interested%20in%20your%20website%20and%20software%20solutions."
+            href="https://wa.me/917358618789?text=Hi%20Merqurie%20Team!%20I%20am%20interested%20in%20an%20ecosystem%20platform."
             target="_blank"
             rel="noopener noreferrer"
             onClick={() => playCyberTone('click')}
-            className="px-5 py-3.5 rounded-xl bg-[#25D366] hover:bg-[#20BA5A] text-white font-mono font-bold text-xs flex items-center gap-2 shadow-xs transition-all hover:scale-105 cursor-pointer"
+            className={`px-5 py-3 rounded-xl border font-mono text-xs font-semibold flex items-center gap-2 transition-all cursor-pointer ${
+              isDark
+                ? 'bg-[#18181C] text-white border-white/10 hover:bg-[#202026]'
+                : 'bg-white text-slate-800 border-slate-200 hover:bg-slate-50 shadow-xs'
+            }`}
           >
-            <MessageCircle className="w-4 h-4 fill-current" />
+            <MessageCircle className="w-4 h-4 text-[#25D366]" />
             <span>WhatsApp: +91 73586 18789</span>
           </a>
         </div>
       </motion.div>
 
-      {/* 3 Solutions Cards */}
-      <div className="space-y-10 mb-20">
-        {solutions.map((item, idx) => {
+      {/* Solutions Cards */}
+      <div className="space-y-8 mb-20">
+        {divisions.map((item, idx) => {
           const Icon = item.icon;
           return (
             <motion.div
               key={item.id}
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: idx * 0.15 }}
-              className={`p-8 sm:p-12 rounded-3xl border shadow-xl transition-all ${
+              transition={{ duration: 0.4, delay: idx * 0.08 }}
+              className={`p-6 sm:p-10 rounded-2xl border transition-all ${
                 isDark 
-                  ? 'bg-[#18181D] border-[#8B5CF6]/40 hover:border-[#8B5CF6]' 
-                  : 'bg-white border-slate-200 hover:border-slate-300'
+                  ? 'bg-[#151518] border-white/10 hover:border-white/20' 
+                  : 'bg-white border-slate-200/90 hover:border-slate-300 shadow-sm'
               }`}
             >
               <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-                <div className="lg:col-span-8 space-y-5">
+                <div className="lg:col-span-8 space-y-4">
                   <div className="flex items-center gap-3">
-                    <span className={`px-3 py-1 rounded-full text-xs font-mono font-bold border ${
+                    <span className={`px-2.5 py-0.5 rounded text-[10px] font-mono font-bold tracking-wider uppercase border ${
                       isDark 
-                        ? 'border-[#8B5CF6]/50 bg-[#221C35] text-[#C4B5FD]' 
+                        ? 'border-white/10 bg-black/40 text-[#E6C687]' 
                         : 'border-slate-200 bg-slate-100 text-slate-800'
                     }`}>
                       {item.tag}
                     </span>
                   </div>
 
-                  <h2 className={`text-2xl sm:text-4xl font-extrabold font-display ${
-                    isDark ? 'text-white' : 'text-slate-900'
-                  }`}>
+                  <h3 className={`text-2xl sm:text-3xl font-bold font-display ${isDark ? 'text-white' : 'text-slate-900'}`}>
                     {item.title}
-                  </h2>
+                  </h3>
 
-                  <p className={`text-sm sm:text-base leading-relaxed ${
-                    isDark ? 'text-slate-300' : 'text-slate-600'
-                  }`}>
+                  <p className={`text-xs sm:text-sm leading-relaxed ${isDark ? 'text-slate-400' : 'text-slate-600'}`}>
                     {item.desc}
                   </p>
 
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2">
-                    {item.highlights.map((point, pIdx) => (
-                      <div key={pIdx} className="flex items-start gap-2.5 text-xs sm:text-sm">
-                        <CheckCircle2 className={`w-4 h-4 shrink-0 mt-0.5 ${
-                          isDark ? 'text-emerald-400' : 'text-emerald-600'
-                        }`} />
-                        <span className={isDark ? 'text-slate-200' : 'text-slate-700'}>{point}</span>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 pt-2">
+                    {item.highlights.map((h, hIdx) => (
+                      <div key={hIdx} className="flex items-start gap-2 text-xs">
+                        <CheckCircle2 className={`w-3.5 h-3.5 shrink-0 mt-0.5 ${isDark ? 'text-[#E6C687]' : 'text-blue-600'}`} />
+                        <span className={isDark ? 'text-slate-300' : 'text-slate-700'}>{h}</span>
                       </div>
                     ))}
                   </div>
                 </div>
 
-                <div className="lg:col-span-4 flex justify-center">
-                  <div className={`w-32 h-32 rounded-3xl border flex items-center justify-center shadow-xs ${
-                    isDark 
-                      ? 'bg-[#221C35] border-[#8B5CF6]/50 text-[#C4B5FD]' 
-                      : 'bg-slate-100 border-slate-200 text-slate-800'
+                <div className="lg:col-span-4 flex flex-col items-center justify-center p-6 rounded-xl border border-dashed border-black/10 dark:border-white/10">
+                  <div className={`w-14 h-14 rounded-2xl flex items-center justify-center mb-3 ${
+                    isDark ? 'bg-luxury-gold/10 text-luxury-gold border border-luxury-gold/20' : 'bg-blue-50 text-blue-700 border border-blue-200'
                   }`}>
-                    <Icon className="w-14 h-14" />
+                    <Icon className="w-7 h-7" />
                   </div>
+                  <span className={`text-xs font-mono font-semibold ${isDark ? 'text-slate-300' : 'text-slate-700'}`}>
+                    {item.title}
+                  </span>
+                  <span className={`text-[10px] font-mono mt-1 ${isDark ? 'text-slate-500' : 'text-slate-400'}`}>
+                    Zero Maintenance &bull; Edge Native
+                  </span>
                 </div>
               </div>
             </motion.div>
           );
         })}
-      </div>
-
-      {/* Prominent Page Bottom CTA */}
-      <div className={`p-8 sm:p-12 rounded-3xl border text-center max-w-4xl mx-auto shadow-xl ${
-        isDark ? 'bg-[#18181C] border-[#8B5CF6]/40' : 'bg-slate-50 border-slate-200'
-      }`}>
-        <h3 className={`text-2xl sm:text-3xl font-extrabold font-display mb-3 ${
-          isDark ? 'text-white' : 'text-slate-900'
-        }`}>
-          Ready to Upgrade Your Business Website?
-        </h3>
-        <p className={`text-sm max-w-xl mx-auto mb-8 ${isDark ? 'text-slate-300' : 'text-slate-600'}`}>
-          Get a professional website with an easy admin panel, zero maintenance charges, and 100% full ownership.
-        </p>
-
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-          <button
-            onClick={() => {
-              playCyberTone('click');
-              onOpenPrototypeModal();
-            }}
-            className={`w-full sm:w-auto px-8 py-4 rounded-xl font-bold font-mono text-sm tracking-wider flex items-center justify-center gap-2.5 shadow-sm transition-all hover:scale-105 active:scale-95 cursor-pointer ${
-              isDark
-                ? 'bg-gradient-to-r from-luxury-gold via-amber-300 to-luxury-gold text-black shadow-gold-glow'
-                : 'bg-slate-900 hover:bg-slate-800 text-white'
-            }`}
-          >
-            <span>ENQUIRE NOW</span>
-            <ArrowRight className="w-4 h-4" />
-          </button>
-
-          <a
-            href="https://wa.me/917358618789?text=Hi%20Jagadish!%20I%20would%20like%20to%20discuss%20a%20website%20solution."
-            target="_blank"
-            rel="noopener noreferrer"
-            onClick={() => playCyberTone('click')}
-            className="w-full sm:w-auto px-6 py-4 rounded-xl bg-[#25D366] hover:bg-[#20BA5A] text-white font-mono font-bold text-sm flex items-center justify-center gap-2 shadow-xs transition-all hover:scale-105 cursor-pointer"
-          >
-            <MessageCircle className="w-5 h-5 fill-current" />
-            <span>Chat on WhatsApp (+91 73586 18789)</span>
-          </a>
-        </div>
       </div>
     </div>
   );

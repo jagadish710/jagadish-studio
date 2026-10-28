@@ -75,7 +75,7 @@ export default function Footer({ setActivePage, isDark }) {
             className={`font-semibold flex items-center gap-1.5 ${isDark ? 'text-emerald-400 hover:text-emerald-300' : 'text-emerald-700 hover:text-emerald-800'}`}
           >
             <MessageCircle className="w-3.5 h-3.5 fill-current" />
-            <span>WhatsApp (+91 73586 18789)</span>
+            <span>WhatsApp</span>
             <ArrowUpRight className="w-3.5 h-3.5" />
           </a>
         </div>

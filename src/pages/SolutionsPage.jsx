@@ -146,7 +146,7 @@ export default function SolutionsPage({ onOpenPrototypeModal, onNavigateToWork, 
             }`}
           >
             <MessageCircle className="w-4 h-4 text-[#25D366]" />
-            <span>WhatsApp: +91 73586 18789</span>
+            <span>WhatsApp</span>
           </a>
         </div>
       </motion.div>

@@ -16,16 +16,10 @@ export default function App() {
   const [chatOpen, setChatOpen] = useState(false);
   const [prototypeModalOpen, setPrototypeModalOpen] = useState(false);
   const [activePage, setActivePage] = useState('home');
-  const [ambientColor, setAmbientColor] = useState('gold'); // 'gold', 'emerald', 'cyan', 'amber', 'purple'
 
   // Automatic System Dark/Light Theme Detection
-  const [themeMode, setThemeMode] = useState('system'); // 'system', 'dark', or 'light'
-  const [systemPrefersDark, setSystemPrefersDark] = useState(() => {
-    if (typeof window !== 'undefined') {
-      return window.matchMedia('(prefers-color-scheme: dark)').matches;
-    }
-    return true;
-  });
+  const [themeMode, setThemeMode] = useState('dark'); // Dark mode priority as requested
+  const [systemPrefersDark, setSystemPrefersDark] = useState(true);
 
   useEffect(() => {
     const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
@@ -75,9 +69,9 @@ export default function App() {
   };
 
   return (
-    <div className={`min-h-screen relative transition-colors duration-700 ${
+    <div className={`min-h-screen relative transition-colors duration-500 ${
       isDark 
-        ? 'bg-[#121214] text-[#EAEAEA] selection:bg-luxury-gold selection:text-black' 
+        ? 'bg-[#0B0B0D] text-[#EAEAEA] selection:bg-luxury-gold selection:text-black' 
         : 'bg-[#FFFFFF] text-[#0F172A] selection:bg-[#2563EB] selection:text-white'
     }`}>
       {/* 3D Entrance Loader (bypassed instant 0ms) */}
@@ -88,40 +82,22 @@ export default function App() {
         />
       )}
 
-      {/* Reactive Ambient Gradient Atmosphere (Color changes smoothly on user interactions, zero 3D rotation headache) */}
+      {/* Unified Luxury Ambient Lighting (Champagne Gold & Obsidian — Zero Cheap Rainbow Neons) */}
       <div className="fixed inset-0 pointer-events-none overflow-hidden z-0">
         <div 
-          className={`absolute -top-32 left-1/2 -translate-x-1/2 w-[900px] h-[550px] rounded-full blur-[140px] transition-all duration-1000 ease-out ${
-            ambientColor === 'gold' 
-              ? isDark ? 'bg-[#E6C687]/15' : 'bg-amber-200/40'
-              : ambientColor === 'emerald'
-              ? isDark ? 'bg-emerald-500/18' : 'bg-emerald-200/50'
-              : ambientColor === 'cyan'
-              ? isDark ? 'bg-cyan-500/18' : 'bg-sky-200/50'
-              : ambientColor === 'amber'
-              ? isDark ? 'bg-amber-500/18' : 'bg-orange-200/45'
-              : ambientColor === 'purple'
-              ? isDark ? 'bg-purple-600/18' : 'bg-indigo-200/50'
-              : isDark ? 'bg-[#E6C687]/15' : 'bg-blue-200/40'
+          className={`absolute -top-32 left-1/2 -translate-x-1/2 w-[900px] h-[550px] rounded-full blur-[140px] pointer-events-none ${
+            isDark ? 'bg-[#E6C687]/08' : 'bg-slate-200/50'
           }`}
         />
         <div 
-          className={`absolute top-1/3 -right-20 w-[600px] h-[600px] rounded-full blur-[160px] transition-all duration-1000 ease-out ${
-            ambientColor === 'emerald'
-              ? isDark ? 'bg-emerald-600/12' : 'bg-emerald-100/60'
-              : ambientColor === 'cyan'
-              ? isDark ? 'bg-blue-600/12' : 'bg-sky-100/60'
-              : ambientColor === 'purple'
-              ? isDark ? 'bg-violet-600/12' : 'bg-indigo-100/60'
-              : ambientColor === 'amber'
-              ? isDark ? 'bg-orange-600/12' : 'bg-amber-100/60'
-              : isDark ? 'bg-[#C5A059]/10' : 'bg-blue-100/50'
+          className={`absolute top-1/2 -right-32 w-[600px] h-[600px] rounded-full blur-[160px] pointer-events-none ${
+            isDark ? 'bg-[#C5A059]/05' : 'bg-blue-100/40'
           }`}
         />
       </div>
 
       {/* Subtle architectural grid overlay */}
-      <div className="adaptive-grid fixed inset-0 pointer-events-none opacity-20 z-0" />
+      <div className="adaptive-grid fixed inset-0 pointer-events-none opacity-15 z-0" />
 
       {/* Header Navigation with Theme Switcher */}
       <Navbar
@@ -147,8 +123,6 @@ export default function App() {
             >
               <HomePage
                 isDark={isDark}
-                ambientColor={ambientColor}
-                setAmbientColor={setAmbientColor}
                 onOpenPrototypeModal={() => setPrototypeModalOpen(true)}
                 setActivePage={handlePageChange}
               />

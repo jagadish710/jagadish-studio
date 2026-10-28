@@ -99,7 +99,7 @@ export default function AboutPage({ onOpenPrototypeModal, isDark }) {
             }`}
           >
             <MessageCircle className="w-4 h-4 text-[#25D366]" />
-            <span>Direct WhatsApp: +91 73586 18789</span>
+            <span>WhatsApp</span>
           </a>
         </div>
       </motion.div>

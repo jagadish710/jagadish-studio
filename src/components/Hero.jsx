@@ -10,12 +10,7 @@ import {
   MessageCircle,
   ShieldCheck,
   Search,
-  Cpu,
   Globe,
-  Award,
-  Activity,
-  HeartPulse,
-  Compass,
 } from 'lucide-react';
 
 export default function Hero({ 
@@ -23,29 +18,19 @@ export default function Hero({
   onNavigateToWork, 
   onNavigateToSolutions, 
   isDark,
-  ambientColor,
-  setAmbientColor,
 }) {
-  const quickFilters = [
-    { key: 'gold', label: 'Cloud Systems', icon: Globe },
-    { key: 'emerald', label: 'Sports & Karate SaaS', icon: Activity },
-    { key: 'cyan', label: 'Clinical Health', icon: HeartPulse },
-    { key: 'amber', label: 'Industrial ERP', icon: Cpu },
-    { key: 'purple', label: 'Electric Mobility', icon: Compass },
-  ];
-
   return (
-    <section className="relative min-h-[85vh] pt-32 pb-20 flex flex-col justify-center items-center px-4 sm:px-6 lg:px-8 overflow-hidden">
+    <section className="relative min-h-[82vh] pt-32 pb-16 flex flex-col justify-center items-center px-4 sm:px-6 lg:px-8 overflow-hidden">
       <div className="relative z-10 max-w-5xl mx-auto text-center flex flex-col items-center">
         
-        {/* Subtle, High-Trust Corporate Badge */}
+        {/* Mercury Tagline & Heritage Badge */}
         <motion.div
           initial={{ opacity: 0, y: -10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.4 }}
-          className={`inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full text-xs font-mono font-medium mb-6 border transition-all ${
+          className={`inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full text-xs font-mono font-medium mb-8 border transition-all ${
             isDark
-              ? 'bg-[#18181C]/90 border-[#E6C687]/30 text-[#E6C687]'
+              ? 'bg-[#161619] border-[#E6C687]/30 text-[#E6C687] shadow-lg shadow-black/40'
               : 'bg-slate-50 border-slate-200 text-slate-800 shadow-xs'
           }`}
         >
@@ -57,10 +42,10 @@ export default function Hero({
               isDark ? 'bg-luxury-gold' : 'bg-blue-600'
             }`} />
           </span>
-          <span className="tracking-wider uppercase">MERQURIE TECHNOLOGY GROUP &bull; GLOBAL SYSTEMS &amp; SAAS</span>
+          <span className="tracking-wider">MERQURIE &bull; MOVE AT THE SPEED OF MERCURY &bull; புதன் &bull; பாதரசம்</span>
         </motion.div>
 
-        {/* Executive Headline (Google / DeepMind / Stripe Caliber) */}
+        {/* Executive Headline (Website Solutions Focused) */}
         <motion.h1
           initial={{ opacity: 0, y: 15 }}
           animate={{ opacity: 1, y: 0 }}
@@ -68,70 +53,31 @@ export default function Hero({
           className="text-4xl sm:text-6xl md:text-7xl font-bold tracking-tight font-display leading-[1.08] mb-6 max-w-4xl"
         >
           <span className={isDark ? 'text-white' : 'text-slate-900'}>
-            Architecting High-Speed Cloud Systems
+            High-Performance Website Solutions
           </span>{' '}
           <br className="hidden sm:inline" />
-          <span className={`bg-clip-text text-transparent transition-all duration-700 ${
-            ambientColor === 'emerald'
-              ? isDark ? 'bg-gradient-to-r from-emerald-200 via-emerald-400 to-teal-500' : 'bg-gradient-to-r from-emerald-700 to-teal-800'
-              : ambientColor === 'cyan'
-              ? isDark ? 'bg-gradient-to-r from-sky-200 via-sky-400 to-cyan-500' : 'bg-gradient-to-r from-sky-700 to-cyan-800'
-              : ambientColor === 'amber'
-              ? isDark ? 'bg-gradient-to-r from-amber-200 via-amber-400 to-orange-500' : 'bg-gradient-to-r from-amber-700 to-orange-800'
-              : ambientColor === 'purple'
-              ? isDark ? 'bg-gradient-to-r from-purple-200 via-purple-400 to-violet-500' : 'bg-gradient-to-r from-purple-700 to-violet-800'
-              : isDark 
-                ? 'bg-gradient-to-r from-[#FFF4D2] via-[#E6C687] to-[#C5A059]' 
-                : 'bg-gradient-to-r from-blue-700 via-indigo-700 to-slate-900'
+          <span className={`bg-clip-text text-transparent ${
+            isDark 
+              ? 'bg-gradient-to-r from-[#FFF4D2] via-[#E6C687] to-[#C5A059]' 
+              : 'bg-gradient-to-r from-blue-700 via-indigo-700 to-slate-900'
           }`}>
-            &amp; Digital Infrastructure.
+            For Growing Enterprises.
           </span>
         </motion.h1>
 
-        {/* Restrained, Dignified Enterprise Subtitle */}
+        {/* Restrained Subtitle */}
         <motion.p
           initial={{ opacity: 0, y: 15 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.15 }}
-          className={`max-w-2xl text-base sm:text-lg font-normal leading-relaxed mb-8 ${
+          className={`max-w-2xl text-base sm:text-lg font-normal leading-relaxed mb-10 ${
             isDark ? 'text-slate-300' : 'text-slate-600'
           }`}
         >
-          From high-performance enterprise platforms and vertical SaaS to intelligent automation and future electric mobility. Built with zero maintenance overhead, edge-native speed, and 100% intellectual property sovereignty.
+          Sub-0.3s lightning speed, dedicated self-serve admin cockpits, and 100% code ownership. Engineered with zero recurring maintenance fees so your business moves without friction.
         </motion.p>
 
-        {/* Interactive Atmosphere Switcher (User Clicks Change Background Mood Smoothly) */}
-        <div className="flex flex-wrap items-center justify-center gap-2 mb-10">
-          {quickFilters.map((filter) => {
-            const Icon = filter.icon;
-            const isSelected = ambientColor === filter.key;
-            return (
-              <button
-                key={filter.key}
-                onClick={() => {
-                  playCyberTone('click');
-                  if (setAmbientColor) setAmbientColor(filter.key);
-                }}
-                className={`px-3 py-1.5 rounded-xl font-mono text-xs flex items-center gap-2 transition-all cursor-pointer border ${
-                  isSelected
-                    ? isDark
-                      ? 'bg-white/10 text-white font-bold border-[#E6C687]/60 shadow-sm'
-                      : 'bg-slate-900 text-white font-bold border-slate-900 shadow-sm'
-                    : isDark
-                      ? 'bg-[#18181C]/60 text-slate-400 border-white/5 hover:text-white hover:border-white/15'
-                      : 'bg-slate-100/80 text-slate-600 border-slate-200 hover:text-slate-900'
-                }`}
-              >
-                <Icon className={`w-3.5 h-3.5 ${
-                  isSelected ? (isDark ? 'text-luxury-gold' : 'text-blue-400') : 'opacity-60'
-                }`} />
-                <span>{filter.label}</span>
-              </button>
-            );
-          })}
-        </div>
-
-        {/* Action CTAs */}
+        {/* Action CTAs (No numbers in buttons, clean WhatsApp icon + text) */}
         <motion.div
           initial={{ opacity: 0, y: 15 }}
           animate={{ opacity: 1, y: 0 }}
@@ -154,24 +100,24 @@ export default function Hero({
             <ArrowRight className="w-3.5 h-3.5" />
           </button>
 
-          {/* WhatsApp Direct */}
+          {/* Clean WhatsApp Direct (NO PHONE NUMBER IN BUTTON TEXT) */}
           <a
-            href="https://wa.me/917358618789?text=Hi%20Merqurie%20Team!%20I%20would%20like%20to%20discuss%20a%20technology%20solution."
+            href="https://wa.me/917358618789?text=Hi%20Merqurie%20Team!%20I%20would%20like%20to%20discuss%20a%20website%20solution."
             target="_blank"
             rel="noopener noreferrer"
             onClick={() => playCyberTone('click')}
             className={`w-full sm:w-auto px-6 py-3.5 rounded-xl font-mono text-xs font-semibold flex items-center justify-center gap-2 transition-all duration-200 hover:scale-[1.02] active:scale-[0.98] cursor-pointer border ${
               isDark
-                ? 'bg-[#18181C] hover:bg-[#202026] text-white border-white/10'
+                ? 'bg-[#161619] hover:bg-[#1E1E24] text-white border-white/10 hover:border-[#E6C687]/30'
                 : 'bg-white hover:bg-slate-50 text-slate-800 border-slate-200 shadow-xs'
             }`}
           >
             <MessageCircle className="w-4 h-4 text-[#25D366] fill-[#25D366]/20" />
-            <span>Direct WhatsApp: +91 73586 18789</span>
+            <span>WhatsApp</span>
           </a>
         </motion.div>
 
-        {/* 4 Clean Value Pillars */}
+        {/* 4 Clean Value Pillars (Champagne Gold + Obsidian Cohesive) */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -179,7 +125,7 @@ export default function Hero({
           className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 w-full text-left"
         >
           <div className={`p-5 rounded-xl border transition-all ${
-            isDark ? 'bg-[#151518]/90 border-white/10 hover:border-white/20' : 'bg-white border-slate-200/90 hover:border-slate-300 shadow-xs'
+            isDark ? 'bg-[#141416] border-white/10 hover:border-[#E6C687]/30' : 'bg-white border-slate-200 hover:border-slate-300 shadow-xs'
           }`}>
             <div className={`w-8 h-8 rounded-lg flex items-center justify-center mb-3 border ${
               isDark ? 'bg-luxury-gold/10 text-luxury-gold border-luxury-gold/20' : 'bg-slate-100 text-slate-800 border-slate-200'
@@ -190,12 +136,12 @@ export default function Hero({
               Zero Maintenance Debt
             </div>
             <div className={`text-xs mt-1.5 leading-relaxed ${isDark ? 'text-slate-400' : 'text-slate-600'}`}>
-              Serverless edge architecture that eliminates ongoing monthly retainer fees.
+              Serverless edge architecture that eliminates recurring monthly agency retainer fees.
             </div>
           </div>
 
           <div className={`p-5 rounded-xl border transition-all ${
-            isDark ? 'bg-[#151518]/90 border-white/10 hover:border-white/20' : 'bg-white border-slate-200/90 hover:border-slate-300 shadow-xs'
+            isDark ? 'bg-[#141416] border-white/10 hover:border-[#E6C687]/30' : 'bg-white border-slate-200 hover:border-slate-300 shadow-xs'
           }`}>
             <div className={`w-8 h-8 rounded-lg flex items-center justify-center mb-3 border ${
               isDark ? 'bg-luxury-gold/10 text-luxury-gold border-luxury-gold/20' : 'bg-slate-100 text-slate-800 border-slate-200'
@@ -203,15 +149,15 @@ export default function Hero({
               <Layers className="w-4 h-4" />
             </div>
             <div className={`text-sm font-semibold tracking-tight ${isDark ? 'text-white' : 'text-slate-900'}`}>
-              Self-Serve Cockpits
+              Self-Serve Cockpit
             </div>
             <div className={`text-xs mt-1.5 leading-relaxed ${isDark ? 'text-slate-400' : 'text-slate-600'}`}>
-              Dedicated executive administration portals for real-time operational control.
+              Dedicated visual admin panel to update text, prices, and products in 10 seconds.
             </div>
           </div>
 
           <div className={`p-5 rounded-xl border transition-all ${
-            isDark ? 'bg-[#151518]/90 border-white/10 hover:border-white/20' : 'bg-white border-slate-200/90 hover:border-slate-300 shadow-xs'
+            isDark ? 'bg-[#141416] border-white/10 hover:border-[#E6C687]/30' : 'bg-white border-slate-200 hover:border-slate-300 shadow-xs'
           }`}>
             <div className={`w-8 h-8 rounded-lg flex items-center justify-center mb-3 border ${
               isDark ? 'bg-luxury-gold/10 text-luxury-gold border-luxury-gold/20' : 'bg-slate-100 text-slate-800 border-slate-200'
@@ -222,12 +168,12 @@ export default function Hero({
               100% IP Sovereignty
             </div>
             <div className={`text-xs mt-1.5 leading-relaxed ${isDark ? 'text-slate-400' : 'text-slate-600'}`}>
-              Complete ownership of source repositories, databases, and customer records.
+              Complete legal ownership of source code, database records, and domain.
             </div>
           </div>
 
           <div className={`p-5 rounded-xl border transition-all ${
-            isDark ? 'bg-[#151518]/90 border-white/10 hover:border-white/20' : 'bg-white border-slate-200/90 hover:border-slate-300 shadow-xs'
+            isDark ? 'bg-[#141416] border-white/10 hover:border-[#E6C687]/30' : 'bg-white border-slate-200 hover:border-slate-300 shadow-xs'
           }`}>
             <div className={`w-8 h-8 rounded-lg flex items-center justify-center mb-3 border ${
               isDark ? 'bg-luxury-gold/10 text-luxury-gold border-luxury-gold/20' : 'bg-slate-100 text-slate-800 border-slate-200'
@@ -238,7 +184,7 @@ export default function Hero({
               Sub-0.3s Performance
             </div>
             <div className={`text-xs mt-1.5 leading-relaxed ${isDark ? 'text-slate-400' : 'text-slate-600'}`}>
-              Google Core Web Vitals optimized for effortless top algorithmic ranking.
+              Google Core Web Vitals optimized for top search rank and high client conversions.
             </div>
           </div>
         </motion.div>
@@ -250,18 +196,18 @@ export default function Hero({
           transition={{ duration: 0.5, delay: 0.3 }}
           className={`mt-8 px-5 py-3.5 rounded-xl text-xs font-mono flex flex-col sm:flex-row items-center justify-between gap-3 w-full border ${
             isDark 
-              ? 'bg-[#141416]/80 border-white/10 text-slate-300' 
+              ? 'bg-[#141416]/90 border-white/10 text-slate-300' 
               : 'bg-slate-50 border-slate-200 text-slate-700 shadow-xs'
           }`}
         >
           <div className="flex flex-wrap items-center gap-2 text-left">
-            <span className={`w-2 h-2 rounded-full ${isDark ? 'bg-emerald-400' : 'bg-emerald-500'}`} />
+            <span className={`w-2 h-2 rounded-full ${isDark ? 'bg-luxury-gold animate-pulse' : 'bg-emerald-500'}`} />
             <span className={`font-semibold ${isDark ? 'text-white' : 'text-slate-900'}`}>100+ SYSTEMS DEPLOYED:</span>
-            <span>Including</span>
-            <span className={`font-medium px-2 py-0.5 rounded border ${isDark ? 'bg-black/40 text-emerald-300 border-emerald-500/20' : 'bg-white text-slate-900 border-slate-200'}`}>upskskarate.com</span>
+            <span>Featured:</span>
+            <span className={`font-medium px-2 py-0.5 rounded border ${isDark ? 'bg-black/40 text-[#E6C687] border-[#E6C687]/30' : 'bg-white text-slate-900 border-slate-200'}`}>upskskarate.com</span>
             <span>&bull;</span>
             <span className={`font-medium px-2 py-0.5 rounded border ${isDark ? 'bg-black/40 text-amber-300 border-amber-500/20' : 'bg-white text-slate-900 border-slate-200'}`}>pmssolution</span>
-            <span className={isDark ? 'text-slate-400' : 'text-slate-500'}>&bull; custom vertical software.</span>
+            <span className={isDark ? 'text-slate-400' : 'text-slate-500'}>&bull; custom web applications.</span>
           </div>
           <button
             onClick={() => {

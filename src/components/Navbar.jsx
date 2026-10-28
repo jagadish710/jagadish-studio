@@ -185,13 +185,14 @@ export default function Navbar({
 
           {/* WhatsApp Direct CTA */}
           <a
-            href="https://wa.me/917358618789?text=Hi%20Jagadish!%20I%20am%20interested%20in%20a%20website%20solution."
+            href="https://wa.me/917358618789?text=Hi%20Merqurie%20Team!%20I%20am%20interested%20in%20a%20website%20solution."
             target="_blank"
             rel="noopener noreferrer"
             onClick={() => playCyberTone('click')}
             className="hidden sm:flex items-center gap-1.5 px-3 py-2 rounded-xl bg-[#25D366] hover:bg-[#20BA5A] text-white font-mono font-bold text-xs shadow-xs hover:scale-105 transition-all cursor-pointer"
-            title="Chat on WhatsApp (+91 7358618789)"
+            title="Chat on WhatsApp"
           >
+            <MessageCircle className="w-3.5 h-3.5 fill-current" />
             <span>WhatsApp</span>
           </a>
 
@@ -229,12 +230,13 @@ export default function Navbar({
           ))}
 
           <a
-            href="https://wa.me/917358618789?text=Hi%20Jagadish!%20I%20am%20interested%20in%20a%20website%20solution."
+            href="https://wa.me/917358618789?text=Hi%20Merqurie%20Team!%20I%20am%20interested%20in%20a%20website%20solution."
             target="_blank"
             rel="noopener noreferrer"
             className="mt-2 p-3 rounded-xl bg-[#25D366] text-white font-bold text-center flex items-center justify-center gap-2"
           >
-            <span>WhatsApp: +91 73586 18789</span>
+            <MessageCircle className="w-4 h-4 fill-current" />
+            <span>WhatsApp</span>
           </a>
         </div>
       )}

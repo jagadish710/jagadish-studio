@@ -124,7 +124,7 @@ export default function FaqSection({ isDark }) {
           className="inline-flex items-center gap-2 px-4 py-2.5 rounded-lg bg-[#25D366] hover:bg-[#20BA5A] text-white font-mono text-xs font-semibold shrink-0 transition-all shadow-xs cursor-pointer"
         >
           <MessageCircle className="w-3.5 h-3.5" />
-          <span>Chat on WhatsApp: +91 73586 18789</span>
+          <span>WhatsApp</span>
         </a>
       </div>
     </section>

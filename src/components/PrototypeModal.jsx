@@ -158,7 +158,7 @@ export default function PrototypeModal({ isOpen, onClose, isDark }) {
 
               <button
                 type="submit"
-                className={`w-full py-3.5 rounded-xl font-bold font-mono text-sm tracking-wider flex items-center justify-center gap-2 transition-all hover:scale-101 active:scale-98 cursor-pointer shadow-md mt-2 ${
+                className={`w-full py-3.5 rounded-xl font-bold font-mono text-sm tracking-wider flex items-center justify-center gap-2 transition-all hover:scale-101 active:scale-95 cursor-pointer shadow-md mt-2 ${
                   isDark
                     ? 'bg-white hover:bg-zinc-200 text-zinc-950 shadow-sm'
                     : 'bg-slate-950 hover:bg-slate-800 text-white shadow-sm'
@@ -174,22 +174,22 @@ export default function PrototypeModal({ isOpen, onClose, isDark }) {
                 <div className="w-full border-t border-slate-200 dark:border-white/10" />
               </div>
               <span className={`relative px-3 text-xs font-mono uppercase opacity-60 ${
-                isDark ? 'bg-[#181818]' : 'bg-white'
+                isDark ? 'bg-[#0E0E12]' : 'bg-white'
               }`}>
                 or connect directly
               </span>
             </div>
 
-            {/* Direct WhatsApp Callout */}
+            {/* Direct WhatsApp Callout: Solid Green */}
             <a
               href="https://wa.me/917358618789?text=Hi%20Merqurie%20Team!%20I%20am%20looking%20for%20a%20website%20solution."
               target="_blank"
               rel="noopener noreferrer"
               onClick={() => playCyberTone('click')}
-              className="w-full py-3 rounded-xl bg-zinc-900 hover:bg-zinc-800 border border-zinc-700 text-white font-mono font-bold text-xs flex items-center justify-center gap-2 shadow-sm transition-transform hover:scale-101 cursor-pointer"
+              className="w-full py-3.5 rounded-xl bg-[#25D366] hover:bg-[#20bd5a] text-white font-mono font-bold text-xs flex items-center justify-center gap-2 shadow-lg shadow-emerald-500/20 transition-all active:scale-95 cursor-pointer"
             >
-              <WhatsAppIcon className="w-4 h-4 text-emerald-400 fill-current" />
-              <span>Chat on WhatsApp</span>
+              <WhatsAppIcon className="w-4 h-4 text-white fill-current" />
+              <span>Chat on WhatsApp Directly</span>
             </a>
           </div>
         ) : (

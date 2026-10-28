@@ -133,7 +133,7 @@ export default function PricingPhilosophy({ onOpenPrototypeModal, isDark = true 
                     playCyberTone('click');
                     onOpenPrototypeModal();
                   }}
-                  className={`w-full py-2.5 px-4 rounded-xl font-mono text-xs font-bold flex items-center justify-center gap-2 transition-all cursor-pointer shadow-sm ${
+                  className={`w-full py-2.5 px-4 rounded-xl font-mono text-xs font-bold flex items-center justify-center gap-2 transition-all active:scale-95 cursor-pointer shadow-sm ${
                     isDark 
                       ? 'bg-white hover:bg-zinc-200 text-zinc-950' 
                       : 'bg-slate-950 hover:bg-slate-800 text-white'
@@ -148,7 +148,7 @@ export default function PricingPhilosophy({ onOpenPrototypeModal, isDark = true 
                   target="_blank"
                   rel="noopener noreferrer"
                   onClick={() => playCyberTone('click')}
-                  className={`w-full py-2.5 px-4 rounded-xl font-mono text-xs font-medium flex items-center justify-center gap-2 border transition-all cursor-pointer ${
+                  className={`w-full py-2.5 px-4 rounded-xl font-mono text-xs font-medium flex items-center justify-center gap-2 border transition-all active:scale-95 cursor-pointer ${
                     isDark 
                       ? 'border-zinc-800 bg-zinc-900 hover:bg-zinc-800 text-white' 
                       : 'border-slate-200 bg-white hover:bg-slate-100 text-slate-900 shadow-2xs'

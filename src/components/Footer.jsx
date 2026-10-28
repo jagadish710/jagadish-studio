@@ -12,7 +12,7 @@ export default function Footer({ setActivePage, isDark = true }) {
   };
 
   return (
-    <footer className={`py-14 px-4 sm:px-6 lg:px-8 border-t font-mono text-xs relative z-10 ${
+    <footer className={`pt-12 pb-28 md:py-14 px-4 sm:px-6 lg:px-8 border-t font-mono text-xs relative z-10 ${
       isDark 
         ? 'border-zinc-900 bg-[#060608] text-zinc-400' 
         : 'border-slate-200 bg-slate-50 text-slate-600'

@@ -7,6 +7,9 @@ import {
   Zap,
   Smartphone,
   Laptop,
+  Cpu,
+  Layers,
+  CheckCircle2,
 } from 'lucide-react';
 import WhatsAppIcon from './WhatsAppIcon';
 
@@ -39,8 +42,16 @@ export default function Hero({
       speed: 'Sub-second Checkout Flow',
       desc: 'Instant one-tap WhatsApp order flow with dynamic spec configurator and inventory management.',
       image: '/images/showcase_ecommerce_catalog.jpg',
+      badge: 'Sub-Second WhatsApp Flow',
+      client: 'Direct WhatsApp Commerce',
+    },
+    industrial: {
+      title: 'Industrial Heavy Machinery & Equipment Portal',
+      speed: '0.28s Multi-Channel Lead Routing',
+      desc: 'Live high-volume packaging machinery portal with instant RFQ lead routing and visual catalog management.',
+      image: '/images/showcase_custom_cloud_system.jpg',
       badge: 'Live at pmssolution.co.in',
-      client: 'Machinery & Equipment Catalog',
+      client: 'Live Production: pmssolution.co.in',
     },
   };
 
@@ -116,44 +127,82 @@ export default function Hero({
           Custom-engineered digital storefronts with sub-second mobile speed, a self-serve visual admin dashboard, and permanent code sovereignty. Pay once. Never pay monthly retainer fees.
         </motion.p>
 
-        {/* CTA Buttons */}
+        {/* CTA Buttons: Prominent Green WhatsApp & Blueprint */}
         <motion.div
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-          className="flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-2.5 w-full max-w-md sm:max-w-none mb-8 sm:mb-12 px-2"
+          className="flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-3 w-full max-w-md sm:max-w-none mb-6 sm:mb-8 px-2"
         >
+          {/* WhatsApp Direct: PMS-Style High-Conversion Solid Green */}
+          <a
+            href="https://wa.me/917358618789?text=Hi%20Merqurie%20Team!%20I%20would%20like%20to%20discuss%20a%20website%20solution."
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={() => playCyberTone('click')}
+            className="px-6 py-3.5 rounded-xl font-mono text-xs sm:text-sm font-bold flex items-center justify-center gap-2.5 bg-[#25D366] hover:bg-[#20bd5a] text-white shadow-lg shadow-emerald-500/25 active:scale-95 cursor-pointer transition-all group"
+          >
+            <WhatsAppIcon className="w-5 h-5 text-white fill-current group-hover:scale-110 transition-transform" />
+            <span>Chat on WhatsApp Directly</span>
+          </a>
+
           {/* Consultation CTA */}
           <button
             onClick={() => {
               playCyberTone('click');
               onOpenPrototypeModal();
             }}
-            className={`px-5 sm:px-7 py-3 rounded-xl font-bold font-mono text-xs sm:text-sm tracking-wider flex items-center justify-center gap-2 transition-all hover:scale-102 active:scale-95 cursor-pointer shadow-md group ${
+            className={`px-5 sm:px-7 py-3.5 rounded-xl font-bold font-mono text-xs sm:text-sm tracking-wider flex items-center justify-center gap-2 transition-all active:scale-95 cursor-pointer shadow-md group ${
               isDark
                 ? 'bg-white hover:bg-zinc-200 text-zinc-950'
                 : 'bg-slate-950 hover:bg-slate-800 text-white'
             }`}
           >
-            <span>GET A WEBSITE BLUEPRINT</span>
+            <span>GET FREE WEBSITE BLUEPRINT</span>
             <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
           </button>
+        </motion.div>
 
-          {/* WhatsApp Direct with Official WhatsApp SVG */}
-          <a
-            href="https://wa.me/917358618789?text=Hi%20Merqurie%20Team!%20I%20would%20like%20to%20discuss%20a%20website%20solution."
-            target="_blank"
-            rel="noopener noreferrer"
-            onClick={() => playCyberTone('click')}
-            className={`px-5 sm:px-6 py-3 rounded-xl font-mono text-xs sm:text-sm font-semibold flex items-center justify-center gap-2 border transition-all hover:scale-102 active:scale-95 cursor-pointer group ${
-              isDark
-                ? 'bg-zinc-950 hover:bg-zinc-900 text-white border-zinc-800 hover:border-emerald-500/50'
-                : 'bg-white hover:bg-slate-50 text-slate-900 border-slate-200 hover:border-emerald-500/50 shadow-xs'
-            }`}
-          >
-            <WhatsAppIcon className="w-4 h-4 text-emerald-500 fill-current group-hover:scale-110 transition-transform" />
-            <span>Chat on WhatsApp</span>
-          </a>
+        {/* PMS-Style Quick Category Filter Pills */}
+        <motion.div
+          initial={{ opacity: 0, y: 12 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.24, ease: [0.16, 1, 0.3, 1] }}
+          className="flex items-center justify-center gap-1.5 flex-wrap max-w-2xl mx-auto mb-6 sm:mb-8 px-2"
+        >
+          <span className={`text-[10px] font-mono uppercase tracking-wider mr-1 ${
+            isDark ? 'text-zinc-500' : 'text-slate-400'
+          }`}>
+            Quick Inspect:
+          </span>
+          {[
+            { id: 'website', label: 'Storefront (upsks)' },
+            { id: 'admin', label: '10s Admin Portal' },
+            { id: 'ecommerce', label: 'WhatsApp E-Store' },
+            { id: 'industrial', label: 'Industrial ERP (pmssolution)' },
+          ].map((pill) => {
+            const isActive = activeShowcase === pill.id;
+            return (
+              <button
+                key={pill.id}
+                onClick={() => {
+                  playCyberTone('click');
+                  setActiveShowcase(pill.id);
+                }}
+                className={`px-3 py-1.5 rounded-full text-[11px] font-mono transition-all cursor-pointer active:scale-90 border ${
+                  isActive
+                    ? isDark
+                      ? 'bg-white text-zinc-950 border-white font-bold shadow-sm'
+                      : 'bg-slate-950 text-white border-slate-950 font-bold shadow-sm'
+                    : isDark
+                      ? 'bg-zinc-900/80 text-zinc-400 border-zinc-800 hover:text-white hover:border-zinc-700'
+                      : 'bg-white text-slate-600 border-slate-200 hover:text-slate-950 shadow-2xs'
+                }`}
+              >
+                {pill.label}
+              </button>
+            );
+          })}
         </motion.div>
 
         {/* VISUALS FIRST: Interactive Device Workstation Frame */}
@@ -186,13 +235,14 @@ export default function Hero({
             </div>
 
             {/* Showcase Selector Tabs */}
-            <div className={`flex items-center gap-1 p-1 rounded-xl border w-full sm:w-auto justify-center ${
+            <div className={`flex items-center gap-1 p-1 rounded-xl border w-full sm:w-auto justify-center overflow-x-auto no-scrollbar ${
               isDark ? 'bg-zinc-900 border-zinc-800' : 'bg-white border-slate-200 shadow-2xs'
             }`}>
               {[
                 { id: 'website', label: 'Storefront', icon: Laptop },
                 { id: 'admin', label: 'Admin Portal', icon: Smartphone },
                 { id: 'ecommerce', label: 'E-Store', icon: Zap },
+                { id: 'industrial', label: 'Industrial ERP', icon: Cpu },
               ].map((tab) => {
                 const Icon = tab.icon;
                 const isActive = activeShowcase === tab.id;
@@ -203,7 +253,7 @@ export default function Hero({
                       playCyberTone('click');
                       setActiveShowcase(tab.id);
                     }}
-                    className={`px-3 py-1.5 rounded-lg text-xs font-mono flex items-center gap-1.5 transition-all cursor-pointer active:scale-95 ${
+                    className={`px-2.5 sm:px-3 py-1.5 rounded-lg text-[11px] sm:text-xs font-mono flex items-center gap-1.5 transition-all cursor-pointer shrink-0 active:scale-95 ${
                       isActive
                         ? isDark
                           ? 'bg-zinc-800 text-white font-bold shadow-xs'

@@ -159,20 +159,16 @@ export default function PrototypePage({ onOpenPrototypeModal, isDark }) {
               <span>SUBMIT ENQUIRY</span>
             </button>
 
-            {/* Direct WhatsApp Option */}
+            {/* Direct WhatsApp Option: Solid Green */}
             <div className="pt-3 text-center">
               <a
                 href="https://wa.me/917358618789?text=Hi%20Merqurie%20Team!%20I%20am%20interested%20in%20a%20website%20solution."
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={() => playCyberTone('click')}
-                className={`w-full py-3.5 rounded-xl border font-mono font-bold text-xs flex items-center justify-center gap-2 shadow-sm transition-transform hover:scale-101 cursor-pointer ${
-                  isDark
-                    ? 'bg-zinc-900 hover:bg-zinc-800 border-zinc-700 text-white'
-                    : 'bg-slate-100 hover:bg-slate-200 border-slate-200 text-slate-900'
-                }`}
+                className="w-full py-3.5 rounded-xl bg-[#25D366] hover:bg-[#20bd5a] text-white font-mono font-bold text-xs flex items-center justify-center gap-2 shadow-lg shadow-emerald-500/20 active:scale-95 transition-all cursor-pointer"
               >
-                <WhatsAppIcon className="w-4 h-4 text-emerald-500 fill-current" />
+                <WhatsAppIcon className="w-4 h-4 text-white fill-current" />
                 <span>Chat Directly on WhatsApp</span>
               </a>
             </div>

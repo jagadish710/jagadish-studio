@@ -56,27 +56,28 @@ export default function Navbar({
   };
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-40 px-3 sm:px-8 pt-3 sm:pt-4 transition-all duration-300">
+    <header className="fixed top-0 left-0 right-0 z-40 transition-all duration-300 md:px-8 md:pt-4">
       <div
-        className={`max-w-7xl mx-auto flex items-center justify-between px-3.5 sm:px-5 py-2 sm:py-3 rounded-2xl transition-all duration-300 ${
+        className={`w-full flex items-center justify-between px-4 sm:px-6 py-2.5 sm:py-3 transition-all duration-300 ${
+          /* On mobile: edge-to-edge solid/frosted app bar with 0 gap above. On desktop: rounded-2xl island */
           scrolled
             ? isDark
-              ? 'bg-[#09090b]/92 backdrop-blur-xl border border-zinc-800 shadow-2xl'
-              : 'bg-white/92 backdrop-blur-xl border border-slate-200/90 shadow-lg'
+              ? 'bg-[#08080A]/95 backdrop-blur-xl border-b md:border border-zinc-800 md:rounded-2xl shadow-2xl md:max-w-7xl md:mx-auto'
+              : 'bg-white/95 backdrop-blur-xl border-b md:border border-slate-200/90 md:rounded-2xl shadow-lg md:max-w-7xl md:mx-auto'
             : isDark
-              ? 'bg-transparent border border-white/5'
-              : 'bg-transparent border border-slate-200/40'
+              ? 'bg-[#08080A]/90 md:bg-transparent backdrop-blur-lg md:backdrop-blur-none border-b md:border border-white/10 md:border-white/5 md:rounded-2xl md:max-w-7xl md:mx-auto'
+              : 'bg-white/90 md:bg-transparent backdrop-blur-lg md:backdrop-blur-none border-b md:border border-slate-200/60 md:border-slate-200/40 md:rounded-2xl md:max-w-7xl md:mx-auto'
         }`}
       >
         {/* Brand Logo & Wordmark */}
         <button
           onClick={() => handleNavClick('home')}
-          className="flex items-center gap-2.5 sm:gap-3 group cursor-pointer"
+          className="flex items-center gap-2 sm:gap-2.5 group cursor-pointer"
           aria-label="MERQURIE Home"
         >
-          <Logo isDark={isDark} className="w-8 h-8 sm:w-9 sm:h-9" />
+          <Logo isDark={isDark} className="w-7 h-7 sm:w-8 sm:h-8" />
           <div className="flex items-center gap-2">
-            <span className={`font-display font-extrabold text-sm sm:text-base tracking-[0.2em] leading-none ${
+            <span className={`font-display font-black text-sm sm:text-base tracking-[0.18em] leading-none ${
               isDark ? 'text-white' : 'text-slate-900'
             }`}>
               MERQURIE

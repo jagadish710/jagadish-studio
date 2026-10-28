@@ -53,15 +53,15 @@ export default function PrototypePage({ onOpenPrototypeModal, isDark }) {
 
       {/* Clean Consultation Form */}
       <div className={`p-8 sm:p-14 rounded-2xl border max-w-3xl mx-auto shadow-sm ${
-        isDark ? 'bg-[#151518] border-white/10' : 'bg-white border-slate-200'
+        isDark ? 'bg-[#0E0E12] border-zinc-800' : 'bg-white border-slate-200 shadow-lg'
       }`}>
         <div className="text-center max-w-xl mx-auto mb-10">
           <div className={`inline-flex items-center gap-2 px-3.5 py-1 rounded-full text-xs font-mono font-medium mb-4 border ${
             isDark 
-              ? 'bg-[#18181C] border-[#E6C687]/30 text-[#E6C687]' 
-              : 'bg-slate-50 border-slate-200 text-slate-800'
+              ? 'bg-zinc-900 border-zinc-800 text-zinc-300' 
+              : 'bg-slate-100 border-slate-200 text-slate-800'
           }`}>
-            <Sparkles className="w-3.5 h-3.5 text-blue-600 dark:text-luxury-gold" />
+            <Sparkles className={`w-3.5 h-3.5 ${isDark ? 'text-zinc-400' : 'text-slate-600'}`} />
             <span>ARCHITECTURAL CONSULTATION &bull; DIRECT DESK</span>
           </div>
 
@@ -71,7 +71,7 @@ export default function PrototypePage({ onOpenPrototypeModal, isDark }) {
             Discuss Your System Requirements
           </h2>
 
-          <p className={`text-sm leading-relaxed ${isDark ? 'text-slate-400' : 'text-slate-600'}`}>
+          <p className={`text-sm leading-relaxed ${isDark ? 'text-zinc-400' : 'text-slate-600'}`}>
             Submit your organizational parameters below. Our principal engineering advisory will review and respond directly via WhatsApp.
           </p>
         </div>
@@ -79,7 +79,7 @@ export default function PrototypePage({ onOpenPrototypeModal, isDark }) {
         {!submitted ? (
           <form onSubmit={handleSubmit} className="max-w-xl mx-auto space-y-5">
             <div>
-              <label className={`block text-xs font-mono mb-1.5 ${isDark ? 'text-slate-300' : 'text-slate-700'}`}>
+              <label className={`block text-xs font-mono mb-1.5 ${isDark ? 'text-zinc-300' : 'text-slate-700'}`}>
                 Business / Company Name
               </label>
               <input
@@ -90,14 +90,14 @@ export default function PrototypePage({ onOpenPrototypeModal, isDark }) {
                 onChange={(e) => setBusinessName(e.target.value)}
                 className={`w-full px-4 py-3 rounded-xl border text-sm focus:outline-none transition-colors ${
                   isDark 
-                    ? 'bg-[#121212] border-white/15 text-white focus:border-luxury-gold' 
-                    : 'bg-slate-50 border-slate-200 text-slate-900 focus:border-blue-600 focus:bg-white'
+                    ? 'bg-zinc-900 border-zinc-700 text-white focus:border-white focus:ring-1 focus:ring-white/20' 
+                    : 'bg-slate-50 border-slate-200 text-slate-900 focus:border-slate-950 focus:bg-white'
                 }`}
               />
             </div>
 
             <div>
-              <label className={`block text-xs font-mono mb-1.5 ${isDark ? 'text-slate-300' : 'text-slate-700'}`}>
+              <label className={`block text-xs font-mono mb-1.5 ${isDark ? 'text-zinc-300' : 'text-slate-700'}`}>
                 Project Type / Website Need
               </label>
               <select
@@ -108,8 +108,8 @@ export default function PrototypePage({ onOpenPrototypeModal, isDark }) {
                 }}
                 className={`w-full px-4 py-3 rounded-xl border text-sm focus:outline-none transition-colors cursor-pointer ${
                   isDark 
-                    ? 'bg-[#121212] border-white/15 text-white focus:border-luxury-gold' 
-                    : 'bg-slate-50 border-slate-200 text-slate-900 focus:border-blue-600 focus:bg-white'
+                    ? 'bg-zinc-900 border-zinc-700 text-white focus:border-white' 
+                    : 'bg-slate-50 border-slate-200 text-slate-900 focus:border-slate-950 focus:bg-white'
                 }`}
               >
                 <option value="Business Website">Business Website</option>
@@ -123,7 +123,7 @@ export default function PrototypePage({ onOpenPrototypeModal, isDark }) {
             </div>
 
             <div>
-              <label className={`block text-xs font-mono mb-1.5 ${isDark ? 'text-slate-300' : 'text-slate-700'}`}>
+              <label className={`block text-xs font-mono mb-1.5 ${isDark ? 'text-zinc-300' : 'text-slate-700'}`}>
                 WhatsApp / Phone Number
               </label>
               <input
@@ -134,8 +134,8 @@ export default function PrototypePage({ onOpenPrototypeModal, isDark }) {
                 onChange={(e) => setPhone(e.target.value)}
                 className={`w-full px-4 py-3 rounded-xl border text-sm focus:outline-none transition-colors ${
                   isDark 
-                    ? 'bg-[#121212] border-white/15 text-white focus:border-luxury-gold' 
-                    : 'bg-slate-50 border-slate-200 text-slate-900 focus:border-blue-600 focus:bg-white'
+                    ? 'bg-zinc-900 border-zinc-700 text-white focus:border-white focus:ring-1 focus:ring-white/20' 
+                    : 'bg-slate-50 border-slate-200 text-slate-900 focus:border-slate-950 focus:bg-white'
                 }`}
               />
             </div>
@@ -144,8 +144,8 @@ export default function PrototypePage({ onOpenPrototypeModal, isDark }) {
               type="submit"
               className={`w-full py-4 rounded-xl font-bold font-mono text-sm tracking-wider flex items-center justify-center gap-2.5 shadow-md transition-all hover:scale-101 active:scale-98 cursor-pointer mt-4 ${
                 isDark
-                  ? 'bg-gradient-to-r from-luxury-gold via-amber-300 to-luxury-gold text-black shadow-gold-glow'
-                  : 'bg-slate-900 hover:bg-slate-800 text-white'
+                  ? 'bg-white hover:bg-zinc-200 text-zinc-950 shadow-sm'
+                  : 'bg-slate-950 hover:bg-slate-800 text-white shadow-sm'
               }`}
             >
               <Send className="w-4 h-4" />
@@ -159,9 +159,13 @@ export default function PrototypePage({ onOpenPrototypeModal, isDark }) {
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={() => playCyberTone('click')}
-                className="w-full py-3.5 rounded-xl bg-zinc-900 hover:bg-zinc-800 border border-zinc-700 text-white font-mono font-bold text-xs flex items-center justify-center gap-2 shadow-sm transition-transform hover:scale-101 cursor-pointer"
+                className={`w-full py-3.5 rounded-xl border font-mono font-bold text-xs flex items-center justify-center gap-2 shadow-sm transition-transform hover:scale-101 cursor-pointer ${
+                  isDark
+                    ? 'bg-zinc-900 hover:bg-zinc-800 border-zinc-700 text-white'
+                    : 'bg-slate-100 hover:bg-slate-200 border-slate-200 text-slate-900'
+                }`}
               >
-                <MessageCircle className="w-4 h-4 text-emerald-400 fill-current" />
+                <MessageCircle className="w-4 h-4 text-emerald-500 fill-current" />
                 <span>Chat Directly on WhatsApp</span>
               </a>
             </div>

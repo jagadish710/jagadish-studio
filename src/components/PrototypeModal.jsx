@@ -52,7 +52,7 @@ export default function PrototypeModal({ isOpen, onClose, isDark }) {
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-xl animate-fade-in">
       <div className={`relative w-full max-w-lg rounded-3xl p-6 sm:p-8 shadow-2xl border ${
         isDark 
-          ? 'bg-[#181818] border-luxury-gold/40 shadow-black/90 text-[#EAEAEA]' 
+          ? 'bg-[#0E0E12] border-zinc-800 shadow-black/90 text-[#EAEAEA]' 
           : 'bg-white border-slate-200 shadow-2xl text-slate-900'
       }`}>
         {/* Close Button */}
@@ -71,16 +71,16 @@ export default function PrototypeModal({ isOpen, onClose, isDark }) {
           <div>
             <div className={`inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-mono mb-4 border ${
               isDark 
-                ? 'bg-luxury-gold/10 border-luxury-gold/30 text-luxury-gold' 
-                : 'bg-slate-50 border-slate-200 text-slate-800'
+                ? 'bg-zinc-900 border-zinc-800 text-zinc-300' 
+                : 'bg-slate-100 border-slate-200 text-slate-800'
             }`}>
-              <Sparkles className="w-3.5 h-3.5 text-blue-600 dark:text-luxury-gold" />
+              <Sparkles className={`w-3.5 h-3.5 ${isDark ? 'text-zinc-400' : 'text-slate-600'}`} />
               <span>MERQURIE ARCHITECTURAL CONSULTATION</span>
             </div>
 
             <h3 className="text-2xl sm:text-3xl font-extrabold font-display mb-2">
               Initiate Consultation &amp; <br />
-              <span className="text-gradient-main">Discuss Technical Scope</span>
+              <span className={isDark ? 'text-zinc-400' : 'text-slate-600'}>Discuss Technical Scope</span>
             </h3>
 
             <p className="text-xs sm:text-sm opacity-75 mb-6">
@@ -100,15 +100,15 @@ export default function PrototypeModal({ isOpen, onClose, isDark }) {
                   onChange={(e) => setBusinessName(e.target.value)}
                   className={`w-full px-4 py-2.5 rounded-xl border text-sm focus:outline-none transition-colors ${
                     isDark 
-                      ? 'bg-[#121212] border-white/15 text-white focus:border-luxury-gold' 
-                      : 'bg-slate-50 border-slate-200 text-slate-900 focus:border-blue-600 focus:bg-white'
+                      ? 'bg-zinc-900 border-zinc-700 text-white focus:border-white focus:ring-1 focus:ring-white/20' 
+                      : 'bg-slate-50 border-slate-200 text-slate-900 focus:border-slate-950 focus:bg-white'
                   }`}
                 />
               </div>
 
               <div>
                 <label className="block text-xs font-mono opacity-80 mb-1">
-                  Target Technology Division
+                  Target Technology Scope
                 </label>
                 <select
                   value={projectType}
@@ -118,16 +118,16 @@ export default function PrototypeModal({ isOpen, onClose, isDark }) {
                   }}
                   className={`w-full px-4 py-2.5 rounded-xl border text-sm focus:outline-none transition-colors cursor-pointer ${
                     isDark 
-                      ? 'bg-[#121212] border-white/15 text-white focus:border-luxury-gold' 
-                      : 'bg-slate-50 border-slate-200 text-slate-900 focus:border-blue-600 focus:bg-white'
+                      ? 'bg-zinc-900 border-zinc-700 text-white focus:border-white' 
+                      : 'bg-slate-50 border-slate-200 text-slate-900 focus:border-slate-950 focus:bg-white'
                   }`}
                 >
-                  <option value="Merqurie Cloud - Enterprise Platform">Merqurie Cloud &bull; Enterprise Web Platform</option>
-                  <option value="Merqurie Sports - Martial Arts & Academy SaaS">Merqurie Sports &bull; Martial Arts / Academy SaaS</option>
-                  <option value="Merqurie Health - Clinical Management Platform">Merqurie Health &bull; Clinical Operations System</option>
-                  <option value="Merqurie Industrial - Machinery & ERP Catalog">Merqurie Industrial &bull; Machinery / ERP System</option>
-                  <option value="Custom Software & Edge Database Architecture">Custom Software &bull; Edge Database Architecture</option>
-                  <option value="Merqurie Mobility - Hardware & Board Inquiries">Merqurie Mobility &bull; Hardware &amp; Electric Mobility</option>
+                  <option value="High-Converting Business Website">High-Converting Business Website</option>
+                  <option value="Visual Self-Serve Admin Portal">Visual Self-Serve Admin Portal</option>
+                  <option value="Interactive E-Commerce & Online Store">Interactive E-Commerce &amp; Online Store</option>
+                  <option value="Industrial Machinery Catalog & RFQ">Industrial Machinery Catalog &amp; RFQ System</option>
+                  <option value="Custom Software & Edge Database Architecture">Custom Software &amp; Edge Database Architecture</option>
+                  <option value="Website Redesign & Performance Upgrade">Website Redesign (Sub-0.3s Core Web Vitals)</option>
                 </select>
               </div>
 
@@ -143,8 +143,8 @@ export default function PrototypeModal({ isOpen, onClose, isDark }) {
                   onChange={(e) => setPhone(e.target.value)}
                   className={`w-full px-4 py-2.5 rounded-xl border text-sm focus:outline-none transition-colors ${
                     isDark 
-                      ? 'bg-[#121212] border-white/15 text-white focus:border-luxury-gold' 
-                      : 'bg-slate-50 border-slate-200 text-slate-900 focus:border-blue-600 focus:bg-white'
+                      ? 'bg-zinc-900 border-zinc-700 text-white focus:border-white focus:ring-1 focus:ring-white/20' 
+                      : 'bg-slate-50 border-slate-200 text-slate-900 focus:border-slate-950 focus:bg-white'
                   }`}
                 />
               </div>
@@ -153,8 +153,8 @@ export default function PrototypeModal({ isOpen, onClose, isDark }) {
                 type="submit"
                 className={`w-full py-3.5 rounded-xl font-bold font-mono text-sm tracking-wider flex items-center justify-center gap-2 transition-all hover:scale-101 active:scale-98 cursor-pointer shadow-md mt-2 ${
                   isDark
-                    ? 'bg-gradient-to-r from-luxury-gold via-amber-300 to-luxury-gold text-black shadow-gold-glow'
-                    : 'bg-slate-900 hover:bg-slate-800 text-white'
+                    ? 'bg-white hover:bg-zinc-200 text-zinc-950 shadow-sm'
+                    : 'bg-slate-950 hover:bg-slate-800 text-white shadow-sm'
                 }`}
               >
                 <Send className="w-4 h-4" />

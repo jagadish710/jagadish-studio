@@ -71,8 +71,8 @@ export default function App() {
   return (
     <div className={`min-h-screen relative transition-colors duration-500 ${
       isDark 
-        ? 'bg-[#0B0B0D] text-[#EAEAEA] selection:bg-luxury-gold selection:text-black' 
-        : 'bg-[#FFFFFF] text-[#0F172A] selection:bg-[#2563EB] selection:text-white'
+        ? 'bg-[#08080A] text-[#EAEAEA] selection:bg-zinc-700 selection:text-white' 
+        : 'bg-[#FFFFFF] text-[#0F172A] selection:bg-slate-900 selection:text-white'
     }`}>
       {/* 3D Entrance Loader (bypassed instant 0ms) */}
       {!introFinished && (
@@ -82,16 +82,16 @@ export default function App() {
         />
       )}
 
-      {/* Unified Luxury Ambient Lighting (Champagne Gold & Obsidian — Zero Cheap Rainbow Neons) */}
+      {/* Unified Minimal Ambient Lighting — Sleek Monochrome */}
       <div className="fixed inset-0 pointer-events-none overflow-hidden z-0">
         <div 
           className={`absolute -top-32 left-1/2 -translate-x-1/2 w-[900px] h-[550px] rounded-full blur-[140px] pointer-events-none ${
-            isDark ? 'bg-[#E6C687]/08' : 'bg-slate-200/50'
+            isDark ? 'bg-zinc-800/15' : 'bg-slate-200/50'
           }`}
         />
         <div 
           className={`absolute top-1/2 -right-32 w-[600px] h-[600px] rounded-full blur-[160px] pointer-events-none ${
-            isDark ? 'bg-[#C5A059]/05' : 'bg-blue-100/40'
+            isDark ? 'bg-zinc-800/10' : 'bg-slate-100/60'
           }`}
         />
       </div>

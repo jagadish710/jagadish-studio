@@ -31,17 +31,17 @@ export default function AdminPortalDemo({ isDark }) {
         <div className="text-center max-w-3xl mx-auto mb-12">
           <div className={`inline-flex items-center gap-2 px-3.5 py-1 rounded-full text-xs font-mono font-medium mb-4 border ${
             isDark 
-              ? 'bg-[#18181C] border-[#E6C687]/30 text-[#E6C687]' 
+              ? 'bg-[#18181C] border-[#E4E4E7]/30 text-[#E4E4E7]' 
               : 'bg-slate-100 border-slate-200 text-slate-800'
           }`}>
-            <LayoutDashboard className={`w-3.5 h-3.5 ${isDark ? 'text-[#E6C687]' : 'text-blue-600'}`} />
+            <LayoutDashboard className={`w-3.5 h-3.5 ${isDark ? 'text-[#E4E4E7]' : 'text-blue-600'}`} />
             <span>OPERATIONAL COCKPIT &bull; INTERACTIVE DEMO</span>
           </div>
           <h2 className={`text-3xl sm:text-5xl font-bold tracking-tight font-display mb-4 ${
             isDark ? 'text-white' : 'text-slate-900'
           }`}>
             Self-Serve Executive Cockpit <br />
-            <span className={isDark ? 'text-[#E6C687]' : 'text-blue-700'}>
+            <span className={isDark ? 'text-[#E4E4E7]' : 'text-blue-700'}>
               Test-Drive Real-Time Updates
             </span>
           </h2>
@@ -78,7 +78,7 @@ export default function AdminPortalDemo({ isDark }) {
                 className={`px-3 py-1 rounded-lg text-xs font-mono transition-colors cursor-pointer ${
                   activeTab === 'admin'
                     ? isDark 
-                      ? 'bg-luxury-gold/20 text-luxury-gold border border-luxury-gold/40' 
+                      ? 'bg-zinc-200/20 text-zinc-200 border border-zinc-200/40' 
                       : 'bg-white text-slate-900 border border-slate-200 shadow-xs'
                     : isDark ? 'opacity-60 hover:opacity-100 text-white' : 'text-slate-500 hover:text-slate-900'
                 }`}
@@ -93,7 +93,7 @@ export default function AdminPortalDemo({ isDark }) {
                 className={`px-3 py-1 rounded-lg text-xs font-mono transition-colors cursor-pointer ${
                   activeTab === 'preview'
                     ? isDark 
-                      ? 'bg-luxury-gold/20 text-luxury-gold border border-luxury-gold/40' 
+                      ? 'bg-zinc-200/20 text-zinc-200 border border-zinc-200/40' 
                       : 'bg-white text-slate-900 border border-slate-200 shadow-xs'
                     : isDark ? 'opacity-60 hover:opacity-100 text-white' : 'text-slate-500 hover:text-slate-900'
                 }`}
@@ -108,7 +108,7 @@ export default function AdminPortalDemo({ isDark }) {
                 className={`hidden md:block px-3 py-1 rounded-lg text-xs font-mono transition-colors cursor-pointer ${
                   activeTab === 'split'
                     ? isDark 
-                      ? 'bg-luxury-gold/25 text-luxury-gold border border-luxury-gold/50' 
+                      ? 'bg-zinc-200/25 text-zinc-200 border border-zinc-200/50' 
                       : 'bg-white text-slate-900 border border-slate-200 shadow-xs font-bold'
                     : isDark ? 'opacity-60 hover:opacity-100 text-white' : 'text-slate-500 hover:text-slate-900'
                 }`}
@@ -128,7 +128,7 @@ export default function AdminPortalDemo({ isDark }) {
                 <div>
                   <div className="flex items-center justify-between mb-6">
                     <div className={`flex items-center gap-2 font-mono text-xs font-bold ${
-                      isDark ? 'text-luxury-gold' : 'text-slate-900'
+                      isDark ? 'text-zinc-200' : 'text-slate-900'
                     }`}>
                       <Edit3 className="w-4 h-4" />
                       <span>CLIENT CONTROL PANEL</span>
@@ -136,7 +136,7 @@ export default function AdminPortalDemo({ isDark }) {
                     {savedNotice && (
                       <span className={`flex items-center gap-1.5 text-xs font-mono px-2.5 py-1 rounded-md border animate-pulse ${
                         isDark 
-                          ? 'text-luxury-gold bg-luxury-gold/15 border-luxury-gold/30' 
+                          ? 'text-zinc-200 bg-zinc-200/15 border-zinc-200/30' 
                           : 'text-emerald-700 bg-emerald-50 border-emerald-200'
                       }`}>
                         <Check className="w-3.5 h-3.5" />
@@ -156,7 +156,7 @@ export default function AdminPortalDemo({ isDark }) {
                         onChange={(e) => setCompanyName(e.target.value)}
                         className={`w-full px-3.5 py-2.5 rounded-lg border font-sans text-sm focus:outline-none transition-colors ${
                           isDark 
-                            ? 'bg-[#121212] border-white/15 text-white focus:border-luxury-gold' 
+                            ? 'bg-[#121212] border-white/15 text-white focus:border-zinc-200' 
                             : 'bg-slate-50 border-slate-200 text-slate-900 focus:border-blue-600 focus:bg-white'
                         }`}
                       />
@@ -172,7 +172,7 @@ export default function AdminPortalDemo({ isDark }) {
                         onChange={(e) => setHeroTagline(e.target.value)}
                         className={`w-full px-3.5 py-2 rounded-lg border font-sans text-sm focus:outline-none transition-colors resize-none ${
                           isDark 
-                            ? 'bg-[#121212] border-white/15 text-white focus:border-luxury-gold' 
+                            ? 'bg-[#121212] border-white/15 text-white focus:border-zinc-200' 
                             : 'bg-slate-50 border-slate-200 text-slate-900 focus:border-blue-600 focus:bg-white'
                         }`}
                       />
@@ -188,7 +188,7 @@ export default function AdminPortalDemo({ isDark }) {
                         onChange={(e) => setPromoText(e.target.value)}
                         className={`w-full px-3.5 py-2.5 rounded-lg border font-sans text-sm focus:outline-none transition-colors ${
                           isDark 
-                            ? 'bg-[#121212] border-white/15 text-white focus:border-luxury-gold' 
+                            ? 'bg-[#121212] border-white/15 text-white focus:border-zinc-200' 
                             : 'bg-slate-50 border-slate-200 text-slate-900 focus:border-blue-600 focus:bg-white'
                         }`}
                       />
@@ -207,7 +207,7 @@ export default function AdminPortalDemo({ isDark }) {
                         }}
                         className={`w-11 h-6 rounded-full transition-colors p-1 cursor-pointer flex items-center ${
                           promoActive 
-                            ? isDark ? 'bg-luxury-gold justify-end' : 'bg-blue-600 justify-end' 
+                            ? isDark ? 'bg-zinc-200 justify-end' : 'bg-blue-600 justify-end' 
                             : 'bg-slate-300 justify-start'
                         }`}
                       >
@@ -227,7 +227,7 @@ export default function AdminPortalDemo({ isDark }) {
                     onClick={handleSave}
                     className={`px-5 py-2.5 rounded-lg font-mono font-bold text-xs flex items-center gap-2 transition-all cursor-pointer ${
                       isDark 
-                        ? 'bg-luxury-gold hover:bg-amber-300 text-black shadow-gold-glow' 
+                        ? 'bg-zinc-200 hover:bg-amber-300 text-black shadow-gold-glow' 
                         : 'bg-slate-900 hover:bg-slate-800 text-white shadow-sm'
                     }`}
                   >
@@ -248,7 +248,7 @@ export default function AdminPortalDemo({ isDark }) {
                     isDark ? 'border-white/10' : 'border-slate-200'
                   }`}>
                     <div className={`flex items-center gap-2 font-mono text-xs font-bold ${
-                      isDark ? 'text-luxury-gold' : 'text-slate-900'
+                      isDark ? 'text-zinc-200' : 'text-slate-900'
                     }`}>
                       <Eye className="w-4 h-4" />
                       <span>LIVE CLIENT DOMAIN OUTPUT</span>
@@ -265,7 +265,7 @@ export default function AdminPortalDemo({ isDark }) {
                     {promoActive && (
                       <div className={`mb-4 py-1.5 px-3 rounded text-xs font-mono text-center border animate-pulse ${
                         isDark 
-                          ? 'bg-luxury-gold/15 border-luxury-gold/40 text-luxury-gold' 
+                          ? 'bg-zinc-200/15 border-zinc-200/40 text-zinc-200' 
                           : 'bg-blue-50 border-blue-200 text-blue-700'
                       }`}>
                         📣 {promoText}
@@ -276,13 +276,13 @@ export default function AdminPortalDemo({ isDark }) {
                       isDark ? 'border-white/10' : 'border-slate-100'
                     }`}>
                       <div className="font-display font-extrabold text-base tracking-wide flex items-center gap-2">
-                        <span className={isDark ? 'text-luxury-gold' : 'text-blue-600'}>⚙️</span>
+                        <span className={isDark ? 'text-zinc-200' : 'text-blue-600'}>⚙️</span>
                         <span className={isDark ? 'text-white' : 'text-slate-900'}>{companyName || 'Your Business Name'}</span>
                       </div>
                       <div className="flex gap-2">
                         <span className={`px-2.5 py-1 rounded text-[10px] font-mono border ${
                           isDark 
-                            ? 'bg-luxury-gold/10 text-luxury-gold border-luxury-gold/30' 
+                            ? 'bg-zinc-200/10 text-zinc-200 border-zinc-200/30' 
                             : 'bg-slate-100 text-slate-800 border-slate-200'
                         }`}>
                           Products
@@ -302,7 +302,7 @@ export default function AdminPortalDemo({ isDark }) {
                       </p>
                       <button className={`px-4 py-2 rounded-lg font-bold text-xs font-mono ${
                         isDark 
-                          ? 'bg-luxury-gold text-black' 
+                          ? 'bg-zinc-200 text-black' 
                           : 'bg-slate-900 text-white'
                       }`}>
                         Explore Offerings
@@ -316,14 +316,14 @@ export default function AdminPortalDemo({ isDark }) {
                       <div className={`p-2.5 rounded-lg border ${
                         isDark ? 'bg-black/50 border-white/5' : 'bg-slate-50 border-slate-200'
                       }`}>
-                        <div className={`text-[10px] font-mono ${isDark ? 'text-luxury-gold' : 'text-blue-700 font-bold'}`}>PRODUCT #01</div>
+                        <div className={`text-[10px] font-mono ${isDark ? 'text-zinc-200' : 'text-blue-700 font-bold'}`}>PRODUCT #01</div>
                         <div className={`text-xs font-bold mt-0.5 ${isDark ? 'text-white' : 'text-slate-900'}`}>Core Client Package</div>
                         <div className="text-[10px] text-emerald-600 font-medium mt-1">Status: Active &bull; Instant Booking</div>
                       </div>
                       <div className={`p-2.5 rounded-lg border ${
                         isDark ? 'bg-black/50 border-white/5' : 'bg-slate-50 border-slate-200'
                       }`}>
-                        <div className={`text-[10px] font-mono ${isDark ? 'text-luxury-gold' : 'text-blue-700 font-bold'}`}>PRODUCT #02</div>
+                        <div className={`text-[10px] font-mono ${isDark ? 'text-zinc-200' : 'text-blue-700 font-bold'}`}>PRODUCT #02</div>
                         <div className={`text-xs font-bold mt-0.5 ${isDark ? 'text-white' : 'text-slate-900'}`}>Custom Business Solution</div>
                         <div className="text-[10px] text-emerald-600 font-medium mt-1">Status: Active &bull; Instant Booking</div>
                       </div>
@@ -335,7 +335,7 @@ export default function AdminPortalDemo({ isDark }) {
                   isDark ? 'border-white/10 text-slate-400' : 'border-slate-200 text-slate-600'
                 }`}>
                   <span>SSL ENCRYPTED &bull; CLOUDFLARE EDGE</span>
-                  <span className={`font-bold ${isDark ? 'text-luxury-gold' : 'text-blue-700'}`}>100% RESPONSIVE</span>
+                  <span className={`font-bold ${isDark ? 'text-zinc-200' : 'text-blue-700'}`}>100% RESPONSIVE</span>
                 </div>
               </div>
             )}

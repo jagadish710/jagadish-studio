@@ -102,10 +102,10 @@ export default function ChatbotWidget({ isOpen, setIsOpen, isDark }) {
             setIsOpen(true);
           }}
           onMouseEnter={() => playCyberTone('hover')}
-          className={`fixed bottom-6 right-6 z-40 px-3.5 py-2.5 rounded-2xl flex items-center gap-2 transition-all duration-300 hover:scale-105 active:scale-95 cursor-pointer group shadow-xl ${
+          className={`fixed bottom-6 right-6 z-40 px-3.5 py-2.5 rounded-2xl flex items-center gap-2 transition-all duration-300 hover:scale-105 active:scale-95 cursor-pointer group shadow-xl border ${
             isDark
-              ? 'bg-gradient-to-r from-luxury-gold via-amber-300 to-luxury-gold text-black shadow-gold-glow'
-              : 'bg-slate-900 hover:bg-slate-800 text-white shadow-lg'
+              ? 'bg-zinc-900 hover:bg-zinc-800 text-white border-zinc-700 shadow-2xl'
+              : 'bg-slate-900 hover:bg-slate-800 text-white shadow-lg border-slate-800'
           }`}
           aria-label="Open AI Assistant"
         >
@@ -120,12 +120,12 @@ export default function ChatbotWidget({ isOpen, setIsOpen, isDark }) {
       {isOpen && (
         <div className={`fixed bottom-6 right-4 sm:right-6 z-50 w-[92vw] sm:w-[400px] h-[550px] max-h-[85vh] rounded-3xl border shadow-2xl flex flex-col overflow-hidden backdrop-blur-2xl ${
           isDark 
-            ? 'bg-[#161616] border-luxury-gold/40 shadow-black/90 text-[#EAEAEA]' 
+            ? 'bg-[#0E0E12] border-zinc-800 shadow-black/90 text-[#EAEAEA]' 
             : 'bg-white border-slate-200 shadow-2xl text-slate-900'
         }`}>
           {/* Header */}
           <div className={`px-5 py-4 border-b flex items-center justify-between ${
-            isDark ? 'bg-[#1C1C1C] border-white/10' : 'bg-slate-50 border-slate-200'
+            isDark ? 'bg-zinc-950 border-zinc-800' : 'bg-slate-50 border-slate-200'
           }`}>
             <div className="flex items-center gap-3">
               <Logo isDark={isDark} className="w-8 h-8" />
@@ -134,12 +134,10 @@ export default function ChatbotWidget({ isOpen, setIsOpen, isDark }) {
                   <span className={`font-display font-bold text-sm tracking-wider ${isDark ? 'text-white' : 'text-slate-900'}`}>
                     MERQURIE AI
                   </span>
-                  <span className={`w-2 h-2 rounded-full ${
-                    isDark ? 'bg-luxury-gold animate-pulse' : 'bg-emerald-500'
-                  }`} />
+                  <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
                 </div>
                 <div className={`text-[10px] font-mono ${
-                  isDark ? 'text-luxury-gold' : 'text-slate-500'
+                  isDark ? 'text-zinc-400' : 'text-slate-500'
                 }`}>
                   Executive Technology Concierge
                 </div>
@@ -170,10 +168,10 @@ export default function ChatbotWidget({ isOpen, setIsOpen, isDark }) {
                 {m.sender === 'bot' && (
                   <div className={`w-7 h-7 rounded-lg border flex items-center justify-center shrink-0 mt-1 ${
                     isDark 
-                      ? 'bg-luxury-gold/15 border-luxury-gold/30 text-luxury-gold' 
+                      ? 'bg-zinc-900 border-zinc-800 text-zinc-300' 
                       : 'bg-slate-100 border-slate-200 text-slate-700'
                   }`}>
-                    <Sparkles className="w-3.5 h-3.5 text-blue-600 dark:text-luxury-gold" />
+                    <Sparkles className="w-3.5 h-3.5 text-zinc-400" />
                   </div>
                 )}
 
@@ -181,18 +179,18 @@ export default function ChatbotWidget({ isOpen, setIsOpen, isDark }) {
                   className={`max-w-[82%] p-3.5 rounded-2xl ${
                     m.sender === 'user'
                       ? isDark 
-                        ? 'bg-luxury-gold text-black font-semibold rounded-tr-none shadow-md' 
+                        ? 'bg-white text-zinc-950 font-semibold rounded-tr-none shadow-md' 
                         : 'bg-slate-900 text-white font-semibold rounded-tr-none shadow-md'
                       : isDark 
-                        ? 'bg-[#222222] border border-white/10 text-slate-200 rounded-tl-none shadow-sm' 
+                        ? 'bg-zinc-900 border border-zinc-800 text-zinc-200 rounded-tl-none shadow-sm' 
                         : 'bg-slate-100 border border-slate-200 text-slate-800 rounded-tl-none shadow-sm'
                   }`}
                 >
                   <p>{m.text}</p>
                   <div className={`text-[9px] mt-1 text-right font-mono ${
                     m.sender === 'user'
-                      ? isDark ? 'text-black/60' : 'text-white/70'
-                      : isDark ? 'text-slate-400' : 'text-slate-500'
+                      ? isDark ? 'text-zinc-600' : 'text-white/70'
+                      : isDark ? 'text-zinc-400' : 'text-slate-500'
                   }`}>
                     {m.time}
                   </div>
@@ -202,9 +200,9 @@ export default function ChatbotWidget({ isOpen, setIsOpen, isDark }) {
 
             {isTyping && (
               <div className="flex items-center gap-2 text-xs font-mono opacity-70 p-2">
-                <span className={`w-2 h-2 rounded-full animate-bounce ${isDark ? 'bg-luxury-gold' : 'bg-slate-900'}`} />
-                <span className={`w-2 h-2 rounded-full animate-bounce [animation-delay:0.2s] ${isDark ? 'bg-luxury-gold' : 'bg-slate-900'}`} />
-                <span className={`w-2 h-2 rounded-full animate-bounce [animation-delay:0.4s] ${isDark ? 'bg-luxury-gold' : 'bg-slate-900'}`} />
+                <span className={`w-2 h-2 rounded-full animate-bounce ${isDark ? 'bg-zinc-400' : 'bg-slate-900'}`} />
+                <span className={`w-2 h-2 rounded-full animate-bounce [animation-delay:0.2s] ${isDark ? 'bg-zinc-400' : 'bg-slate-900'}`} />
+                <span className={`w-2 h-2 rounded-full animate-bounce [animation-delay:0.4s] ${isDark ? 'bg-zinc-400' : 'bg-slate-900'}`} />
               </div>
             )}
             <div ref={messagesEndRef} />
@@ -212,7 +210,7 @@ export default function ChatbotWidget({ isOpen, setIsOpen, isDark }) {
 
           {/* Quick Prompts */}
           <div className={`p-2.5 border-t flex flex-wrap gap-1.5 ${
-            isDark ? 'bg-[#181818] border-white/10' : 'bg-slate-50 border-slate-200'
+            isDark ? 'bg-zinc-950 border-zinc-800' : 'bg-slate-50 border-slate-200'
           }`}>
             {quickPrompts.map((prompt, idx) => (
               <button
@@ -220,7 +218,7 @@ export default function ChatbotWidget({ isOpen, setIsOpen, isDark }) {
                 onClick={() => handleSendMessage(prompt)}
                 className={`text-[10px] font-mono px-2.5 py-1 rounded-lg border transition-all cursor-pointer ${
                   isDark 
-                    ? 'bg-[#222222] border-white/10 text-slate-300 hover:border-luxury-gold/50 hover:text-white' 
+                    ? 'bg-zinc-900 border-zinc-800 text-zinc-300 hover:border-zinc-600 hover:text-white' 
                     : 'bg-white border-slate-200 text-slate-700 hover:border-slate-400 hover:text-slate-900 shadow-xs'
                 }`}
               >
@@ -231,7 +229,7 @@ export default function ChatbotWidget({ isOpen, setIsOpen, isDark }) {
 
           {/* Input & WhatsApp Action */}
           <div className={`p-3 border-t flex items-center gap-2 ${
-            isDark ? 'bg-[#1A1A1A] border-white/10' : 'bg-white border-slate-200'
+            isDark ? 'bg-zinc-950 border-zinc-800' : 'bg-white border-slate-200'
           }`}>
             <input
               type="text"
@@ -243,15 +241,15 @@ export default function ChatbotWidget({ isOpen, setIsOpen, isDark }) {
               }}
               className={`flex-1 px-3 py-2 rounded-xl text-xs border focus:outline-none ${
                 isDark 
-                  ? 'bg-[#121212] border-white/15 text-white focus:border-luxury-gold' 
-                  : 'bg-slate-50 border-slate-200 text-slate-900 focus:border-blue-600 focus:bg-white'
+                  ? 'bg-zinc-900 border-zinc-700 text-white focus:border-white' 
+                  : 'bg-slate-50 border-slate-200 text-slate-900 focus:border-slate-950 focus:bg-white'
               }`}
             />
             <button
               onClick={() => handleSendMessage()}
               className={`p-2 rounded-xl text-xs font-mono font-bold flex items-center justify-center cursor-pointer ${
                 isDark 
-                  ? 'bg-luxury-gold text-black hover:bg-amber-300' 
+                  ? 'bg-white text-zinc-950 hover:bg-zinc-200' 
                   : 'bg-slate-900 text-white hover:bg-slate-800'
               }`}
             >

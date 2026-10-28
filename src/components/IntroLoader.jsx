@@ -246,7 +246,7 @@ export default function IntroLoader({ onComplete, isDark }) {
       }`}>
         <div>ZERO MAINTENANCE CHARGES &bull; FULL CLIENT CODE OWNERSHIP</div>
         <div>
-          STAGING: <span className={`font-semibold ${isDark ? 'text-luxury-gold' : 'text-fresh-green'}`}>pmssolution.jagadish.online</span>
+          STAGING: <span className={`font-semibold ${isDark ? 'text-emerald-400' : 'text-emerald-600'}`}>pmssolution.co.in</span>
         </div>
       </div>
     </div>

@@ -29,6 +29,7 @@ export default function HomePage({
 
       {/* 2. Visuals Speak First: Interactive Live Workstation / Prototype Showcase */}
       <InteractiveLiveShowcase
+        isDark={isDark}
         onOpenPrototypeModal={onOpenPrototypeModal}
       />
 

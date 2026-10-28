@@ -2,18 +2,13 @@ import React from 'react';
 import { playCyberTone } from '../utils/audio';
 import { motion } from 'framer-motion';
 import {
-  CheckCircle2,
   ArrowRight,
-  ShieldCheck,
-  Zap,
-  Globe,
   MessageCircle,
   Sparkles,
-  Award,
   Cpu,
 } from 'lucide-react';
 
-export default function AboutPage({ onOpenPrototypeModal }) {
+export default function AboutPage({ onOpenPrototypeModal, isDark = true }) {
   const tenets = [
     {
       title: 'Zero Maintenance Architecture',
@@ -38,24 +33,33 @@ export default function AboutPage({ onOpenPrototypeModal }) {
   ];
 
   return (
-    <div className="pt-32 pb-24 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto">
+    <div className="pt-32 sm:pt-36 pb-24 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto">
       {/* Header */}
       <motion.div
-        initial={{ opacity: 0, y: 15 }}
-        animate={{ opacity: 1, y: 0 }}
+        initial={{ opacity: 0, y: 20, filter: 'blur(6px)' }}
+        animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
+        transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
         className="text-center max-w-3xl mx-auto mb-16"
       >
-        <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full text-xs font-mono font-medium mb-4 border bg-zinc-900 border-zinc-800 text-zinc-300">
-          <Sparkles className="w-3.5 h-3.5 text-zinc-400" />
-          <span>ENGINEERING PHILOSOPHY &bull; MERQURIE</span>
+        <div className={`inline-flex items-center gap-2 px-3.5 py-1 rounded-full text-xs font-mono font-medium mb-4 border ${
+          isDark 
+            ? 'bg-zinc-900 border-zinc-800 text-zinc-300' 
+            : 'bg-slate-100 border-slate-200 text-slate-800'
+        }`}>
+          <Sparkles className={`w-3.5 h-3.5 ${isDark ? 'text-zinc-400' : 'text-slate-600'}`} />
+          <span>ENGINEERING STANDARDS &bull; MERQURIE</span>
         </div>
 
-        <h1 className="text-4xl sm:text-6xl font-bold tracking-tight font-display mb-6 leading-tight text-white">
+        <h1 className={`text-4xl sm:text-6xl font-bold tracking-tight font-display mb-6 leading-tight ${
+          isDark ? 'text-white' : 'text-slate-950'
+        }`}>
           Engineered For Speed.<br />
-          <span className="text-zinc-400">Built To Outlast.</span>
+          <span className={isDark ? 'text-zinc-400' : 'text-slate-500'}>Built To Outlast.</span>
         </h1>
 
-        <p className="text-base sm:text-lg max-w-2xl mx-auto leading-relaxed text-zinc-400">
+        <p className={`text-base sm:text-lg max-w-2xl mx-auto leading-relaxed ${
+          isDark ? 'text-zinc-400' : 'text-slate-600'
+        }`}>
           Named after the classical archetype of speed and motion, Merqurie was founded on a simple truth: modern digital systems should empower businesses permanently, not burden them with recurring monthly maintenance fees.
         </p>
 
@@ -66,7 +70,11 @@ export default function AboutPage({ onOpenPrototypeModal }) {
               playCyberTone('click');
               onOpenPrototypeModal();
             }}
-            className="px-6 py-3 rounded-xl font-semibold font-mono text-xs tracking-wider flex items-center gap-2 transition-all hover:scale-[1.02] active:scale-[0.98] cursor-pointer bg-white hover:bg-zinc-200 text-zinc-950 shadow-sm"
+            className={`px-6 py-3 rounded-xl font-semibold font-mono text-xs tracking-wider flex items-center gap-2 transition-all hover:scale-102 active:scale-98 cursor-pointer shadow-sm ${
+              isDark 
+                ? 'bg-white hover:bg-zinc-200 text-zinc-950' 
+                : 'bg-slate-950 hover:bg-slate-800 text-white'
+            }`}
           >
             <span>CONSULT WITH LEADERSHIP</span>
             <ArrowRight className="w-3.5 h-3.5" />
@@ -77,9 +85,13 @@ export default function AboutPage({ onOpenPrototypeModal }) {
             target="_blank"
             rel="noopener noreferrer"
             onClick={() => playCyberTone('click')}
-            className="px-5 py-3 rounded-xl border font-mono text-xs font-semibold flex items-center gap-2 transition-all cursor-pointer bg-zinc-900 hover:bg-zinc-800 border-zinc-700 text-white"
+            className={`px-5 py-3 rounded-xl border font-mono text-xs font-semibold flex items-center gap-2 transition-all hover:scale-102 active:scale-98 cursor-pointer ${
+              isDark 
+                ? 'bg-zinc-900 hover:bg-zinc-800 border-zinc-700 text-white' 
+                : 'bg-slate-100 hover:bg-slate-200 border-slate-200 text-slate-900'
+            }`}
           >
-            <MessageCircle className="w-4 h-4 text-emerald-400 fill-current" />
+            <MessageCircle className="w-4 h-4 text-emerald-500 fill-current" />
             <span>WhatsApp</span>
           </a>
         </div>
@@ -90,23 +102,35 @@ export default function AboutPage({ onOpenPrototypeModal }) {
         {tenets.map((tenet, idx) => (
           <motion.div
             key={idx}
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.4, delay: idx * 0.08 }}
-            className="p-6 sm:p-8 rounded-2xl border transition-all bg-[#0e0e12] border-zinc-800 hover:border-zinc-700 shadow-xl"
+            initial={{ opacity: 0, y: 30, filter: 'blur(4px)' }}
+            whileInView={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
+            viewport={{ once: true, margin: '-60px' }}
+            transition={{ duration: 0.6, delay: idx * 0.08, ease: [0.16, 1, 0.3, 1] }}
+            className={`p-6 sm:p-8 rounded-2xl border transition-all ${
+              isDark 
+                ? 'bg-[#0E0E12] border-zinc-800 hover:border-zinc-700 shadow-xl' 
+                : 'bg-white border-slate-200 hover:border-slate-300 shadow-md'
+            }`}
           >
             <div className="flex items-center gap-2.5 mb-2">
-              <span className="text-[10px] font-mono font-bold tracking-wider uppercase px-2 py-0.5 rounded border border-zinc-800 bg-zinc-900 text-zinc-300">
+              <span className={`text-[10px] font-mono font-bold tracking-wider uppercase px-2 py-0.5 rounded border ${
+                isDark 
+                  ? 'border-zinc-800 bg-zinc-900 text-zinc-300' 
+                  : 'border-slate-200 bg-slate-100 text-slate-800'
+              }`}>
                 {tenet.subtitle}
               </span>
             </div>
 
-            <h3 className="text-xl sm:text-2xl font-bold font-display mb-3 text-white">
+            <h3 className={`text-xl sm:text-2xl font-bold font-display mb-3 ${
+              isDark ? 'text-white' : 'text-slate-950'
+            }`}>
               {tenet.title}
             </h3>
 
-            <p className="text-xs sm:text-sm leading-relaxed text-zinc-400">
+            <p className={`text-xs sm:text-sm leading-relaxed ${
+              isDark ? 'text-zinc-400' : 'text-slate-600'
+            }`}>
               {tenet.desc}
             </p>
           </motion.div>
@@ -114,25 +138,41 @@ export default function AboutPage({ onOpenPrototypeModal }) {
       </div>
 
       {/* Leadership Profile Card */}
-      <div className="p-8 sm:p-12 rounded-2xl border border-zinc-800 bg-[#0e0e12] shadow-xl">
+      <motion.div 
+        initial={{ opacity: 0, y: 30, filter: 'blur(4px)' }}
+        whileInView={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
+        viewport={{ once: true, margin: '-60px' }}
+        transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+        className={`p-8 sm:p-12 rounded-2xl border ${
+          isDark ? 'border-zinc-800 bg-[#0E0E12] shadow-xl' : 'border-slate-200 bg-white shadow-lg'
+        }`}
+      >
         <div className="flex flex-col md:flex-row items-center gap-8 text-center md:text-left">
-          <div className="w-24 h-24 rounded-2xl flex items-center justify-center shrink-0 border bg-zinc-900 border-zinc-800 text-white">
-            <Cpu className="w-10 h-10 text-zinc-300" />
+          <div className={`w-24 h-24 rounded-2xl flex items-center justify-center shrink-0 border ${
+            isDark ? 'bg-zinc-900 border-zinc-800 text-white' : 'bg-slate-100 border-slate-200 text-slate-950'
+          }`}>
+            <Cpu className="w-10 h-10 opacity-75" />
           </div>
 
           <div className="space-y-2">
-            <span className="text-xs font-mono font-semibold uppercase tracking-wider text-zinc-400">
+            <span className={`text-xs font-mono font-semibold uppercase tracking-wider ${
+              isDark ? 'text-zinc-400' : 'text-slate-500'
+            }`}>
               Engineering Leadership
             </span>
-            <h4 className="text-2xl font-bold font-display text-white">
+            <h4 className={`text-2xl font-bold font-display ${
+              isDark ? 'text-white' : 'text-slate-950'
+            }`}>
               Jagadish &bull; Principal Architect &amp; Founder
             </h4>
-            <p className="text-xs sm:text-sm leading-relaxed max-w-2xl text-zinc-400">
+            <p className={`text-xs sm:text-sm leading-relaxed max-w-2xl ${
+              isDark ? 'text-zinc-400' : 'text-slate-600'
+            }`}>
               With over 100 digital platforms delivered across India and internationally, Jagadish leads the engineering of Merqurie — building decoupled, lightning-speed website solutions with zero maintenance debt.
             </p>
           </div>
         </div>
-      </div>
+      </motion.div>
     </div>
   );
 }

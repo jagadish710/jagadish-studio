@@ -1,14 +1,12 @@
 import React from 'react';
-import { playCyberTone } from '../utils/audio';
+import { motion } from 'framer-motion';
 import {
   XCircle,
   CheckCircle2,
-  AlertTriangle,
   ShieldCheck,
-  Zap,
 } from 'lucide-react';
 
-export default function ComparisonSection({ isDark }) {
+export default function ComparisonSection({ isDark = true }) {
   const legacyApproaches = [
     {
       title: 'Recurring Maintenance Traps',
@@ -48,21 +46,38 @@ export default function ComparisonSection({ isDark }) {
   ];
 
   return (
-    <section id="why-solutions" className="py-16 px-4 sm:px-6 lg:px-8 relative z-10 border-t border-zinc-900 bg-[#09090b]">
+    <motion.section 
+      id="why-solutions" 
+      initial={{ opacity: 0, y: 30, filter: 'blur(4px)' }}
+      whileInView={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
+      viewport={{ once: true, margin: '-60px' }}
+      transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+      className={`py-16 px-4 sm:px-6 lg:px-8 relative z-10 border-t ${
+        isDark ? 'border-zinc-900 bg-[#09090b]' : 'border-slate-200 bg-white'
+      }`}
+    >
       <div className="max-w-6xl mx-auto">
         
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-12">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-[11px] font-mono mb-3 bg-zinc-900 border border-zinc-800 text-zinc-300">
-            <ShieldCheck className="w-3.5 h-3.5 text-zinc-400" />
+          <div className={`inline-flex items-center gap-2 px-3 py-1 rounded-full text-[11px] font-mono mb-3 border ${
+            isDark 
+              ? 'bg-zinc-900 border-zinc-800 text-zinc-300' 
+              : 'bg-slate-100 border-slate-200 text-slate-800'
+          }`}>
+            <ShieldCheck className={`w-3.5 h-3.5 ${isDark ? 'text-zinc-400' : 'text-slate-600'}`} />
             <span className="uppercase tracking-wider">Architectural Comparison</span>
           </div>
 
-          <h2 className="text-2xl sm:text-4xl font-bold tracking-tight text-white font-display mb-3">
+          <h2 className={`text-2xl sm:text-4xl font-bold tracking-tight font-display mb-3 ${
+            isDark ? 'text-white' : 'text-slate-950'
+          }`}>
             The Merqurie Standard{' '}
-            <span className="text-zinc-400">vs. Legacy Web Agencies</span>
+            <span className={isDark ? 'text-zinc-400' : 'text-slate-500'}>vs. Legacy Web Agencies</span>
           </h2>
-          <p className="text-xs sm:text-sm text-zinc-400 max-w-xl mx-auto leading-relaxed">
+          <p className={`text-xs sm:text-sm max-w-xl mx-auto leading-relaxed ${
+            isDark ? 'text-zinc-400' : 'text-slate-600'
+          }`}>
             How our decoupled, serverless engineering foundation fundamentally replaces slow retainer models with permanent operational leverage.
           </p>
         </div>
@@ -71,10 +86,16 @@ export default function ComparisonSection({ isDark }) {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
           
           {/* Legacy Agencies Card */}
-          <div className="p-6 sm:p-7 rounded-2xl border border-zinc-800/80 bg-zinc-950/60">
-            <div className="flex items-center gap-2.5 pb-3 mb-5 border-b border-zinc-800">
+          <div className={`p-6 sm:p-7 rounded-2xl border ${
+            isDark ? 'border-zinc-800/80 bg-zinc-950/60' : 'border-slate-200 bg-slate-50'
+          }`}>
+            <div className={`flex items-center gap-2.5 pb-3 mb-5 border-b ${
+              isDark ? 'border-zinc-800' : 'border-slate-200'
+            }`}>
               <XCircle className="w-4 h-4 text-zinc-500" />
-              <h3 className="font-mono text-xs font-bold uppercase tracking-wider text-zinc-400">
+              <h3 className={`font-mono text-xs font-bold uppercase tracking-wider ${
+                isDark ? 'text-zinc-400' : 'text-slate-500'
+              }`}>
                 Legacy Agency Retainer Model
               </h3>
             </div>
@@ -82,12 +103,18 @@ export default function ComparisonSection({ isDark }) {
             <div className="space-y-5">
               {legacyApproaches.map((item, idx) => (
                 <div key={idx} className="flex items-start gap-3">
-                  <span className="text-zinc-600 font-mono text-xs font-bold mt-0.5">0{idx + 1}.</span>
+                  <span className={`font-mono text-xs font-bold mt-0.5 ${
+                    isDark ? 'text-zinc-600' : 'text-slate-400'
+                  }`}>0{idx + 1}.</span>
                   <div>
-                    <h4 className="text-sm font-semibold mb-1 text-zinc-300">
+                    <h4 className={`text-sm font-semibold mb-1 ${
+                      isDark ? 'text-zinc-300' : 'text-slate-800'
+                    }`}>
                       {item.title}
                     </h4>
-                    <p className="text-xs leading-relaxed text-zinc-500">
+                    <p className={`text-xs leading-relaxed ${
+                      isDark ? 'text-zinc-500' : 'text-slate-500'
+                    }`}>
                       {item.desc}
                     </p>
                   </div>
@@ -97,10 +124,16 @@ export default function ComparisonSection({ isDark }) {
           </div>
 
           {/* Merqurie Standard Card */}
-          <div className="p-6 sm:p-7 rounded-2xl border border-zinc-700 bg-[#0e0e12] shadow-xl">
-            <div className="flex items-center gap-2.5 pb-3 mb-5 border-b border-zinc-800">
-              <CheckCircle2 className="w-4 h-4 text-emerald-400" />
-              <h3 className="font-mono text-xs font-bold uppercase tracking-wider text-white">
+          <div className={`p-6 sm:p-7 rounded-2xl border shadow-xl ${
+            isDark ? 'border-zinc-700 bg-[#0e0e12]' : 'border-slate-300 bg-white shadow-lg ring-1 ring-slate-200'
+          }`}>
+            <div className={`flex items-center gap-2.5 pb-3 mb-5 border-b ${
+              isDark ? 'border-zinc-800' : 'border-slate-200'
+            }`}>
+              <CheckCircle2 className="w-4 h-4 text-emerald-500" />
+              <h3 className={`font-mono text-xs font-bold uppercase tracking-wider ${
+                isDark ? 'text-white' : 'text-slate-950'
+              }`}>
                 The Merqurie Engineering Standard
               </h3>
             </div>
@@ -108,12 +141,18 @@ export default function ComparisonSection({ isDark }) {
             <div className="space-y-5">
               {merqurieStandard.map((item, idx) => (
                 <div key={idx} className="flex items-start gap-3">
-                  <span className="font-mono text-xs font-bold mt-0.5 text-zinc-400">0{idx + 1}.</span>
+                  <span className={`font-mono text-xs font-bold mt-0.5 ${
+                    isDark ? 'text-zinc-400' : 'text-slate-400'
+                  }`}>0{idx + 1}.</span>
                   <div>
-                    <h4 className="text-sm font-semibold mb-1 text-white">
+                    <h4 className={`text-sm font-semibold mb-1 ${
+                      isDark ? 'text-white' : 'text-slate-900'
+                    }`}>
                       {item.title}
                     </h4>
-                    <p className="text-xs leading-relaxed text-zinc-400">
+                    <p className={`text-xs leading-relaxed ${
+                      isDark ? 'text-zinc-400' : 'text-slate-600'
+                    }`}>
                       {item.desc}
                     </p>
                   </div>
@@ -125,6 +164,6 @@ export default function ComparisonSection({ isDark }) {
         </div>
 
       </div>
-    </section>
+    </motion.section>
   );
 }

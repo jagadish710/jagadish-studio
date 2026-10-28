@@ -21,7 +21,7 @@ export default function ShowcaseSection({ onSelectProject }) {
       id: 'pms-solution',
       title: 'PMS Machine Solutions',
       client: 'Praveen / PMS Solution',
-      subdomain: 'pmssolution.jagadish.online',
+      subdomain: 'pmssolution.co.in',
       status: 'Live Staging / Client Review',
       category: 'Industrial Machinery & Automation',
       highlight: 'Featured Flagship Prototype',

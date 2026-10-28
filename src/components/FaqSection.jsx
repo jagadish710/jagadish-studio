@@ -1,26 +1,27 @@
 import React, { useState } from 'react';
-import { ChevronDown, HelpCircle, MessageCircle, ArrowRight } from 'lucide-react';
+import { motion } from 'framer-motion';
+import { ChevronDown, HelpCircle, MessageCircle } from 'lucide-react';
 import { playCyberTone } from '../utils/audio';
 
-export default function FaqSection({ isDark }) {
+export default function FaqSection({ isDark = true }) {
   const [openIdx, setOpenIdx] = useState(0);
 
   const faqs = [
     {
-      q: 'How does Merqurie eliminate recurring monthly maintenance fees?',
-      a: 'Traditional agencies deploy outdated monolithic architectures (e.g., standard WordPress) requiring constant manual patching, plugin updates, and server maintenance retainers. Merqurie engineers on serverless edge infrastructure and modern decoupled frameworks (React 19 / Vite / Edge APIs) that are virtually maintenance-free, immutable, and self-healing.',
+      q: 'Why do you charge zero monthly retainer fees?',
+      a: 'We engineer our platforms using decoupled, serverless edge technologies and static site generators. Because the presentation layer is compiled ahead of time and served via global edge networks, there are no heavy dynamic backend servers to maintain, no fragile plugins to patch, and zero ongoing server licensing costs.',
     },
     {
-      q: 'Do we own 100% of our source code and intellectual property?',
-      a: 'Yes, absolutely. Upon completion and milestone sign-off, all Git repositories, production build configurations, and database schemas are transferred directly to your organization. You have complete legal sovereignty with zero vendor lock-in.',
+      q: 'Do we own 100% of our code, domain, and data?',
+      a: 'Absolutely. Upon project completion and final milestone approval, full source code repositories (GitHub), asset files, and cloud database access are transferred directly into your organization\'s ownership. You are never locked into any proprietary agency vendor lock-in.',
     },
     {
-      q: 'Can non-technical team members update content and products easily?',
-      a: 'Yes. Every enterprise deployment includes a customized, intuitive Admin Cockpit. Your marketing and operations teams can modify headlines, update catalogs, change service pricing, and inspect customer leads in seconds from mobile or desktop.',
+      q: 'How does our team edit website text and prices without developers?',
+      a: 'Every platform we build comes equipped with a custom visual Admin Portal. You can easily log in from your mobile phone or laptop, change product headlines, update prices, upload catalog images, and view incoming customer inquiries directly with zero code.',
     },
     {
       q: 'What performance benchmarks do Merqurie platforms meet?',
-      a: 'Our systems are engineered to achieve sub-0.3s First Contentful Paint and 98+ Core Web Vitals across both mobile and desktop. This speed advantage directly drives superior organic Google search visibility and maximum conversion rates.',
+      a: 'Our systems are engineered to achieve sub-0.3s First Contentful Paint and 99+ Core Web Vitals across both mobile and desktop. This speed advantage directly drives superior organic Google search visibility and maximum conversion rates.',
     },
     {
       q: 'What is the typical deployment timeline for a custom platform?',
@@ -38,18 +39,35 @@ export default function FaqSection({ isDark }) {
   };
 
   return (
-    <section id="faq" className="py-16 px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto border-t border-zinc-900">
+    <motion.section 
+      id="faq" 
+      initial={{ opacity: 0, y: 30, filter: 'blur(4px)' }}
+      whileInView={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
+      viewport={{ once: true, margin: '-60px' }}
+      transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+      className={`py-16 px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto border-t ${
+        isDark ? 'border-zinc-900' : 'border-slate-200'
+      }`}
+    >
       {/* Header */}
       <div className="text-center max-w-2xl mx-auto mb-10">
-        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-[11px] font-mono mb-3 bg-zinc-900 border border-zinc-800 text-zinc-300">
-          <HelpCircle className="w-3.5 h-3.5 text-zinc-400" />
+        <div className={`inline-flex items-center gap-2 px-3 py-1 rounded-full text-[11px] font-mono mb-3 border ${
+          isDark 
+            ? 'bg-zinc-900 border-zinc-800 text-zinc-300' 
+            : 'bg-slate-100 border-slate-200 text-slate-800'
+        }`}>
+          <HelpCircle className={`w-3.5 h-3.5 ${isDark ? 'text-zinc-400' : 'text-slate-600'}`} />
           <span className="uppercase tracking-wider">Frequently Asked Questions</span>
         </div>
         
-        <h2 className="text-2xl sm:text-4xl font-bold tracking-tight text-white font-display mb-2">
+        <h2 className={`text-2xl sm:text-4xl font-bold tracking-tight font-display mb-2 ${
+          isDark ? 'text-white' : 'text-slate-950'
+        }`}>
           Questions &amp; Architectural Clarity
         </h2>
-        <p className="text-xs sm:text-sm text-zinc-400 leading-relaxed">
+        <p className={`text-xs sm:text-sm leading-relaxed ${
+          isDark ? 'text-zinc-400' : 'text-slate-600'
+        }`}>
           Essential details on code ownership, zero maintenance fees, and technical delivery.
         </p>
       </div>
@@ -62,7 +80,13 @@ export default function FaqSection({ isDark }) {
             <div
               key={idx}
               className={`rounded-xl border transition-all ${
-                isOpen ? 'bg-zinc-950 border-zinc-700 shadow-md' : 'bg-[#0E0E12] border-zinc-800/80 hover:border-zinc-700'
+                isOpen 
+                  ? isDark 
+                    ? 'bg-zinc-950 border-zinc-700 shadow-md' 
+                    : 'bg-white border-slate-300 shadow-md'
+                  : isDark 
+                    ? 'bg-[#0E0E12] border-zinc-800/80 hover:border-zinc-700' 
+                    : 'bg-slate-50 border-slate-200 hover:border-slate-300'
               }`}
             >
               <button
@@ -70,18 +94,26 @@ export default function FaqSection({ isDark }) {
                 className="w-full py-4 px-5 text-left flex items-center justify-between gap-4 cursor-pointer"
                 aria-expanded={isOpen}
               >
-                <span className={`font-semibold text-xs sm:text-sm ${isOpen ? 'text-white' : 'text-zinc-300'}`}>
+                <span className={`font-semibold text-xs sm:text-sm ${
+                  isOpen 
+                    ? isDark ? 'text-white' : 'text-slate-950' 
+                    : isDark ? 'text-zinc-300' : 'text-slate-800'
+                }`}>
                   {faq.q}
                 </span>
                 <ChevronDown
-                  className={`w-4 h-4 shrink-0 transition-transform duration-200 text-zinc-400 ${
-                    isOpen ? 'rotate-180 text-white' : ''
+                  className={`w-4 h-4 shrink-0 transition-transform duration-200 ${
+                    isOpen 
+                      ? isDark ? 'rotate-180 text-white' : 'rotate-180 text-slate-950' 
+                      : isDark ? 'text-zinc-400' : 'text-slate-500'
                   }`}
                 />
               </button>
 
               {isOpen && (
-                <div className="px-5 pb-5 pt-1 text-xs sm:text-sm leading-relaxed border-t border-zinc-800/80 text-zinc-400">
+                <div className={`px-5 pb-5 pt-1 text-xs sm:text-sm leading-relaxed border-t ${
+                  isDark ? 'border-zinc-800/80 text-zinc-400' : 'border-slate-200 text-slate-600'
+                }`}>
                   {faq.a}
                 </div>
               )}
@@ -91,12 +123,14 @@ export default function FaqSection({ isDark }) {
       </div>
 
       {/* WhatsApp Help CTA */}
-      <div className="mt-8 p-5 rounded-xl border border-zinc-800 bg-zinc-950 flex flex-col sm:flex-row items-center justify-between gap-4">
+      <div className={`mt-8 p-5 rounded-xl border flex flex-col sm:flex-row items-center justify-between gap-4 ${
+        isDark ? 'border-zinc-800 bg-zinc-950' : 'border-slate-200 bg-slate-50'
+      }`}>
         <div className="text-left">
-          <div className="font-semibold text-xs sm:text-sm text-white">
+          <div className={`font-semibold text-xs sm:text-sm ${isDark ? 'text-white' : 'text-slate-950'}`}>
             Have custom technical or e-commerce requirements?
           </div>
-          <div className="text-xs text-zinc-400">
+          <div className={`text-xs ${isDark ? 'text-zinc-400' : 'text-slate-600'}`}>
             Our engineering desk is available for real-time consultation.
           </div>
         </div>
@@ -105,12 +139,16 @@ export default function FaqSection({ isDark }) {
           target="_blank"
           rel="noopener noreferrer"
           onClick={() => playCyberTone('click')}
-          className="inline-flex items-center gap-2 px-4 py-2.5 rounded-lg bg-zinc-900 hover:bg-zinc-800 border border-zinc-700 text-white font-mono text-xs font-semibold shrink-0 transition-all shadow-xs cursor-pointer"
+          className={`inline-flex items-center gap-2 px-4 py-2.5 rounded-lg border font-mono text-xs font-semibold shrink-0 transition-all shadow-xs cursor-pointer ${
+            isDark 
+              ? 'bg-zinc-900 hover:bg-zinc-800 border-zinc-700 text-white' 
+              : 'bg-white hover:bg-slate-100 border-slate-200 text-slate-900'
+          }`}
         >
-          <MessageCircle className="w-3.5 h-3.5 text-emerald-400 fill-current" />
+          <MessageCircle className="w-3.5 h-3.5 text-emerald-500 fill-current" />
           <span>WhatsApp</span>
         </a>
       </div>
-    </section>
+    </motion.section>
   );
 }

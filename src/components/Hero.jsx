@@ -13,9 +13,27 @@ import {
   Cpu,
   Globe,
   Award,
+  Activity,
+  HeartPulse,
+  Compass,
 } from 'lucide-react';
 
-export default function Hero({ onOpenPrototypeModal, onNavigateToWork, onNavigateToSolutions, isDark }) {
+export default function Hero({ 
+  onOpenPrototypeModal, 
+  onNavigateToWork, 
+  onNavigateToSolutions, 
+  isDark,
+  ambientColor,
+  setAmbientColor,
+}) {
+  const quickFilters = [
+    { key: 'gold', label: 'Cloud Systems', icon: Globe },
+    { key: 'emerald', label: 'Sports & Karate SaaS', icon: Activity },
+    { key: 'cyan', label: 'Clinical Health', icon: HeartPulse },
+    { key: 'amber', label: 'Industrial ERP', icon: Cpu },
+    { key: 'purple', label: 'Electric Mobility', icon: Compass },
+  ];
+
   return (
     <section className="relative min-h-[85vh] pt-32 pb-20 flex flex-col justify-center items-center px-4 sm:px-6 lg:px-8 overflow-hidden">
       <div className="relative z-10 max-w-5xl mx-auto text-center flex flex-col items-center">
@@ -25,7 +43,7 @@ export default function Hero({ onOpenPrototypeModal, onNavigateToWork, onNavigat
           initial={{ opacity: 0, y: -10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.4 }}
-          className={`inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full text-xs font-mono font-medium mb-8 border transition-all ${
+          className={`inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full text-xs font-mono font-medium mb-6 border transition-all ${
             isDark
               ? 'bg-[#18181C]/90 border-[#E6C687]/30 text-[#E6C687]'
               : 'bg-slate-50 border-slate-200 text-slate-800 shadow-xs'
@@ -53,10 +71,18 @@ export default function Hero({ onOpenPrototypeModal, onNavigateToWork, onNavigat
             Architecting High-Speed Cloud Systems
           </span>{' '}
           <br className="hidden sm:inline" />
-          <span className={`bg-clip-text text-transparent ${
-            isDark 
-              ? 'bg-gradient-to-r from-[#FFF4D2] via-[#E6C687] to-[#C5A059]' 
-              : 'bg-gradient-to-r from-blue-700 via-indigo-700 to-slate-900'
+          <span className={`bg-clip-text text-transparent transition-all duration-700 ${
+            ambientColor === 'emerald'
+              ? isDark ? 'bg-gradient-to-r from-emerald-200 via-emerald-400 to-teal-500' : 'bg-gradient-to-r from-emerald-700 to-teal-800'
+              : ambientColor === 'cyan'
+              ? isDark ? 'bg-gradient-to-r from-sky-200 via-sky-400 to-cyan-500' : 'bg-gradient-to-r from-sky-700 to-cyan-800'
+              : ambientColor === 'amber'
+              ? isDark ? 'bg-gradient-to-r from-amber-200 via-amber-400 to-orange-500' : 'bg-gradient-to-r from-amber-700 to-orange-800'
+              : ambientColor === 'purple'
+              ? isDark ? 'bg-gradient-to-r from-purple-200 via-purple-400 to-violet-500' : 'bg-gradient-to-r from-purple-700 to-violet-800'
+              : isDark 
+                ? 'bg-gradient-to-r from-[#FFF4D2] via-[#E6C687] to-[#C5A059]' 
+                : 'bg-gradient-to-r from-blue-700 via-indigo-700 to-slate-900'
           }`}>
             &amp; Digital Infrastructure.
           </span>
@@ -67,12 +93,43 @@ export default function Hero({ onOpenPrototypeModal, onNavigateToWork, onNavigat
           initial={{ opacity: 0, y: 15 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.15 }}
-          className={`max-w-2xl text-base sm:text-lg font-normal leading-relaxed mb-10 ${
+          className={`max-w-2xl text-base sm:text-lg font-normal leading-relaxed mb-8 ${
             isDark ? 'text-slate-300' : 'text-slate-600'
           }`}
         >
           From high-performance enterprise platforms and vertical SaaS to intelligent automation and future electric mobility. Built with zero maintenance overhead, edge-native speed, and 100% intellectual property sovereignty.
         </motion.p>
+
+        {/* Interactive Atmosphere Switcher (User Clicks Change Background Mood Smoothly) */}
+        <div className="flex flex-wrap items-center justify-center gap-2 mb-10">
+          {quickFilters.map((filter) => {
+            const Icon = filter.icon;
+            const isSelected = ambientColor === filter.key;
+            return (
+              <button
+                key={filter.key}
+                onClick={() => {
+                  playCyberTone('click');
+                  if (setAmbientColor) setAmbientColor(filter.key);
+                }}
+                className={`px-3 py-1.5 rounded-xl font-mono text-xs flex items-center gap-2 transition-all cursor-pointer border ${
+                  isSelected
+                    ? isDark
+                      ? 'bg-white/10 text-white font-bold border-[#E6C687]/60 shadow-sm'
+                      : 'bg-slate-900 text-white font-bold border-slate-900 shadow-sm'
+                    : isDark
+                      ? 'bg-[#18181C]/60 text-slate-400 border-white/5 hover:text-white hover:border-white/15'
+                      : 'bg-slate-100/80 text-slate-600 border-slate-200 hover:text-slate-900'
+                }`}
+              >
+                <Icon className={`w-3.5 h-3.5 ${
+                  isSelected ? (isDark ? 'text-luxury-gold' : 'text-blue-400') : 'opacity-60'
+                }`} />
+                <span>{filter.label}</span>
+              </button>
+            );
+          })}
+        </div>
 
         {/* Action CTAs */}
         <motion.div
@@ -114,7 +171,7 @@ export default function Hero({ onOpenPrototypeModal, onNavigateToWork, onNavigat
           </a>
         </motion.div>
 
-        {/* 4 Clean Value Pillars - Structured with Elegant Precision */}
+        {/* 4 Clean Value Pillars */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}

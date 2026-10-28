@@ -7,12 +7,20 @@ import AdminPortalDemo from '../components/AdminPortalDemo';
 import PricingPhilosophy from '../components/PricingPhilosophy';
 import FaqSection from '../components/FaqSection';
 
-export default function HomePage({ onOpenPrototypeModal, setActivePage, isDark }) {
+export default function HomePage({ 
+  onOpenPrototypeModal, 
+  setActivePage, 
+  isDark,
+  ambientColor,
+  setAmbientColor,
+}) {
   return (
     <div className="space-y-6">
-      {/* 1. Hero Section with Optimized 3D WebGL Torus & Snappy Tracking */}
+      {/* 1. Hero Section with Interactive System Focus Switcher */}
       <Hero
         isDark={isDark}
+        ambientColor={ambientColor}
+        setAmbientColor={setAmbientColor}
         onOpenPrototypeModal={onOpenPrototypeModal}
         onNavigateToWork={() => {
           setActivePage('work');
@@ -24,31 +32,33 @@ export default function HomePage({ onOpenPrototypeModal, setActivePage, isDark }
         }}
       />
 
-      {/* 2. Marquee Ribbon #1: High-Performance Technical Stack & Frameworks */}
+      {/* 2. Marquee Ribbon: Technical Architecture */}
       <TechMarquee mode="tech" isDark={isDark} />
 
-      {/* 3. Hostinger-Inspired 3D Interactive Flip Cards & Typing Header */}
+      {/* 3. The Merqurie Ecosystem with 3D Flip Cards & Color-Changing Atmosphere */}
       <InteractiveCardsSection
         isDark={isDark}
+        ambientColor={ambientColor}
+        setAmbientColor={setAmbientColor}
         onOpenPrototypeModal={onOpenPrototypeModal}
       />
 
-      {/* 4. Comparison Section: "Solutions vs Just a Website" Manifesto */}
+      {/* 4. Comparison Section: Architectural Standard vs Legacy Retainers */}
       <ComparisonSection isDark={isDark} />
 
-      {/* 5. Marquee Ribbon #2: Digital Solutions & Software Capabilities */}
+      {/* 5. Marquee Ribbon: Ecosystem Capabilities */}
       <TechMarquee mode="solutions" isDark={isDark} />
 
-      {/* 6. Self-Service Client Admin Cockpit Sandbox */}
+      {/* 6. Self-Service Executive Admin Cockpit Sandbox */}
       <AdminPortalDemo isDark={isDark} />
 
-      {/* 7. Pricing Philosophy (No Maintenance Charges) */}
+      {/* 7. Transparent Architecture Investment (Zero Retainers) */}
       <PricingPhilosophy
         isDark={isDark}
         onOpenPrototypeModal={onOpenPrototypeModal}
       />
 
-      {/* 8. Frequently Asked Questions (SEO Boost & Client Clarity) */}
+      {/* 8. Frequently Asked Questions */}
       <FaqSection isDark={isDark} />
     </div>
   );

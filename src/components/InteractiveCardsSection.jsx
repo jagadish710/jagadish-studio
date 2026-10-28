@@ -11,8 +11,7 @@ import {
 } from 'lucide-react';
 import { playCyberTone } from '../utils/audio';
 
-export default function InteractiveCardsSection({ isDark, onOpenPrototypeModal }) {
-  // Flip states for individual cards
+export default function InteractiveCardsSection({ onOpenPrototypeModal }) {
   const [flippedCards, setFlippedCards] = useState({});
 
   const toggleCardFlip = (idx) => {
@@ -104,40 +103,28 @@ export default function InteractiveCardsSection({ isDark, onOpenPrototypeModal }
   ];
 
   return (
-    <section className={`py-20 px-4 sm:px-6 lg:px-8 relative z-10 border-t ${
-      isDark ? 'border-white/5 bg-[#0E0E10]' : 'border-slate-200/80 bg-white'
-    }`}>
+    <section className="py-16 px-4 sm:px-6 lg:px-8 relative z-10 border-t border-zinc-900 bg-[#0A0A0C]">
       <div className="max-w-6xl mx-auto">
         
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-14">
-          <div className={`inline-flex items-center gap-2 px-3.5 py-1 rounded-full text-xs font-mono font-medium mb-4 border ${
-            isDark 
-              ? 'bg-[#161619] border-[#E6C687]/30 text-[#E6C687]' 
-              : 'bg-slate-50 border-slate-200 text-slate-800'
-          }`}>
-            <Sparkles className="w-3.5 h-3.5 text-luxury-gold" />
-            <span className="uppercase tracking-wider">Website Solutions &bull; Click to Flip</span>
+        <div className="text-center max-w-3xl mx-auto mb-12">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-[11px] font-mono mb-3 bg-zinc-900 border border-zinc-800 text-zinc-300">
+            <Sparkles className="w-3.5 h-3.5 text-zinc-400" />
+            <span className="uppercase tracking-wider">Website Solutions &bull; Click Card To Inspect Specs</span>
           </div>
 
-          <h2 className={`text-3xl sm:text-5xl font-bold tracking-tight font-display mb-4 ${
-            isDark ? 'text-white' : 'text-slate-900'
-          }`}>
-            Engineered For Your Business. <br />
-            <span className={isDark ? 'text-[#E6C687]' : 'text-blue-700'}>
-              Zero Maintenance Retainers.
-            </span>
+          <h2 className="text-2xl sm:text-4xl font-bold tracking-tight text-white font-display mb-3">
+            Architectural Standards.{' '}
+            <span className="text-zinc-400">Zero Maintenance Retainers.</span>
           </h2>
 
-          <p className={`text-sm sm:text-base leading-relaxed ${
-            isDark ? 'text-slate-400' : 'text-slate-600'
-          }`}>
-            We provide complete high-performance website solutions, not just a fragile WordPress template. Click any card to flip and inspect the technical specifications.
+          <p className="text-xs sm:text-sm text-zinc-400 max-w-xl mx-auto leading-relaxed">
+            We provide complete high-performance website solutions, not just a fragile WordPress template. Click any card below to flip and inspect the technical specifications.
           </p>
         </div>
 
-        {/* 4 Cards 3D Flip Grid (Clean, Cohesive Champagne Gold + Obsidian) */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        {/* 4 Cards 3D Flip Grid (Sleek Black, Charcoal & Grey) */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
           {solutions.map((card, idx) => {
             const Icon = card.icon;
             const isFlipped = !!flippedCards[idx];
@@ -145,7 +132,7 @@ export default function InteractiveCardsSection({ isDark, onOpenPrototypeModal }
             return (
               <div
                 key={card.id}
-                className="perspective-1000 min-h-[360px] w-full cursor-pointer select-none"
+                className="perspective-1000 min-h-[340px] w-full cursor-pointer select-none"
                 onClick={() => toggleCardFlip(idx)}
               >
                 <div 
@@ -154,20 +141,12 @@ export default function InteractiveCardsSection({ isDark, onOpenPrototypeModal }
                   }`}
                 >
                   
-                  {/* FRONT FACE (Obsidian & Champagne Gold) */}
-                  <div className={`absolute inset-0 backface-hidden p-7 rounded-2xl border flex flex-col justify-between transition-all duration-300 ${
-                    isDark 
-                      ? 'bg-[#141416] border-white/10 hover:border-[#E6C687]/40 shadow-lg shadow-black/60' 
-                      : 'bg-white border-slate-200 hover:border-blue-400 shadow-sm'
-                  }`}>
+                  {/* FRONT FACE (Sleek Charcoal & Hairline Grey) */}
+                  <div className="absolute inset-0 backface-hidden p-6 sm:p-7 rounded-2xl border border-zinc-800/80 hover:border-zinc-700 bg-[#0E0E12] flex flex-col justify-between transition-all duration-300 shadow-xl shadow-black/80">
                     <div>
                       {/* Top Bar with Badge & Flip Indicator */}
                       <div className="flex items-center justify-between gap-2 mb-4">
-                        <span className={`text-[10px] font-mono font-bold tracking-wider uppercase px-2.5 py-0.5 rounded border ${
-                          isDark 
-                            ? 'bg-black/40 text-[#E6C687] border-[#E6C687]/25' 
-                            : 'bg-blue-50 text-blue-700 border-blue-200'
-                        }`}>
+                        <span className="text-[10px] font-mono font-bold tracking-wider uppercase px-2.5 py-0.5 rounded bg-zinc-900 text-zinc-300 border border-zinc-800">
                           {card.tag}
                         </span>
                         
@@ -176,82 +155,64 @@ export default function InteractiveCardsSection({ isDark, onOpenPrototypeModal }
                             e.stopPropagation();
                             toggleCardFlip(idx);
                           }}
-                          className={`p-1.5 rounded-lg border text-xs flex items-center gap-1 transition-all ${
-                            isDark 
-                              ? 'bg-black/30 border-white/10 text-slate-400 hover:text-white hover:border-[#E6C687]/40' 
-                              : 'bg-slate-100 border-slate-200 text-slate-600 hover:text-slate-900'
-                          }`}
+                          className="p-1.5 rounded-lg border border-zinc-800 bg-zinc-950 text-zinc-400 hover:text-white hover:border-zinc-600 text-xs flex items-center gap-1 transition-all"
                           title="Click to flip card"
                         >
-                          <RotateCw className="w-3 h-3 text-luxury-gold" />
+                          <RotateCw className="w-3 h-3 text-zinc-400" />
                           <span className="text-[9px] font-mono font-medium">FLIP</span>
                         </button>
                       </div>
 
                       {/* Title & Icon Header */}
                       <div className="flex items-center gap-3.5 mb-3">
-                        <div className={`w-11 h-11 rounded-xl flex items-center justify-center shrink-0 border ${
-                          isDark ? 'bg-[#1A1A1E] border-white/10 text-luxury-gold' : 'bg-slate-50 border-slate-200 text-blue-600'
-                        }`}>
+                        <div className="w-10 h-10 rounded-xl flex items-center justify-center shrink-0 border border-zinc-800 bg-zinc-900 text-zinc-200">
                           <Icon className="w-5 h-5" />
                         </div>
                         <div>
-                          <h3 className={`text-xl font-bold font-display ${isDark ? 'text-white' : 'text-slate-900'}`}>
+                          <h3 className="text-lg sm:text-xl font-bold font-display text-white">
                             {card.title}
                           </h3>
-                          <span className={`text-[10px] font-mono font-semibold tracking-wider ${
-                            isDark ? 'text-luxury-gold' : 'text-blue-700'
-                          }`}>
+                          <span className="text-[10px] font-mono font-semibold tracking-wider text-zinc-400 block mt-0.5">
                             {card.subtitle}
                           </span>
                         </div>
                       </div>
 
-                      <p className={`text-xs sm:text-sm leading-relaxed mt-3 mb-5 ${
-                        isDark ? 'text-slate-300' : 'text-slate-600'
-                      }`}>
+                      <p className="text-xs sm:text-sm leading-relaxed text-zinc-400 mb-5">
                         {card.frontDesc}
                       </p>
 
                       {/* Benchmarks Matrix */}
-                      <div className={`p-3.5 rounded-xl border mb-4 space-y-1.5 ${
-                        isDark ? 'bg-black/40 border-white/5' : 'bg-slate-50 border-slate-200'
-                      }`}>
+                      <div className="p-3 rounded-xl border border-zinc-800/80 bg-zinc-950/60 mb-4 space-y-1.5">
                         {card.metrics.map((m, mIdx) => (
                           <div key={mIdx} className="flex items-center justify-between text-xs font-mono">
-                            <span className={isDark ? 'text-slate-400' : 'text-slate-500'}>{m.label}:</span>
-                            <span className={`font-bold ${isDark ? 'text-white' : 'text-slate-900'}`}>{m.val}</span>
+                            <span className="text-zinc-500">{m.label}:</span>
+                            <span className="font-bold text-zinc-200">{m.val}</span>
                           </div>
                         ))}
                       </div>
                     </div>
 
                     {/* Bottom Action Footer */}
-                    <div className="flex items-center justify-between pt-3 border-t border-black/5 dark:border-white/5 text-xs">
-                      <span className={`font-mono text-[10px] ${isDark ? 'text-slate-500' : 'text-slate-400'}`}>
+                    <div className="flex items-center justify-between pt-3 border-t border-zinc-800/80 text-xs">
+                      <span className="font-mono text-[10px] text-zinc-500">
                         Click card to flip
                       </span>
-                      <span className="flex items-center gap-1 font-semibold text-luxury-gold font-mono text-[11px]">
-                        <span>Inspect Architecture</span>
+                      <span className="flex items-center gap-1 font-semibold text-zinc-300 font-mono text-[11px] hover:text-white">
+                        <span>Inspect Specs</span>
                         <ArrowRight className="w-3 h-3" />
                       </span>
                     </div>
                   </div>
 
                   {/* BACK FACE (Flipped 180 deg) */}
-                  <div className={`absolute inset-0 backface-hidden rotate-y-180 p-7 rounded-2xl border flex flex-col justify-between ${
-                    isDark 
-                      ? 'bg-[#18181C] border-[#E6C687]/40 shadow-xl' 
-                      : 'bg-white border-blue-400 shadow-lg'
-                  }`}>
+                  <div className="absolute inset-0 backface-hidden rotate-y-180 p-6 sm:p-7 rounded-2xl border border-zinc-700 bg-zinc-950 flex flex-col justify-between shadow-2xl">
                     <div>
                       {/* Back Header */}
-                      <div className="flex items-center justify-between pb-3 mb-4 border-b border-black/5 dark:border-white/5">
+                      <div className="flex items-center justify-between pb-3 mb-4 border-b border-zinc-800">
                         <div className="flex items-center gap-2">
-                          <ShieldCheck className="w-4 h-4 text-luxury-gold" />
-                          <span className={`text-xs font-mono font-bold tracking-wider ${
-                            isDark ? 'text-white' : 'text-slate-900'
-                          }`}>
+                          <ShieldCheck className="w-4 h-4 text-emerald-400" />
+                          <span className="text-xs font-mono font-bold tracking-wider text-white">
                             {card.backTitle.toUpperCase()}
                           </span>
                         </div>
@@ -260,45 +221,37 @@ export default function InteractiveCardsSection({ isDark, onOpenPrototypeModal }
                             e.stopPropagation();
                             toggleCardFlip(idx);
                           }}
-                          className={`p-1.5 rounded-lg border text-xs flex items-center gap-1 transition-all ${
-                            isDark 
-                              ? 'bg-black/30 border-white/10 text-slate-400 hover:text-white' 
-                              : 'bg-slate-100 border-slate-200 text-slate-600 hover:text-slate-900'
-                          }`}
+                          className="p-1.5 rounded-lg border border-zinc-800 bg-zinc-900 text-zinc-400 hover:text-white text-xs flex items-center gap-1 transition-all"
                         >
-                          <RotateCw className="w-3 h-3 text-luxury-gold" />
+                          <RotateCw className="w-3 h-3 text-zinc-400" />
                           <span className="text-[9px] font-mono">BACK</span>
                         </button>
                       </div>
 
-                      <div className={`text-xs font-semibold mb-3 ${isDark ? 'text-luxury-gold' : 'text-blue-700'}`}>
+                      <div className="text-xs font-semibold mb-3 text-zinc-300">
                         {card.title} &bull; Delivery Specifications
                       </div>
 
                       {/* Technical Checklist */}
-                      <div className="space-y-2.5 mb-5">
+                      <div className="space-y-2 mb-4">
                         {card.backPoints.map((item, tIdx) => (
                           <div key={tIdx} className="flex items-start gap-2.5 text-xs">
-                            <CheckCircle2 className="w-3.5 h-3.5 shrink-0 mt-0.5 text-luxury-gold" />
-                            <span className={isDark ? 'text-slate-300' : 'text-slate-700'}>{item}</span>
+                            <CheckCircle2 className="w-3.5 h-3.5 shrink-0 mt-0.5 text-emerald-400" />
+                            <span className="text-zinc-300">{item}</span>
                           </div>
                         ))}
                       </div>
                     </div>
 
                     {/* Back Footer Actions */}
-                    <div className="pt-3 border-t border-black/5 dark:border-white/5">
+                    <div className="pt-3 border-t border-zinc-800">
                       <button
                         onClick={(e) => {
                           e.stopPropagation();
                           playCyberTone('click');
                           onOpenPrototypeModal();
                         }}
-                        className={`w-full py-2.5 px-4 rounded-xl font-mono text-xs font-semibold flex items-center justify-center gap-2 transition-all hover:scale-[1.02] active:scale-[0.98] ${
-                          isDark
-                            ? 'bg-gradient-to-r from-luxury-gold to-amber-200 text-black'
-                            : 'bg-slate-900 text-white hover:bg-slate-800'
-                        }`}
+                        className="w-full py-2.5 px-4 rounded-xl font-mono text-xs font-bold flex items-center justify-center gap-2 bg-white hover:bg-zinc-200 text-zinc-950 transition-all cursor-pointer shadow-sm"
                       >
                         <span>Request This Solution</span>
                         <ArrowRight className="w-3.5 h-3.5" />

@@ -7,19 +7,18 @@ import {
   ShieldCheck,
   Zap,
   Globe,
-  Search,
   MessageCircle,
   Sparkles,
   Award,
   Cpu,
 } from 'lucide-react';
 
-export default function AboutPage({ onOpenPrototypeModal, isDark }) {
+export default function AboutPage({ onOpenPrototypeModal }) {
   const tenets = [
     {
       title: 'Zero Maintenance Architecture',
       subtitle: 'Eliminating Technical Debt',
-      desc: 'Traditional software agencies build on bloated CMS platforms that decay over time, forcing endless monthly retainer contracts. We build on immutable serverless edge systems that run reliably for years with zero ongoing maintenance costs.',
+      desc: 'Traditional agencies build on fragile CMS platforms that decay over time, forcing endless monthly retainer contracts. We build on immutable serverless edge systems that run reliably for years with zero ongoing maintenance costs.',
     },
     {
       title: 'Full Intellectual Property Sovereignty',
@@ -29,12 +28,12 @@ export default function AboutPage({ onOpenPrototypeModal, isDark }) {
     {
       title: 'Algorithmic Speed & SEO Dominance',
       subtitle: 'Sub-0.3s Core Web Vitals',
-      desc: 'Google ranks speed. By decoupling the presentation layer from the database and deploying to global edge nodes, our platforms achieve sub-0.3s load times and 98+ PageSpeed ratings automatically.',
+      desc: 'Google ranks speed. By decoupling the presentation layer from the database and deploying to global edge nodes, our platforms achieve sub-0.3s load times and 99+ PageSpeed ratings automatically.',
     },
     {
-      title: 'Integrated Multi-Industry Scaling',
-      subtitle: 'From Cloud to Future Mobility',
-      desc: 'The Merqurie philosophy unites web cloud platforms (Merqurie Cloud), martial arts SaaS (Merqurie Sports), healthcare systems (Merqurie Health), and electric micro-mobility hardware (Merqurie Mobility) under one cohesive standard of excellence.',
+      title: 'Self-Serve Administrative Autonomy',
+      subtitle: 'Instant Client Control',
+      desc: 'Every platform comes with a dedicated visual admin cockpit. Clients can edit text, adjust prices, and export customer leads in seconds from their phone—with zero developer dependency.',
     },
   ];
 
@@ -46,27 +45,17 @@ export default function AboutPage({ onOpenPrototypeModal, isDark }) {
         animate={{ opacity: 1, y: 0 }}
         className="text-center max-w-3xl mx-auto mb-16"
       >
-        <div className={`inline-flex items-center gap-2 px-3.5 py-1 rounded-full text-xs font-mono font-medium mb-4 border ${
-          isDark 
-            ? 'bg-[#18181C] border-[#E6C687]/30 text-[#E6C687]' 
-            : 'bg-slate-100 border-slate-200 text-slate-800'
-        }`}>
-          <Sparkles className="w-3.5 h-3.5 text-blue-600 dark:text-luxury-gold" />
-          <span>ENGINEERING PHILOSOPHY &bull; MERQURIE GROUP</span>
+        <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full text-xs font-mono font-medium mb-4 border bg-zinc-900 border-zinc-800 text-zinc-300">
+          <Sparkles className="w-3.5 h-3.5 text-zinc-400" />
+          <span>ENGINEERING PHILOSOPHY &bull; MERQURIE</span>
         </div>
 
-        <h1 className="text-4xl sm:text-6xl font-bold tracking-tight font-display mb-6 leading-tight">
-          <span className={isDark ? 'text-white' : 'text-slate-900'}>
-            Engineered For Speed.
-          </span> <br />
-          <span className={isDark ? 'text-[#E6C687]' : 'text-blue-700'}>
-            Built To Outlast.
-          </span>
+        <h1 className="text-4xl sm:text-6xl font-bold tracking-tight font-display mb-6 leading-tight text-white">
+          Engineered For Speed.<br />
+          <span className="text-zinc-400">Built To Outlast.</span>
         </h1>
 
-        <p className={`text-base sm:text-lg max-w-2xl mx-auto leading-relaxed ${
-          isDark ? 'text-slate-400' : 'text-slate-600'
-        }`}>
+        <p className="text-base sm:text-lg max-w-2xl mx-auto leading-relaxed text-zinc-400">
           Named after the classical archetype of speed and motion, Merqurie was founded on a simple truth: modern digital systems should empower businesses permanently, not burden them with recurring monthly maintenance fees.
         </p>
 
@@ -77,11 +66,7 @@ export default function AboutPage({ onOpenPrototypeModal, isDark }) {
               playCyberTone('click');
               onOpenPrototypeModal();
             }}
-            className={`px-6 py-3 rounded-xl font-semibold font-mono text-xs tracking-wider flex items-center gap-2 transition-all hover:scale-[1.02] active:scale-[0.98] cursor-pointer ${
-              isDark
-                ? 'bg-gradient-to-r from-luxury-gold to-amber-300 text-black'
-                : 'bg-slate-900 hover:bg-slate-800 text-white shadow-xs'
-            }`}
+            className="px-6 py-3 rounded-xl font-semibold font-mono text-xs tracking-wider flex items-center gap-2 transition-all hover:scale-[1.02] active:scale-[0.98] cursor-pointer bg-white hover:bg-zinc-200 text-zinc-950 shadow-sm"
           >
             <span>CONSULT WITH LEADERSHIP</span>
             <ArrowRight className="w-3.5 h-3.5" />
@@ -92,13 +77,9 @@ export default function AboutPage({ onOpenPrototypeModal, isDark }) {
             target="_blank"
             rel="noopener noreferrer"
             onClick={() => playCyberTone('click')}
-            className={`px-5 py-3 rounded-xl border font-mono text-xs font-semibold flex items-center gap-2 transition-all cursor-pointer ${
-              isDark
-                ? 'bg-[#18181C] text-white border-white/10 hover:bg-[#202026]'
-                : 'bg-white text-slate-800 border-slate-200 hover:bg-slate-50 shadow-xs'
-            }`}
+            className="px-5 py-3 rounded-xl border font-mono text-xs font-semibold flex items-center gap-2 transition-all cursor-pointer bg-zinc-900 hover:bg-zinc-800 border-zinc-700 text-white"
           >
-            <MessageCircle className="w-4 h-4 text-[#25D366]" />
+            <MessageCircle className="w-4 h-4 text-emerald-400 fill-current" />
             <span>WhatsApp</span>
           </a>
         </div>
@@ -113,27 +94,19 @@ export default function AboutPage({ onOpenPrototypeModal, isDark }) {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.4, delay: idx * 0.08 }}
-            className={`p-6 sm:p-8 rounded-2xl border transition-all ${
-              isDark 
-                ? 'bg-[#151518] border-white/10 hover:border-white/20' 
-                : 'bg-white border-slate-200/90 hover:border-slate-300 shadow-sm'
-            }`}
+            className="p-6 sm:p-8 rounded-2xl border transition-all bg-[#0e0e12] border-zinc-800 hover:border-zinc-700 shadow-xl"
           >
             <div className="flex items-center gap-2.5 mb-2">
-              <span className={`text-[10px] font-mono font-bold tracking-wider uppercase px-2 py-0.5 rounded border ${
-                isDark 
-                  ? 'bg-black/30 text-[#E6C687] border-[#E6C687]/20' 
-                  : 'bg-blue-50 text-blue-700 border-blue-200'
-              }`}>
+              <span className="text-[10px] font-mono font-bold tracking-wider uppercase px-2 py-0.5 rounded border border-zinc-800 bg-zinc-900 text-zinc-300">
                 {tenet.subtitle}
               </span>
             </div>
 
-            <h3 className={`text-xl sm:text-2xl font-bold font-display mb-3 ${isDark ? 'text-white' : 'text-slate-900'}`}>
+            <h3 className="text-xl sm:text-2xl font-bold font-display mb-3 text-white">
               {tenet.title}
             </h3>
 
-            <p className={`text-xs sm:text-sm leading-relaxed ${isDark ? 'text-slate-400' : 'text-slate-600'}`}>
+            <p className="text-xs sm:text-sm leading-relaxed text-zinc-400">
               {tenet.desc}
             </p>
           </motion.div>
@@ -141,29 +114,21 @@ export default function AboutPage({ onOpenPrototypeModal, isDark }) {
       </div>
 
       {/* Leadership Profile Card */}
-      <div className={`p-8 sm:p-12 rounded-2xl border ${
-        isDark ? 'bg-[#141416] border-white/10' : 'bg-slate-50 border-slate-200'
-      }`}>
+      <div className="p-8 sm:p-12 rounded-2xl border border-zinc-800 bg-[#0e0e12] shadow-xl">
         <div className="flex flex-col md:flex-row items-center gap-8 text-center md:text-left">
-          <div className={`w-24 h-24 rounded-2xl flex items-center justify-center shrink-0 border ${
-            isDark ? 'bg-[#1E1E24] border-[#E6C687]/30 text-[#E6C687]' : 'bg-white border-slate-200 text-blue-600 shadow-sm'
-          }`}>
-            <Cpu className="w-10 h-10" />
+          <div className="w-24 h-24 rounded-2xl flex items-center justify-center shrink-0 border bg-zinc-900 border-zinc-800 text-white">
+            <Cpu className="w-10 h-10 text-zinc-300" />
           </div>
 
           <div className="space-y-2">
-            <span className={`text-xs font-mono font-semibold uppercase tracking-wider ${
-              isDark ? 'text-[#E6C687]' : 'text-blue-700'
-            }`}>
+            <span className="text-xs font-mono font-semibold uppercase tracking-wider text-zinc-400">
               Engineering Leadership
             </span>
-            <h4 className={`text-2xl font-bold font-display ${isDark ? 'text-white' : 'text-slate-900'}`}>
+            <h4 className="text-2xl font-bold font-display text-white">
               Jagadish &bull; Principal Architect &amp; Founder
             </h4>
-            <p className={`text-xs sm:text-sm leading-relaxed max-w-2xl ${
-              isDark ? 'text-slate-400' : 'text-slate-600'
-            }`}>
-              With over 100 enterprise systems delivered across India and internationally, Jagadish leads the engineering roadmap of Merqurie Group — bridging cloud platforms, sports management SaaS, and future electric mobility hardware.
+            <p className="text-xs sm:text-sm leading-relaxed max-w-2xl text-zinc-400">
+              With over 100 digital platforms delivered across India and internationally, Jagadish leads the engineering of Merqurie — building decoupled, lightning-speed website solutions with zero maintenance debt.
             </p>
           </div>
         </div>

@@ -138,7 +138,7 @@ export default function PrototypeModal({ isOpen, onClose, isDark }) {
                 <input
                   type="tel"
                   required
-                  placeholder="+91 73586 18789"
+                  placeholder="+91 98765 43210"
                   value={phone}
                   onChange={(e) => setPhone(e.target.value)}
                   className={`w-full px-4 py-2.5 rounded-xl border text-sm focus:outline-none transition-colors ${
@@ -175,40 +175,40 @@ export default function PrototypeModal({ isOpen, onClose, isDark }) {
 
             {/* Direct WhatsApp Callout */}
             <a
-              href="https://wa.me/917358618789?text=Hi%20Jagadish!%20I%20am%20looking%20for%20a%20website%20solution."
+              href="https://wa.me/917358618789?text=Hi%20Merqurie%20Team!%20I%20am%20looking%20for%20a%20website%20solution."
               target="_blank"
               rel="noopener noreferrer"
               onClick={() => playCyberTone('click')}
-              className="w-full py-3 rounded-xl bg-[#25D366] hover:bg-[#20BA5A] text-white font-mono font-bold text-xs flex items-center justify-center gap-2 shadow-sm transition-transform hover:scale-101 cursor-pointer"
+              className="w-full py-3 rounded-xl bg-zinc-900 hover:bg-zinc-800 border border-zinc-700 text-white font-mono font-bold text-xs flex items-center justify-center gap-2 shadow-sm transition-transform hover:scale-101 cursor-pointer"
             >
-              <MessageCircle className="w-4 h-4 fill-current" />
-              <span>Chat on WhatsApp: +91 73586 18789</span>
+              <MessageCircle className="w-4 h-4 text-emerald-400 fill-current" />
+              <span>Chat on WhatsApp</span>
             </a>
           </div>
         ) : (
           <div className="py-8 text-center space-y-4">
-            <div className="w-16 h-16 rounded-full bg-emerald-500/20 text-emerald-600 dark:text-emerald-400 mx-auto flex items-center justify-center">
+            <div className="w-16 h-16 rounded-full bg-emerald-500/20 text-emerald-400 mx-auto flex items-center justify-center">
               <CheckCircle2 className="w-10 h-10" />
             </div>
 
-            <h4 className="text-2xl font-bold font-display">
+            <h4 className="text-2xl font-bold font-display text-white">
               Enquiry Received!
             </h4>
 
-            <p className="text-sm opacity-80 max-w-sm mx-auto">
-              Thank you, <strong className={isDark ? 'text-luxury-gold' : 'text-slate-900 font-bold'}>{businessName}</strong>. We are opening WhatsApp to connect directly with you right now.
+            <p className="text-sm text-zinc-300 max-w-sm mx-auto">
+              Thank you, <strong className="text-white font-bold">{businessName}</strong>. We are opening WhatsApp to connect directly with you right now.
             </p>
 
             <a
               href={`https://wa.me/917358618789?text=${encodeURIComponent(
-                `Hi Jagadish! I just submitted an enquiry for "${businessName}" (${projectType}). Phone: ${phone}`
+                `Hi Merqurie Team! I just submitted an enquiry for "${businessName}" (${projectType}). Phone: ${phone}`
               )}`}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-[#25D366] text-white font-mono font-bold text-xs shadow-md mt-4"
+              className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-white hover:bg-zinc-200 text-zinc-950 font-mono font-bold text-xs shadow-md mt-4 transition-all"
             >
-              <MessageCircle className="w-4 h-4 fill-current" />
-              <span>Open WhatsApp Conversation (+91 73586 18789)</span>
+              <MessageCircle className="w-4 h-4 text-emerald-600 fill-current" />
+              <span>Open WhatsApp Conversation</span>
             </a>
           </div>
         )}

@@ -28,7 +28,7 @@ export default function FaqSection({ isDark }) {
     },
     {
       q: 'How do we initiate a technical consultation or request a proposal?',
-      a: 'You can connect directly with our engineering advisory team via WhatsApp at +91 73586 18789 or submit an inquiry through our consultation modal. We will review your technical requirements and provide an architectural blueprint.',
+      a: 'You can connect directly with our engineering advisory team via WhatsApp or submit an inquiry through our consultation modal. We will review your technical requirements and provide an architectural blueprint.',
     },
   ];
 
@@ -38,41 +38,31 @@ export default function FaqSection({ isDark }) {
   };
 
   return (
-    <section id="faq" className={`py-20 px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto border-t ${
-      isDark ? 'border-white/5' : 'border-slate-200/80'
-    }`}>
+    <section id="faq" className="py-16 px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto border-t border-zinc-900">
       {/* Header */}
-      <div className="text-center max-w-2xl mx-auto mb-12">
-        <div className={`inline-flex items-center gap-2 px-3.5 py-1 rounded-full text-xs font-mono font-medium mb-4 border ${
-          isDark 
-            ? 'bg-[#18181C] border-[#E6C687]/30 text-[#E6C687]' 
-            : 'bg-slate-100 border-slate-200 text-slate-800'
-        }`}>
-          <HelpCircle className="w-3.5 h-3.5" />
-          <span className="uppercase tracking-wider">Enterprise Inquiries &bull; FAQ</span>
+      <div className="text-center max-w-2xl mx-auto mb-10">
+        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-[11px] font-mono mb-3 bg-zinc-900 border border-zinc-800 text-zinc-300">
+          <HelpCircle className="w-3.5 h-3.5 text-zinc-400" />
+          <span className="uppercase tracking-wider">Frequently Asked Questions</span>
         </div>
         
-        <h2 className={`text-3xl sm:text-4xl font-bold tracking-tight font-display mb-3 ${
-          isDark ? 'text-white' : 'text-slate-900'
-        }`}>
-          Frequently Asked Questions
+        <h2 className="text-2xl sm:text-4xl font-bold tracking-tight text-white font-display mb-2">
+          Questions &amp; Architectural Clarity
         </h2>
-        <p className={`text-sm leading-relaxed ${isDark ? 'text-slate-400' : 'text-slate-600'}`}>
-          Essential architectural, operational, and intellectual property details for prospective enterprise partners.
+        <p className="text-xs sm:text-sm text-zinc-400 leading-relaxed">
+          Essential details on code ownership, zero maintenance fees, and technical delivery.
         </p>
       </div>
 
       {/* Accordion */}
-      <div className="space-y-3">
+      <div className="space-y-2.5">
         {faqs.map((faq, idx) => {
           const isOpen = openIdx === idx;
           return (
             <div
               key={idx}
               className={`rounded-xl border transition-all ${
-                isDark 
-                  ? isOpen ? 'bg-[#161619] border-white/15' : 'bg-[#121214] border-white/5 hover:border-white/10'
-                  : isOpen ? 'bg-white border-blue-200 shadow-sm' : 'bg-slate-50 border-slate-200/80 hover:bg-white'
+                isOpen ? 'bg-zinc-950 border-zinc-700 shadow-md' : 'bg-[#0E0E12] border-zinc-800/80 hover:border-zinc-700'
               }`}
             >
               <button
@@ -80,22 +70,18 @@ export default function FaqSection({ isDark }) {
                 className="w-full py-4 px-5 text-left flex items-center justify-between gap-4 cursor-pointer"
                 aria-expanded={isOpen}
               >
-                <span className={`font-semibold text-sm ${
-                  isDark ? (isOpen ? 'text-[#E6C687]' : 'text-slate-200') : (isOpen ? 'text-blue-700' : 'text-slate-900')
-                }`}>
+                <span className={`font-semibold text-xs sm:text-sm ${isOpen ? 'text-white' : 'text-zinc-300'}`}>
                   {faq.q}
                 </span>
                 <ChevronDown
-                  className={`w-4 h-4 shrink-0 transition-transform duration-200 ${
-                    isOpen ? 'rotate-180 text-luxury-gold' : 'text-slate-400'
+                  className={`w-4 h-4 shrink-0 transition-transform duration-200 text-zinc-400 ${
+                    isOpen ? 'rotate-180 text-white' : ''
                   }`}
                 />
               </button>
 
               {isOpen && (
-                <div className={`px-5 pb-5 pt-1 text-xs sm:text-sm leading-relaxed border-t ${
-                  isDark ? 'text-slate-300 border-white/5' : 'text-slate-600 border-slate-100'
-                }`}>
+                <div className="px-5 pb-5 pt-1 text-xs sm:text-sm leading-relaxed border-t border-zinc-800/80 text-zinc-400">
                   {faq.a}
                 </div>
               )}
@@ -105,15 +91,13 @@ export default function FaqSection({ isDark }) {
       </div>
 
       {/* WhatsApp Help CTA */}
-      <div className={`mt-10 p-5 rounded-xl border text-center flex flex-col sm:flex-row items-center justify-between gap-4 ${
-        isDark ? 'bg-[#141417] border-white/5' : 'bg-slate-50 border-slate-200'
-      }`}>
+      <div className="mt-8 p-5 rounded-xl border border-zinc-800 bg-zinc-950 flex flex-col sm:flex-row items-center justify-between gap-4">
         <div className="text-left">
-          <div className={`font-semibold text-xs sm:text-sm ${isDark ? 'text-white' : 'text-slate-900'}`}>
-            Have specialized technical or multi-product requirements?
+          <div className="font-semibold text-xs sm:text-sm text-white">
+            Have custom technical or e-commerce requirements?
           </div>
-          <div className={`text-xs ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>
-            Our principal engineering team is available for real-time consultation.
+          <div className="text-xs text-zinc-400">
+            Our engineering desk is available for real-time consultation.
           </div>
         </div>
         <a
@@ -121,9 +105,9 @@ export default function FaqSection({ isDark }) {
           target="_blank"
           rel="noopener noreferrer"
           onClick={() => playCyberTone('click')}
-          className="inline-flex items-center gap-2 px-4 py-2.5 rounded-lg bg-[#25D366] hover:bg-[#20BA5A] text-white font-mono text-xs font-semibold shrink-0 transition-all shadow-xs cursor-pointer"
+          className="inline-flex items-center gap-2 px-4 py-2.5 rounded-lg bg-zinc-900 hover:bg-zinc-800 border border-zinc-700 text-white font-mono text-xs font-semibold shrink-0 transition-all shadow-xs cursor-pointer"
         >
-          <MessageCircle className="w-3.5 h-3.5" />
+          <MessageCircle className="w-3.5 h-3.5 text-emerald-400 fill-current" />
           <span>WhatsApp</span>
         </a>
       </div>

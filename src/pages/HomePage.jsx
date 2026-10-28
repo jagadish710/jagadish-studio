@@ -1,9 +1,8 @@
 import React from 'react';
 import Hero from '../components/Hero';
+import InteractiveLiveShowcase from '../components/InteractiveLiveShowcase';
 import InteractiveCardsSection from '../components/InteractiveCardsSection';
-import MercuryHeritageSection from '../components/MercuryHeritageSection';
 import ComparisonSection from '../components/ComparisonSection';
-import AdminPortalDemo from '../components/AdminPortalDemo';
 import PricingPhilosophy from '../components/PricingPhilosophy';
 import FaqSection from '../components/FaqSection';
 
@@ -13,8 +12,8 @@ export default function HomePage({
   isDark 
 }) {
   return (
-    <div className="space-y-6">
-      {/* 1. Hero Section: Premium Website Solutions & Mercury Tagline */}
+    <div className="space-y-12">
+      {/* 1. Hero: Minimalist Headline & Immediate Value */}
       <Hero
         isDark={isDark}
         onOpenPrototypeModal={onOpenPrototypeModal}
@@ -28,28 +27,27 @@ export default function HomePage({
         }}
       />
 
-      {/* 2. Interactive 3D Flip Cards: The 4 Core Website Solutions (Champagne Gold + Obsidian) */}
+      {/* 2. Visuals Speak First: Interactive Live Workstation / Prototype Showcase */}
+      <InteractiveLiveShowcase
+        onOpenPrototypeModal={onOpenPrototypeModal}
+      />
+
+      {/* 3. The 4 Website Solutions (Sleek Black/Charcoal with 3D Flip Cards) */}
       <InteractiveCardsSection
         isDark={isDark}
         onOpenPrototypeModal={onOpenPrototypeModal}
       />
 
-      {/* 3. The Spirit of Mercury: புதன் (Budhan) & பாதரசம் (Paatharasam) Heritage */}
-      <MercuryHeritageSection isDark={isDark} />
-
-      {/* 4. Comparison Section: Modern Architecture vs Outdated Agency Retainers */}
+      {/* 4. Comparison Matrix: Merqurie Engineering vs Legacy Agencies */}
       <ComparisonSection isDark={isDark} />
 
-      {/* 5. Self-Service Executive Admin Cockpit Sandbox */}
-      <AdminPortalDemo isDark={isDark} />
-
-      {/* 6. Transparent Pricing Philosophy (Zero Maintenance Retainers) */}
+      {/* 5. Transparent Milestone Pricing (Zero Recurring Retainers) */}
       <PricingPhilosophy
         isDark={isDark}
         onOpenPrototypeModal={onOpenPrototypeModal}
       />
 
-      {/* 7. Frequently Asked Questions */}
+      {/* 6. Frequently Asked Questions */}
       <FaqSection isDark={isDark} />
     </div>
   );

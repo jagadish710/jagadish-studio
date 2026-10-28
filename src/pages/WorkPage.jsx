@@ -93,28 +93,17 @@ export default function WorkPage({ isDark, onOpenPrototypeModal }) {
         animate={{ opacity: 1, y: 0 }}
         className="text-center max-w-3xl mx-auto mb-16"
       >
-        <div className={`inline-flex items-center gap-2 px-3.5 py-1 rounded-full text-xs font-mono font-medium mb-4 border ${
-          isDark 
-            ? 'bg-[#18181C] border-[#E6C687]/30 text-[#E6C687]' 
-            : 'bg-slate-100 border-slate-200 text-slate-800'
-        }`}>
-          <Award className="w-3.5 h-3.5" />
+        <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full text-xs font-mono font-medium mb-4 border bg-zinc-900 border-zinc-800 text-zinc-300">
+          <Award className="w-3.5 h-3.5 text-zinc-400" />
           <span>VERIFIED PRODUCTION DEPLOYMENTS &bull; 100+ SYSTEMS</span>
         </div>
 
-        <h1 className="text-4xl sm:text-6xl font-bold tracking-tight font-display mb-4 leading-tight">
-          <span className={isDark ? 'text-white' : 'text-slate-900'}>
-            Production Deployments
-          </span>
-          <br />
-          <span className={isDark ? 'text-[#E6C687]' : 'text-blue-700'}>
-            Proven At Scale.
-          </span>
+        <h1 className="text-4xl sm:text-6xl font-bold tracking-tight font-display mb-4 leading-tight text-white">
+          Production Deployments.<br />
+          <span className="text-zinc-400">Proven At Scale.</span>
         </h1>
 
-        <p className={`text-base sm:text-lg max-w-2xl mx-auto leading-relaxed ${
-          isDark ? 'text-slate-400' : 'text-slate-600'
-        }`}>
+        <p className="text-base sm:text-lg max-w-2xl mx-auto leading-relaxed text-zinc-400">
           Over 100 production systems engineered and deployed worldwide. Explore active platforms powering sports academies, industrial operations, and enterprise workflows.
         </p>
 
@@ -125,11 +114,7 @@ export default function WorkPage({ isDark, onOpenPrototypeModal }) {
               playCyberTone('click');
               onOpenPrototypeModal();
             }}
-            className={`px-6 py-3 rounded-xl font-semibold font-mono text-xs tracking-wider flex items-center gap-2 transition-all hover:scale-[1.02] active:scale-[0.98] cursor-pointer ${
-              isDark
-                ? 'bg-gradient-to-r from-luxury-gold to-amber-300 text-black'
-                : 'bg-slate-900 hover:bg-slate-800 text-white shadow-xs'
-            }`}
+            className="px-6 py-3 rounded-xl font-semibold font-mono text-xs tracking-wider flex items-center gap-2 transition-all hover:scale-[1.02] active:scale-[0.98] cursor-pointer bg-white hover:bg-zinc-200 text-zinc-950 shadow-sm"
           >
             <span>DISCUSS SIMILAR ARCHITECTURE</span>
             <ArrowRight className="w-3.5 h-3.5" />
@@ -140,13 +125,9 @@ export default function WorkPage({ isDark, onOpenPrototypeModal }) {
             target="_blank"
             rel="noopener noreferrer"
             onClick={() => playCyberTone('click')}
-            className={`inline-flex items-center gap-2 px-5 py-3 rounded-xl border font-mono text-xs font-semibold transition-all cursor-pointer ${
-              isDark
-                ? 'bg-[#18181C] text-white border-white/10 hover:bg-[#202026]'
-                : 'bg-white text-slate-800 border-slate-200 hover:bg-slate-50 shadow-xs'
-            }`}
+            className="inline-flex items-center gap-2 px-5 py-3 rounded-xl border font-mono text-xs font-semibold transition-all cursor-pointer bg-zinc-900 hover:bg-zinc-800 border-zinc-700 text-white"
           >
-            <MessageCircle className="w-4 h-4 text-[#25D366]" />
+            <MessageCircle className="w-4 h-4 text-emerald-400 fill-current" />
             <span>WhatsApp</span>
           </a>
         </div>
@@ -163,42 +144,34 @@ export default function WorkPage({ isDark, onOpenPrototypeModal }) {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.4, delay: idx * 0.1 }}
-              className={`p-6 sm:p-10 rounded-2xl border transition-all ${
-                isDark 
-                  ? 'bg-[#151518] border-white/10 hover:border-white/20' 
-                  : 'bg-white border-slate-200/90 hover:border-slate-300 shadow-sm'
-              }`}
+              className="p-6 sm:p-10 rounded-2xl border transition-all bg-[#0e0e12] border-zinc-800 hover:border-zinc-700 shadow-xl"
             >
               <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
                 
                 {/* Details */}
                 <div className="lg:col-span-8 space-y-4">
                   <div className="flex flex-wrap items-center gap-2.5">
-                    <span className={`text-[10px] font-mono font-bold tracking-wider uppercase px-2.5 py-0.5 rounded border ${
-                      isDark 
-                        ? 'bg-black/30 text-[#E6C687] border-[#E6C687]/20' 
-                        : 'bg-blue-50 text-blue-700 border-blue-200'
-                    }`}>
+                    <span className="text-[10px] font-mono font-bold tracking-wider uppercase px-2.5 py-0.5 rounded border bg-zinc-900 text-zinc-300 border-zinc-800">
                       {project.division}
                     </span>
-                    <span className={`text-xs font-mono ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>
+                    <span className="text-xs font-mono text-zinc-400">
                       {project.client}
                     </span>
                   </div>
 
-                  <h3 className={`text-2xl sm:text-3xl font-bold font-display ${isDark ? 'text-white' : 'text-slate-900'}`}>
+                  <h3 className="text-2xl sm:text-3xl font-bold font-display text-white">
                     {project.title}
                   </h3>
 
-                  <p className={`text-xs sm:text-sm leading-relaxed ${isDark ? 'text-slate-400' : 'text-slate-600'}`}>
+                  <p className="text-xs sm:text-sm leading-relaxed text-zinc-400">
                     {project.summary}
                   </p>
 
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 pt-2">
                     {project.deliverables.map((d, dIdx) => (
                       <div key={dIdx} className="flex items-start gap-2 text-xs">
-                        <CheckCircle2 className={`w-3.5 h-3.5 shrink-0 mt-0.5 ${isDark ? 'text-[#E6C687]' : 'text-blue-600'}`} />
-                        <span className={isDark ? 'text-slate-300' : 'text-slate-700'}>{d}</span>
+                        <CheckCircle2 className="w-3.5 h-3.5 shrink-0 mt-0.5 text-emerald-400" />
+                        <span className="text-zinc-300">{d}</span>
                       </div>
                     ))}
                   </div>
@@ -209,9 +182,7 @@ export default function WorkPage({ isDark, onOpenPrototypeModal }) {
                         href={project.liveUrl}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className={`inline-flex items-center gap-1.5 text-xs font-mono font-semibold transition-colors ${
-                          isDark ? 'text-luxury-gold hover:text-white' : 'text-blue-700 hover:text-blue-900'
-                        }`}
+                        className="inline-flex items-center gap-1.5 text-xs font-mono font-semibold transition-colors text-white hover:text-zinc-300 underline underline-offset-4"
                       >
                         <span>Visit Live Platform ({project.domain})</span>
                         <ExternalLink className="w-3.5 h-3.5" />
@@ -221,26 +192,24 @@ export default function WorkPage({ isDark, onOpenPrototypeModal }) {
                 </div>
 
                 {/* Metrics */}
-                <div className={`lg:col-span-4 p-6 rounded-xl border flex flex-col justify-between ${
-                  isDark ? 'bg-[#111113] border-white/5' : 'bg-slate-50 border-slate-200'
-                }`}>
-                  <div className="flex items-center justify-between pb-3 mb-4 border-b border-black/5 dark:border-white/5">
-                    <span className={`text-xs font-mono font-semibold ${isDark ? 'text-slate-300' : 'text-slate-700'}`}>
+                <div className="lg:col-span-4 p-6 rounded-xl border border-zinc-800 bg-zinc-950 flex flex-col justify-between">
+                  <div className="flex items-center justify-between pb-3 mb-4 border-b border-zinc-800">
+                    <span className="text-xs font-mono font-semibold text-zinc-300">
                       SYSTEM BENCHMARKS
                     </span>
-                    <Icon className={`w-4 h-4 ${isDark ? 'text-[#E6C687]' : 'text-blue-600'}`} />
+                    <Icon className="w-4 h-4 text-zinc-400" />
                   </div>
 
                   <div className="space-y-3">
                     {project.metrics.map((m, mIdx) => (
                       <div key={mIdx} className="flex items-center justify-between text-xs">
-                        <span className={isDark ? 'text-slate-400' : 'text-slate-500'}>{m.label}</span>
-                        <span className={`font-mono font-bold ${isDark ? 'text-[#E6C687]' : 'text-slate-900'}`}>{m.val}</span>
+                        <span className="text-zinc-400">{m.label}</span>
+                        <span className="font-mono font-bold text-white">{m.val}</span>
                       </div>
                     ))}
                   </div>
 
-                  <div className="mt-5 pt-4 border-t border-black/5 dark:border-white/5 text-[11px] text-slate-500">
+                  <div className="mt-5 pt-4 border-t border-zinc-800 text-[11px] font-mono text-zinc-500">
                     Engineered &bull; Deployed &bull; Zero Recurring Fees
                   </div>
                 </div>

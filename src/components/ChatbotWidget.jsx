@@ -55,10 +55,10 @@ export default function ChatbotWidget({ isOpen, setIsOpen, isDark }) {
     }
 
     if (q.includes('start') || q.includes('enquir') || q.includes('contact') || q.includes('hire')) {
-      return "To discuss your technology requirements, you can click 'Consultation' in the navigation bar or message our engineering desk directly on WhatsApp (+91 73586 18789).";
+      return "To discuss your technology requirements, you can click 'Consultation' in the navigation bar or message our engineering desk directly on WhatsApp.";
     }
 
-    return "Thank you for reaching out to Merqurie Group. We architect high-performance cloud platforms, vertical SaaS, and custom software with zero maintenance fees and full IP sovereignty. Would you like to connect directly on WhatsApp (+91 73586 18789)?";
+    return "Thank you for reaching out to Merqurie Group. We architect high-performance cloud platforms, vertical SaaS, and custom software with zero maintenance fees and full IP sovereignty. Would you like to connect directly on WhatsApp?";
   };
 
   const handleSendMessage = (textToSend) => {
@@ -258,10 +258,10 @@ export default function ChatbotWidget({ isOpen, setIsOpen, isDark }) {
               <Send className="w-3.5 h-3.5" />
             </button>
             <a
-              href="https://wa.me/917358618789?text=Hi%20Jagadish!%20I%20am%20chatting%20from%20your%20website%20AI%20and%20want%20to%20connect."
+              href="https://wa.me/917358618789?text=Hi%20Merqurie%20Team!%20I%20am%20chatting%20from%20your%20website%20AI%20and%20want%20to%20connect."
               target="_blank"
               rel="noopener noreferrer"
-              className="p-2 rounded-xl bg-[#25D366] text-white hover:bg-[#20BA5A] cursor-pointer"
+              className="p-2 rounded-xl bg-zinc-800 text-emerald-400 hover:bg-zinc-700 border border-zinc-700 cursor-pointer"
               title="Chat directly on WhatsApp"
             >
               <MessageCircle className="w-3.5 h-3.5 fill-current" />

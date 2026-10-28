@@ -48,64 +48,46 @@ export default function ComparisonSection({ isDark }) {
   ];
 
   return (
-    <section id="why-solutions" className={`py-20 px-4 sm:px-6 lg:px-8 relative z-10 border-t ${
-      isDark ? 'border-white/5 bg-[#101012]' : 'border-slate-200/80 bg-[#F8FAFC]'
-    }`}>
+    <section id="why-solutions" className="py-16 px-4 sm:px-6 lg:px-8 relative z-10 border-t border-zinc-900 bg-[#09090b]">
       <div className="max-w-6xl mx-auto">
         
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-14">
-          <div className={`inline-flex items-center gap-2 px-3.5 py-1 rounded-full text-xs font-mono font-medium mb-4 border ${
-            isDark 
-              ? 'bg-[#18181C] border-[#E6C687]/30 text-[#E6C687]' 
-              : 'bg-slate-100 border-slate-200 text-slate-800'
-          }`}>
-            <ShieldCheck className="w-3.5 h-3.5" />
+        <div className="text-center max-w-3xl mx-auto mb-12">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-[11px] font-mono mb-3 bg-zinc-900 border border-zinc-800 text-zinc-300">
+            <ShieldCheck className="w-3.5 h-3.5 text-zinc-400" />
             <span className="uppercase tracking-wider">Architectural Comparison</span>
           </div>
 
-          <h2 className={`text-3xl sm:text-5xl font-bold tracking-tight font-display mb-4 ${
-            isDark ? 'text-white' : 'text-slate-900'
-          }`}>
-            The Merqurie Standard <br />
-            <span className={isDark ? 'text-[#E6C687]' : 'text-blue-700'}>
-              vs. Legacy Web Agencies
-            </span>
+          <h2 className="text-2xl sm:text-4xl font-bold tracking-tight text-white font-display mb-3">
+            The Merqurie Standard{' '}
+            <span className="text-zinc-400">vs. Legacy Web Agencies</span>
           </h2>
-          <p className={`text-sm sm:text-base leading-relaxed ${
-            isDark ? 'text-slate-400' : 'text-slate-600'
-          }`}>
+          <p className="text-xs sm:text-sm text-zinc-400 max-w-xl mx-auto leading-relaxed">
             How our decoupled, serverless engineering foundation fundamentally replaces slow retainer models with permanent operational leverage.
           </p>
         </div>
 
         {/* 2-Column Comparison Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
           
           {/* Legacy Agencies Card */}
-          <div className={`p-6 sm:p-8 rounded-2xl border ${
-            isDark 
-              ? 'bg-[#141416]/70 border-red-500/15' 
-              : 'bg-white border-red-100 shadow-xs'
-          }`}>
-            <div className="flex items-center gap-2.5 pb-4 mb-6 border-b border-red-500/10">
-              <XCircle className="w-5 h-5 text-red-500" />
-              <h3 className={`font-mono text-xs font-bold uppercase tracking-wider ${
-                isDark ? 'text-red-400' : 'text-red-600'
-              }`}>
+          <div className="p-6 sm:p-7 rounded-2xl border border-zinc-800/80 bg-zinc-950/60">
+            <div className="flex items-center gap-2.5 pb-3 mb-5 border-b border-zinc-800">
+              <XCircle className="w-4 h-4 text-zinc-500" />
+              <h3 className="font-mono text-xs font-bold uppercase tracking-wider text-zinc-400">
                 Legacy Agency Retainer Model
               </h3>
             </div>
 
-            <div className="space-y-6">
+            <div className="space-y-5">
               {legacyApproaches.map((item, idx) => (
-                <div key={idx} className="flex items-start gap-3.5">
-                  <span className="text-red-500/80 font-mono text-xs font-bold mt-0.5">0{idx + 1}.</span>
+                <div key={idx} className="flex items-start gap-3">
+                  <span className="text-zinc-600 font-mono text-xs font-bold mt-0.5">0{idx + 1}.</span>
                   <div>
-                    <h4 className={`text-sm font-semibold mb-1 ${isDark ? 'text-slate-200' : 'text-slate-900'}`}>
+                    <h4 className="text-sm font-semibold mb-1 text-zinc-300">
                       {item.title}
                     </h4>
-                    <p className={`text-xs leading-relaxed ${isDark ? 'text-slate-400' : 'text-slate-600'}`}>
+                    <p className="text-xs leading-relaxed text-zinc-500">
                       {item.desc}
                     </p>
                   </div>
@@ -115,31 +97,23 @@ export default function ComparisonSection({ isDark }) {
           </div>
 
           {/* Merqurie Standard Card */}
-          <div className={`p-6 sm:p-8 rounded-2xl border ${
-            isDark 
-              ? 'bg-[#151518] border-[#E6C687]/30 shadow-lg' 
-              : 'bg-white border-blue-200/80 shadow-sm'
-          }`}>
-            <div className="flex items-center gap-2.5 pb-4 mb-6 border-b border-black/5 dark:border-white/5">
-              <CheckCircle2 className={`w-5 h-5 ${isDark ? 'text-[#E6C687]' : 'text-blue-600'}`} />
-              <h3 className={`font-mono text-xs font-bold uppercase tracking-wider ${
-                isDark ? 'text-[#E6C687]' : 'text-blue-700'
-              }`}>
+          <div className="p-6 sm:p-7 rounded-2xl border border-zinc-700 bg-[#0e0e12] shadow-xl">
+            <div className="flex items-center gap-2.5 pb-3 mb-5 border-b border-zinc-800">
+              <CheckCircle2 className="w-4 h-4 text-emerald-400" />
+              <h3 className="font-mono text-xs font-bold uppercase tracking-wider text-white">
                 The Merqurie Engineering Standard
               </h3>
             </div>
 
-            <div className="space-y-6">
+            <div className="space-y-5">
               {merqurieStandard.map((item, idx) => (
-                <div key={idx} className="flex items-start gap-3.5">
-                  <span className={`font-mono text-xs font-bold mt-0.5 ${
-                    isDark ? 'text-[#E6C687]' : 'text-blue-600'
-                  }`}>0{idx + 1}.</span>
+                <div key={idx} className="flex items-start gap-3">
+                  <span className="font-mono text-xs font-bold mt-0.5 text-zinc-400">0{idx + 1}.</span>
                   <div>
-                    <h4 className={`text-sm font-semibold mb-1 ${isDark ? 'text-white' : 'text-slate-900'}`}>
+                    <h4 className="text-sm font-semibold mb-1 text-white">
                       {item.title}
                     </h4>
-                    <p className={`text-xs leading-relaxed ${isDark ? 'text-slate-300' : 'text-slate-600'}`}>
+                    <p className="text-xs leading-relaxed text-zinc-400">
                       {item.desc}
                     </p>
                   </div>

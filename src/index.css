@@ -11,8 +11,8 @@
   
   /* Dark Mode Default */
   html.dark, body.dark {
-    background-color: #121212;
-    color: #EAEAEA;
+    background-color: #08080A;
+    color: #EDEDED;
     font-family: 'Inter', system-ui, -apple-system, sans-serif;
     overflow-x: hidden;
   }

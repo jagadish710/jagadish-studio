@@ -86,12 +86,59 @@ export default function MetricsDashboard({ isDark = true, onOpenPrototypeModal }
       isDark ? 'bg-[#060608]' : 'bg-slate-50/70'
     }`}>
       
-      {/* Cinematic Planet-Horizon Curved Electric Blue Light (From themaxgrowth aesthetic) */}
-      <div className="absolute inset-x-0 bottom-0 h-64 sm:h-96 pointer-events-none overflow-hidden z-0">
-        <div className="absolute inset-x-0 bottom-0 h-full horizon-glow-blue opacity-80" />
-        <div className="absolute inset-x-0 bottom-0 h-1/2 horizon-glow-cyan opacity-60" />
-        {/* Fine Curved Horizon Laser Line */}
-        <div className="absolute bottom-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-cyan-400 to-transparent opacity-80 shadow-[0_0_15px_#22d3ee]" />
+      {/* Cinematic SVG Planet-Horizon Curved Electric Blue Light Arc (themaxgrowth style) */}
+      <div className="absolute inset-x-0 bottom-0 pointer-events-none overflow-hidden h-48 sm:h-72 z-0">
+        <svg 
+          viewBox="0 0 1440 220" 
+          fill="none" 
+          xmlns="http://www.w3.org/2000/svg"
+          className="w-full h-full"
+          preserveAspectRatio="none"
+        >
+          <defs>
+            <linearGradient id="metricBeamGrad" x1="0%" y1="100%" x2="100%" y2="100%">
+              <stop offset="0%" stopColor="#06b6d4" stopOpacity="0" />
+              <stop offset="20%" stopColor="#06b6d4" stopOpacity="0.6" />
+              <stop offset="50%" stopColor="#38bdf8" stopOpacity="1" />
+              <stop offset="80%" stopColor="#3b82f6" stopOpacity="0.6" />
+              <stop offset="100%" stopColor="#3b82f6" stopOpacity="0" />
+            </linearGradient>
+            <filter id="metricHalo" x="-20%" y="-50%" width="140%" height="200%">
+              <feGaussianBlur stdDeviation="8" result="blur1" />
+              <feGaussianBlur stdDeviation="22" result="blur2" />
+              <feMerge>
+                <feMergeNode in="blur2" />
+                <feMergeNode in="blur1" />
+                <feMergeNode in="SourceGraphic" />
+              </feMerge>
+            </filter>
+            <radialGradient id="metricPlanetGlow" cx="50%" cy="100%" r="50%">
+              <stop offset="0%" stopColor="#06b6d4" stopOpacity="0.38" />
+              <stop offset="50%" stopColor="#2563eb" stopOpacity="0.16" />
+              <stop offset="100%" stopColor="transparent" stopOpacity="0" />
+            </radialGradient>
+          </defs>
+          
+          {/* Planetary Glow Body */}
+          <path 
+            d="M 0 220 Q 720 30 1440 220 L 1440 220 L 0 220 Z" 
+            fill="url(#metricPlanetGlow)" 
+          />
+          
+          {/* Glowing Horizon Curve Arc */}
+          <path 
+            d="M 0 220 Q 720 30 1440 220" 
+            stroke="url(#metricBeamGrad)" 
+            strokeWidth="4" 
+            filter="url(#metricHalo)"
+          />
+          <path 
+            d="M 0 220 Q 720 30 1440 220" 
+            stroke="#ffffff" 
+            strokeWidth="1.2" 
+            strokeOpacity="0.8"
+          />
+        </svg>
       </div>
 
       <div className="max-w-6xl mx-auto relative z-10">

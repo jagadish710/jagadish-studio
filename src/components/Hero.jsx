@@ -22,6 +22,8 @@ export default function Hero({
 
   const showcases = {
     website: {
+      headline: 'A Website Built to Win Trust, Leads, and Sales.',
+      subtext: 'We build high-speed digital storefronts that communicate your value clearly, answer prospect questions, and turn visitors into instant WhatsApp inquiries.',
       title: 'High-Converting Business Storefront',
       speed: '0.24s Google PageSpeed',
       desc: 'Edge-rendered digital platform built to turn visitors into inquiries via direct WhatsApp routing.',
@@ -30,6 +32,8 @@ export default function Hero({
       client: 'Live Production: upskskarate.com',
     },
     admin: {
+      headline: '10-Second Text & Price Edits. Zero Agency Retainers.',
+      subtext: 'Manage headlines, product pricing, and announcements directly from your phone in seconds. Never pay an agency a monthly retainer or wait days for basic edits.',
       title: 'Self-Serve Visual Admin Cockpit',
       speed: '10s Instant Edit Latency',
       desc: 'Update headlines, prices, announcements, and catalog items directly from your mobile phone with zero developer dependency.',
@@ -38,6 +42,8 @@ export default function Hero({
       client: 'Visual Content Management',
     },
     ecommerce: {
+      headline: 'Instant WhatsApp Order Flow & Product Catalogs.',
+      subtext: 'Direct one-tap WhatsApp purchase orders with dynamic spec configurator, sub-second checkout, and zero third-party plugin bloat.',
       title: 'Interactive E-Commerce & Product Catalog',
       speed: 'Sub-second Checkout Flow',
       desc: 'Instant one-tap WhatsApp order flow with dynamic spec configurator and inventory management.',
@@ -46,6 +52,8 @@ export default function Hero({
       client: 'Direct WhatsApp Commerce',
     },
     industrial: {
+      headline: 'Industrial Machinery & B2B Specification Portals.',
+      subtext: 'Live heavy packaging machinery portal with instant RFQ lead routing and visual catalog management, proven at pmssolution.co.in.',
       title: 'Industrial Heavy Machinery & Equipment Portal',
       speed: '0.28s Multi-Channel Lead Routing',
       desc: 'Live high-volume packaging machinery portal with instant RFQ lead routing and visual catalog management.',
@@ -72,11 +80,60 @@ export default function Hero({
             isDark ? 'bg-blue-950/25' : 'bg-slate-200/50'
           }`}
         />
-        {/* Cinematic Electric Blue Horizon Arc Glow at Bottom */}
-        <div className="absolute inset-x-0 bottom-0 h-48 sm:h-72 pointer-events-none overflow-hidden">
-          <div className="absolute inset-x-0 bottom-0 h-full horizon-glow-blue opacity-70" />
-          <div className="absolute inset-x-0 bottom-0 h-1/2 horizon-glow-cyan opacity-50" />
-          <div className="absolute bottom-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-cyan-400 to-transparent opacity-60 shadow-[0_0_12px_#38bdf8]" />
+        {/* Cinematic SVG Curved Planet Horizon Arc (Exact curvature & glow from themaxgrowth) */}
+        <div className="absolute inset-x-0 bottom-0 pointer-events-none overflow-hidden h-40 sm:h-64 z-0">
+          <svg 
+            viewBox="0 0 1440 220" 
+            fill="none" 
+            xmlns="http://www.w3.org/2000/svg"
+            className="w-full h-full"
+            preserveAspectRatio="none"
+          >
+            <defs>
+              <linearGradient id="planetBeamGrad" x1="0%" y1="100%" x2="100%" y2="100%">
+                <stop offset="0%" stopColor="#06b6d4" stopOpacity="0" />
+                <stop offset="20%" stopColor="#06b6d4" stopOpacity="0.6" />
+                <stop offset="50%" stopColor="#38bdf8" stopOpacity="1" />
+                <stop offset="80%" stopColor="#3b82f6" stopOpacity="0.6" />
+                <stop offset="100%" stopColor="#3b82f6" stopOpacity="0" />
+              </linearGradient>
+              <filter id="planetHalo" x="-20%" y="-50%" width="140%" height="200%">
+                <feGaussianBlur stdDeviation="8" result="blur1" />
+                <feGaussianBlur stdDeviation="20" result="blur2" />
+                <feMerge>
+                  <feMergeNode in="blur2" />
+                  <feMergeNode in="blur1" />
+                  <feMergeNode in="SourceGraphic" />
+                </feMerge>
+              </filter>
+              <radialGradient id="planetCurvatureGlow" cx="50%" cy="100%" r="50%">
+                <stop offset="0%" stopColor="#06b6d4" stopOpacity="0.35" />
+                <stop offset="50%" stopColor="#2563eb" stopOpacity="0.14" />
+                <stop offset="100%" stopColor="transparent" stopOpacity="0" />
+              </radialGradient>
+            </defs>
+            
+            {/* Atmospheric Planet Curve Glow */}
+            <path 
+              d="M 0 220 Q 720 35 1440 220 L 1440 220 L 0 220 Z" 
+              fill="url(#planetCurvatureGlow)" 
+            />
+            
+            {/* Glowing Outer Horizon Arc */}
+            <path 
+              d="M 0 220 Q 720 35 1440 220" 
+              stroke="url(#planetBeamGrad)" 
+              strokeWidth="4" 
+              filter="url(#planetHalo)"
+            />
+            {/* Razor Sharp Crisp Rim Light */}
+            <path 
+              d="M 0 220 Q 720 35 1440 220" 
+              stroke="#ffffff" 
+              strokeWidth="1.2" 
+              strokeOpacity="0.8"
+            />
+          </svg>
         </div>
 
         {/* Subtle Sci-Fi Perspective Grid */}
@@ -107,32 +164,29 @@ export default function Hero({
           <span className="tracking-widest uppercase">MERQURIE &bull; ENTERPRISE WEBSITE ARCHITECTURE</span>
         </motion.div>
 
-        {/* Headline: Mobile-Optimized with Reduced Font Size & High Legibility */}
-        <motion.h1
-          initial={{ opacity: 0, y: 16 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.08, ease: [0.16, 1, 0.3, 1] }}
-          className={`text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight font-display leading-[1.15] mb-3 sm:mb-4 max-w-3xl ${
-            isDark ? 'text-white' : 'text-slate-950'
-          }`}
-        >
-          High-Converting Websites.{' '}
-          <span className={isDark ? 'text-zinc-400' : 'text-slate-500'}>
-            Zero Maintenance Retainers.
-          </span>
-        </motion.h1>
+        {/* Dynamic Multi-Scene Animated Headline (themaxgrowth style) */}
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={activeShowcase}
+            initial={{ opacity: 0, y: 12, filter: 'blur(4px)' }}
+            animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
+            exit={{ opacity: 0, y: -12, filter: 'blur(4px)' }}
+            transition={{ duration: 0.4 }}
+            className="flex flex-col items-center"
+          >
+            <h1 className={`text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight font-display leading-[1.15] mb-3 sm:mb-4 max-w-3xl ${
+              isDark ? 'text-white' : 'text-slate-950'
+            }`}>
+              {current.headline}
+            </h1>
 
-        {/* Subtitle */}
-        <motion.p
-          initial={{ opacity: 0, y: 14 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.14, ease: [0.16, 1, 0.3, 1] }}
-          className={`max-w-xl text-xs sm:text-sm font-normal leading-relaxed mb-6 sm:mb-8 px-2 ${
-            isDark ? 'text-zinc-400' : 'text-slate-600'
-          }`}
-        >
-          Custom-engineered digital storefronts with sub-second mobile speed, a self-serve visual admin dashboard, and permanent code sovereignty. Pay once. Never pay monthly retainer fees.
-        </motion.p>
+            <p className={`max-w-xl text-xs sm:text-sm font-normal leading-relaxed mb-6 sm:mb-8 px-2 ${
+              isDark ? 'text-zinc-400' : 'text-slate-600'
+            }`}>
+              {current.subtext}
+            </p>
+          </motion.div>
+        </AnimatePresence>
 
         {/* CTA Buttons: Prominent Green WhatsApp & Blueprint */}
         <motion.div

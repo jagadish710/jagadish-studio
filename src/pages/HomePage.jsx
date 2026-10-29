@@ -6,6 +6,7 @@ import InteractiveLiveShowcase from '../components/InteractiveLiveShowcase';
 import MetricsDashboard from '../components/MetricsDashboard';
 import InteractiveCardsSection from '../components/InteractiveCardsSection';
 import FounderSpotlight from '../components/FounderSpotlight';
+import TrustedHeritage from '../components/TrustedHeritage';
 import ComparisonSection from '../components/ComparisonSection';
 import PricingPhilosophy from '../components/PricingPhilosophy';
 import FaqSection from '../components/FaqSection';
@@ -67,13 +68,19 @@ export default function HomePage({
         onOpenPrototypeModal={onOpenPrototypeModal} 
       />
 
-      {/* 9. Transparent Milestone Pricing (Zero Recurring Retainers) */}
+      {/* 9. Trusted By Growing Businesses (High-Contrast Human Partnership & 4 Core Pillars) */}
+      <TrustedHeritage
+        isDark={isDark}
+        onOpenPrototypeModal={onOpenPrototypeModal}
+      />
+
+      {/* 10. Transparent Milestone Pricing (Zero Recurring Retainers) */}
       <PricingPhilosophy
         isDark={isDark}
         onOpenPrototypeModal={onOpenPrototypeModal}
       />
 
-      {/* 10. Frequently Asked Questions */}
+      {/* 11. Frequently Asked Questions */}
       <FaqSection isDark={isDark} />
     </div>
   );

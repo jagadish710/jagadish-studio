@@ -58,20 +58,27 @@ export default function Hero({
   const current = showcases[activeShowcase];
 
   return (
-    <section className="relative pt-24 sm:pt-32 pb-12 sm:pb-16 flex flex-col justify-center items-center px-3 sm:px-6 lg:px-8 overflow-hidden">
+    <section className="relative pt-24 sm:pt-32 pb-14 sm:pb-20 flex flex-col justify-center items-center px-3 sm:px-6 lg:px-8 overflow-hidden">
       
-      {/* Background Animated Motion Grid & Ambient Video Shimmer */}
+      {/* Background Animated Motion Grid, Ambient Cyan/Blue Horizon Curve & Video Shimmer */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden z-0">
         <div 
           className={`absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[340px] sm:w-[700px] h-[340px] sm:h-[450px] rounded-full blur-[100px] sm:blur-[140px] pointer-events-none transition-opacity duration-700 ${
-            isDark ? 'bg-zinc-700/20' : 'bg-slate-300/40'
+            isDark ? 'bg-cyan-950/20' : 'bg-blue-100/40'
           }`}
         />
         <div 
           className={`absolute -bottom-20 right-10 w-[280px] sm:w-[500px] h-[280px] sm:h-[500px] rounded-full blur-[120px] pointer-events-none ${
-            isDark ? 'bg-emerald-950/20' : 'bg-emerald-100/40'
+            isDark ? 'bg-blue-950/25' : 'bg-slate-200/50'
           }`}
         />
+        {/* Cinematic Electric Blue Horizon Arc Glow at Bottom */}
+        <div className="absolute inset-x-0 bottom-0 h-48 sm:h-72 pointer-events-none overflow-hidden">
+          <div className="absolute inset-x-0 bottom-0 h-full horizon-glow-blue opacity-70" />
+          <div className="absolute inset-x-0 bottom-0 h-1/2 horizon-glow-cyan opacity-50" />
+          <div className="absolute bottom-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-cyan-400 to-transparent opacity-60 shadow-[0_0_12px_#38bdf8]" />
+        </div>
+
         {/* Subtle Sci-Fi Perspective Grid */}
         <div className={`absolute inset-0 opacity-[0.03] dark:opacity-[0.07] bg-[radial-gradient(#ffffff_1px,transparent_1px)] [background-size:24px_24px]`} />
       </div>

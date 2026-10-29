@@ -137,39 +137,93 @@ export default function AboutPage({ onOpenPrototypeModal, isDark = true }) {
         ))}
       </div>
 
-      {/* Leadership Profile Card */}
+      {/* Leadership Profile Card: Jagadish (4+ Years Experience) */}
       <motion.div 
         initial={{ opacity: 0, y: 30, filter: 'blur(4px)' }}
         whileInView={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
         viewport={{ once: true, margin: '-60px' }}
         transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-        className={`p-8 sm:p-12 rounded-2xl border ${
-          isDark ? 'border-zinc-800 bg-[#0E0E12] shadow-xl' : 'border-slate-200 bg-white shadow-lg'
+        className={`p-8 sm:p-12 rounded-3xl border ${
+          isDark 
+            ? 'border-zinc-800 bg-[#0E0E12] shadow-[0_0_35px_rgba(34,211,238,0.06)]' 
+            : 'border-slate-200 bg-white shadow-xl'
         }`}
       >
         <div className="flex flex-col md:flex-row items-center gap-8 text-center md:text-left">
-          <div className={`w-24 h-24 rounded-2xl flex items-center justify-center shrink-0 border ${
-            isDark ? 'bg-zinc-900 border-zinc-800 text-white' : 'bg-slate-100 border-slate-200 text-slate-950'
+          <div className={`w-28 h-28 rounded-3xl flex flex-col items-center justify-center shrink-0 border relative overflow-hidden group ${
+            isDark ? 'bg-zinc-900 border-zinc-800 text-cyan-400' : 'bg-slate-100 border-slate-200 text-blue-600'
           }`}>
-            <Cpu className="w-10 h-10 opacity-75" />
+            <div className="absolute inset-0 bg-gradient-to-tr from-cyan-500/10 to-transparent pointer-events-none" />
+            <Cpu className="w-10 h-10 mb-1" />
+            <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-emerald-400">4+ YRS EXP</span>
           </div>
 
-          <div className="space-y-2">
-            <span className={`text-xs font-mono font-semibold uppercase tracking-wider ${
-              isDark ? 'text-zinc-400' : 'text-slate-500'
-            }`}>
-              Engineering Leadership
-            </span>
-            <h4 className={`text-2xl font-bold font-display ${
+          <div className="space-y-3 flex-1">
+            <div className="flex flex-wrap items-center justify-center md:justify-start gap-2">
+              <span className={`text-xs font-mono font-bold uppercase tracking-wider px-2.5 py-0.5 rounded border ${
+                isDark ? 'bg-zinc-900 border-zinc-800 text-cyan-400' : 'bg-blue-50 border-blue-200 text-blue-700'
+              }`}>
+                Engineering Leadership
+              </span>
+              <span className="text-xs font-mono text-emerald-400 font-semibold">
+                &bull; 4+ Years Specialized Platform Experience
+              </span>
+            </div>
+
+            <h4 className={`text-2xl sm:text-3xl font-extrabold font-display ${
               isDark ? 'text-white' : 'text-slate-950'
             }`}>
               Jagadish &bull; Principal Architect &amp; Founder
             </h4>
+
             <p className={`text-xs sm:text-sm leading-relaxed max-w-2xl ${
-              isDark ? 'text-zinc-400' : 'text-slate-600'
+              isDark ? 'text-zinc-300' : 'text-slate-700'
             }`}>
-              With over 100 digital platforms delivered across India and internationally, Jagadish leads the engineering of Merqurie — building decoupled, lightning-speed website solutions with zero maintenance debt.
+              With <strong>over 4+ years of specialized web architecture and cloud software engineering</strong>, Jagadish founded Merqurie to end recurring agency retainer traps. By deploying decoupled frontend architectures on global edge networks with self-serve visual management dashboards, Jagadish has helped 100+ businesses achieve sub-0.3s page load speeds with zero monthly maintenance overheads.
             </p>
+
+            {/* Quick Metrics */}
+            <div className="flex flex-wrap items-center justify-center md:justify-start gap-4 pt-2 text-xs font-mono">
+              <span className={isDark ? 'text-zinc-400' : 'text-slate-600'}>
+                <strong className={isDark ? 'text-white' : 'text-slate-900'}>4+ Years</strong> in Full-Stack Web Architecture
+              </span>
+              <span className={isDark ? 'text-zinc-400' : 'text-slate-600'}>
+                <strong className={isDark ? 'text-white' : 'text-slate-900'}>100+</strong> Production Systems Built
+              </span>
+              <span className="text-emerald-400 font-bold">
+                ₹0 Maintenance Retainers
+              </span>
+            </div>
+
+            {/* Action Contact */}
+            <div className="pt-3 flex flex-wrap items-center justify-center md:justify-start gap-3">
+              <a
+                href="https://wa.me/917358618789?text=Hi%20Jagadish!%20I%20would%20like%20to%20consult%20with%20you%20directly%20regarding%20a%20website%20solution."
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => playCyberTone('click')}
+                className="px-5 py-2.5 rounded-xl font-mono text-xs font-bold flex items-center gap-2 bg-[#25D366] hover:bg-[#20bd5a] text-white shadow-md active:scale-95 transition-all cursor-pointer"
+              >
+                <WhatsAppIcon className="w-4 h-4 text-white fill-current" />
+                <span>Chat Directly with Jagadish</span>
+              </a>
+
+              <button
+                onClick={() => {
+                  playCyberTone('click');
+                  onOpenPrototypeModal();
+                }}
+                className={`px-5 py-2.5 rounded-xl font-mono text-xs font-bold flex items-center gap-2 border transition-all cursor-pointer active:scale-95 ${
+                  isDark 
+                    ? 'bg-zinc-900 border-zinc-700 text-white hover:bg-zinc-800' 
+                    : 'bg-white border-slate-300 text-slate-900 hover:bg-slate-50'
+                }`}
+              >
+                <span>Request Blueprint</span>
+                <ArrowRight className="w-3.5 h-3.5" />
+              </button>
+            </div>
+
           </div>
         </div>
       </motion.div>

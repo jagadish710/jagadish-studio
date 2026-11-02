@@ -19,7 +19,7 @@ export default function Footer({ onOpenPrototypeModal }) {
             </span>
           </div>
           <p className="text-sm text-zinc-400 leading-relaxed max-w-sm">
-            Independent web studio founded by Jagadish in Chennai. We engineer fast, high-converting websites for businesses ready to turn casual visitors into paying customers.
+            Merqurie takes its name from mercury: the metal that never sits still, and the messenger god known for speed. We engineer digital platforms the same way: fast, fluid, and clear.
           </p>
           <div className="flex flex-wrap items-center gap-3 pt-2 text-xs font-mono text-zinc-400">
             <span className="inline-flex items-center gap-1.5 text-zinc-300">
@@ -56,7 +56,7 @@ export default function Footer({ onOpenPrototypeModal }) {
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-1.5 text-zinc-400 hover:text-white transition-colors"
               >
-                <span>PMS Solution (Packaging Machinery)</span>
+                <span>PMS Solution (Hospital Medical Equipment)</span>
                 <ArrowUpRight className="w-3.5 h-3.5 text-zinc-500" />
               </a>
             </li>

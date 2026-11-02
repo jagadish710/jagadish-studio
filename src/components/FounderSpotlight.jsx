@@ -22,12 +22,12 @@ export default function FounderSpotlight({ onOpenPrototypeModal }) {
       <div className="max-w-5xl mx-auto relative z-10">
         
         {/* Main Executive Leadership Card */}
-        <div className="p-6 sm:p-10 lg:p-12 rounded-3xl border border-zinc-800 bg-[#101016]/90 shadow-2xl backdrop-blur-xl relative overflow-hidden">
+        <div className="surface-mercury p-6 sm:p-10 lg:p-12 relative overflow-hidden">
           
           {/* Top Label */}
-          <div className="flex flex-wrap items-center justify-between gap-3 pb-6 mb-8 border-b border-zinc-800/80">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-mono font-medium bg-zinc-900 border border-zinc-700/80 text-zinc-300">
-              <span className="w-2 h-2 rounded-full bg-cyan-400 animate-pulse" />
+          <div className="flex flex-wrap items-center justify-between gap-3 pb-6 mb-8 border-b border-white/10">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-mono font-medium bg-[#0E0F14] border border-white/10 text-zinc-300">
+              <span className="w-2 h-2 rounded-full bg-sky-400 animate-pulse" />
               <span>TECHNICAL LEADERSHIP &amp; ENGINEERING RIGOR</span>
             </div>
 
@@ -91,8 +91,8 @@ export default function FounderSpotlight({ onOpenPrototypeModal }) {
                 <span className="text-xs font-mono uppercase tracking-widest text-cyan-400 font-semibold block mb-2">
                   DIRECT PARTNERSHIP • ZERO AGENCY LAYERS
                 </span>
-                <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold font-display text-white leading-tight">
-                  Big-Tech Engineering Rigor. Dedicated to Your Business.
+                <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight text-white leading-tight">
+                  Big-Tech Engineering Rigor. Dedicated to Your <span className="font-serif italic font-normal text-slate-100">Business.</span>
                 </h2>
               </div>
 

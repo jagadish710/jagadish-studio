@@ -40,13 +40,13 @@ export default function FaqSection({ onOpenPrototypeModal }) {
         
         {/* Header */}
         <div className="text-center max-w-2xl mx-auto mb-12 sm:mb-16">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-mono mb-3 bg-zinc-900 border border-zinc-800 text-zinc-300">
-            <HelpCircle className="w-3.5 h-3.5 text-cyan-400" />
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-mono mb-3 bg-[#0E0F14] border border-white/10 text-zinc-300">
+            <HelpCircle className="w-3.5 h-3.5 text-sky-400" />
             <span className="uppercase tracking-wider">FREQUENTLY ASKED QUESTIONS</span>
           </div>
 
-          <h2 className="text-2xl sm:text-4xl font-extrabold font-display text-white tracking-tight mb-4">
-            Everything You Need to Know
+          <h2 className="text-2xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-white mb-4">
+            Everything You Need to <span className="font-serif italic font-normal text-slate-100">Know.</span>
           </h2>
           <p className="text-sm sm:text-base text-zinc-400 leading-relaxed">
             Direct, honest answers about pricing, ownership, timelines, and how we work together.
@@ -60,7 +60,7 @@ export default function FaqSection({ onOpenPrototypeModal }) {
             return (
               <div
                 key={idx}
-                className="rounded-2xl border border-zinc-800/80 bg-zinc-950/70 overflow-hidden transition-all duration-200"
+                className="surface-mercury overflow-hidden transition-all duration-200"
               >
                 <button
                   onClick={() => setOpenIdx(isOpen ? -1 : idx)}

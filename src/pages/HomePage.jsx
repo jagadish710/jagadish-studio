@@ -47,12 +47,12 @@ export default function HomePage({ onOpenPrototypeModal, setActivePage }) {
         <div className="max-w-6xl mx-auto">
           
           <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-mono mb-3 bg-zinc-900 border border-zinc-800 text-zinc-300">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-mono mb-3 bg-[#0E0F14] border border-white/10 text-zinc-300">
               <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
               <span className="uppercase tracking-wider">LIVE PRODUCTION CLIENTS</span>
             </div>
-            <h2 className="text-2xl sm:text-4xl font-extrabold font-display text-white tracking-tight mb-4">
-              Real Websites Engineered for Real Businesses
+            <h2 className="text-2xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-white mb-4">
+              Real Websites Engineered for <span className="font-serif italic font-normal text-slate-100">Real Businesses.</span>
             </h2>
             <p className="text-sm sm:text-base text-zinc-400 max-w-2xl mx-auto leading-relaxed">
               Don't take our word for it. Click and test the speed, design, and mobile experience directly on live production platforms.
@@ -62,7 +62,7 @@ export default function HomePage({ onOpenPrototypeModal, setActivePage }) {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8">
             
             {/* Case Study 1: PMS Solution (Healthcare & Medical Equipment) */}
-            <article className="rounded-3xl border border-zinc-800/80 bg-zinc-950 overflow-hidden shadow-2xl flex flex-col justify-between group hover:border-zinc-700 transition-all duration-300">
+            <article className="surface-mercury overflow-hidden flex flex-col justify-between group">
               <div>
                 <div className="relative aspect-[16/10] overflow-hidden bg-zinc-900">
                   <img
@@ -124,7 +124,7 @@ export default function HomePage({ onOpenPrototypeModal, setActivePage }) {
             </article>
 
             {/* Case Study 2: UPSKS Karate */}
-            <article className="rounded-3xl border border-zinc-800/80 bg-zinc-950 overflow-hidden shadow-2xl flex flex-col justify-between group hover:border-zinc-700 transition-all duration-300">
+            <article className="surface-mercury overflow-hidden flex flex-col justify-between group">
               <div>
                 <div className="relative aspect-[16/10] overflow-hidden bg-zinc-900">
                   <img

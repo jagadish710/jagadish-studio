@@ -66,13 +66,13 @@ export default function TrustedHeritage({ onOpenPrototypeModal }) {
         
         {/* Section Header: Direct & Trust-Focused (themaxgrowth style) */}
         <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-mono mb-3 bg-zinc-900 border border-zinc-800 text-zinc-300">
-            <ShieldCheck className="w-3.5 h-3.5 text-cyan-400" />
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-mono mb-3 bg-[#0E0F14] border border-white/10 text-zinc-300">
+            <ShieldCheck className="w-3.5 h-3.5 text-sky-400" />
             <span className="uppercase tracking-wider">TRUSTED BY GROWING BUSINESSES</span>
           </div>
 
-          <h2 className="text-2xl sm:text-4xl font-extrabold font-display text-white tracking-tight mb-4">
-            Businesses Work With Us Because We Focus on What Matters
+          <h2 className="text-2xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-white mb-4">
+            Businesses Work With Us Because We Focus on What <span className="font-serif italic font-normal text-slate-100">Matters.</span>
           </h2>
           <p className="text-sm sm:text-base text-zinc-400 max-w-2xl mx-auto leading-relaxed">
             No agency runaround, no recurring monthly charges, and no hostage lock-in. Just direct craft, speed, and real revenue generation.
@@ -86,7 +86,7 @@ export default function TrustedHeritage({ onOpenPrototypeModal }) {
             return (
               <div
                 key={pillar.num}
-                className="p-6 sm:p-8 rounded-3xl bg-zinc-950/90 border border-zinc-800/80 hover:border-zinc-700 transition-all duration-300 flex flex-col justify-between"
+                className="surface-mercury p-6 sm:p-8 flex flex-col justify-between"
               >
                 <div>
                   <div className="flex items-center justify-between mb-4">

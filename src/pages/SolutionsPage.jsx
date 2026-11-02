@@ -1,256 +1,140 @@
-import WhatsAppIcon from '../components/WhatsAppIcon';
 import React from 'react';
-import { playCyberTone } from '../utils/audio';
-import { motion } from 'framer-motion';
-import {
-  CheckCircle2,
-  ArrowRight,
-  Database,
-  Globe,
-  Sparkles,
-  Layers,
-  ShoppingBag,
-  ExternalLink,
-} from 'lucide-react';
+import { ArrowRight, Check, Layers, ShoppingBag, PanelsTopLeft, Sparkles, Zap, ShieldCheck } from 'lucide-react';
+import WhatsAppIcon from '../components/WhatsAppIcon';
 
-export default function SolutionsPage({ onOpenPrototypeModal, isDark = true }) {
-  const solutions = [
-    {
-      id: 'websites',
-      title: 'High-Converting Business Websites',
-      tag: 'WEBSITE PLATFORMS',
-      desc: 'Custom-engineered digital storefronts built to turn casual visitors into paying customers. Deployed on global edge networks with sub-second page performance, optimized Schema.org for Google ranking, and direct WhatsApp lead routing.',
-      highlights: [
-        'Sub-0.3s lightning load speed on mobile & desktop',
-        'Direct WhatsApp button for instant customer inquiry conversion',
-        'Google Core Web Vitals score 99/100 for top organic rankings',
-        'Zero monthly hosting or maintenance fees (₹0/year)',
-      ],
-      icon: Globe,
-      image: '/images/showcase_business_website.jpg',
-      badge: '99/100 Core Web Vitals',
-    },
-    {
-      id: 'admin',
-      title: 'Visual Self-Serve Admin Portal',
-      tag: 'CLIENT CONTROL',
-      desc: 'Never pay an agency a monthly retainer or wait days for simple text edits. Manage your headlines, pricing, catalog items, and announcements directly from your phone or laptop in 10 seconds.',
-      highlights: [
-        'Secure password-protected visual editing dashboard',
-        'Instant live synchronization with zero downtime',
-        'Manage catalog items, product pricing, and banners',
-        'Zero developer dependency & zero monthly retainer fees',
-      ],
-      icon: Database,
-      image: '/images/showcase_admin_portal.jpg',
-      badge: 'Live in 0.01s',
-    },
-    {
-      id: 'ecommerce',
-      title: 'Interactive E-Commerce & Catalogs',
-      tag: 'DIGITAL COMMERCE',
-      desc: 'Sleek, lightning-fast digital storefronts with real-time product filters, interactive spec sheets, and instant WhatsApp one-click checkout. No Shopify monthly app tax, no transaction percentage cuts.',
-      highlights: [
-        'Instant WhatsApp order & RFQ lead pipeline',
-        'High-resolution interactive product & catalog views',
-        'Zero ongoing percentage cuts or SaaS subscription traps',
-        'Automated order inquiry routing directly to your phone',
-      ],
-      icon: ShoppingBag,
-      image: '/images/showcase_ecommerce_catalog.jpg',
-      badge: 'WhatsApp Checkout',
-    },
-    {
-      id: 'custom',
-      title: 'Custom Full-Stack Web Systems & Portals',
-      tag: 'CUSTOM ENGINEERING',
-      desc: 'Tailor-engineered software systems for business workflows, student rosters (proven at upskskarate.com), industrial machinery catalogs (proven at pmssolution.co.in), and custom client pipelines.',
-      highlights: [
-        'Distributed edge serverless PostgreSQL architecture',
-        'Role-based client, student, or staff access controls',
-        'Automated WhatsApp and multi-channel inquiry workflows',
-        '100% intellectual property sovereignty transferred upon launch',
-      ],
-      icon: Layers,
-      image: '/images/showcase_custom_cloud_system.jpg',
-      badge: 'Distributed Edge Database',
-    },
-  ];
+const whatsapp = 'https://wa.me/917358618789?text=Hi%20Jagadish!%20I%20would%20like%20to%20discuss%20a%20website%20solution.';
 
+const offers = [
+  {
+    icon: PanelsTopLeft,
+    title: 'High-Converting Business Website',
+    desc: 'A polished, fast digital storefront for service businesses, clinics, and professional practices. Built to communicate your offer clearly, establish immediate credibility, and route leads directly to your WhatsApp.',
+    image: '/images/showcase_business_website.webp',
+    points: [
+      'Sub-1.0s mobile load speed on edge CDN',
+      'Direct 1-tap WhatsApp lead capture',
+      'Mobile-first responsive design',
+      'Self-serve 10s phone admin cockpit',
+      '₹0 recurring agency retainer fees',
+    ],
+  },
+  {
+    icon: ShoppingBag,
+    title: 'Interactive Catalog & WhatsApp Commerce',
+    desc: 'A seamless product browsing experience for retailers, wholesalers, and manufacturers. Customers can browse products, configure specs, and tap to order directly via WhatsApp.',
+    image: '/images/showcase_ecommerce_catalog.webp',
+    points: [
+      'Fast visual product showcase & filters',
+      'One-tap WhatsApp checkout and quote inquiry',
+      'No clunky checkout drop-offs or plugin bloat',
+      'Easily update prices and inventory from your phone',
+      '100% full intellectual property ownership',
+    ],
+  },
+  {
+    icon: Layers,
+    title: 'Custom B2B Portal & Industrial Specification',
+    desc: 'Engineered for manufacturers, industrial suppliers, and academies (proven at pmssolution.co.in and upskskarate.com). Features multi-channel RFQ lead routing, student management, or specialized workflows.',
+    image: '/images/showcase_custom_cloud_system.webp',
+    points: [
+      'Custom RFQ lead routing to email and WhatsApp',
+      'Role-based visual management portal',
+      'Built with Amazon & Turing engineering precision',
+      'Zero maintenance debt & high reliability',
+      'Complete code & database transfer at launch',
+    ],
+  },
+];
+
+export default function SolutionsPage({ onOpenPrototypeModal }) {
   return (
-    <div className="pt-32 sm:pt-36 pb-24 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto">
-      {/* Header */}
-      <motion.div
-        initial={{ opacity: 0, y: 20, filter: 'blur(6px)' }}
-        animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
-        transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-        className="text-center max-w-3xl mx-auto mb-16"
-      >
-        <div className={`inline-flex items-center gap-2 px-3.5 py-1 rounded-full text-xs font-mono font-medium mb-4 border ${
-          isDark 
-            ? 'bg-zinc-900 border-zinc-800 text-zinc-300' 
-            : 'bg-slate-100 border-slate-200 text-slate-800'
-        }`}>
-          <Sparkles className={`w-3.5 h-3.5 ${isDark ? 'text-zinc-400' : 'text-slate-600'}`} />
-          <span>WEBSITE SOLUTIONS &bull; ZERO MAINTENANCE RETAINERS</span>
+    <div className="pt-24 sm:pt-32 pb-20 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto">
+      
+      {/* Page Header */}
+      <div className="text-center max-w-3xl mx-auto mb-16">
+        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-mono mb-4 bg-zinc-900 border border-zinc-800 text-zinc-300">
+          <Sparkles className="w-3.5 h-3.5 text-cyan-400" />
+          <span className="uppercase tracking-wider">SOLUTIONS &amp; CAPABILITIES</span>
         </div>
-
-        <h1 className={`text-4xl sm:text-6xl font-bold tracking-tight font-display mb-6 leading-tight ${
-          isDark ? 'text-white' : 'text-slate-950'
-        }`}>
-          Website Platforms.<br />
-          <span className={isDark ? 'text-zinc-400' : 'text-slate-500'}>
-            Zero Agency Retainers.
-          </span>
+        <h1 className="text-3xl sm:text-5xl font-extrabold font-display text-white tracking-tight mb-4 leading-tight">
+          Websites Built to Turn Interest Into Enquiries
         </h1>
-
-        <p className={`text-base sm:text-lg max-w-2xl mx-auto leading-relaxed ${
-          isDark ? 'text-zinc-400' : 'text-slate-600'
-        }`}>
-          We engineer high-performance website platforms, self-serve client admin cockpits, and bespoke web applications. You pay for engineering once; you never receive recurring maintenance bills.
+        <p className="text-sm sm:text-base text-zinc-400 leading-relaxed max-w-2xl mx-auto">
+          We start with what will make your business look credible, easy to understand, and effortless to contact. One-time build, zero recurring retainers.
         </p>
+      </div>
 
-        {/* Action Header CTAs */}
-        <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
-          <button
-            onClick={() => {
-              playCyberTone('click');
-              onOpenPrototypeModal();
-            }}
-            className={`px-6 py-3 rounded-xl font-semibold font-mono text-xs tracking-wider flex items-center gap-2 transition-all hover:scale-102 active:scale-98 cursor-pointer shadow-sm ${
-              isDark 
-                ? 'bg-white hover:bg-zinc-200 text-zinc-950' 
-                : 'bg-slate-950 hover:bg-slate-800 text-white'
-            }`}
-          >
-            <span>REQUEST ARCHITECTURE PROPOSAL</span>
-            <ArrowRight className="w-3.5 h-3.5" />
-          </button>
-
-          <a
-            href="https://wa.me/917358618789?text=Hi%20Merqurie%20Team!%20I%20am%20interested%20in%20a%20website%20solution."
-            target="_blank"
-            rel="noopener noreferrer"
-            onClick={() => playCyberTone('click')}
-            className={`px-5 py-3 rounded-xl border font-mono text-xs font-semibold flex items-center gap-2 transition-all hover:scale-102 active:scale-98 cursor-pointer ${
-              isDark 
-                ? 'bg-zinc-900 hover:bg-zinc-800 border-zinc-700 text-white' 
-                : 'bg-slate-100 hover:bg-slate-200 border-slate-200 text-slate-900'
-            }`}
-          >
-            <WhatsAppIcon className="w-4 h-4 text-emerald-500 fill-current" />
-            <span>WhatsApp</span>
-          </a>
-        </div>
-      </motion.div>
-
-      {/* Solutions Cards with Generated UI Previews */}
-      <div className="space-y-10 mb-20">
-        {solutions.map((item, idx) => (
-          <motion.div
-            key={item.id}
-            initial={{ opacity: 0, y: 30, filter: 'blur(4px)' }}
-            whileInView={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
-            viewport={{ once: true, margin: '-60px' }}
-            transition={{ duration: 0.6, delay: idx * 0.08, ease: [0.16, 1, 0.3, 1] }}
-            className={`p-6 sm:p-9 rounded-2xl border transition-all ${
-              isDark 
-                ? 'bg-[#0E0E12] border-zinc-800/90 hover:border-zinc-700 shadow-2xl' 
-                : 'bg-white border-slate-200 hover:border-slate-300 shadow-lg'
-            }`}
-          >
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-              
-              {/* Left Column: Solution Specs & Highlights */}
-              <div className="lg:col-span-7 space-y-4">
+      {/* Solutions Cards */}
+      <div className="space-y-8">
+        {offers.map((offer, idx) => {
+          const Icon = offer.icon;
+          return (
+            <article
+              key={offer.title}
+              className="rounded-3xl border border-zinc-800/80 bg-zinc-950 overflow-hidden shadow-2xl grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-center"
+            >
+              <div className="lg:col-span-6 p-6 sm:p-10 space-y-4">
                 <div className="flex items-center gap-3">
-                  <span className={`px-2.5 py-0.5 rounded text-[10px] font-mono font-bold tracking-wider uppercase border ${
-                    isDark 
-                      ? 'border-zinc-800 bg-zinc-900 text-zinc-300' 
-                      : 'border-slate-200 bg-slate-100 text-slate-800'
-                  }`}>
-                    {item.tag}
+                  <div className="w-10 h-10 rounded-xl bg-cyan-950/50 border border-cyan-800/40 flex items-center justify-center text-cyan-400">
+                    <Icon className="w-5 h-5" />
+                  </div>
+                  <span className="text-xs font-mono text-zinc-400 uppercase tracking-widest">
+                    SOLUTION 0{idx + 1}
                   </span>
                 </div>
 
-                <h3 className={`text-2xl sm:text-3xl font-bold font-display ${
-                  isDark ? 'text-white' : 'text-slate-950'
-                }`}>
-                  {item.title}
-                </h3>
+                <h2 className="text-2xl sm:text-3xl font-bold font-display text-white">
+                  {offer.title}
+                </h2>
 
-                <p className={`text-xs sm:text-sm leading-relaxed ${
-                  isDark ? 'text-zinc-400' : 'text-slate-600'
-                }`}>
-                  {item.desc}
+                <p className="text-sm text-zinc-400 leading-relaxed">
+                  {offer.desc}
                 </p>
 
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 pt-2">
-                  {item.highlights.map((h, hIdx) => (
-                    <div key={hIdx} className="flex items-start gap-2 text-xs">
-                      <CheckCircle2 className="w-3.5 h-3.5 shrink-0 mt-0.5 text-emerald-500" />
-                      <span className={isDark ? 'text-zinc-300' : 'text-slate-700'}>{h}</span>
-                    </div>
+                <ul className="space-y-2 pt-2">
+                  {offer.points.map((pt) => (
+                    <li key={pt} className="flex items-center gap-2 text-xs sm:text-sm text-zinc-300">
+                      <Check className="w-4 h-4 text-emerald-400 shrink-0" />
+                      <span>{pt}</span>
+                    </li>
                   ))}
+                </ul>
+
+                <div className="pt-4 flex flex-wrap items-center gap-3">
+                  <button
+                    onClick={onOpenPrototypeModal}
+                    className="px-5 py-2.5 rounded-xl text-xs font-bold font-mono bg-white text-zinc-950 hover:bg-zinc-200 transition-all cursor-pointer flex items-center gap-1.5 active:scale-95 shadow-md"
+                  >
+                    <span>GET FREE PREVIEW</span>
+                    <ArrowRight className="w-3.5 h-3.5" />
+                  </button>
+
+                  <a
+                    href={whatsapp}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="px-4 py-2.5 rounded-xl text-xs font-bold bg-[#25D366]/15 text-[#25D366] border border-[#25D366]/30 hover:bg-[#25D366] hover:text-white transition-all cursor-pointer flex items-center gap-1.5"
+                  >
+                    <WhatsAppIcon className="w-3.5 h-3.5 fill-current" />
+                    <span>Discuss on WhatsApp</span>
+                  </a>
                 </div>
               </div>
 
-              {/* Right Column: High-End UI Mockup Preview Box */}
-              <div className={`lg:col-span-5 relative rounded-xl overflow-hidden border transition-all group ${
-                isDark 
-                  ? 'bg-zinc-950 border-zinc-800 shadow-xl' 
-                  : 'bg-slate-50 border-slate-200/90 shadow-md'
-              }`}>
-                {/* Mockup Frame Header */}
-                <div className={`px-3 py-2 border-b flex items-center justify-between text-[10px] font-mono ${
-                  isDark 
-                    ? 'bg-zinc-900/80 border-zinc-800 text-zinc-400' 
-                    : 'bg-slate-100 border-slate-200 text-slate-600'
-                }`}>
-                  <div className="flex items-center gap-1.5">
-                    <span className="w-2 h-2 rounded-full bg-zinc-500/40" />
-                    <span className="w-2 h-2 rounded-full bg-zinc-500/40" />
-                    <span className="w-2 h-2 rounded-full bg-zinc-500/40" />
-                    <span className="ml-1 text-[9px] truncate">merqurie.cloud/{item.id}</span>
-                  </div>
-                  <span className="text-emerald-500 font-semibold">{item.badge}</span>
-                </div>
-
-                {/* Product Image Preview */}
-                <div className="relative aspect-[16/10] overflow-hidden bg-black/40">
-                  <img
-                    src={item.image}
-                    alt={item.title}
-                    className="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105"
-                    loading="lazy"
-                  />
-                  <div className={`absolute inset-0 pointer-events-none bg-gradient-to-t ${
-                    isDark 
-                      ? 'from-[#0E0E12]/80 via-transparent to-transparent' 
-                      : 'from-white/60 via-transparent to-transparent'
-                  }`} />
-                </div>
-
-                {/* Frame Footer Bar */}
-                <div className={`px-3.5 py-2.5 flex items-center justify-between border-t text-[11px] font-mono ${
-                  isDark 
-                    ? 'border-zinc-800 bg-zinc-950 text-zinc-400' 
-                    : 'border-slate-200 bg-white text-slate-600'
-                }`}>
-                  <span className={isDark ? 'text-zinc-200 font-medium' : 'text-slate-900 font-medium'}>
-                    {item.title}
-                  </span>
-                  <span className="text-[10px] text-emerald-500 flex items-center gap-1">
-                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
-                    Production Ready
-                  </span>
-                </div>
+              <div className="lg:col-span-6 relative aspect-[16/10] overflow-hidden bg-zinc-900 border-t lg:border-t-0 lg:border-l border-zinc-800">
+                <img
+                  src={offer.image}
+                  alt={offer.title}
+                  loading="lazy"
+                  decoding="async"
+                  className="w-full h-full object-cover object-top"
+                />
               </div>
-
-            </div>
-          </motion.div>
-        ))}
+            </article>
+          );
+        })}
       </div>
+
     </div>
   );
 }

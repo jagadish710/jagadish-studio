@@ -1,5 +1,4 @@
 import React from 'react';
-import { motion } from 'framer-motion';
 import { 
   ShieldCheck, 
   Zap, 
@@ -10,9 +9,10 @@ import {
   Sparkles
 } from 'lucide-react';
 import WhatsAppIcon from './WhatsAppIcon';
-import { playCyberTone } from '../utils/audio';
 
-export default function TrustedHeritage({ isDark = true, onOpenPrototypeModal }) {
+const whatsapp = 'https://wa.me/917358618789?text=Hi%20Jagadish!%20I%20would%20like%20to%20discuss%20a%20website%20for%20my%20business.';
+
+export default function TrustedHeritage({ onOpenPrototypeModal }) {
   const pillars = [
     {
       num: '01',
@@ -28,29 +28,25 @@ export default function TrustedHeritage({ isDark = true, onOpenPrototypeModal })
     },
     {
       num: '03',
-      title: 'Sub-0.3s Pure Engineering Speed',
+      title: 'Sub-1.0s Pure Mobile Speed',
       desc: 'Google ranks speed. By deploying decoupled modern frontend code to global edge networks, your digital storefront loads instantly and scores 99/100 on Google Core Web Vitals.',
       icon: Zap,
     },
     {
       num: '04',
-      title: '100% Source Code & Asset Sovereignty',
+      title: '100% Code & Asset Sovereignty',
       desc: 'Complete transfer of all Git repositories, databases, and DNS keys on project completion. You own 100% of your intellectual property with zero hostage lock-in.',
       icon: ShieldCheck,
     },
   ];
 
   return (
-    <section className={`py-16 sm:py-24 px-4 sm:px-6 lg:px-8 relative overflow-hidden border-t transition-colors ${
-      isDark ? 'bg-[#050507] border-zinc-900' : 'bg-slate-50 border-slate-200'
-    }`}>
+    <section className="py-16 sm:py-24 px-4 sm:px-6 lg:px-8 relative overflow-hidden border-t border-zinc-800/80 bg-[#060608]">
       
-      {/* High-Contrast Cinematic B&W Human Connection Background (from themaxgrowth Image 5) */}
+      {/* High-Contrast Cinematic B&W Human Connection Background (themaxgrowth Image 10) */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden z-0">
-        {/* Artistic Monochrome Vector Illustration of Hands Reaching Across in Partnership */}
-        <div className={`absolute inset-0 opacity-[0.06] dark:opacity-[0.14] flex items-center justify-center`}>
+        <div className="absolute inset-0 opacity-[0.10] flex items-center justify-center">
           <svg viewBox="0 0 1200 600" className="w-full h-full object-cover" fill="none">
-            {/* Ambient light gradient */}
             <circle cx="600" cy="300" r="400" fill="url(#bwRadial)" />
             <defs>
               <radialGradient id="bwRadial" cx="50%" cy="50%" r="50%">
@@ -58,131 +54,96 @@ export default function TrustedHeritage({ isDark = true, onOpenPrototypeModal })
                 <stop offset="100%" stopColor="#000000" stopOpacity="0" />
               </radialGradient>
             </defs>
-            {/* Organic Stylized Trust Contours */}
             <path d="M 200 450 C 350 350, 450 320, 560 300 C 620 290, 680 310, 750 280 C 850 240, 950 180, 1050 120" stroke="#ffffff" strokeWidth="1.5" strokeDasharray="6 6" opacity="0.6" />
             <path d="M 150 490 C 320 380, 420 350, 540 330 C 650 310, 720 340, 820 290 C 920 240, 1020 180, 1100 130" stroke="#ffffff" strokeWidth="1" opacity="0.4" />
           </svg>
         </div>
 
-        {/* Ambient Top & Bottom Radial Glow */}
-        <div className={`absolute top-0 left-1/2 -translate-x-1/2 w-[700px] h-[300px] rounded-full blur-[140px] ${
-          isDark ? 'bg-cyan-950/15' : 'bg-blue-100/30'
-        }`} />
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[700px] h-[300px] rounded-full blur-[140px] bg-cyan-950/15" />
       </div>
 
       <div className="max-w-6xl mx-auto relative z-10">
         
-        {/* Section Header: Direct & Trust-Focused (Exact themaxgrowth structure) */}
-        <div className="text-center max-w-3xl mx-auto mb-14 sm:mb-18">
-          <div className={`inline-flex items-center gap-2 px-3 py-1 rounded-full text-[11px] font-mono mb-3 border ${
-            isDark 
-              ? 'bg-zinc-900 border-zinc-800 text-zinc-300' 
-              : 'bg-white border-slate-200 text-slate-800 shadow-2xs'
-          }`}>
-            <Sparkles className="w-3.5 h-3.5 text-cyan-400" />
-            <span className="uppercase tracking-wider font-semibold">THE MERQURIE PROMISE</span>
+        {/* Section Header: Direct & Trust-Focused (themaxgrowth style) */}
+        <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-mono mb-3 bg-zinc-900 border border-zinc-800 text-zinc-300">
+            <ShieldCheck className="w-3.5 h-3.5 text-cyan-400" />
+            <span className="uppercase tracking-wider">TRUSTED BY GROWING BUSINESSES</span>
           </div>
 
-          <h2 className={`text-3xl sm:text-5xl font-extrabold tracking-tight font-display mb-4 ${
-            isDark ? 'text-white' : 'text-slate-950'
-          }`}>
-            Trusted By Growing Businesses
+          <h2 className="text-2xl sm:text-4xl font-extrabold font-display text-white tracking-tight mb-4">
+            Businesses Work With Us Because We Focus on What Matters
           </h2>
-
-          <p className={`text-sm sm:text-base max-w-xl mx-auto leading-relaxed ${
-            isDark ? 'text-zinc-400' : 'text-slate-600'
-          }`}>
-            Businesses partner with Merqurie because we eliminate ongoing maintenance debt and focus strictly on what delivers real growth:
+          <p className="text-sm sm:text-base text-zinc-400 max-w-2xl mx-auto leading-relaxed">
+            No agency runaround, no recurring monthly charges, and no hostage lock-in. Just direct craft, speed, and real revenue generation.
           </p>
         </div>
 
-        {/* 4 Pillars Grid (High-Contrast, Clean & Cinematic) */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 mb-12">
-          {pillars.map((pillar, idx) => {
+        {/* 4 Core Pillars Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-5 sm:gap-6 mb-12">
+          {pillars.map((pillar) => {
             const Icon = pillar.icon;
             return (
-              <motion.div
-                key={idx}
-                initial={{ opacity: 0, y: 24 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: idx * 0.1 }}
-                className={`p-6 sm:p-8 rounded-2xl sm:rounded-3xl border transition-all duration-300 relative overflow-hidden group ${
-                  isDark 
-                    ? 'bg-zinc-950/80 border-zinc-800/80 hover:border-zinc-700 shadow-xl' 
-                    : 'bg-white border-slate-200 hover:border-slate-300 shadow-md'
-                }`}
+              <div
+                key={pillar.num}
+                className="p-6 sm:p-8 rounded-3xl bg-zinc-950/90 border border-zinc-800/80 hover:border-zinc-700 transition-all duration-300 flex flex-col justify-between"
               >
-                <div className="flex items-start justify-between gap-4 mb-4">
-                  <div className={`w-11 h-11 rounded-xl flex items-center justify-center shrink-0 border transition-transform group-hover:scale-105 ${
-                    isDark ? 'bg-zinc-900 border-zinc-800 text-cyan-400' : 'bg-slate-100 border-slate-200 text-blue-600'
-                  }`}>
-                    <Icon className="w-5 h-5" />
+                <div>
+                  <div className="flex items-center justify-between mb-4">
+                    <span className="text-xs font-mono text-cyan-400 font-bold">
+                      PILLAR // {pillar.num}
+                    </span>
+                    <div className="w-9 h-9 rounded-xl bg-zinc-900 border border-zinc-800 flex items-center justify-center text-cyan-400">
+                      <Icon className="w-4 h-4" />
+                    </div>
                   </div>
-                  <span className="text-2xl font-mono font-black text-zinc-700/60 dark:text-zinc-700 select-none">
-                    {pillar.num}
-                  </span>
+
+                  <h3 className="text-lg sm:text-xl font-bold font-display text-white mb-2">
+                    {pillar.title}
+                  </h3>
+                  <p className="text-xs sm:text-sm text-zinc-400 leading-relaxed">
+                    {pillar.desc}
+                  </p>
                 </div>
 
-                <h3 className={`text-lg sm:text-xl font-bold font-display mb-2.5 ${
-                  isDark ? 'text-white' : 'text-slate-950'
-                }`}>
-                  {pillar.title}
-                </h3>
-
-                <p className={`text-xs sm:text-sm leading-relaxed ${
-                  isDark ? 'text-zinc-400' : 'text-slate-600'
-                }`}>
-                  {pillar.desc}
-                </p>
-              </motion.div>
+                <div className="mt-6 pt-4 border-t border-zinc-900 flex items-center gap-2 text-xs font-mono text-emerald-400">
+                  <Check className="w-3.5 h-3.5" />
+                  <span>Guaranteed on Every Delivery</span>
+                </div>
+              </div>
             );
           })}
         </div>
 
-        {/* High-Trust Action Callout */}
-        <div className={`p-6 sm:p-8 rounded-2xl sm:rounded-3xl border flex flex-col sm:flex-row items-center justify-between gap-6 ${
-          isDark 
-            ? 'bg-zinc-900/40 border-zinc-800/80' 
-            : 'bg-white border-slate-200 shadow-sm'
-        }`}>
-          <div className="text-center sm:text-left">
-            <h4 className={`text-base sm:text-lg font-bold font-display ${
-              isDark ? 'text-white' : 'text-slate-950'
-            }`}>
-              Ready to replace recurring retainer bills with high-speed architecture?
+        {/* Action Banner */}
+        <div className="p-6 sm:p-10 rounded-3xl bg-gradient-to-r from-zinc-950 via-zinc-900 to-zinc-950 border border-zinc-800 flex flex-col sm:flex-row items-center justify-between gap-6 text-center sm:text-left">
+          <div className="space-y-1">
+            <h4 className="text-lg sm:text-xl font-bold font-display text-white">
+              Ready to give your business the website it deserves?
             </h4>
-            <p className={`text-xs sm:text-sm mt-1 ${isDark ? 'text-zinc-400' : 'text-slate-600'}`}>
-              Speak directly with our principal engineering advisory. No sales pitches, just technical clarity.
+            <p className="text-xs sm:text-sm text-zinc-400 max-w-xl">
+              Let’s build an interactive mobile sample for your business with zero upfront cost.
             </p>
           </div>
 
-          <div className="flex items-center gap-3 shrink-0">
-            <button
-              onClick={() => {
-                playCyberTone('click');
-                onOpenPrototypeModal && onOpenPrototypeModal();
-              }}
-              className={`px-5 py-3 rounded-xl font-mono text-xs font-bold flex items-center gap-2 transition-all active:scale-95 cursor-pointer shadow-md ${
-                isDark 
-                  ? 'bg-white hover:bg-zinc-200 text-zinc-950' 
-                  : 'bg-slate-950 hover:bg-slate-800 text-white'
-              }`}
-            >
-              <span>GET YOUR BLUEPRINT</span>
-              <ArrowRight className="w-3.5 h-3.5" />
-            </button>
-
+          <div className="flex flex-col sm:flex-row items-center gap-3 shrink-0">
             <a
-              href="https://wa.me/917358618789?text=Hi%20Merqurie%20Team!%20I%20am%20interested%20in%20a%20zero-retainer%20website%20solution."
+              href={whatsapp}
               target="_blank"
               rel="noopener noreferrer"
-              onClick={() => playCyberTone('click')}
-              className="p-3 rounded-xl bg-[#25D366] hover:bg-[#20bd5a] text-white shadow-md active:scale-95 transition-all cursor-pointer flex items-center justify-center"
-              title="Chat on WhatsApp"
+              className="px-5 py-3 rounded-xl font-bold text-xs sm:text-sm flex items-center justify-center gap-2 bg-[#25D366] hover:bg-[#20bd5a] text-zinc-950 shadow-lg shadow-emerald-500/20 transition-all active:scale-95"
             >
-              <WhatsAppIcon className="w-4 h-4 fill-current text-white" />
+              <WhatsAppIcon className="w-4 h-4 fill-current text-zinc-950" />
+              <span>Message on WhatsApp</span>
             </a>
+
+            <button
+              onClick={onOpenPrototypeModal}
+              className="px-5 py-3 rounded-xl font-bold text-xs sm:text-sm flex items-center justify-center gap-2 bg-white hover:bg-zinc-200 text-zinc-950 transition-all active:scale-95"
+            >
+              <span>Get Free Preview</span>
+              <ArrowRight className="w-4 h-4" />
+            </button>
           </div>
         </div>
 

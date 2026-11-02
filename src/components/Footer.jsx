@@ -1,102 +1,105 @@
-import WhatsAppIcon from './WhatsAppIcon';
 import React from 'react';
-import { playCyberTone } from '../utils/audio';
-import { ArrowUpRight} from 'lucide-react';
+import { ArrowUpRight, Heart, Phone, Mail, MapPin } from 'lucide-react';
+import WhatsAppIcon from './WhatsAppIcon';
 import Logo from './Logo';
 
-export default function Footer({ setActivePage, isDark = true }) {
-  const handleNav = (id) => {
-    playCyberTone('click');
-    setActivePage(id);
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  };
+const whatsapp = 'https://wa.me/917358618789?text=Hi%20Jagadish!%20I%20would%20like%20to%20discuss%20a%20website%20for%20my%20business.';
 
+export default function Footer({ onOpenPrototypeModal }) {
   return (
-    <footer className={`pt-12 pb-28 md:py-14 px-4 sm:px-6 lg:px-8 border-t font-mono text-xs relative z-10 ${
-      isDark 
-        ? 'border-zinc-900 bg-[#060608] text-zinc-400' 
-        : 'border-slate-200 bg-slate-50 text-slate-600'
-    }`}>
-      <div className={`max-w-7xl mx-auto flex flex-col md:flex-row items-start md:items-center justify-between gap-8 pb-10 border-b ${
-        isDark ? 'border-zinc-900' : 'border-slate-200'
-      }`}>
-        <div>
-          <div className="flex items-center gap-3 mb-2.5">
-            <Logo isDark={isDark} className="w-8 h-8" />
-            <div className="flex items-center gap-2">
-              <span className={`font-display font-extrabold text-sm tracking-[0.2em] leading-none ${
-                isDark ? 'text-white' : 'text-slate-900'
-              }`}>
-                MERQURIE
-              </span>
-            </div>
+    <footer className="bg-[#060608] border-t border-zinc-800/80 text-zinc-400 py-12 sm:py-16 px-4 sm:px-6 lg:px-8 pb-24 md:pb-16">
+      <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-12 gap-8 lg:gap-12 items-start">
+        
+        {/* Left: Brand & Founder Bio */}
+        <div className="md:col-span-5 space-y-4">
+          <div className="flex items-center gap-2.5">
+            <Logo isDark={true} className="w-8 h-8" />
+            <span className="font-display font-black text-base tracking-[0.18em] text-white">
+              MERQURIE
+            </span>
           </div>
-          <p className={`max-w-md text-xs font-sans leading-relaxed ${
-            isDark ? 'text-zinc-400' : 'text-slate-600'
-          }`}>
-            High-Performance Website Solutions &bull; Sub-0.3s Core Web Vitals, self-serve client admin cockpits, and zero recurring maintenance fees with 100% full intellectual property sovereignty.
+          <p className="text-sm text-zinc-400 leading-relaxed max-w-sm">
+            Independent web studio founded by Jagadish in Chennai. We engineer fast, high-converting websites for businesses ready to turn casual visitors into paying customers.
           </p>
+          <div className="flex flex-wrap items-center gap-3 pt-2 text-xs font-mono text-zinc-400">
+            <span className="inline-flex items-center gap-1.5 text-zinc-300">
+              <MapPin className="w-3.5 h-3.5 text-cyan-400" /> Chennai, India
+            </span>
+            <span>•</span>
+            <span className="inline-flex items-center gap-1.5 text-zinc-300">
+              <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" /> Available for Projects
+            </span>
+          </div>
         </div>
 
-        <div className="flex flex-wrap items-center gap-6 text-xs">
-          <button
-            onClick={() => handleNav('home')}
-            className={`transition-colors cursor-pointer ${
-              isDark ? 'hover:text-white' : 'hover:text-slate-950'
-            }`}
-          >
-            Overview
-          </button>
-          <button
-            onClick={() => handleNav('solutions')}
-            className={`transition-colors cursor-pointer ${
-              isDark ? 'hover:text-white' : 'hover:text-slate-950'
-            }`}
-          >
-            Solutions
-          </button>
-          <button
-            onClick={() => handleNav('work')}
-            className={`transition-colors cursor-pointer ${
-              isDark ? 'hover:text-white' : 'hover:text-slate-950'
-            }`}
-          >
-            Deployments
-          </button>
-          <button
-            onClick={() => handleNav('prototype')}
-            className={`transition-colors cursor-pointer ${
-              isDark ? 'hover:text-white' : 'hover:text-slate-950'
-            }`}
-          >
-            Specifications
-          </button>
-          <a
-            href="https://wa.me/917358618789?text=Hi%20Merqurie%20Team!%20I%20would%20like%20to%20discuss%20a%20technology%20solution."
-            target="_blank"
-            rel="noopener noreferrer"
-            onClick={() => playCyberTone('click')}
-            className={`font-semibold flex items-center gap-1.5 ${
-              isDark ? 'text-zinc-300 hover:text-white' : 'text-slate-800 hover:text-slate-950'
-            }`}
-          >
-            <WhatsAppIcon className="w-3.5 h-3.5 fill-current text-emerald-500" />
-            <span>WhatsApp</span>
-            <ArrowUpRight className="w-3.5 h-3.5 opacity-60" />
-          </a>
+        {/* Middle: Live Proof & Quick Links */}
+        <div className="md:col-span-4 space-y-3">
+          <p className="text-xs font-mono font-bold tracking-widest uppercase text-white">
+            Live Verified Proof
+          </p>
+          <ul className="space-y-2 text-sm">
+            <li>
+              <a
+                href="https://upskskarate.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1.5 text-zinc-400 hover:text-white transition-colors"
+              >
+                <span>UPSKS Karate Academy</span>
+                <ArrowUpRight className="w-3.5 h-3.5 text-zinc-500" />
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://pmssolution.co.in"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1.5 text-zinc-400 hover:text-white transition-colors"
+              >
+                <span>PMS Solution (Packaging Machinery)</span>
+                <ArrowUpRight className="w-3.5 h-3.5 text-zinc-500" />
+              </a>
+            </li>
+            <li>
+              <span className="text-xs text-zinc-400 font-mono">
+                100% Client Code Ownership • Zero Retainer Fees
+              </span>
+            </li>
+          </ul>
         </div>
+
+        {/* Right: Direct Founder Contact */}
+        <div className="md:col-span-3 space-y-3">
+          <p className="text-xs font-mono font-bold tracking-widest uppercase text-white">
+            Direct Founder Contact
+          </p>
+          <div className="space-y-2 text-sm">
+            <a
+              href={whatsapp}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 text-emerald-400 hover:text-emerald-300 font-medium transition-colors"
+            >
+              <WhatsAppIcon className="w-4 h-4 fill-current" />
+              <span>+91 73586 18789</span>
+            </a>
+            <p className="text-xs text-zinc-400">
+              Personal oversight on every website build. No account managers, no junior handoffs.
+            </p>
+            <button
+              onClick={onOpenPrototypeModal}
+              className="mt-2 text-xs font-mono text-cyan-400 hover:text-cyan-300 underline underline-offset-4 cursor-pointer"
+            >
+              Request a free website preview →
+            </button>
+          </div>
+        </div>
+
       </div>
 
-      <div className="max-w-7xl mx-auto pt-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-[11px] opacity-75">
-        <div>
-          &copy; {new Date().getFullYear()} Merqurie. All Rights Reserved. Move at the Speed of Mercury.
-        </div>
-        <div className="flex items-center gap-4">
-          <span className="flex items-center gap-1.5">
-            <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
-            ALL SYSTEMS OPERATIONAL
-          </span>
-        </div>
+      <div className="max-w-6xl mx-auto mt-10 pt-6 border-t border-zinc-800/60 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-zinc-400">
+        <p>© {new Date().getFullYear()} Merqurie Studio. Crafted with care by Jagadish.</p>
+        <p className="font-mono text-zinc-400">Fast • Reliable • Built to Convert</p>
       </div>
     </footer>
   );

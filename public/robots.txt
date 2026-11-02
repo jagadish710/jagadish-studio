@@ -1,5 +1,5 @@
 User-agent: *
 Allow: /
 
-# Canonical Sitemap URL for Google & Bing
+# Canonical Sitemap URL for Search Engines
 Sitemap: https://www.jagadish.online/sitemap.xml

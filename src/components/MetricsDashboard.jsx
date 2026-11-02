@@ -1,93 +1,91 @@
-import React, { useState, useEffect } from 'react';
-import { motion } from 'framer-motion';
+import React, { useState } from 'react';
 import { 
   Zap, 
   ShieldCheck, 
-  Clock, 
-  TrendingUp, 
   Smartphone, 
-  Database, 
+  TrendingUp, 
   CheckCircle2, 
-  Sparkles 
+  Sparkles,
+  Award,
+  ArrowRight
 } from 'lucide-react';
-import { playCyberTone } from '../utils/audio';
 
-export default function MetricsDashboard({ isDark = true, onOpenPrototypeModal }) {
-  const [activeTab, setActiveTab] = useState('speed');
-
+export default function MetricsDashboard({ onOpenPrototypeModal }) {
   const stats = [
+    {
+      value: '< 1.0s',
+      unit: 'Latency',
+      label: 'Mobile Edge PageSpeed',
+      subtext: 'Scoring 99/100 automatically on Google Core Web Vitals',
+      highlight: true,
+      color: 'from-cyan-500 to-blue-600',
+    },
     {
       value: '4+',
       unit: 'Years',
-      label: 'Specialized Architecture Experience',
-      subtext: 'Engineering decoupled, sub-second web platforms',
-      highlight: true,
+      label: 'Specialized Engineering',
+      subtext: 'Built with big-tech rigor from Amazon & frontier AI at Turing',
+      highlight: false,
+      color: 'from-amber-500 to-orange-600',
     },
     {
-      value: '100+',
-      unit: 'Systems',
-      label: 'Production Deployments',
-      subtext: 'E-commerce, SaaS, industrial ERPs & storefronts',
+      value: '10s',
+      unit: 'Self-Serve',
+      label: 'Phone Content Edits',
+      subtext: 'Update prices and text from your mobile phone with zero developer delay',
       highlight: false,
-    },
-    {
-      value: '< 0.24s',
-      unit: 'Latency',
-      label: 'Global Edge Load Speed',
-      subtext: 'Scoring 99/100 automatically on Google PageSpeed',
-      highlight: false,
+      color: 'from-purple-500 to-indigo-600',
     },
     {
       value: '₹0',
       unit: 'Forever',
-      label: 'Recurring Maintenance Fees',
-      subtext: 'Saving clients ₹1,80,000+ every 3 years',
+      label: 'Monthly Agency Retainers',
+      subtext: 'Zero recurring agency lock-in. One-time build, 100% owned by you',
       highlight: true,
+      color: 'from-emerald-500 to-teal-600',
     },
   ];
 
   const benchmarks = [
     {
-      label: 'Google Core Web Vitals (CWV)',
-      merqurie: 99,
-      legacy: 42,
-      merqurieLabel: '99/100 (Optimal Speed)',
-      legacyLabel: '42/100 (Failed CWV)',
+      label: 'Mobile Page Load Speed',
+      merqurie: 98,
+      legacy: 35,
+      merqurieLabel: '< 1.0s (Sub-second Edge)',
+      legacyLabel: '8 to 10s (Heavy WordPress Plugins)',
       icon: Zap,
     },
     {
-      label: 'Code & Data Sovereignty',
+      label: 'Code & Data Ownership',
       merqurie: 100,
-      legacy: 0,
-      merqurieLabel: '100% Client Owned (Git Repo)',
-      legacyLabel: 'Hostage Vendor Lock-In',
+      legacy: 10,
+      merqurieLabel: '100% Owned by You (Full Git Transfer)',
+      legacyLabel: 'Hostage Agency Lock-In',
       icon: ShieldCheck,
     },
     {
-      label: 'Content Edit Latency',
-      merqurie: 96,
-      legacy: 15,
-      merqurieLabel: '10s Self-Serve Phone Cockpit',
+      label: 'Time to Update Prices & Photos',
+      merqurie: 95,
+      legacy: 20,
+      merqurieLabel: '10 Seconds from Phone Cockpit',
       legacyLabel: '3 to 7 Days Developer Ticket',
       icon: Smartphone,
     },
     {
       label: '3-Year Retainer Capital Preserved',
       merqurie: 100,
-      legacy: 10,
-      merqurieLabel: '₹0 Fees (100% Kept by Business)',
-      legacyLabel: '₹1,80,000+ Paid to Agency',
+      legacy: 15,
+      merqurieLabel: '₹0 Retainers (Save ₹1,80,000+)',
+      legacyLabel: '₹5,000 to ₹15,000 Paid Monthly',
       icon: TrendingUp,
     },
   ];
 
   return (
-    <section className={`py-16 sm:py-24 px-4 sm:px-6 lg:px-8 relative overflow-hidden transition-colors ${
-      isDark ? 'bg-[#060608]' : 'bg-slate-50/70'
-    }`}>
+    <section className="py-16 sm:py-24 px-4 sm:px-6 lg:px-8 relative overflow-hidden bg-[#07070A] border-t border-zinc-800/80">
       
-      {/* Cinematic SVG Planet-Horizon Curved Electric Blue Light Arc (themaxgrowth style) */}
-      <div className="absolute inset-x-0 bottom-0 pointer-events-none overflow-hidden h-48 sm:h-72 z-0">
+      {/* Cinematic SVG Curved Planet Horizon Arc at bottom */}
+      <div className="absolute inset-x-0 bottom-0 pointer-events-none overflow-hidden h-40 sm:h-64 z-0">
         <svg 
           viewBox="0 0 1440 220" 
           fill="none" 
@@ -98,182 +96,131 @@ export default function MetricsDashboard({ isDark = true, onOpenPrototypeModal }
           <defs>
             <linearGradient id="metricBeamGrad" x1="0%" y1="100%" x2="100%" y2="100%">
               <stop offset="0%" stopColor="#06b6d4" stopOpacity="0" />
-              <stop offset="20%" stopColor="#06b6d4" stopOpacity="0.6" />
-              <stop offset="50%" stopColor="#38bdf8" stopOpacity="1" />
-              <stop offset="80%" stopColor="#3b82f6" stopOpacity="0.6" />
+              <stop offset="25%" stopColor="#06b6d4" stopOpacity="0.5" />
+              <stop offset="50%" stopColor="#38bdf8" stopOpacity="0.9" />
+              <stop offset="75%" stopColor="#3b82f6" stopOpacity="0.5" />
               <stop offset="100%" stopColor="#3b82f6" stopOpacity="0" />
             </linearGradient>
-            <filter id="metricHalo" x="-20%" y="-50%" width="140%" height="200%">
-              <feGaussianBlur stdDeviation="8" result="blur1" />
-              <feGaussianBlur stdDeviation="22" result="blur2" />
-              <feMerge>
-                <feMergeNode in="blur2" />
-                <feMergeNode in="blur1" />
-                <feMergeNode in="SourceGraphic" />
-              </feMerge>
-            </filter>
-            <radialGradient id="metricPlanetGlow" cx="50%" cy="100%" r="50%">
-              <stop offset="0%" stopColor="#06b6d4" stopOpacity="0.38" />
-              <stop offset="50%" stopColor="#2563eb" stopOpacity="0.16" />
+            <radialGradient id="metricGlowGrad" cx="50%" cy="100%" r="50%">
+              <stop offset="0%" stopColor="#06b6d4" stopOpacity="0.28" />
+              <stop offset="50%" stopColor="#2563eb" stopOpacity="0.1" />
               <stop offset="100%" stopColor="transparent" stopOpacity="0" />
             </radialGradient>
           </defs>
-          
-          {/* Planetary Glow Body */}
-          <path 
-            d="M 0 220 Q 720 30 1440 220 L 1440 220 L 0 220 Z" 
-            fill="url(#metricPlanetGlow)" 
-          />
-          
-          {/* Glowing Horizon Curve Arc */}
-          <path 
-            d="M 0 220 Q 720 30 1440 220" 
-            stroke="url(#metricBeamGrad)" 
-            strokeWidth="4" 
-            filter="url(#metricHalo)"
-          />
-          <path 
-            d="M 0 220 Q 720 30 1440 220" 
-            stroke="#ffffff" 
-            strokeWidth="1.2" 
-            strokeOpacity="0.8"
-          />
+          <path d="M 0 220 Q 720 40 1440 220 L 1440 220 L 0 220 Z" fill="url(#metricGlowGrad)" />
+          <path d="M 0 220 Q 720 40 1440 220" stroke="url(#metricBeamGrad)" strokeWidth="3" />
         </svg>
       </div>
 
       <div className="max-w-6xl mx-auto relative z-10">
         
-        {/* Top Header with Indicator Pill */}
-        <div className="text-center max-w-3xl mx-auto mb-14 sm:mb-16">
-          <div className={`inline-flex items-center gap-2 px-3 py-1 rounded-full text-[11px] font-mono mb-3 border ${
-            isDark 
-              ? 'bg-zinc-900 border-zinc-800 text-zinc-300' 
-              : 'bg-white border-slate-200 text-slate-800 shadow-2xs'
-          }`}>
-            <span className="w-2 h-2 rounded-xs bg-cyan-400" />
-            <span className="font-bold uppercase tracking-wider">Indicator &bull; Performance Architecture</span>
+        {/* Header: The Work Behind The Results (themaxgrowth style) */}
+        <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-mono mb-3 bg-zinc-900 border border-zinc-800 text-zinc-300">
+            <Sparkles className="w-3.5 h-3.5 text-cyan-400" />
+            <span className="uppercase tracking-wider">THE WORK BEHIND THE RESULTS</span>
           </div>
 
-          <h2 className={`text-2xl sm:text-4xl md:text-5xl font-extrabold tracking-tight font-display mb-4 ${
-            isDark ? 'text-white' : 'text-slate-950'
-          }`}>
-            Results Driven <span className="italic font-serif text-cyan-400 font-normal">By Architecture</span>, Not Retainers
+          <h2 className="text-2xl sm:text-4xl font-extrabold font-display text-white tracking-tight mb-4">
+            Built to Win Trust, Leads, and Sales
           </h2>
-
-          <p className={`text-xs sm:text-sm max-w-2xl mx-auto leading-relaxed ${
-            isDark ? 'text-zinc-400' : 'text-slate-600'
-          }`}>
-            Every part of the Merqurie system is engineered to eliminate developer dependency, maximize Google organic search ranking, and convert visitors into instant WhatsApp inquiries.
+          <p className="text-sm sm:text-base text-zinc-400 max-w-2xl mx-auto leading-relaxed">
+            Real performance telemetry that gives your business an unfair advantage over competitors stuck on slow, fragile templates.
           </p>
         </div>
 
-        {/* 4 Big Numbers (Animated Counters & Clean Metrics) */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 mb-12 sm:mb-16">
-          {stats.map((stat, idx) => (
-            <motion.div
+        {/* 4 Vertical Stat Pillars (themaxgrowth card style) */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 mb-12 sm:mb-16">
+          {stats.map((item, idx) => (
+            <div
               key={idx}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: idx * 0.1 }}
-              className={`p-5 sm:p-6 rounded-2xl sm:rounded-3xl border flex flex-col justify-between transition-all duration-300 hover:scale-102 ${
-                isDark 
-                  ? 'bg-zinc-950/90 border-zinc-800/90 hover:border-cyan-500/40 shadow-xl' 
-                  : 'bg-white border-slate-200 hover:border-blue-400 shadow-md'
+              className={`p-6 sm:p-7 rounded-3xl border transition-all duration-300 flex flex-col justify-between relative overflow-hidden ${
+                item.highlight
+                  ? 'bg-gradient-to-b from-zinc-900/90 to-zinc-950/90 border-cyan-500/40 shadow-[0_0_30px_rgba(6,182,212,0.08)]'
+                  : 'bg-zinc-950/80 border-zinc-800/80'
               }`}
             >
               <div>
-                <div className="flex items-baseline gap-1.5 mb-1">
-                  <span className={`text-3xl sm:text-5xl font-black font-display tracking-tight ${
-                    stat.highlight
-                      ? 'text-cyan-400 drop-shadow-[0_0_18px_rgba(34,211,238,0.35)]'
-                      : isDark ? 'text-white' : 'text-slate-950'
-                  }`}>
-                    {stat.value}
-                  </span>
-                  <span className="text-xs sm:text-sm font-mono text-zinc-500 font-semibold">
-                    {stat.unit}
-                  </span>
+                <div className="flex items-center justify-between text-xs font-mono text-zinc-400 mb-6">
+                  <span>METRIC // 0{idx + 1}</span>
+                  <span className="text-cyan-400 font-bold">{item.unit}</span>
                 </div>
-                <div className={`text-xs sm:text-sm font-bold font-display mt-1 ${
-                  isDark ? 'text-zinc-200' : 'text-slate-900'
-                }`}>
-                  {stat.label}
+
+                <div className="text-4xl sm:text-5xl font-black font-display tracking-tight text-white mb-2">
+                  {item.value}
                 </div>
+
+                <h3 className="text-base font-bold text-zinc-100 font-display mb-1">
+                  {item.label}
+                </h3>
+                <p className="text-xs text-zinc-400 leading-relaxed">
+                  {item.subtext}
+                </p>
               </div>
 
-              <div className={`text-[11px] font-mono leading-relaxed mt-3 pt-3 border-t ${
-                isDark ? 'border-zinc-800/80 text-zinc-500' : 'border-slate-100 text-slate-500'
-              }`}>
-                {stat.subtext}
+              <div className="mt-6 pt-4 border-t border-zinc-800/60 flex items-center gap-1.5 text-[11px] font-mono text-emerald-400">
+                <CheckCircle2 className="w-3.5 h-3.5 shrink-0" />
+                <span>Verified in Production</span>
               </div>
-            </motion.div>
+            </div>
           ))}
         </div>
 
-        {/* High-Tech Performance Bar & Telemetry Dashboard Card */}
-        <motion.div
-          initial={{ opacity: 0, y: 24 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className={`rounded-2xl sm:rounded-3xl border overflow-hidden shadow-2xl transition-all ${
-            isDark 
-              ? 'bg-[#0A0A0E]/95 border-zinc-800 shadow-[0_0_40px_rgba(6,182,212,0.1)]' 
-              : 'bg-white border-slate-200 shadow-xl'
-          }`}
-        >
-          {/* Top Cockpit Header */}
-          <div className={`px-5 py-4 border-b flex flex-col sm:flex-row items-center justify-between gap-3 ${
-            isDark ? 'bg-zinc-950/90 border-zinc-800' : 'bg-slate-100/90 border-slate-200'
-          }`}>
-            <div className="flex items-center gap-3 w-full sm:w-auto">
-              <span className="w-2.5 h-2.5 rounded-full bg-cyan-400 animate-pulse" />
-              <span className={`text-xs font-mono font-bold uppercase tracking-wider ${
-                isDark ? 'text-white' : 'text-slate-900'
-              }`}>
-                ARCHITECTURE TELEMETRY &bull; MERQURIE STANDARD VS. LEGACY CMS
-              </span>
+        {/* Telemetry Comparison Bars */}
+        <div className="p-6 sm:p-8 rounded-3xl bg-zinc-950/90 border border-zinc-800/90 shadow-2xl">
+          <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between pb-6 mb-6 border-b border-zinc-800 gap-3">
+            <div>
+              <h3 className="text-lg font-bold font-display text-white">
+                Merqurie Engineering vs. Traditional Agency Output
+              </h3>
+              <p className="text-xs text-zinc-400 mt-0.5">
+                Side-by-side technical benchmarks measured on real client devices.
+              </p>
             </div>
 
-            <div className={`text-[11px] font-mono px-3 py-1 rounded-full border ${
-              isDark ? 'bg-zinc-900 border-zinc-800 text-zinc-400' : 'bg-white border-slate-200 text-slate-600'
-            }`}>
-              VERIFIED CORE WEB VITALS 2026
-            </div>
+            <button
+              onClick={onOpenPrototypeModal}
+              className="text-xs font-mono text-cyan-400 hover:text-cyan-300 flex items-center gap-1 font-semibold cursor-pointer shrink-0"
+            >
+              <span>Test your website speed</span>
+              <ArrowRight className="w-3.5 h-3.5" />
+            </button>
           </div>
 
-          {/* Metric Comparison Bars Grid */}
-          <div className="p-5 sm:p-8 space-y-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {benchmarks.map((b, idx) => {
               const Icon = b.icon;
               return (
-                <div key={idx} className="space-y-2">
-                  <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1">
+                <div key={idx} className="space-y-2 p-4 rounded-2xl bg-zinc-900/60 border border-zinc-800/60">
+                  <div className="flex items-center justify-between text-xs font-medium text-zinc-200">
                     <div className="flex items-center gap-2">
                       <Icon className="w-4 h-4 text-cyan-400" />
-                      <span className={`text-xs sm:text-sm font-bold ${
-                        isDark ? 'text-zinc-200' : 'text-slate-900'
-                      }`}>
-                        {b.label}
-                      </span>
-                    </div>
-                    <div className="flex items-center gap-4 text-xs font-mono">
-                      <span className="text-cyan-400 font-bold">{b.merqurieLabel}</span>
-                      <span className="text-zinc-500 line-through hidden sm:inline">{b.legacyLabel}</span>
+                      <span>{b.label}</span>
                     </div>
                   </div>
 
-                  {/* Dual Bar Representation */}
-                  <div className="space-y-1">
-                    {/* Merqurie Bar */}
-                    <div className="relative w-full h-3 rounded-full bg-zinc-900 overflow-hidden border border-zinc-800">
-                      <motion.div
-                        initial={{ width: 0 }}
-                        whileInView={{ width: `${b.merqurie}%` }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 1, delay: 0.2 + idx * 0.1, ease: 'easeOut' }}
-                        className="h-full rounded-full bg-gradient-to-r from-blue-600 via-cyan-400 to-emerald-400 shadow-[0_0_12px_rgba(34,211,238,0.5)]"
+                  {/* Merqurie Bar */}
+                  <div className="space-y-1 pt-1">
+                    <div className="flex justify-between text-[11px] font-mono">
+                      <span className="text-emerald-400 font-bold">Merqurie: {b.merqurieLabel}</span>
+                    </div>
+                    <div className="h-2 rounded-full bg-zinc-800 overflow-hidden">
+                      <div
+                        className="h-full bg-gradient-to-r from-cyan-400 to-emerald-400 rounded-full"
+                        style={{ width: `${b.merqurie}%` }}
+                      />
+                    </div>
+                  </div>
+
+                  {/* Legacy Bar */}
+                  <div className="space-y-1 pt-0.5">
+                    <div className="flex justify-between text-[11px] font-mono">
+                      <span className="text-zinc-400">Legacy Agencies: {b.legacyLabel}</span>
+                    </div>
+                    <div className="h-1.5 rounded-full bg-zinc-800/80 overflow-hidden">
+                      <div
+                        className="h-full bg-rose-500/60 rounded-full"
+                        style={{ width: `${b.legacy}%` }}
                       />
                     </div>
                   </div>
@@ -281,37 +228,10 @@ export default function MetricsDashboard({ isDark = true, onOpenPrototypeModal }
               );
             })}
           </div>
-
-          {/* Bottom Action Footer */}
-          <div className={`p-5 border-t flex flex-col sm:flex-row items-center justify-between gap-4 ${
-            isDark ? 'bg-zinc-950/60 border-zinc-800' : 'bg-slate-50 border-slate-200'
-          }`}>
-            <div className="flex items-center gap-2 text-xs font-mono">
-              <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" />
-              <span className={isDark ? 'text-zinc-400' : 'text-slate-600'}>
-                All platforms verified for sub-second Google ranking and ₹0 ongoing retainer costs.
-              </span>
-            </div>
-
-            <button
-              onClick={() => {
-                playCyberTone('click');
-                onOpenPrototypeModal && onOpenPrototypeModal();
-              }}
-              className={`px-5 py-2.5 rounded-xl text-xs font-mono font-bold flex items-center gap-2 transition-all cursor-pointer active:scale-95 shadow-md ${
-                isDark 
-                  ? 'bg-white hover:bg-zinc-200 text-zinc-950' 
-                  : 'bg-slate-950 hover:bg-slate-800 text-white'
-              }`}
-            >
-              <Sparkles className="w-3.5 h-3.5 text-cyan-500 fill-current" />
-              <span>CLAIM YOUR BLUEPRINT</span>
-            </button>
-          </div>
-
-        </motion.div>
+        </div>
 
       </div>
+
     </section>
   );
 }

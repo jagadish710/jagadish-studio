@@ -1,194 +1,100 @@
-import React, { useState, useEffect } from 'react';
-import { playCyberTone } from '../utils/audio';
-import { motion } from 'framer-motion';
-import {
-  MessageSquare,
-  ChevronRight,
-  Sun,
-  Moon,
-} from 'lucide-react';
+import React, { useEffect, useState } from 'react';
+import { ArrowRight, Sparkles } from 'lucide-react';
 import Logo from './Logo';
 import WhatsAppIcon from './WhatsAppIcon';
 
-export default function Navbar({ 
-  activePage, 
-  setActivePage, 
-  onOpenChat, 
-  onOpenPrototypeModal,
-  isDark,
-  themeMode,
-  setThemeMode,
-}) {
+const whatsapp = 'https://wa.me/917358618789?text=Hi%20Jagadish!%20I%20would%20like%20to%20discuss%20a%20website%20for%20my%20business.';
+
+export default function Navbar({ onOpenPrototypeModal, activePage, setActivePage }) {
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 20);
-    };
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    const onScroll = () => setScrolled(window.scrollY > 20);
+    window.addEventListener('scroll', onScroll);
+    return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
   const navItems = [
     { id: 'home', label: 'Overview' },
-    { id: 'solutions', label: 'Solutions' },
-    { id: 'work', label: 'Live Demo' },
-    { id: 'about', label: 'Architecture' },
-    { id: 'prototype', label: 'Consultation' },
+    { id: 'solutions', label: 'Services' },
+    { id: 'work', label: 'Selected Work' },
+    { id: 'about', label: 'Studio & Approach' },
   ];
 
   const handleNavClick = (id) => {
-    playCyberTone('click');
     setActivePage(id);
     window.location.hash = id;
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
-  const toggleTheme = () => {
-    playCyberTone('click');
-    if (themeMode === 'system') {
-      setThemeMode(isDark ? 'light' : 'dark');
-    } else if (themeMode === 'dark') {
-      setThemeMode('light');
-    } else {
-      setThemeMode('dark');
-    }
-  };
-
   return (
-    <header className="fixed top-0 left-0 right-0 z-40 transition-all duration-300 md:px-8 md:pt-4">
+    <header className="fixed top-0 left-0 right-0 z-40 transition-all duration-300 md:px-6 md:pt-4">
       <div
-        className={`w-full flex items-center justify-between px-4 sm:px-6 py-2.5 sm:py-3 transition-all duration-300 ${
-          /* On mobile: edge-to-edge solid/frosted app bar with 0 gap above. On desktop: rounded-2xl island */
+        className={`w-full flex items-center justify-between px-4 sm:px-6 py-3 transition-all duration-300 ${
           scrolled
-            ? isDark
-              ? 'bg-[#08080A]/95 backdrop-blur-xl border-b md:border border-zinc-800 md:rounded-2xl shadow-2xl md:max-w-7xl md:mx-auto'
-              : 'bg-white/95 backdrop-blur-xl border-b md:border border-slate-200/90 md:rounded-2xl shadow-lg md:max-w-7xl md:mx-auto'
-            : isDark
-              ? 'bg-[#08080A]/90 md:bg-transparent backdrop-blur-lg md:backdrop-blur-none border-b md:border border-white/10 md:border-white/5 md:rounded-2xl md:max-w-7xl md:mx-auto'
-              : 'bg-white/90 md:bg-transparent backdrop-blur-lg md:backdrop-blur-none border-b md:border border-slate-200/60 md:border-slate-200/40 md:rounded-2xl md:max-w-7xl md:mx-auto'
+            ? 'bg-[#09090C]/95 backdrop-blur-xl border-b md:border border-zinc-800/80 md:rounded-2xl shadow-2xl md:max-w-7xl md:mx-auto'
+            : 'bg-[#09090C]/80 md:bg-transparent backdrop-blur-md md:backdrop-blur-none border-b md:border border-white/5 md:rounded-2xl md:max-w-7xl md:mx-auto'
         }`}
       >
-        {/* Brand Logo & Wordmark */}
+        {/* Brand Logo & Studio Wordmark */}
         <button
           onClick={() => handleNavClick('home')}
-          className="flex items-center gap-2 sm:gap-2.5 group cursor-pointer"
+          className="flex items-center gap-2.5 group cursor-pointer text-left"
           aria-label="MERQURIE Home"
         >
-          <Logo isDark={isDark} className="w-7 h-7 sm:w-8 sm:h-8" />
-          <div className="flex items-center gap-2">
-            <span className={`font-display font-black text-sm sm:text-base tracking-[0.18em] leading-none ${
-              isDark ? 'text-white' : 'text-slate-900'
-            }`}>
+          <Logo isDark={true} className="w-8 h-8 transition-transform group-hover:scale-105" />
+          <div className="flex flex-col">
+            <span className="font-display font-black text-sm sm:text-base tracking-[0.18em] text-white leading-tight">
               MERQURIE
+            </span>
+            <span className="text-[10px] text-zinc-400 font-mono tracking-wider hidden sm:block">
+              INDEPENDENT WEB STUDIO • CHENNAI
             </span>
           </div>
         </button>
 
-        {/* Desktop Navigation Pages (md & up) */}
-        <nav className={`hidden md:flex items-center gap-1 p-1 rounded-xl border backdrop-blur-md ${
-          isDark 
-            ? 'bg-zinc-950/80 border-zinc-800' 
-            : 'bg-slate-100/90 border-slate-200/90'
-        }`}>
+        {/* Desktop Navigation Links */}
+        <nav className="hidden md:flex items-center gap-1 p-1 rounded-xl bg-zinc-900/90 border border-zinc-800 backdrop-blur-md">
           {navItems.map((item) => {
             const isActive = activePage === item.id;
             return (
               <button
                 key={item.id}
                 onClick={() => handleNavClick(item.id)}
-                className={`relative px-4 py-1.5 rounded-lg text-xs font-mono transition-all cursor-pointer ${
+                className={`px-4 py-1.5 rounded-lg text-xs font-medium transition-all cursor-pointer ${
                   isActive
-                    ? isDark ? 'text-white font-bold' : 'text-slate-950 font-bold'
-                    : isDark ? 'text-zinc-400 hover:text-white' : 'text-slate-600 hover:text-slate-950'
+                    ? 'bg-zinc-800 text-white font-bold shadow-xs'
+                    : 'text-zinc-400 hover:text-white hover:bg-zinc-800/50'
                 }`}
               >
-                {isActive && (
-                  <motion.div
-                    layoutId="activeNavPill"
-                    className={`absolute inset-0 rounded-lg border shadow-xs ${
-                      isDark 
-                        ? 'bg-zinc-800 border-zinc-700' 
-                        : 'bg-white border-slate-200/90 shadow-sm'
-                    }`}
-                    transition={{ type: 'spring', stiffness: 380, damping: 30 }}
-                  />
-                )}
-                <span className="relative z-10 flex items-center gap-1">
-                  {item.label}
-                  {item.id === 'work' && (
-                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
-                  )}
-                </span>
+                {item.label}
               </button>
             );
           })}
         </nav>
 
-        {/* Action Controls & Theme Toggle */}
-        <div className="flex items-center gap-2 sm:gap-2.5">
-          {/* Theme Mode Toggle Button */}
-          <button
-            onClick={toggleTheme}
-            className={`p-2 rounded-xl border text-xs font-mono flex items-center gap-1.5 transition-all cursor-pointer active:scale-95 ${
-              isDark 
-                ? 'bg-zinc-900 border-zinc-800 text-zinc-300 hover:text-white hover:border-zinc-700' 
-                : 'bg-slate-100 border-slate-200 text-slate-700 hover:text-slate-950 hover:border-slate-300'
-            }`}
-            title="Toggle light / dark mode"
-            aria-label="Toggle theme"
-          >
-            {isDark ? <Sun className="w-3.5 h-3.5" /> : <Moon className="w-3.5 h-3.5" />}
-          </button>
-
-          {/* Desktop AI Concierge Trigger */}
-          <button
-            onClick={() => {
-              playCyberTone('click');
-              onOpenChat();
-            }}
-            className={`hidden sm:flex items-center gap-1.5 px-3 py-2 rounded-xl border text-xs font-mono transition-all cursor-pointer active:scale-95 ${
-              isDark 
-                ? 'bg-zinc-900 border-zinc-800 text-zinc-300 hover:text-white hover:border-zinc-700' 
-                : 'bg-slate-100 border-slate-200 text-slate-700 hover:text-slate-950 hover:border-slate-300'
-            }`}
-          >
-            <MessageSquare className={`w-3.5 h-3.5 ${isDark ? 'text-zinc-300' : 'text-slate-700'}`} />
-            <span>AI</span>
-          </button>
-
-          {/* Consultation CTA (Adaptive for mobile: compact pill) */}
-          <button
-            onClick={() => {
-              playCyberTone('click');
-              onOpenPrototypeModal();
-            }}
-            className={`px-3 py-1.5 sm:px-4 sm:py-2 rounded-xl font-bold text-[11px] sm:text-xs font-mono flex items-center gap-1 transition-all hover:scale-102 active:scale-95 cursor-pointer shadow-sm ${
-              isDark 
-                ? 'bg-white hover:bg-zinc-200 text-zinc-950' 
-                : 'bg-slate-950 hover:bg-slate-800 text-white'
-            }`}
-          >
-            <span>CONSULTATION</span>
-            <ChevronRight className="w-3 h-3 sm:w-3.5 sm:h-3.5" />
-          </button>
-
-          {/* Desktop WhatsApp CTA */}
+        {/* Action Buttons */}
+        <div className="flex items-center gap-2 sm:gap-3">
+          {/* WhatsApp Direct */}
           <a
-            href="https://wa.me/917358618789?text=Hi%20Merqurie%20Team!%20I%20am%20interested%20in%20a%20website%20solution."
+            href={whatsapp}
             target="_blank"
             rel="noopener noreferrer"
-            onClick={() => playCyberTone('click')}
-            className={`hidden lg:flex items-center gap-1.5 px-3.5 py-2 rounded-xl font-mono font-semibold text-xs shadow-xs hover:scale-102 active:scale-95 transition-all cursor-pointer border ${
-              isDark
-                ? 'bg-zinc-900 hover:bg-zinc-800 border-zinc-700 text-white'
-                : 'bg-slate-100 hover:bg-slate-200 border-slate-200 text-slate-900'
-            }`}
-            title="Chat on WhatsApp"
+            className="hidden sm:inline-flex items-center gap-1.5 px-3 py-2 rounded-xl text-xs font-semibold bg-[#25D366]/15 text-[#25D366] border border-[#25D366]/30 hover:bg-[#25D366] hover:text-white transition-all cursor-pointer shadow-xs active:scale-95"
           >
-            <WhatsAppIcon className="w-3.5 h-3.5 text-emerald-400 fill-current" />
+            <WhatsAppIcon className="w-4 h-4 fill-current" />
             <span>WhatsApp</span>
           </a>
+
+          {/* Consultation CTA */}
+          <button
+            onClick={onOpenPrototypeModal}
+            className="inline-flex items-center gap-1.5 px-3.5 sm:px-4 py-2 rounded-xl text-xs font-bold font-mono tracking-wide bg-white text-zinc-950 hover:bg-zinc-200 shadow-md transition-all active:scale-95 cursor-pointer"
+          >
+            <Sparkles className="w-3.5 h-3.5 text-zinc-800" />
+            <span>FREE SAMPLE</span>
+            <ArrowRight className="w-3.5 h-3.5" />
+          </button>
         </div>
       </div>
     </header>

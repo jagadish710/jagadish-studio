@@ -8,34 +8,43 @@ export default {
   theme: {
     extend: {
       colors: {
-        // Dark Theme Palette: Obsidian Black & Champagne (Modern Tech Luxury)
+        // Quicksilver / Liquid Metal Dark Luxury Palette
+        void: "#07070A",
+        surface: "#0E0F14",
+        raised: "#161821",
+        ice: "#8CB4FF",
+        "ice-glow": "rgba(140, 180, 255, 0.18)",
+        hairline: "rgba(255, 255, 255, 0.08)",
+        // Existing legacy tokens preserved for backwards compatibility
         luxury: {
-          dark: "#121212",        // Dominant Soft Black
-          darker: "#0A0A0A",
-          card: "#181818",
-          cardElevated: "#202020",
-          platinum: "#EAEAEA",    // Secondary Platinum Gray
-          muted: "#9E9E9E",
-          gold: "#E6C687",        // Accent Metallic Champagne Gold
+          dark: "#07070A",
+          darker: "#050507",
+          card: "#0E0F14",
+          cardElevated: "#161821",
+          platinum: "#F3F5F9",
+          muted: "#A3ABBA",
+          subtle: "#7A8396",
+          silver: "#B9C1CE",
+          gold: "#E6C687",
           goldHover: "#F0D49E",
           goldGlow: "rgba(230, 198, 135, 0.35)",
         },
-        // Light Theme Palette: Crisp, Trustworthy Enterprise Standard (Stripe / Linear / Apple grade)
         fresh: {
           bg: "#FFFFFF",
           card: "#FFFFFF",
-          forest: "#0F172A",      // Deep authoritative Slate-900
-          muted: "#475569",       // Refined Slate-600
-          emerald: "#2563EB",     // Trustworthy Royal Blue / Indigo
-          green: "#059669",       // Refined Forest Emerald for verified badges
-          tint: "#F8FAFC",        // Clean Slate-50 surface
-          border: "#E2E8F0",      // Crisp hairline Slate-200 border
+          forest: "#0F172A",
+          muted: "#475569",
+          emerald: "#2563EB",
+          green: "#059669",
+          tint: "#F8FAFC",
+          border: "#E2E8F0",
         }
       },
       fontFamily: {
         sans: ['"Inter"', 'system-ui', '-apple-system', 'sans-serif'],
-        mono: ['"JetBrains Mono"', 'monospace'],
+        mono: ['"Space Grotesk"', 'monospace'],
         display: ['"Space Grotesk"', '"Inter"', 'sans-serif'],
+        serif: ['"Instrument Serif"', 'Georgia', 'serif'],
       },
       boxShadow: {
         'gold-glow': '0 0 35px -5px rgba(230, 198, 135, 0.35)',

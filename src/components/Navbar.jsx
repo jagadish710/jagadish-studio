@@ -80,19 +80,19 @@ export default function Navbar({ onOpenPrototypeModal, activePage, setActivePage
             href={whatsapp}
             target="_blank"
             rel="noopener noreferrer"
-            className="hidden sm:inline-flex items-center gap-1.5 px-3 py-2 rounded-xl text-xs font-semibold bg-[#25D366]/15 text-[#25D366] border border-[#25D366]/30 hover:bg-[#25D366] hover:text-white transition-all cursor-pointer shadow-xs active:scale-95"
+            className="hidden sm:inline-flex items-center gap-1.5 px-3 py-2 rounded-full text-xs font-semibold bg-[#25D366]/15 text-[#25D366] border border-[#25D366]/30 hover:bg-[#25D366] hover:text-zinc-950 transition-all cursor-pointer shadow-xs active:scale-95"
           >
             <WhatsAppIcon className="w-4 h-4 fill-current" />
             <span>WhatsApp</span>
           </a>
 
-          {/* Consultation CTA */}
+          {/* Consultation CTA with Liquid Quicksilver Sheen */}
           <button
             onClick={onOpenPrototypeModal}
-            className="inline-flex items-center gap-1.5 px-3.5 sm:px-4 py-2 rounded-xl text-xs font-bold font-mono tracking-wide bg-white text-zinc-950 hover:bg-zinc-200 shadow-md transition-all active:scale-95 cursor-pointer"
+            className="btn-mercury-primary inline-flex items-center gap-1.5 px-4 py-2 text-xs font-bold font-mono tracking-wide cursor-pointer shadow-md"
           >
-            <Sparkles className="w-3.5 h-3.5 text-zinc-800" />
-            <span>FREE SAMPLE</span>
+            <Sparkles className="w-3.5 h-3.5 text-zinc-900" />
+            <span>START A PROJECT</span>
             <ArrowRight className="w-3.5 h-3.5" />
           </button>
         </div>

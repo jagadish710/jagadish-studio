@@ -10,6 +10,7 @@ import {
   Sparkles,
 } from 'lucide-react';
 import WhatsAppIcon from './WhatsAppIcon';
+import MercuryDropletHero from './MercuryDropletHero';
 
 const whatsapp = 'https://wa.me/917358618789?text=Hi%20Jagadish!%20I%20would%20like%20to%20discuss%20a%20website%20for%20my%20business.';
 
@@ -18,8 +19,10 @@ export default function Hero({ onOpenPrototypeModal, onNavigateToWork, onNavigat
 
   const showcases = {
     pms: {
-      headline: 'A Website Built to Win Trust, Leads, and Sales.',
-      subtext: 'We engineer high-speed digital storefronts that communicate your value clearly, answer prospect questions, and turn visitors into instant WhatsApp inquiries.',
+      headlinePrefix: 'Fast Sites.',
+      headlineAccent: 'Mirror-Finish',
+      headlineSuffix: 'Zero Retainer.',
+      subtext: 'Mobile-first platforms engineered to turn visitors into enquiries. Tested live on hospital equipment sales and rentals across Chennai.',
       title: 'PMS Solution | Hospital Medical Equipment Sales & Rentals',
       speed: '0.24s Edge Load Speed',
       desc: 'Live Chennai healthcare portal managing ICU beds, oxygen concentrators, and hospital setup inquiries with instant WhatsApp lead routing.',
@@ -29,8 +32,10 @@ export default function Hero({ onOpenPrototypeModal, onNavigateToWork, onNavigat
       url: 'https://pmssolution.co.in',
     },
     upsks: {
-      headline: 'A Digital Home That Establishes Immediate Authority.',
-      subtext: 'From student registrations to tournament schedules, we build credible online platforms that eliminate administrative chaos and drive admissions.',
+      headlinePrefix: 'Immediate',
+      headlineAccent: 'Authority.',
+      headlineSuffix: 'Zero Admin Debt.',
+      subtext: 'From student registries to international tournament rosters, we build digital homes that eliminate chaos and accelerate admissions.',
       title: 'Unique Power Shito-Ryu Karate School (UPSKS)',
       speed: '0.22s Edge Load Speed',
       desc: 'Live sports academy platform connecting students across India to international Japanese martial arts heritage, belt rosters, and direct parent WhatsApp communication.',
@@ -40,8 +45,10 @@ export default function Hero({ onOpenPrototypeModal, onNavigateToWork, onNavigat
       url: 'https://upskskarate.com',
     },
     admin: {
-      headline: '10-Second Text & Price Edits. Zero Agency Retainers.',
-      subtext: 'Manage headlines, product pricing, and announcements directly from your phone in seconds. Never pay an agency a monthly retainer or wait days for basic edits.',
+      headlinePrefix: '10-Second',
+      headlineAccent: 'Phone Edits.',
+      headlineSuffix: 'Zero Agency Delays.',
+      subtext: 'Update headlines, product prices, and announcements from your smartphone in seconds. You own the keys with zero developer dependency.',
       title: 'Self-Serve Mobile Visual Admin Cockpit',
       speed: '10s Edit Latency',
       desc: 'Update headlines, product prices, announcements, and catalog photos directly from your phone with zero developer dependency.',
@@ -51,7 +58,9 @@ export default function Hero({ onOpenPrototypeModal, onNavigateToWork, onNavigat
       url: null,
     },
     ecommerce: {
-      headline: 'Instant WhatsApp Order Flow & Product Catalogs.',
+      headlinePrefix: '1-Tap Orders.',
+      headlineAccent: 'Instant Flow.',
+      headlineSuffix: 'Zero Plugin Bloat.',
       subtext: 'Direct one-tap WhatsApp purchase orders with dynamic spec configurator, sub-second checkout, and zero third-party plugin bloat.',
       title: 'Interactive E-Commerce & Product Catalog',
       speed: 'Sub-second Checkout Flow',
@@ -132,15 +141,15 @@ export default function Hero({ onOpenPrototypeModal, onNavigateToWork, onNavigat
       <div className="relative z-10 max-w-5xl mx-auto text-center flex flex-col items-center w-full">
         
         {/* Top Executive Engineering Tag */}
-        <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-mono font-medium mb-4 sm:mb-5 bg-zinc-900/90 border border-zinc-800 text-zinc-300 shadow-sm backdrop-blur-md">
+        <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-mono font-medium mb-4 sm:mb-5 bg-[#0E0F14]/90 border border-white/10 text-zinc-300 shadow-sm backdrop-blur-md">
           <span className="flex h-2 w-2 relative">
-            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
-            <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-400" />
+            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-sky-400 opacity-75" />
+            <span className="relative inline-flex rounded-full h-2 w-2 bg-sky-400" />
           </span>
           <span className="tracking-wider uppercase">MERQURIE STUDIO • CHENNAI • FORMER AMAZON &amp; TURING ENGINEERING</span>
         </div>
 
-        {/* Dynamic Multi-Scene Animated Headline */}
+        {/* Dynamic Multi-Scene Animated Headline with Editorial Serif Italic & Chrome Gradient */}
         <AnimatePresence mode="wait">
           <motion.div
             key={activeShowcase}
@@ -150,8 +159,14 @@ export default function Hero({ onOpenPrototypeModal, onNavigateToWork, onNavigat
             transition={{ duration: 0.35 }}
             className="flex flex-col items-center"
           >
-            <h1 className="text-3xl sm:text-5xl md:text-6xl font-extrabold tracking-tight font-display text-white leading-[1.12] mb-3 sm:mb-4 max-w-4xl">
-              {current.headline}
+            <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight text-white leading-[1.08] mb-3 sm:mb-4 max-w-4xl">
+              {current.headlinePrefix}{' '}
+              <span className="font-serif italic font-normal text-slate-100">
+                {current.headlineAccent}
+              </span>{' '}
+              <span className="chrome-text">
+                {current.headlineSuffix}
+              </span>
             </h1>
 
             <p className="max-w-2xl text-sm sm:text-base font-normal text-zinc-400 leading-relaxed mb-6 sm:mb-8 px-2">
@@ -160,27 +175,36 @@ export default function Hero({ onOpenPrototypeModal, onNavigateToWork, onNavigat
           </motion.div>
         </AnimatePresence>
 
-        {/* Primary Action Buttons */}
-        <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-3 w-full max-w-md sm:max-w-none mb-6 sm:mb-8 px-2">
-          {/* WhatsApp Direct Action */}
+        {/* Primary Action Buttons: Liquid Quicksilver Sheen & High-Contrast WhatsApp */}
+        <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-3 w-full max-w-md sm:max-w-none mb-4 sm:mb-6 px-2">
+          {/* Quicksilver Primary Button with moving sheen reflection */}
+          <button
+            onClick={onOpenPrototypeModal}
+            className="btn-mercury-primary px-7 py-3.5 sm:py-4 text-xs sm:text-sm tracking-wide uppercase font-mono cursor-pointer shadow-xl"
+          >
+            <span>Start a Project</span>
+            <ArrowRight className="w-4 h-4 ml-2" />
+          </button>
+
+          {/* WhatsApp Direct Action (WCAG AAA Contrast Compliant) */}
           <a
             href={whatsapp}
             target="_blank"
             rel="noopener noreferrer"
-            className="px-6 py-3.5 rounded-xl font-bold text-xs sm:text-sm flex items-center justify-center gap-2.5 bg-[#25D366] hover:bg-[#20bd5a] text-zinc-950 shadow-lg shadow-emerald-500/25 active:scale-95 cursor-pointer transition-all group"
+            className="px-6 py-3.5 sm:py-4 rounded-full font-bold text-xs sm:text-sm flex items-center justify-center gap-2.5 bg-[#25D366] hover:bg-[#20bd5a] text-zinc-950 shadow-lg shadow-emerald-500/20 active:scale-98 cursor-pointer transition-all group"
           >
             <WhatsAppIcon className="w-5 h-5 text-zinc-950 fill-current group-hover:scale-110 transition-transform" />
-            <span>Chat on WhatsApp Directly</span>
+            <span>Chat on WhatsApp</span>
           </a>
+        </div>
 
-          {/* Free Prototype Modal Trigger */}
-          <button
-            onClick={onOpenPrototypeModal}
-            className="px-6 py-3.5 rounded-xl font-bold font-mono text-xs sm:text-sm tracking-wider flex items-center justify-center gap-2 bg-white hover:bg-zinc-200 text-zinc-950 transition-all active:scale-95 cursor-pointer shadow-md group"
-          >
-            <span>GET FREE SAMPLE PREVIEW</span>
-            <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
-          </button>
+        {/* Quiet Proof Line */}
+        <div className="flex flex-wrap items-center justify-center gap-x-5 gap-y-1.5 text-xs font-mono text-zinc-400 mb-8 px-2">
+          <span>⚡ &lt; 0.25s Edge Speed</span>
+          <span className="text-zinc-600 hidden sm:inline">•</span>
+          <span className="text-emerald-400 font-semibold">₹0 Monthly Retainer Debt</span>
+          <span className="text-zinc-600 hidden sm:inline">•</span>
+          <span>100% Code &amp; Domain Sovereignty</span>
         </div>
 
         {/* Quick Filter Selector Tabs (themaxgrowth style) */}

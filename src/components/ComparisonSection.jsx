@@ -44,16 +44,16 @@ export default function ComparisonSection({ onOpenPrototypeModal }) {
         
         {/* Section Heading */}
         <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-mono mb-3 bg-zinc-900 border border-zinc-800 text-zinc-300">
-            <ShieldCheck className="w-3.5 h-3.5 text-cyan-400" />
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-mono mb-3 bg-[#0E0F14] border border-white/10 text-zinc-300">
+            <ShieldCheck className="w-3.5 h-3.5 text-sky-400" />
             <span className="uppercase tracking-wider">CLEAR COMPARISON</span>
           </div>
 
-          <h2 className="text-2xl sm:text-4xl font-extrabold font-display text-white tracking-tight mb-4">
-            How Merqurie is Built Differently
+          <h2 className="text-2xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-white mb-4">
+            How Merqurie is Built <span className="font-serif italic font-normal text-slate-100">Differently.</span>
           </h2>
           <p className="text-sm sm:text-base text-zinc-400 max-w-2xl mx-auto leading-relaxed">
-            Most business owners don’t need a complicated enterprise contract. They need a fast, reliable website that looks professional and brings in real customer enquiries.
+            Most business owners don’t need an inflated retainer contract. They need a fast, reliable website that looks professional and brings in real customer enquiries.
           </p>
         </div>
 

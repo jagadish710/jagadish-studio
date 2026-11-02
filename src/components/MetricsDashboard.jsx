@@ -121,8 +121,8 @@ export default function MetricsDashboard({ onOpenPrototypeModal }) {
             <span className="uppercase tracking-wider">THE WORK BEHIND THE RESULTS</span>
           </div>
 
-          <h2 className="text-2xl sm:text-4xl font-extrabold font-display text-white tracking-tight mb-4">
-            Built to Win Trust, Leads, and Sales
+          <h2 className="text-2xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-white mb-4">
+            The Work Behind The <span className="font-serif italic font-normal text-slate-100">Results.</span>
           </h2>
           <p className="text-sm sm:text-base text-zinc-400 max-w-2xl mx-auto leading-relaxed">
             Real performance telemetry that gives your business an unfair advantage over competitors stuck on slow, fragile templates.

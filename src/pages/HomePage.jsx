@@ -205,53 +205,54 @@ export default function HomePage({ onOpenPrototypeModal, setActivePage }) {
       {/* 8. Frequently Asked Questions */}
       <FaqSection onOpenPrototypeModal={onOpenPrototypeModal} />
 
-      {/* 9. Final High-Converting Call to Action */}
-      <section className="py-20 sm:py-28 px-4 sm:px-6 lg:px-8 relative overflow-hidden bg-gradient-to-b from-[#09090D] via-[#0E0F16] to-[#060608] border-t border-zinc-800/80">
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[300px] rounded-full blur-[140px] pointer-events-none bg-cyan-950/25" />
+      {/* 9. Final High-Converting Call to Action (Quicksilver Editorial Polish) */}
+      <section className="py-20 sm:py-28 px-4 sm:px-6 lg:px-8 relative overflow-hidden bg-gradient-to-b from-[#09090D] via-[#0E0F14] to-[#07070A] border-t border-white/10">
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[300px] rounded-full blur-[140px] pointer-events-none bg-sky-950/20" />
         
         <div className="max-w-4xl mx-auto text-center relative z-10 space-y-6">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-mono bg-zinc-900 border border-zinc-800 text-zinc-300">
-            <Sparkles className="w-3.5 h-3.5 text-cyan-400" />
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-mono bg-[#0E0F14] border border-white/10 text-zinc-300">
+            <Sparkles className="w-3.5 h-3.5 text-sky-400" />
             <span className="uppercase tracking-wider">LET’S BUILD SOMETHING EXCEPTIONAL</span>
           </div>
 
-          <h2 className="text-3xl sm:text-5xl font-extrabold font-display text-white tracking-tight leading-tight">
-            Ready to give your business <br />
-            <span className="bg-gradient-to-r from-cyan-400 via-sky-300 to-emerald-400 bg-clip-text text-transparent">
-              the website it deserves?
-            </span>
+          <h2 className="text-3xl sm:text-5xl md:text-6xl font-bold tracking-tight text-white leading-tight">
+            Websites that make you the <br />
+            <span className="font-serif italic font-normal text-slate-100">obvious</span>{' '}
+            <span className="chrome-text">choice.</span>
           </h2>
 
           <p className="text-sm sm:text-base text-zinc-400 max-w-xl mx-auto leading-relaxed">
-            Message our engineering team today. We’ll discuss your goals and build a free mobile design sample for your business with zero upfront commitment.
+            Direct engineering partnership with Jagadish (former Amazon &amp; Turing AI systems engineering). Fast builds, mirror-finish mobile details, and zero ongoing agency retainer fees.
           </p>
 
           <div className="pt-4 flex flex-col sm:flex-row items-center justify-center gap-3">
+            {/* Primary Quicksilver Button */}
+            <button
+              onClick={onOpenPrototypeModal}
+              className="btn-mercury-primary w-full sm:w-auto px-8 py-4 text-xs sm:text-sm tracking-wider uppercase font-mono cursor-pointer shadow-xl"
+            >
+              <span>Start a Project</span>
+              <ArrowRight className="w-4 h-4 ml-2" />
+            </button>
+
+            {/* Direct WhatsApp Action */}
             <a
               href={whatsapp}
               target="_blank"
               rel="noopener noreferrer"
-              className="w-full sm:w-auto px-7 py-4 rounded-xl font-bold text-sm flex items-center justify-center gap-2.5 bg-[#25D366] hover:bg-[#20bd5a] text-zinc-950 shadow-xl shadow-emerald-500/25 transition-all active:scale-95 cursor-pointer"
+              className="w-full sm:w-auto px-7 py-4 rounded-full font-bold text-sm flex items-center justify-center gap-2.5 bg-[#25D366] hover:bg-[#20bd5a] text-zinc-950 shadow-xl shadow-emerald-500/20 transition-all active:scale-95 cursor-pointer"
             >
               <WhatsAppIcon className="w-5 h-5 fill-current text-zinc-950" />
-              <span>Connect Directly on WhatsApp</span>
+              <span>Connect on WhatsApp</span>
             </a>
-
-            <button
-              onClick={onOpenPrototypeModal}
-              className="w-full sm:w-auto px-7 py-4 rounded-xl font-bold text-sm flex items-center justify-center gap-2 bg-white hover:bg-zinc-200 text-zinc-950 transition-all active:scale-95 cursor-pointer shadow-lg"
-            >
-              <span>Get Free Website Sample</span>
-              <ArrowRight className="w-4 h-4" />
-            </button>
           </div>
 
           <div className="pt-4 flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-xs font-mono text-zinc-400">
             <span>⚡ 5-7 Day Delivery</span>
-            <span>•</span>
+            <span className="text-zinc-600 hidden sm:inline">•</span>
             <span>📱 100% Mobile Optimized</span>
-            <span>•</span>
-            <span>₹0 Recurring Retainer Fees</span>
+            <span className="text-zinc-600 hidden sm:inline">•</span>
+            <span className="text-emerald-400 font-semibold">₹0 Recurring Retainer Fees</span>
           </div>
         </div>
       </section>

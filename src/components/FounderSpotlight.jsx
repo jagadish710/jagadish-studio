@@ -9,6 +9,7 @@ import {
   Sparkles
 } from 'lucide-react';
 import WhatsAppIcon from './WhatsAppIcon';
+import { AmazonLogo, TuringLogo } from './CompanyLogos';
 
 const whatsapp = 'https://wa.me/917358618789?text=Hi%20Jagadish!%20I%20would%20like%20to%20discuss%20a%20website%20architecture%20for%20my%20business.';
 
@@ -42,28 +43,32 @@ export default function FounderSpotlight({ onOpenPrototypeModal }) {
             {/* Left Column: Architect Profile & Background Badges */}
             <div className="lg:col-span-4 flex flex-col items-center text-center">
               
-              <div className="relative w-44 h-44 sm:w-48 sm:h-48 rounded-3xl p-1 bg-gradient-to-br from-rose-500/20 via-slate-200 to-slate-100 shadow-md">
-                <div className="w-full h-full rounded-[22px] bg-white border border-slate-200 flex flex-col items-center justify-center p-4">
-                  <div className="w-16 h-16 rounded-2xl bg-rose-50 border border-rose-200/60 flex items-center justify-center text-rose-600 mb-3">
-                    <Cpu className="w-9 h-9" />
+              <div className="relative w-44 h-48 sm:w-48 sm:h-52 rounded-3xl p-1 bg-gradient-to-br from-rose-500/20 via-slate-200 to-slate-100 shadow-md">
+                <div className="w-full h-full rounded-[22px] bg-white border border-slate-200 flex flex-col items-center justify-center p-3.5">
+                  <div className="w-20 h-20 sm:w-24 sm:h-24 rounded-2xl overflow-hidden mb-2.5 shadow-md ring-2 ring-rose-500/20 border-2 border-white bg-slate-100 shrink-0">
+                    <img
+                      src="/images/jagadish_founder.png"
+                      alt="Jagadish - Principal Systems Architect"
+                      className="w-full h-full object-cover object-top"
+                    />
                   </div>
-                  <h3 className="text-xl font-bold font-display text-slate-900 tracking-tight">
+                  <h3 className="text-lg font-bold font-display text-slate-900 tracking-tight">
                     Jagadish
                   </h3>
                   <span className="text-xs font-mono text-rose-600 font-semibold mt-0.5">
                     Principal Systems Architect
                   </span>
-                  <span className="text-[11px] font-mono text-slate-500 mt-1">
+                  <span className="text-[11px] font-mono text-slate-500 mt-0.5">
                     4+ Years Specialized Engineering
                   </span>
                 </div>
               </div>
 
-              {/* Pedigree Badges */}
+              {/* Pedigree Badges with Official Logos */}
               <div className="mt-5 w-full space-y-2">
-                <div className="px-3.5 py-2 rounded-xl bg-white border border-slate-200 shadow-2xs text-left flex items-center gap-3">
-                  <div className="w-7 h-7 rounded-lg bg-amber-50 border border-amber-200 flex items-center justify-center shrink-0 text-amber-700 text-xs font-black">
-                    A
+                <div className="px-3.5 py-2 rounded-xl bg-white border border-slate-200 shadow-2xs text-left flex items-center gap-3 hover:border-amber-300 transition-colors">
+                  <div className="w-8 h-8 rounded-lg bg-amber-50/80 border border-amber-200/80 flex items-center justify-center shrink-0 shadow-2xs">
+                    <AmazonLogo className="w-5 h-5" />
                   </div>
                   <div className="text-xs">
                     <span className="font-bold text-slate-900 block">Amazon</span>
@@ -71,9 +76,9 @@ export default function FounderSpotlight({ onOpenPrototypeModal }) {
                   </div>
                 </div>
 
-                <div className="px-3.5 py-2 rounded-xl bg-white border border-slate-200 shadow-2xs text-left flex items-center gap-3">
-                  <div className="w-7 h-7 rounded-lg bg-rose-50 border border-rose-200 flex items-center justify-center shrink-0 text-rose-600 text-xs font-black">
-                    T
+                <div className="px-3.5 py-2 rounded-xl bg-white border border-slate-200 shadow-2xs text-left flex items-center gap-3 hover:border-blue-300 transition-colors">
+                  <div className="w-8 h-8 rounded-lg bg-blue-50/80 border border-blue-200/80 flex items-center justify-center shrink-0 shadow-2xs">
+                    <TuringLogo className="w-5 h-5" />
                   </div>
                   <div className="text-xs">
                     <span className="font-bold text-slate-900 block">Turing</span>

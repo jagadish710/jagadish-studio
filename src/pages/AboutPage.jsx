@@ -14,6 +14,7 @@ import {
   Check
 } from 'lucide-react';
 import WhatsAppIcon from '../components/WhatsAppIcon';
+import { AmazonLogo, TuringLogo } from '../components/CompanyLogos';
 
 const whatsapp = 'https://wa.me/917358618789?text=Hi%20Jagadish!%20I%20would%20like%20to%20discuss%20a%20website%20for%20my%20business.';
 
@@ -90,35 +91,39 @@ export default function AboutPage({ onOpenPrototypeModal }) {
           
           {/* Founder Profile Badge */}
           <div className="md:col-span-4 flex flex-col items-center text-center">
-            <div className="w-44 h-44 rounded-3xl p-1 bg-gradient-to-br from-rose-500/20 via-slate-200 to-slate-100 shadow-md mb-4">
-              <div className="w-full h-full rounded-[22px] bg-white border border-slate-200 flex flex-col items-center justify-center p-4">
-                <div className="w-14 h-14 rounded-2xl bg-rose-50 border border-rose-200/60 flex items-center justify-center text-rose-600 mb-2">
-                  <Cpu className="w-8 h-8 stroke-[2.2]" />
+            <div className="w-44 h-48 rounded-3xl p-1 bg-gradient-to-br from-rose-500/20 via-slate-200 to-slate-100 shadow-md mb-4">
+              <div className="w-full h-full rounded-[22px] bg-white border border-slate-200 flex flex-col items-center justify-center p-3.5">
+                <div className="w-20 h-20 rounded-2xl overflow-hidden mb-2.5 shadow-md ring-2 ring-rose-500/20 border-2 border-white bg-slate-100 shrink-0">
+                  <img
+                    src="/images/jagadish_founder.png"
+                    alt="Jagadish - Founder & Lead Engineer"
+                    className="w-full h-full object-cover object-top"
+                  />
                 </div>
-                <h3 className="text-lg font-bold text-slate-900 font-display">Jagadish</h3>
-                <span className="text-xs font-mono text-rose-600 font-semibold">Founder &amp; Lead Engineer</span>
-                <span className="text-[11px] font-mono text-slate-500 mt-0.5">Chennai, India</span>
+                <h3 className="text-base font-bold text-slate-900 font-display">Jagadish</h3>
+                <span className="text-[11px] font-mono text-rose-600 font-semibold">Founder &amp; Lead Engineer</span>
+                <span className="text-[10px] font-mono text-slate-500 mt-0.5">Chennai, India</span>
               </div>
             </div>
 
-            {/* Credibility Badges */}
+            {/* Credibility Badges with Official Logos */}
             <div className="space-y-2 w-full text-xs font-mono">
-              <div className="p-2.5 rounded-xl bg-white/90 border border-slate-200 shadow-2xs text-left flex items-center gap-2.5">
-                <div className="w-6 h-6 rounded-lg bg-amber-50 border border-amber-200 flex items-center justify-center text-amber-700 font-black text-xs">
-                  A
+              <div className="p-2.5 rounded-xl bg-white/95 border border-slate-200 shadow-2xs text-left flex items-center gap-3 hover:border-amber-300 transition-colors">
+                <div className="w-8 h-8 rounded-lg bg-amber-50/80 border border-amber-200/80 flex items-center justify-center shrink-0 shadow-2xs">
+                  <AmazonLogo className="w-5 h-5" />
                 </div>
                 <div>
-                  <strong className="text-slate-900 block font-bold">Amazon</strong>
+                  <strong className="text-slate-900 block font-bold text-xs">Amazon</strong>
                   <span className="text-slate-500 text-[10px]">Former Technical Engineer</span>
                 </div>
               </div>
 
-              <div className="p-2.5 rounded-xl bg-white/90 border border-slate-200 shadow-2xs text-left flex items-center gap-2.5">
-                <div className="w-6 h-6 rounded-lg bg-rose-50 border border-rose-200 flex items-center justify-center text-rose-600 font-black text-xs">
-                  T
+              <div className="p-2.5 rounded-xl bg-white/95 border border-slate-200 shadow-2xs text-left flex items-center gap-3 hover:border-blue-300 transition-colors">
+                <div className="w-8 h-8 rounded-lg bg-blue-50/80 border border-blue-200/80 flex items-center justify-center shrink-0 shadow-2xs">
+                  <TuringLogo className="w-5 h-5" />
                 </div>
                 <div>
-                  <strong className="text-slate-900 block font-bold">Turing</strong>
+                  <strong className="text-slate-900 block font-bold text-xs">Turing</strong>
                   <span className="text-slate-500 text-[10px]">Frontier AI Systems (Gemini, Claude)</span>
                 </div>
               </div>

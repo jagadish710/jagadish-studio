@@ -193,16 +193,16 @@ export default function PrototypeModal({ isOpen, onClose, isDark }) {
           </div>
         ) : (
           <div className="py-8 text-center space-y-4">
-            <div className="w-16 h-16 rounded-full bg-emerald-500/20 text-emerald-400 mx-auto flex items-center justify-center">
+            <div className="w-16 h-16 rounded-full bg-emerald-500/15 text-emerald-600 mx-auto flex items-center justify-center">
               <CheckCircle2 className="w-10 h-10" />
             </div>
 
-            <h4 className="text-2xl font-bold font-display text-white">
+            <h4 className={`text-2xl font-bold font-display ${isDark ? 'text-white' : 'text-slate-900'}`}>
               Enquiry Received!
             </h4>
 
-            <p className="text-sm text-zinc-300 max-w-sm mx-auto">
-              Thank you, <strong className="text-white font-bold">{businessName}</strong>. We are opening WhatsApp to connect directly with you right now.
+            <p className={`text-sm max-w-sm mx-auto ${isDark ? 'text-zinc-300' : 'text-slate-600'}`}>
+              Thank you, <strong className={isDark ? 'text-white font-bold' : 'text-slate-900 font-bold'}>{businessName}</strong>. We are opening WhatsApp to connect directly with you right now.
             </p>
 
             <a
@@ -211,9 +211,13 @@ export default function PrototypeModal({ isOpen, onClose, isDark }) {
               )}`}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-white hover:bg-zinc-200 text-zinc-950 font-mono font-bold text-xs shadow-md mt-4 transition-all"
+              className={`inline-flex items-center gap-2 px-6 py-3 rounded-xl font-mono font-bold text-xs shadow-md mt-4 transition-all ${
+                isDark 
+                  ? 'bg-white hover:bg-zinc-200 text-zinc-950' 
+                  : 'bg-slate-950 hover:bg-slate-800 text-white'
+              }`}
             >
-              <WhatsAppIcon className="w-4 h-4 text-emerald-600 fill-current" />
+              <WhatsAppIcon className="w-4 h-4 text-emerald-500 fill-current" />
               <span>Open WhatsApp Conversation</span>
             </a>
           </div>

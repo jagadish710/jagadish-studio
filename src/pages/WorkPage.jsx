@@ -49,14 +49,17 @@ export default function WorkPage({ onOpenPrototypeModal }) {
       
       {/* Header */}
       <div className="text-center max-w-3xl mx-auto mb-16">
-        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-mono mb-4 bg-zinc-900 border border-zinc-800 text-zinc-300">
-          <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
+        <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-mono font-semibold mb-4 bg-white border border-slate-200 text-slate-700 shadow-2xs">
+          <span className="w-1.5 h-1.5 rounded-full bg-rose-600 animate-pulse" />
           <span className="uppercase tracking-wider">SELECTED PRODUCTION WORK</span>
         </div>
-        <h1 className="text-3xl sm:text-5xl font-extrabold font-display text-white tracking-tight mb-4 leading-tight">
-          Real Projects. Verified Results.
+        <h1 className="text-3xl sm:text-5xl font-extrabold font-display text-slate-900 tracking-tight mb-4 leading-tight">
+          Real Projects.{' '}
+          <span className="font-serif italic font-normal text-rose-600">
+            Verified Results.
+          </span>
         </h1>
-        <p className="text-sm sm:text-base text-zinc-400 leading-relaxed max-w-2xl mx-auto">
+        <p className="text-sm sm:text-base text-slate-600 leading-relaxed max-w-2xl mx-auto">
           We build websites that look impressive, load instantly, and give your customers an effortless way to enquire. Visit our live production sites below.
         </p>
       </div>
@@ -66,10 +69,10 @@ export default function WorkPage({ onOpenPrototypeModal }) {
         {projects.map((proj) => (
           <article
             key={proj.name}
-            className="rounded-3xl border border-zinc-800/80 bg-zinc-950 overflow-hidden shadow-2xl flex flex-col justify-between group hover:border-zinc-700 transition-all duration-300"
+            className="rounded-3xl border border-slate-200/90 bg-white overflow-hidden shadow-sm hover:shadow-xl hover:border-slate-300 flex flex-col justify-between group transition-all duration-300"
           >
             <div>
-              <div className="relative aspect-[16/10] overflow-hidden bg-zinc-900">
+              <div className="relative aspect-[16/10] overflow-hidden bg-slate-100">
                 <img
                   src={proj.image}
                   alt={proj.name}
@@ -78,26 +81,26 @@ export default function WorkPage({ onOpenPrototypeModal }) {
                   className="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-103"
                 />
                 <div className="absolute top-4 left-4">
-                  <span className="px-3 py-1 rounded-full text-[11px] font-mono font-semibold bg-black/85 backdrop-blur-md text-emerald-400 border border-emerald-500/30">
+                  <span className="px-3 py-1 rounded-full text-[11px] font-mono font-semibold bg-white/95 backdrop-blur-md text-emerald-700 border border-emerald-200 shadow-2xs">
                     {proj.speed}
                   </span>
                 </div>
               </div>
 
               <div className="p-6 sm:p-8">
-                <span className="text-xs font-mono text-cyan-400 font-semibold uppercase tracking-wider block mb-1">
+                <span className="text-xs font-mono text-rose-600 font-bold uppercase tracking-wider block mb-1">
                   {proj.sector}
                 </span>
-                <h3 className="text-2xl font-bold font-display text-white mb-2">
+                <h3 className="text-2xl font-bold font-display text-slate-900 mb-2">
                   {proj.name}
                 </h3>
-                <p className="text-sm text-zinc-400 leading-relaxed mb-6">
+                <p className="text-sm text-slate-600 leading-relaxed mb-6">
                   {proj.desc}
                 </p>
 
-                <div className="grid grid-cols-3 gap-2 p-3 rounded-2xl bg-zinc-900/60 border border-zinc-800 text-[11px] font-mono text-center">
+                <div className="grid grid-cols-3 gap-2 p-3 rounded-2xl bg-slate-50 border border-slate-200/80 text-[11px] font-mono text-center">
                   {proj.stats.map((s, i) => (
-                    <div key={i} className="text-zinc-300 font-medium">
+                    <div key={i} className="text-slate-700 font-medium">
                       {s}
                     </div>
                   ))}
@@ -105,26 +108,26 @@ export default function WorkPage({ onOpenPrototypeModal }) {
               </div>
             </div>
 
-            <div className="p-6 sm:p-8 pt-0 flex items-center justify-between border-t border-zinc-900 mt-auto">
+            <div className="p-6 sm:p-8 pt-0 flex items-center justify-between border-t border-slate-100 mt-auto">
               {proj.url ? (
                 <a
                   href={proj.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 text-xs sm:text-sm font-bold text-cyan-400 hover:text-cyan-300 transition-colors"
+                  className="inline-flex items-center gap-2 text-xs sm:text-sm font-bold text-rose-600 hover:text-rose-700 transition-colors"
                 >
                   <span>Visit Live Platform</span>
                   <ExternalLink className="w-4 h-4" />
                 </a>
               ) : (
-                <span className="text-xs font-mono text-zinc-400">
+                <span className="text-xs font-mono text-slate-500">
                   Proprietary Merqurie Architecture
                 </span>
               )}
 
               <button
                 onClick={onOpenPrototypeModal}
-                className="text-xs font-mono text-zinc-400 hover:text-white flex items-center gap-1 cursor-pointer"
+                className="text-xs font-mono text-slate-700 hover:text-slate-900 font-semibold flex items-center gap-1 cursor-pointer"
               >
                 <span>Plan similar site →</span>
               </button>
@@ -134,11 +137,11 @@ export default function WorkPage({ onOpenPrototypeModal }) {
       </div>
 
       {/* Bottom CTA Banner */}
-      <div className="mt-16 p-8 sm:p-12 rounded-3xl bg-zinc-950 border border-zinc-800 text-center space-y-4">
-        <h3 className="text-2xl sm:text-3xl font-bold font-display text-white">
+      <div className="mt-16 p-8 sm:p-12 rounded-3xl bg-white border border-slate-200/90 shadow-xl shadow-slate-900/5 text-center space-y-4">
+        <h3 className="text-2xl sm:text-3xl font-bold font-display text-slate-900">
           Want an engineered platform like this for your business?
         </h3>
-        <p className="text-sm text-zinc-400 max-w-xl mx-auto">
+        <p className="text-sm text-slate-600 max-w-xl mx-auto">
           We’ll put together a free mobile design sample tailored to your business so you can see exactly how it looks before deciding.
         </p>
         <div className="pt-2 flex flex-col sm:flex-row items-center justify-center gap-3">
@@ -146,14 +149,14 @@ export default function WorkPage({ onOpenPrototypeModal }) {
             href={whatsapp}
             target="_blank"
             rel="noopener noreferrer"
-            className="px-6 py-3 rounded-xl font-bold text-xs sm:text-sm flex items-center gap-2 bg-[#25D366] text-white hover:bg-[#20bd5a] transition-all shadow-md"
+            className="px-6 py-3.5 rounded-full font-bold text-xs sm:text-sm flex items-center gap-2 bg-[#25D366] text-slate-950 hover:bg-[#20bd5a] transition-all shadow-md active:scale-95 cursor-pointer"
           >
-            <WhatsAppIcon className="w-4 h-4 fill-current" />
+            <WhatsAppIcon className="w-4 h-4 fill-current text-slate-950" />
             <span>Chat on WhatsApp</span>
           </a>
           <button
             onClick={onOpenPrototypeModal}
-            className="px-6 py-3 rounded-xl font-bold text-xs sm:text-sm bg-white text-zinc-950 hover:bg-zinc-200 transition-all shadow-md"
+            className="btn-crimson-primary px-6 py-3.5 text-xs sm:text-sm uppercase font-mono tracking-wider transition-all shadow-md active:scale-95 cursor-pointer"
           >
             <span>Request Free Sample</span>
           </button>

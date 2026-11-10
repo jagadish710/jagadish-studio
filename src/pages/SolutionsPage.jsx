@@ -52,14 +52,17 @@ export default function SolutionsPage({ onOpenPrototypeModal }) {
       
       {/* Page Header */}
       <div className="text-center max-w-3xl mx-auto mb-16">
-        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-mono mb-4 bg-zinc-900 border border-zinc-800 text-zinc-300">
-          <Sparkles className="w-3.5 h-3.5 text-cyan-400" />
+        <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-mono font-semibold mb-4 bg-white border border-slate-200 text-slate-700 shadow-2xs">
+          <Sparkles className="w-3.5 h-3.5 text-rose-600" />
           <span className="uppercase tracking-wider">SOLUTIONS &amp; CAPABILITIES</span>
         </div>
-        <h1 className="text-3xl sm:text-5xl font-extrabold font-display text-white tracking-tight mb-4 leading-tight">
-          Websites Built to Turn Interest Into Enquiries
+        <h1 className="text-3xl sm:text-5xl font-extrabold font-display text-slate-900 tracking-tight mb-4 leading-tight">
+          Websites Built to Turn Interest Into{' '}
+          <span className="font-serif italic font-normal text-rose-600">
+            Enquiries.
+          </span>
         </h1>
-        <p className="text-sm sm:text-base text-zinc-400 leading-relaxed max-w-2xl mx-auto">
+        <p className="text-sm sm:text-base text-slate-600 leading-relaxed max-w-2xl mx-auto">
           We start with what will make your business look credible, easy to understand, and effortless to contact. One-time build, zero recurring retainers.
         </p>
       </div>
@@ -71,30 +74,30 @@ export default function SolutionsPage({ onOpenPrototypeModal }) {
           return (
             <article
               key={offer.title}
-              className="rounded-3xl border border-zinc-800/80 bg-zinc-950 overflow-hidden shadow-2xl grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-center"
+              className="rounded-3xl border border-slate-200/90 bg-white overflow-hidden shadow-sm hover:shadow-xl hover:border-slate-300 transition-all duration-300 grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-center"
             >
               <div className="lg:col-span-6 p-6 sm:p-10 space-y-4">
                 <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-xl bg-cyan-950/50 border border-cyan-800/40 flex items-center justify-center text-cyan-400">
+                  <div className="w-10 h-10 rounded-xl bg-rose-50 border border-rose-200/60 flex items-center justify-center text-rose-600">
                     <Icon className="w-5 h-5" />
                   </div>
-                  <span className="text-xs font-mono text-zinc-400 uppercase tracking-widest">
+                  <span className="text-xs font-mono text-slate-500 uppercase tracking-widest font-semibold">
                     SOLUTION 0{idx + 1}
                   </span>
                 </div>
 
-                <h2 className="text-2xl sm:text-3xl font-bold font-display text-white">
+                <h2 className="text-2xl sm:text-3xl font-bold font-display text-slate-900">
                   {offer.title}
                 </h2>
 
-                <p className="text-sm text-zinc-400 leading-relaxed">
+                <p className="text-sm text-slate-600 leading-relaxed">
                   {offer.desc}
                 </p>
 
                 <ul className="space-y-2 pt-2">
                   {offer.points.map((pt) => (
-                    <li key={pt} className="flex items-center gap-2 text-xs sm:text-sm text-zinc-300">
-                      <Check className="w-4 h-4 text-emerald-400 shrink-0" />
+                    <li key={pt} className="flex items-center gap-2 text-xs sm:text-sm text-slate-700">
+                      <Check className="w-4 h-4 text-emerald-600 shrink-0" />
                       <span>{pt}</span>
                     </li>
                   ))}
@@ -103,7 +106,7 @@ export default function SolutionsPage({ onOpenPrototypeModal }) {
                 <div className="pt-4 flex flex-wrap items-center gap-3">
                   <button
                     onClick={onOpenPrototypeModal}
-                    className="px-5 py-2.5 rounded-xl text-xs font-bold font-mono bg-white text-zinc-950 hover:bg-zinc-200 transition-all cursor-pointer flex items-center gap-1.5 active:scale-95 shadow-md"
+                    className="btn-crimson-primary px-5 py-2.5 text-xs font-mono uppercase tracking-wider cursor-pointer flex items-center gap-1.5 shadow-md shadow-rose-600/15 active:scale-95"
                   >
                     <span>GET FREE PREVIEW</span>
                     <ArrowRight className="w-3.5 h-3.5" />
@@ -113,15 +116,15 @@ export default function SolutionsPage({ onOpenPrototypeModal }) {
                     href={whatsapp}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="px-4 py-2.5 rounded-xl text-xs font-bold bg-[#25D366]/15 text-[#25D366] border border-[#25D366]/30 hover:bg-[#25D366] hover:text-white transition-all cursor-pointer flex items-center gap-1.5"
+                    className="px-4 py-2.5 rounded-full text-xs font-bold bg-[#25D366] text-slate-950 hover:bg-[#20bd5a] transition-all cursor-pointer flex items-center gap-1.5 shadow-sm active:scale-95"
                   >
-                    <WhatsAppIcon className="w-3.5 h-3.5 fill-current" />
+                    <WhatsAppIcon className="w-3.5 h-3.5 fill-current text-slate-950" />
                     <span>Discuss on WhatsApp</span>
                   </a>
                 </div>
               </div>
 
-              <div className="lg:col-span-6 relative aspect-[16/10] overflow-hidden bg-zinc-900 border-t lg:border-t-0 lg:border-l border-zinc-800">
+              <div className="lg:col-span-6 relative aspect-[16/10] overflow-hidden bg-slate-100 border-t lg:border-t-0 lg:border-l border-slate-100">
                 <img
                   src={offer.image}
                   alt={offer.title}

@@ -7,7 +7,7 @@ const whatsapp = 'https://wa.me/917358618789?text=Hi%20Jagadish!%20I%20would%20l
 
 export default function Footer({ onOpenPrototypeModal }) {
   return (
-    <footer className="bg-[#060608] border-t border-zinc-800/80 text-zinc-400 py-12 sm:py-16 px-4 sm:px-6 lg:px-8 pb-24 md:pb-16">
+    <footer className="bg-slate-950 border-t border-slate-800/90 text-slate-400 py-12 sm:py-16 px-4 sm:px-6 lg:px-8 pb-24 md:pb-16">
       <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-12 gap-8 lg:gap-12 items-start">
         
         {/* Left: Brand & Founder Bio */}
@@ -18,15 +18,15 @@ export default function Footer({ onOpenPrototypeModal }) {
               MERQURIE
             </span>
           </div>
-          <p className="text-sm text-zinc-400 leading-relaxed max-w-sm">
+          <p className="text-sm text-slate-400 leading-relaxed max-w-sm">
             Merqurie takes its name from mercury: the metal that never sits still, and the messenger god known for speed. We engineer digital platforms the same way: fast, fluid, and clear.
           </p>
-          <div className="flex flex-wrap items-center gap-3 pt-2 text-xs font-mono text-zinc-400">
-            <span className="inline-flex items-center gap-1.5 text-zinc-300">
-              <MapPin className="w-3.5 h-3.5 text-cyan-400" /> Chennai, India
+          <div className="flex flex-wrap items-center gap-3 pt-2 text-xs font-mono text-slate-400">
+            <span className="inline-flex items-center gap-1.5 text-slate-300">
+              <MapPin className="w-3.5 h-3.5 text-rose-500" /> Chennai, India
             </span>
             <span>•</span>
-            <span className="inline-flex items-center gap-1.5 text-zinc-300">
+            <span className="inline-flex items-center gap-1.5 text-slate-300">
               <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" /> Available for Projects
             </span>
           </div>
@@ -43,10 +43,10 @@ export default function Footer({ onOpenPrototypeModal }) {
                 href="https://upskskarate.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-1.5 text-zinc-400 hover:text-white transition-colors"
+                className="inline-flex items-center gap-1.5 text-slate-400 hover:text-white transition-colors"
               >
                 <span>UPSKS Karate Academy</span>
-                <ArrowUpRight className="w-3.5 h-3.5 text-zinc-500" />
+                <ArrowUpRight className="w-3.5 h-3.5 text-slate-500" />
               </a>
             </li>
             <li>
@@ -54,14 +54,14 @@ export default function Footer({ onOpenPrototypeModal }) {
                 href="https://pmssolution.co.in"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-1.5 text-zinc-400 hover:text-white transition-colors"
+                className="inline-flex items-center gap-1.5 text-slate-400 hover:text-white transition-colors"
               >
                 <span>PMS Solution (Hospital Medical Equipment)</span>
-                <ArrowUpRight className="w-3.5 h-3.5 text-zinc-500" />
+                <ArrowUpRight className="w-3.5 h-3.5 text-slate-500" />
               </a>
             </li>
             <li>
-              <span className="text-xs text-zinc-400 font-mono">
+              <span className="text-xs text-slate-400 font-mono">
                 100% Client Code Ownership • Zero Retainer Fees
               </span>
             </li>
@@ -83,12 +83,12 @@ export default function Footer({ onOpenPrototypeModal }) {
               <WhatsAppIcon className="w-4 h-4 fill-current" />
               <span>+91 73586 18789</span>
             </a>
-            <p className="text-xs text-zinc-400">
+            <p className="text-xs text-slate-400">
               Personal oversight on every website build. No account managers, no junior handoffs.
             </p>
             <button
               onClick={onOpenPrototypeModal}
-              className="mt-2 text-xs font-mono text-cyan-400 hover:text-cyan-300 underline underline-offset-4 cursor-pointer"
+              className="mt-2 text-xs font-mono text-rose-400 hover:text-rose-300 underline underline-offset-4 cursor-pointer"
             >
               Request a free website preview →
             </button>
@@ -97,9 +97,9 @@ export default function Footer({ onOpenPrototypeModal }) {
 
       </div>
 
-      <div className="max-w-6xl mx-auto mt-10 pt-6 border-t border-zinc-800/60 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-zinc-400">
+      <div className="max-w-6xl mx-auto mt-10 pt-6 border-t border-slate-800/80 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
         <p>© {new Date().getFullYear()} Merqurie Studio. Crafted with care by Jagadish.</p>
-        <p className="font-mono text-zinc-400">Fast • Reliable • Built to Convert</p>
+        <p className="font-mono text-slate-500">Fast • Reliable • Built to Convert</p>
       </div>
     </footer>
   );

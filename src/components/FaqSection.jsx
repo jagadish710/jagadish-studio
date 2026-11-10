@@ -35,20 +35,20 @@ export default function FaqSection({ onOpenPrototypeModal }) {
   ];
 
   return (
-    <section id="faq" className="py-16 sm:py-24 px-4 sm:px-6 lg:px-8 relative overflow-hidden bg-[#0A0A0E] border-t border-zinc-800/80">
+    <section id="faq" className="py-16 sm:py-24 px-4 sm:px-6 lg:px-8 relative overflow-hidden bg-white border-t border-slate-200/80">
       <div className="max-w-4xl mx-auto relative z-10">
         
         {/* Header */}
         <div className="text-center max-w-2xl mx-auto mb-12 sm:mb-16">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-mono mb-3 bg-[#0E0F14] border border-white/10 text-zinc-300">
-            <HelpCircle className="w-3.5 h-3.5 text-sky-400" />
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-mono mb-3 bg-white border border-slate-200 text-slate-700 shadow-2xs">
+            <HelpCircle className="w-3.5 h-3.5 text-rose-600" />
             <span className="uppercase tracking-wider">FREQUENTLY ASKED QUESTIONS</span>
           </div>
 
-          <h2 className="text-2xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-white mb-4">
-            Everything You Need to <span className="font-serif italic font-normal text-slate-100">Know.</span>
+          <h2 className="text-2xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-slate-900 mb-4">
+            Everything You Need to <span className="font-serif italic font-normal text-rose-600">Know.</span>
           </h2>
-          <p className="text-sm sm:text-base text-zinc-400 leading-relaxed">
+          <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
             Direct, honest answers about pricing, ownership, timelines, and how we work together.
           </p>
         </div>
@@ -60,26 +60,30 @@ export default function FaqSection({ onOpenPrototypeModal }) {
             return (
               <div
                 key={idx}
-                className="surface-mercury overflow-hidden transition-all duration-200"
+                className={`border rounded-2xl overflow-hidden transition-all duration-200 ${
+                  isOpen 
+                    ? 'bg-white shadow-sm border-slate-300' 
+                    : 'bg-[#FAFAFC] border-slate-200/90 hover:border-slate-300'
+                }`}
               >
                 <button
                   onClick={() => setOpenIdx(isOpen ? -1 : idx)}
-                  className="w-full p-5 sm:p-6 text-left flex items-center justify-between gap-4 cursor-pointer hover:bg-zinc-900/50 transition-colors"
+                  className="w-full p-5 sm:p-6 text-left flex items-center justify-between gap-4 cursor-pointer hover:bg-slate-50/70 transition-colors"
                 >
-                  <span className="text-sm sm:text-base font-bold text-white leading-snug">
+                  <span className="text-sm sm:text-base font-bold text-slate-900 leading-snug">
                     {faq.q}
                   </span>
                   <div
-                    className={`w-7 h-7 rounded-full bg-zinc-900 border border-zinc-800 flex items-center justify-center shrink-0 transition-transform duration-200 ${
-                      isOpen ? 'rotate-180 bg-cyan-950/40 border-cyan-800/60' : ''
+                    className={`w-7 h-7 rounded-full bg-white border border-slate-200 flex items-center justify-center shrink-0 transition-transform duration-200 ${
+                      isOpen ? 'rotate-180 bg-rose-50 border-rose-200 text-rose-600' : 'text-slate-400'
                     }`}
                   >
-                    <ChevronDown className={`w-4 h-4 ${isOpen ? 'text-cyan-400' : 'text-zinc-400'}`} />
+                    <ChevronDown className="w-4 h-4" />
                   </div>
                 </button>
 
                 {isOpen && (
-                  <div className="px-5 sm:px-6 pb-6 pt-1 text-xs sm:text-sm text-zinc-300 leading-relaxed border-t border-zinc-800/50">
+                  <div className="px-5 sm:px-6 pb-6 pt-1 text-xs sm:text-sm text-slate-600 leading-relaxed border-t border-slate-100">
                     {faq.a}
                   </div>
                 )}
@@ -89,12 +93,12 @@ export default function FaqSection({ onOpenPrototypeModal }) {
         </div>
 
         {/* Bottom Card: Still have questions? */}
-        <div className="mt-10 p-6 sm:p-8 rounded-2xl bg-zinc-900/60 border border-zinc-800 flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left">
+        <div className="mt-10 p-6 sm:p-8 rounded-2xl bg-slate-50 border border-slate-200 flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left">
           <div>
-            <h3 className="text-base font-bold text-white mb-1">
+            <h3 className="text-base font-bold text-slate-900 mb-1">
               Have a specific question about your business?
             </h3>
-            <p className="text-xs sm:text-sm text-zinc-400">
+            <p className="text-xs sm:text-sm text-slate-600">
               Message Jagadish directly on WhatsApp. You will get a quick, honest reply within an hour.
             </p>
           </div>
@@ -102,9 +106,9 @@ export default function FaqSection({ onOpenPrototypeModal }) {
             href={whatsapp}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-xs sm:text-sm font-bold bg-[#25D366] hover:bg-[#20bd5a] text-zinc-950 shadow-md transition-all active:scale-95 shrink-0"
+            className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-xs sm:text-sm font-bold bg-[#25D366] hover:bg-[#20bd5a] text-slate-950 shadow-md transition-all active:scale-95 shrink-0 cursor-pointer"
           >
-            <WhatsAppIcon className="w-4 h-4 fill-current text-zinc-950" />
+            <WhatsAppIcon className="w-4 h-4 fill-current text-slate-950" />
             <span>Chat on WhatsApp</span>
           </a>
         </div>

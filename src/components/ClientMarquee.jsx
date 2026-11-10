@@ -26,19 +26,19 @@ export default function ClientMarquee() {
   const stream = [...platforms, ...platforms, ...platforms];
 
   return (
-    <section className="py-8 sm:py-10 overflow-hidden relative border-y border-zinc-800/80 bg-[#060608] select-none">
+    <section className="py-7 sm:py-9 overflow-hidden relative border-y border-slate-200/80 bg-slate-50/70 select-none">
       
       {/* Top Label */}
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center mb-4 relative z-10">
-        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-[10px] sm:text-[11px] font-mono bg-zinc-900 border border-zinc-800 text-zinc-300">
-          <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
+        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-[10px] sm:text-[11px] font-mono bg-white border border-slate-200 text-slate-700 shadow-2xs">
+          <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
           <span className="uppercase tracking-widest font-semibold">VERIFIED PRODUCTION PLATFORMS &amp; ARCHITECTURAL STANDARDS</span>
         </div>
       </div>
 
       {/* Edge Gradient Fades for Smooth Infinite Illusion */}
-      <div className="absolute left-0 inset-y-0 w-16 sm:w-32 z-20 pointer-events-none bg-gradient-to-r from-[#060608] to-transparent" />
-      <div className="absolute right-0 inset-y-0 w-16 sm:w-32 z-20 pointer-events-none bg-gradient-to-l from-[#060608] to-transparent" />
+      <div className="absolute left-0 inset-y-0 w-16 sm:w-32 z-20 pointer-events-none bg-gradient-to-r from-slate-50 to-transparent" />
+      <div className="absolute right-0 inset-y-0 w-16 sm:w-32 z-20 pointer-events-none bg-gradient-to-l from-slate-50 to-transparent" />
 
       {/* Continuous Stream (Silk Flow, No Abrupt Halting) */}
       <div className="overflow-hidden">
@@ -48,18 +48,18 @@ export default function ClientMarquee() {
             return (
               <div
                 key={`p-${idx}`}
-                className="flex items-center gap-3 px-4 sm:px-5 py-2.5 sm:py-3 rounded-2xl border border-zinc-800/80 bg-zinc-950/80 text-white shadow-xs shrink-0"
+                className="flex items-center gap-3 px-4 sm:px-5 py-2.5 sm:py-3 rounded-2xl border border-slate-200/90 bg-white text-slate-900 shadow-xs shrink-0 hover:border-slate-300 transition-colors"
               >
-                <div className="w-8 h-8 rounded-xl flex items-center justify-center shrink-0 border bg-zinc-900 border-zinc-800 text-cyan-400">
+                <div className="w-8 h-8 rounded-xl flex items-center justify-center shrink-0 border bg-rose-50 border-rose-200/60 text-rose-600">
                   <Icon className="w-4 h-4" />
                 </div>
                 <div className="text-left">
-                  <div className="text-xs sm:text-sm font-bold font-display tracking-wide text-white">
+                  <div className="text-xs sm:text-sm font-bold font-display tracking-wide text-slate-900">
                     {item.name}
                   </div>
                   <div className="flex items-center gap-1.5 mt-0.5">
-                    <span className="text-[10px] font-mono text-emerald-400 font-semibold">{item.tag}</span>
-                    <span className="text-[9px] text-zinc-400 font-mono hidden sm:inline">• {item.sector}</span>
+                    <span className="text-[10px] font-mono text-emerald-700 font-semibold">{item.tag}</span>
+                    <span className="text-[9px] text-slate-500 font-mono hidden sm:inline">• {item.sector}</span>
                   </div>
                 </div>
               </div>

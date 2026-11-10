@@ -41,40 +41,24 @@ export default function TrustedHeritage({ onOpenPrototypeModal }) {
   ];
 
   return (
-    <section className="py-16 sm:py-24 px-4 sm:px-6 lg:px-8 relative overflow-hidden border-t border-zinc-800/80 bg-[#060608]">
+    <section className="py-16 sm:py-24 px-4 sm:px-6 lg:px-8 relative overflow-hidden border-t border-slate-200/80 bg-[#FAFAFC]">
       
-      {/* High-Contrast Cinematic B&W Human Connection Background (themaxgrowth Image 10) */}
-      <div className="absolute inset-0 pointer-events-none overflow-hidden z-0">
-        <div className="absolute inset-0 opacity-[0.10] flex items-center justify-center">
-          <svg viewBox="0 0 1200 600" className="w-full h-full object-cover" fill="none">
-            <circle cx="600" cy="300" r="400" fill="url(#bwRadial)" />
-            <defs>
-              <radialGradient id="bwRadial" cx="50%" cy="50%" r="50%">
-                <stop offset="0%" stopColor="#ffffff" stopOpacity="0.4" />
-                <stop offset="100%" stopColor="#000000" stopOpacity="0" />
-              </radialGradient>
-            </defs>
-            <path d="M 200 450 C 350 350, 450 320, 560 300 C 620 290, 680 310, 750 280 C 850 240, 950 180, 1050 120" stroke="#ffffff" strokeWidth="1.5" strokeDasharray="6 6" opacity="0.6" />
-            <path d="M 150 490 C 320 380, 420 350, 540 330 C 650 310, 720 340, 820 290 C 920 240, 1020 180, 1100 130" stroke="#ffffff" strokeWidth="1" opacity="0.4" />
-          </svg>
-        </div>
-
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[700px] h-[300px] rounded-full blur-[140px] bg-cyan-950/15" />
-      </div>
+      {/* Background Soft Glow */}
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[700px] h-[300px] rounded-full blur-[140px] bg-rose-500/[0.03] pointer-events-none" />
 
       <div className="max-w-6xl mx-auto relative z-10">
         
-        {/* Section Header: Direct & Trust-Focused (themaxgrowth style) */}
+        {/* Section Header: Direct & Trust-Focused */}
         <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-mono mb-3 bg-[#0E0F14] border border-white/10 text-zinc-300">
-            <ShieldCheck className="w-3.5 h-3.5 text-sky-400" />
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-mono mb-3 bg-white border border-slate-200 text-slate-700 shadow-2xs">
+            <ShieldCheck className="w-3.5 h-3.5 text-rose-600" />
             <span className="uppercase tracking-wider">TRUSTED BY GROWING BUSINESSES</span>
           </div>
 
-          <h2 className="text-2xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-white mb-4">
-            Businesses Work With Us Because We Focus on What <span className="font-serif italic font-normal text-slate-100">Matters.</span>
+          <h2 className="text-2xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-slate-900 mb-4">
+            Businesses Work With Us Because We Focus on What <span className="font-serif italic font-normal text-rose-600">Matters.</span>
           </h2>
-          <p className="text-sm sm:text-base text-zinc-400 max-w-2xl mx-auto leading-relaxed">
+          <p className="text-sm sm:text-base text-slate-600 max-w-2xl mx-auto leading-relaxed">
             No agency runaround, no recurring monthly charges, and no hostage lock-in. Just direct craft, speed, and real revenue generation.
           </p>
         </div>
@@ -86,27 +70,27 @@ export default function TrustedHeritage({ onOpenPrototypeModal }) {
             return (
               <div
                 key={pillar.num}
-                className="surface-mercury p-6 sm:p-8 flex flex-col justify-between"
+                className="bg-white border border-slate-200/90 rounded-3xl p-6 sm:p-8 flex flex-col justify-between shadow-2xs hover:shadow-md transition-all"
               >
                 <div>
                   <div className="flex items-center justify-between mb-4">
-                    <span className="text-xs font-mono text-cyan-400 font-bold">
+                    <span className="text-xs font-mono text-rose-600 font-bold">
                       PILLAR // {pillar.num}
                     </span>
-                    <div className="w-9 h-9 rounded-xl bg-zinc-900 border border-zinc-800 flex items-center justify-center text-cyan-400">
+                    <div className="w-9 h-9 rounded-xl bg-rose-50 border border-rose-200/60 flex items-center justify-center text-rose-600">
                       <Icon className="w-4 h-4" />
                     </div>
                   </div>
 
-                  <h3 className="text-lg sm:text-xl font-bold font-display text-white mb-2">
+                  <h3 className="text-lg sm:text-xl font-bold font-display text-slate-900 mb-2">
                     {pillar.title}
                   </h3>
-                  <p className="text-xs sm:text-sm text-zinc-400 leading-relaxed">
+                  <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
                     {pillar.desc}
                   </p>
                 </div>
 
-                <div className="mt-6 pt-4 border-t border-zinc-900 flex items-center gap-2 text-xs font-mono text-emerald-400">
+                <div className="mt-6 pt-4 border-t border-slate-100 flex items-center gap-2 text-xs font-mono text-emerald-700">
                   <Check className="w-3.5 h-3.5" />
                   <span>Guaranteed on Every Delivery</span>
                 </div>
@@ -116,12 +100,12 @@ export default function TrustedHeritage({ onOpenPrototypeModal }) {
         </div>
 
         {/* Action Banner */}
-        <div className="p-6 sm:p-10 rounded-3xl bg-gradient-to-r from-zinc-950 via-zinc-900 to-zinc-950 border border-zinc-800 flex flex-col sm:flex-row items-center justify-between gap-6 text-center sm:text-left">
+        <div className="p-6 sm:p-10 rounded-3xl bg-white border border-slate-200/90 shadow-xl shadow-slate-900/5 flex flex-col sm:flex-row items-center justify-between gap-6 text-center sm:text-left">
           <div className="space-y-1">
-            <h4 className="text-lg sm:text-xl font-bold font-display text-white">
+            <h4 className="text-lg sm:text-xl font-bold font-display text-slate-900">
               Ready to give your business the website it deserves?
             </h4>
-            <p className="text-xs sm:text-sm text-zinc-400 max-w-xl">
+            <p className="text-xs sm:text-sm text-slate-600 max-w-xl">
               Let’s build an interactive mobile sample for your business with zero upfront cost.
             </p>
           </div>
@@ -131,18 +115,18 @@ export default function TrustedHeritage({ onOpenPrototypeModal }) {
               href={whatsapp}
               target="_blank"
               rel="noopener noreferrer"
-              className="px-5 py-3 rounded-xl font-bold text-xs sm:text-sm flex items-center justify-center gap-2 bg-[#25D366] hover:bg-[#20bd5a] text-zinc-950 shadow-lg shadow-emerald-500/20 transition-all active:scale-95"
+              className="px-5 py-3 rounded-xl font-bold text-xs sm:text-sm flex items-center justify-center gap-2 bg-[#25D366] hover:bg-[#20bd5a] text-slate-950 shadow-md shadow-emerald-500/15 transition-all active:scale-95 cursor-pointer"
             >
-              <WhatsAppIcon className="w-4 h-4 fill-current text-zinc-950" />
+              <WhatsAppIcon className="w-4 h-4 fill-current text-slate-950" />
               <span>Message on WhatsApp</span>
             </a>
 
             <button
               onClick={onOpenPrototypeModal}
-              className="px-5 py-3 rounded-xl font-bold text-xs sm:text-sm flex items-center justify-center gap-2 bg-white hover:bg-zinc-200 text-zinc-950 transition-all active:scale-95"
+              className="btn-crimson-primary px-5 py-3 text-xs sm:text-sm uppercase font-mono tracking-wider cursor-pointer shadow-md shadow-rose-600/15 active:scale-95"
             >
               <span>Get Free Preview</span>
-              <ArrowRight className="w-4 h-4" />
+              <ArrowRight className="w-4 h-4 ml-1.5" />
             </button>
           </div>
         </div>

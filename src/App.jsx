@@ -3,6 +3,7 @@ import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import MobileBottomNav from './components/MobileBottomNav';
 import HomePage from './pages/HomePage';
+import Box3DLoader from './components/Box3DLoader';
 
 const SolutionsPage = lazy(() => import('./pages/SolutionsPage'));
 const WorkPage = lazy(() => import('./pages/WorkPage'));
@@ -11,6 +12,7 @@ const PrototypeModal = lazy(() => import('./components/PrototypeModal'));
 
 export default function App() {
   const [prototypeModalOpen, setPrototypeModalOpen] = useState(false);
+  const [showLoader, setShowLoader] = useState(true);
   const [activePage, setActivePage] = useState(() => {
     const hash = window.location.hash.replace('#', '');
     return ['home', 'solutions', 'work', 'about'].includes(hash) ? hash : 'home';
@@ -43,7 +45,13 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen bg-[#07070A] text-[#EDEDED] font-sans antialiased selection:bg-cyan-500/25 selection:text-white">
+    <div className="min-h-screen bg-[#FAFAFC] text-slate-900 font-sans antialiased selection:bg-rose-500/15 selection:text-rose-900">
+      
+      {/* 3D Perspective Cube Loader (Chennaidesigner Style) */}
+      {showLoader && (
+        <Box3DLoader onComplete={() => setShowLoader(false)} />
+      )}
+
       {/* Top Studio Navbar */}
       <Navbar
         onOpenPrototypeModal={openPlan}
@@ -53,7 +61,7 @@ export default function App() {
 
       {/* Dynamic Multi-Page Main Content View */}
       <main className="relative z-10">
-        <Suspense fallback={<div className="min-h-[60vh] flex items-center justify-center text-zinc-500 font-mono text-xs">Loading...</div>}>
+        <Suspense fallback={<div className="min-h-[60vh] flex items-center justify-center text-slate-400 font-mono text-xs">Loading...</div>}>
           {pages[activePage] || pages.home}
         </Suspense>
       </main>
@@ -67,7 +75,7 @@ export default function App() {
         setActivePage={selectPage}
         onOpenChat={openPlan}
         chatOpen={false}
-        isDark={true}
+        isDark={false}
       />
 
       {/* Free Sample Request Prototype Modal */}
@@ -76,7 +84,7 @@ export default function App() {
           <PrototypeModal
             isOpen={prototypeModalOpen}
             onClose={() => setPrototypeModalOpen(false)}
-            isDark={true}
+            isDark={false}
           />
         </Suspense>
       )}

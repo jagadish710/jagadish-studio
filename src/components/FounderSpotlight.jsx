@@ -15,25 +15,25 @@ const whatsapp = 'https://wa.me/917358618789?text=Hi%20Jagadish!%20I%20would%20l
 
 export default function FounderSpotlight({ onOpenPrototypeModal }) {
   return (
-    <section id="leadership" className="py-16 sm:py-24 px-4 sm:px-6 lg:px-8 relative overflow-hidden bg-white border-t border-slate-200/80">
+    <section id="leadership" className="py-20 sm:py-28 px-4 sm:px-6 lg:px-8 relative overflow-hidden bg-[#070814] text-white border-t border-white/10">
       
-      {/* Background Soft Ambient Light */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[550px] h-[350px] rounded-full blur-[140px] pointer-events-none bg-rose-500/[0.03]" />
+      {/* Background Ambient Glow */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[400px] rounded-full blur-[140px] pointer-events-none bg-rose-600/10" />
 
       <div className="max-w-5xl mx-auto relative z-10">
         
-        {/* Main Executive Leadership Card */}
-        <div className="bg-[#FAFAFC] border border-slate-200/90 rounded-3xl p-6 sm:p-10 lg:p-12 relative overflow-hidden shadow-xl shadow-slate-900/5">
+        {/* Main Executive Leadership VIP Glowing Card */}
+        <div className="bg-slate-900/90 border border-white/15 rounded-3xl p-6 sm:p-10 lg:p-12 relative overflow-hidden shadow-2xl shadow-rose-950/40 backdrop-blur-xl">
           
           {/* Top Label */}
-          <div className="flex flex-wrap items-center justify-between gap-3 pb-6 mb-8 border-b border-slate-200/80">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-mono font-medium bg-white border border-slate-200 text-slate-700 shadow-2xs">
-              <span className="w-2 h-2 rounded-full bg-rose-600 animate-pulse" />
+          <div className="flex flex-wrap items-center justify-between gap-3 pb-6 mb-8 border-b border-white/10">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-mono font-medium bg-slate-950 border border-rose-500/30 text-rose-300 shadow-md">
+              <span className="w-2 h-2 rounded-full bg-rose-500 animate-pulse" />
               <span>TECHNICAL LEADERSHIP &amp; ENGINEERING RIGOR</span>
             </div>
 
-            <div className="flex items-center gap-2 text-xs font-mono text-slate-500">
-              <MapPin className="w-3.5 h-3.5 text-rose-600" />
+            <div className="flex items-center gap-2 text-xs font-mono text-slate-300">
+              <MapPin className="w-3.5 h-3.5 text-rose-400" />
               <span>Chennai, India • Direct Architect Access</span>
             </div>
           </div>
@@ -43,108 +43,133 @@ export default function FounderSpotlight({ onOpenPrototypeModal }) {
             {/* Left Column: Architect Profile & Background Badges */}
             <div className="lg:col-span-4 flex flex-col items-center text-center">
               
-              <div className="relative w-44 h-48 sm:w-48 sm:h-52 rounded-3xl p-1 bg-gradient-to-br from-rose-500/20 via-slate-200 to-slate-100 shadow-md">
-                <div className="w-full h-full rounded-[22px] bg-white border border-slate-200 flex flex-col items-center justify-center p-3.5">
-                  <div className="w-20 h-20 sm:w-24 sm:h-24 rounded-2xl overflow-hidden mb-2.5 shadow-md ring-2 ring-rose-500/20 border-2 border-white bg-slate-100 shrink-0">
+              {/* Profile Card with Glowing Ring */}
+              <div className="relative w-48 h-56 rounded-3xl p-1 bg-gradient-to-br from-rose-500 via-purple-500 to-cyan-500 shadow-xl shadow-rose-950/50">
+                <div className="w-full h-full rounded-[22px] bg-slate-950 border border-white/10 flex flex-col items-center justify-center p-3.5">
+                  <div className="w-24 h-24 rounded-2xl overflow-hidden mb-2.5 shadow-xl ring-2 ring-rose-500/40 border-2 border-white/20 bg-slate-900 shrink-0">
                     <img
                       src="/images/jagadish_founder.png"
                       alt="Jagadish - Principal Systems Architect"
                       className="w-full h-full object-cover object-top"
                     />
                   </div>
-                  <h3 className="text-lg font-bold font-display text-slate-900 tracking-tight">
+                  <h3 className="text-xl font-bold font-display text-white tracking-tight">
                     Jagadish
                   </h3>
-                  <span className="text-xs font-mono text-rose-600 font-semibold mt-0.5">
+                  <span className="text-xs font-mono text-rose-400 font-semibold mt-0.5">
                     Principal Systems Architect
                   </span>
-                  <span className="text-[11px] font-mono text-slate-500 mt-0.5">
-                    4+ Years Specialized Engineering
+                  <span className="text-[10px] font-mono text-slate-400 mt-1">
+                    Founder • Merqurie Systems
                   </span>
                 </div>
               </div>
 
-              {/* Pedigree Badges with Official Logos */}
-              <div className="mt-5 w-full space-y-2">
-                <div className="px-3.5 py-2 rounded-xl bg-white border border-slate-200 shadow-2xs text-left flex items-center gap-3 hover:border-amber-300 transition-colors">
-                  <div className="w-8 h-8 rounded-lg bg-amber-50/80 border border-amber-200/80 flex items-center justify-center shrink-0 shadow-2xs">
-                    <AmazonLogo className="w-5 h-5" />
+              {/* Proven Corporate Pedigree Badges */}
+              <div className="w-full mt-4 space-y-2">
+                <div className="w-full p-2.5 rounded-xl bg-slate-950/80 border border-white/10 flex items-center gap-3 text-left">
+                  <div className="w-8 h-8 rounded-lg bg-amber-500/10 border border-amber-500/30 flex items-center justify-center shrink-0">
+                    <AmazonLogo className="w-5 h-5 text-amber-400" />
                   </div>
-                  <div className="text-xs">
-                    <span className="font-bold text-slate-900 block">Amazon</span>
-                    <span className="text-[11px] text-slate-500">Former Technical Engineer</span>
+                  <div>
+                    <span className="text-xs font-bold text-white block">Amazon</span>
+                    <span className="text-[10px] font-mono text-slate-400">Former Technical Engineer</span>
                   </div>
                 </div>
 
-                <div className="px-3.5 py-2 rounded-xl bg-white border border-slate-200 shadow-2xs text-left flex items-center gap-3 hover:border-blue-300 transition-colors">
-                  <div className="w-8 h-8 rounded-lg bg-blue-50/80 border border-blue-200/80 flex items-center justify-center shrink-0 shadow-2xs">
-                    <TuringLogo className="w-5 h-5" />
+                <div className="w-full p-2.5 rounded-xl bg-slate-950/80 border border-white/10 flex items-center gap-3 text-left">
+                  <div className="w-8 h-8 rounded-lg bg-rose-500/10 border border-rose-500/30 flex items-center justify-center shrink-0">
+                    <TuringLogo className="w-5 h-5 text-rose-400" />
                   </div>
-                  <div className="text-xs">
-                    <span className="font-bold text-slate-900 block">Turing</span>
-                    <span className="text-[11px] text-slate-500">Frontier AI Engineering (Gemini, Claude)</span>
+                  <div>
+                    <span className="text-xs font-bold text-white block">Turing</span>
+                    <span className="text-[10px] font-mono text-slate-400">Frontier AI Systems (Gemini, Claude)</span>
                   </div>
                 </div>
               </div>
 
             </div>
 
-            {/* Right Column: Studio Mission & Technical Rigor */}
+            {/* Right Column: Founder's Mission & Standard */}
             <div className="lg:col-span-8 space-y-5 text-left">
               
-              <div>
-                <span className="text-xs font-mono uppercase tracking-widest text-rose-600 font-semibold block mb-2">
-                  DIRECT PARTNERSHIP • ZERO AGENCY LAYERS
-                </span>
-                <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight text-slate-900 leading-tight">
-                  Big-Tech Engineering Rigor. Dedicated to Your <span className="font-serif italic font-normal text-rose-600">Business.</span>
-                </h2>
+              <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-mono font-semibold bg-emerald-950/80 border border-emerald-500/40 text-emerald-300">
+                <ShieldCheck className="w-3.5 h-3.5 text-emerald-400" />
+                <span>DIRECT BUILD GUARANTEE • ZERO OUTSOURCING</span>
               </div>
 
-              <div className="space-y-3 text-sm text-slate-600 leading-relaxed">
+              <h4 className="text-2xl sm:text-3xl font-bold font-display text-white tracking-tight leading-snug">
+                "We built Merqurie as the antidote to agency retainer debt and slow, broken websites."
+              </h4>
+
+              <div className="space-y-3.5 text-xs sm:text-sm text-slate-300 leading-relaxed font-sans">
                 <p>
-                  At <strong className="text-slate-900">Amazon</strong> and developing/evaluating frontier AI architectures at <strong className="text-slate-900">Turing</strong>, I engineered high-throughput, latency-critical systems where reliability and performance are absolute requirements.
+                  Throughout my career engineering high-scale distributed systems at <strong>Amazon</strong> and evaluating frontier multimodal AI models with <strong>Turing</strong>, I saw how software should be built: ultra-fast, rock-solid, and completely transparent.
                 </p>
                 <p>
-                  Merqurie applies that same engineering discipline to growing commercial enterprises. Traditional agencies charge heavy fees for fragile, bloated WordPress templates that take 8 seconds to load, followed by <span className="text-slate-900 font-semibold">₹5,000 to ₹10,000 recurring monthly retainer fees</span> just to make simple text updates.
+                  When looking at how local and growing businesses were being served by website agencies, I saw an industry built on customer lock-in: outdated WordPress templates taking 8 seconds to load, slow customer service, and endless monthly invoices for "maintenance" that didn't deliver any value.
                 </p>
-                <p className="text-slate-700 font-medium">
-                  We engineer modern, decoupled web storefronts deployed on global edge networks. You work directly with senior engineering leadership, pay zero recurring maintenance retainers, and retain 100% intellectual property sovereignty from day one.
+                <p>
+                  Merqurie was built to change that. We engineer modern, mobile-first websites that load in under 1 second, capture direct WhatsApp enquiries, and are <strong>100% owned by the business owner from day one—with ₹0 recurring agency retainers</strong>.
                 </p>
               </div>
 
-              {/* Pillars Checklist */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2">
-                {[
-                  'Direct communication with lead architect',
-                  'Sub-second load speed on 4G/5G mobile',
-                  'Zero monthly agency retainer fees',
-                  '100% source code & domain ownership',
-                ].map((item) => (
-                  <div key={item} className="flex items-center gap-2 text-xs font-medium text-slate-700">
-                    <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
-                    <span>{item}</span>
-                  </div>
-                ))}
+              {/* 3 Value Pillars */}
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-2">
+                <div className="p-3 rounded-xl bg-slate-950/80 border border-white/10">
+                  <span className="text-[10px] font-mono text-cyan-400 uppercase font-bold block mb-1">
+                    EDGE PERFORMANCE
+                  </span>
+                  <span className="text-xs text-white font-medium block">
+                    &lt; 0.3s Mobile Speed
+                  </span>
+                  <span className="text-[10px] text-slate-400 block mt-0.5">
+                    99/100 Core Web Vitals
+                  </span>
+                </div>
+
+                <div className="p-3 rounded-xl bg-slate-950/80 border border-white/10">
+                  <span className="text-[10px] font-mono text-emerald-400 uppercase font-bold block mb-1">
+                    CONVERSION FIRST
+                  </span>
+                  <span className="text-xs text-white font-medium block">
+                    1-Tap WhatsApp
+                  </span>
+                  <span className="text-[10px] text-slate-400 block mt-0.5">
+                    Zero customer friction
+                  </span>
+                </div>
+
+                <div className="p-3 rounded-xl bg-slate-950/80 border border-white/10">
+                  <span className="text-[10px] font-mono text-rose-400 uppercase font-bold block mb-1">
+                    SOVEREIGNTY
+                  </span>
+                  <span className="text-xs text-white font-medium block">
+                    100% Client Owned
+                  </span>
+                  <span className="text-[10px] text-slate-400 block mt-0.5">
+                    ₹0 monthly retainer debt
+                  </span>
+                </div>
               </div>
 
-              {/* Action Buttons */}
-              <div className="pt-4 flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
+              {/* Direct WhatsApp Call to Action */}
+              <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 pt-3">
                 <a
                   href={whatsapp}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="px-5 py-3 rounded-xl font-bold text-xs sm:text-sm flex items-center justify-center gap-2 bg-[#25D366] hover:bg-[#20bd5a] text-slate-950 shadow-md shadow-emerald-500/15 transition-all active:scale-95 cursor-pointer"
+                  className="px-6 py-3.5 rounded-xl text-xs font-mono font-bold uppercase tracking-wider bg-[#25D366] hover:bg-[#20bd5a] text-slate-950 flex items-center justify-center gap-2 shadow-lg shadow-emerald-500/15 cursor-pointer transition-all"
                 >
-                  <WhatsAppIcon className="w-4 h-4 fill-current text-slate-950" />
-                  <span>Connect on WhatsApp</span>
+                  <WhatsAppIcon className="w-4 h-4 fill-slate-950 text-slate-950" />
+                  <span>Chat with Jagadish</span>
                 </a>
 
                 <button
                   onClick={onOpenPrototypeModal}
-                  className="px-5 py-3 rounded-xl font-bold text-xs sm:text-sm flex items-center justify-center gap-2 bg-slate-900 hover:bg-slate-800 text-white transition-all active:scale-95 cursor-pointer shadow-xs"
+                  className="px-6 py-3.5 rounded-xl text-xs font-mono font-bold uppercase tracking-wider bg-rose-600 hover:bg-rose-500 text-white flex items-center justify-center gap-2 shadow-lg shadow-rose-950/40 cursor-pointer transition-all"
                 >
-                  <span>Request Free Architecture Sample</span>
+                  <span>Request Free Sample</span>
                   <ArrowRight className="w-4 h-4" />
                 </button>
               </div>
@@ -156,7 +181,6 @@ export default function FounderSpotlight({ onOpenPrototypeModal }) {
         </div>
 
       </div>
-
     </section>
   );
 }

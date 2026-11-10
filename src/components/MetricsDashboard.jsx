@@ -13,44 +13,44 @@ import {
 export default function MetricsDashboard({ onOpenPrototypeModal }) {
   const stats = [
     {
-      value: '< 1.0s',
+      value: '< 0.3s',
       unit: 'Latency',
       label: 'Mobile Edge PageSpeed',
       subtext: 'Scoring 99/100 automatically on Google Core Web Vitals',
-      bg: 'bg-[radial-gradient(ellipse_at_top_left,rgba(204,251,241,0.7),transparent_55%),linear-gradient(to_bottom_right,#F0FDFA,#FFFFFF,#F8FAFC)]',
-      border: 'border-teal-200/80 hover:border-teal-400',
-      badge: 'bg-teal-50 text-teal-800 border-teal-200',
-      valueColor: 'text-teal-950',
+      bg: 'bg-gradient-to-b from-teal-950/60 via-slate-900 to-slate-950',
+      border: 'border-teal-500/40 hover:border-teal-400',
+      badge: 'bg-teal-950 text-teal-300 border-teal-500/40',
+      valueColor: 'text-teal-400',
     },
     {
       value: '4+',
       unit: 'Years',
       label: 'Specialized Engineering',
       subtext: 'Built with big-tech rigor from Amazon & frontier AI at Turing',
-      bg: 'bg-[radial-gradient(ellipse_at_top_left,rgba(254,243,199,0.7),transparent_55%),linear-gradient(to_bottom_right,#FEF3C7,#FFFFFF,#FFFDF5)]',
-      border: 'border-amber-200/80 hover:border-amber-400',
-      badge: 'bg-amber-50 text-amber-800 border-amber-200',
-      valueColor: 'text-amber-950',
+      bg: 'bg-gradient-to-b from-amber-950/60 via-slate-900 to-slate-950',
+      border: 'border-amber-500/40 hover:border-amber-400',
+      badge: 'bg-amber-950 text-amber-300 border-amber-500/40',
+      valueColor: 'text-amber-400',
     },
     {
       value: '10s',
       unit: 'Self-Serve',
       label: 'Phone Content Edits',
       subtext: 'Update prices and text from your mobile phone with zero developer delay',
-      bg: 'bg-[radial-gradient(ellipse_at_top_left,rgba(224,231,255,0.7),transparent_55%),linear-gradient(to_bottom_right,#EEF2FF,#FFFFFF,#FAF5FF)]',
-      border: 'border-indigo-200/80 hover:border-indigo-400',
-      badge: 'bg-indigo-50 text-indigo-800 border-indigo-200',
-      valueColor: 'text-indigo-950',
+      bg: 'bg-gradient-to-b from-indigo-950/60 via-slate-900 to-slate-950',
+      border: 'border-indigo-500/40 hover:border-indigo-400',
+      badge: 'bg-indigo-950 text-indigo-300 border-indigo-500/40',
+      valueColor: 'text-indigo-400',
     },
     {
       value: '₹0',
       unit: 'Forever',
       label: 'Monthly Agency Retainers',
       subtext: 'Zero recurring agency lock-in. One-time build, 100% owned by you',
-      bg: 'bg-[radial-gradient(ellipse_at_top_left,rgba(254,205,211,0.7),transparent_55%),linear-gradient(to_bottom_right,#FFF1F2,#FFFFFF,#FFFBEB)]',
-      border: 'border-rose-200/80 hover:border-rose-400',
-      badge: 'bg-rose-50 text-rose-800 border-rose-200',
-      valueColor: 'text-rose-950',
+      bg: 'bg-gradient-to-b from-rose-950/60 via-slate-900 to-slate-950',
+      border: 'border-rose-500/40 hover:border-rose-400',
+      badge: 'bg-rose-950 text-rose-300 border-rose-500/40',
+      valueColor: 'text-rose-400',
     },
   ];
 
@@ -59,7 +59,7 @@ export default function MetricsDashboard({ onOpenPrototypeModal }) {
       label: 'Mobile Page Load Speed',
       merqurie: 98,
       legacy: 35,
-      merqurieLabel: '< 1.0s (Sub-second Edge)',
+      merqurieLabel: '< 0.3s (Sub-second Edge)',
       legacyLabel: '8 to 10s (Heavy WordPress Plugins)',
       icon: Zap,
     },
@@ -90,122 +90,118 @@ export default function MetricsDashboard({ onOpenPrototypeModal }) {
   ];
 
   return (
-    <section className="py-20 sm:py-28 px-4 sm:px-6 lg:px-8 relative overflow-hidden bg-[#FAFAFC] border-t border-slate-200/80">
+    <section className="py-20 sm:py-28 px-4 sm:px-6 lg:px-8 relative overflow-hidden bg-[#070814] text-white border-t border-white/10">
       
       {/* Background Soft Glow */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[300px] rounded-full blur-[140px] pointer-events-none bg-rose-500/[0.04]" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[300px] rounded-full blur-[140px] pointer-events-none bg-rose-600/10" />
 
       <div className="max-w-6xl mx-auto relative z-10">
         
-        {/* Header: The Work Behind The Results */}
+        {/* Header */}
         <div className="text-center max-w-3xl mx-auto mb-14 sm:mb-20">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-mono mb-3 bg-white border border-slate-200 text-slate-700 shadow-2xs">
-            <Sparkles className="w-3.5 h-3.5 text-rose-600" />
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-mono mb-3 bg-slate-900 border border-white/15 text-slate-300 shadow-md">
+            <Sparkles className="w-3.5 h-3.5 text-rose-400" />
             <span className="uppercase tracking-wider font-semibold">THE WORK BEHIND THE RESULTS</span>
           </div>
 
-          <h2 className="text-3xl sm:text-5xl font-bold tracking-tight text-slate-900 mb-4 leading-[1.1]">
-            The Work Behind The <span className="font-serif italic font-normal text-rose-600">Results.</span>
+          <h2 className="text-3xl sm:text-5xl font-bold tracking-tight text-white mb-4 leading-[1.1] font-display">
+            The Work Behind The{' '}
+            <span className="bg-gradient-to-r from-rose-400 via-pink-400 to-amber-300 bg-clip-text text-transparent">
+              Results.
+            </span>
           </h2>
-          <p className="text-xs sm:text-sm text-slate-600 max-w-2xl mx-auto leading-relaxed">
+          <p className="text-xs sm:text-sm text-slate-300 max-w-2xl mx-auto leading-relaxed">
             Every metric below is grounded in live production client platforms. No exaggerated claims, no opaque agency promises.
           </p>
         </div>
 
-        {/* 4 Vertical Stat Pillars with Colorful & Designful Backgrounds */}
+        {/* 4 Vertical Stat Pillars with Glowing Gradients */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 mb-14">
           {stats.map((item, idx) => (
             <div
               key={idx}
-              className={`p-6 sm:p-7 rounded-3xl border ${item.bg} ${item.border} shadow-sm hover:shadow-2xl hover:-translate-y-2 transition-all duration-400 ease-out flex flex-col justify-between relative overflow-hidden group active:scale-[0.98]`}
+              className={`p-6 sm:p-7 rounded-3xl border ${item.bg} ${item.border} shadow-xl hover:shadow-2xl hover:-translate-y-2 transition-all duration-400 ease-out flex flex-col justify-between relative overflow-hidden group active:scale-[0.98]`}
             >
               <div>
-                <div className="flex items-center justify-between text-xs font-mono mb-6">
-                  <span className="text-slate-400 font-bold">METRIC // 0{idx + 1}</span>
-                  <span className={`text-[10px] font-mono font-bold px-2.5 py-0.5 rounded-full border ${item.badge} shadow-2xs`}>
+                <div className="flex items-center justify-between gap-2 mb-4">
+                  <span className={`text-[10px] font-mono font-bold px-2.5 py-0.5 rounded-full border ${item.badge}`}>
                     {item.unit}
+                  </span>
+                  <span className="text-[10px] font-mono text-slate-500">
+                    METRIC // 0{idx + 1}
                   </span>
                 </div>
 
-                <div className={`text-4xl sm:text-5xl font-black font-display tracking-tight ${item.valueColor} mb-2 group-hover:scale-105 transition-transform origin-left`}>
+                <div className={`text-4xl sm:text-5xl font-black font-display tracking-tight ${item.valueColor} mb-2`}>
                   {item.value}
                 </div>
 
-                <h3 className="text-sm sm:text-base font-bold text-slate-900 font-display mb-1 tracking-tight">
+                <h3 className="text-sm sm:text-base font-bold text-white mb-1.5">
                   {item.label}
                 </h3>
-                <p className="text-xs text-slate-600 leading-relaxed">
+
+                <p className="text-xs text-slate-300 leading-relaxed">
                   {item.subtext}
                 </p>
               </div>
 
-              <div className="mt-6 pt-4 border-t border-slate-200/60 flex items-center gap-1.5 text-[11px] font-mono text-emerald-800 font-semibold">
-                <CheckCircle2 className="w-3.5 h-3.5 shrink-0 text-emerald-600" />
+              <div className="mt-5 pt-3 border-t border-white/10 flex items-center gap-1.5 text-[11px] font-mono text-emerald-400 font-semibold">
+                <CheckCircle2 className="w-3.5 h-3.5" />
                 <span>Verified in Production</span>
               </div>
             </div>
           ))}
         </div>
 
-        {/* Telemetry Comparison Bars with Frosted Glass & Vivid Highlights */}
-        <div className="p-6 sm:p-8 rounded-3xl bg-white/95 backdrop-blur-md border border-slate-200/90 shadow-xl shadow-slate-900/5 relative overflow-hidden group">
-          <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between pb-6 mb-6 border-b border-slate-100 gap-3">
+        {/* Benchmarking Comparison Stack */}
+        <div className="p-6 sm:p-10 rounded-3xl bg-slate-900/90 border border-white/15 shadow-2xl backdrop-blur-xl">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-6 mb-8 border-b border-white/10">
             <div>
-              <h3 className="text-lg sm:text-xl font-bold font-display text-slate-900 tracking-tight">
-                Merqurie Engineering vs. Traditional Agency Output
+              <span className="text-xs font-mono font-bold uppercase tracking-wider text-rose-400 block mb-1">
+                SIDE-BY-SIDE TELEMETRY
+              </span>
+              <h3 className="text-xl sm:text-2xl font-bold text-white tracking-tight">
+                Architectural Standards Comparison
               </h3>
-              <p className="text-xs text-slate-500 mt-0.5">
-                Side-by-side technical benchmarks measured on real client devices across 4G/5G mobile connections.
-              </p>
             </div>
 
-            <button
-              onClick={onOpenPrototypeModal}
-              className="text-xs font-mono text-rose-600 hover:text-rose-700 flex items-center gap-1 font-semibold cursor-pointer shrink-0 group/link"
-            >
-              <span>Test your website speed</span>
-              <ArrowRight className="w-3.5 h-3.5 group-hover/link:translate-x-1 transition-transform" />
-            </button>
+            <div className="flex items-center gap-4 text-xs font-mono">
+              <div className="flex items-center gap-2">
+                <span className="w-3 h-3 rounded-md bg-emerald-400" />
+                <span className="text-slate-300">Merqurie Systems</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <span className="w-3 h-3 rounded-md bg-rose-500" />
+                <span className="text-slate-400">Traditional Agency</span>
+              </div>
+            </div>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {benchmarks.map((b, idx) => {
-              const Icon = b.icon;
+          <div className="space-y-6">
+            {benchmarks.map((bm, bIdx) => {
+              const Icon = bm.icon;
               return (
-                <div key={idx} className="space-y-2.5 p-4 sm:p-5 rounded-2xl bg-slate-50/80 border border-slate-200/80 hover:bg-white hover:border-slate-300 hover:shadow-xs transition-all duration-300">
-                  <div className="flex items-center justify-between text-xs font-medium text-slate-800">
-                    <div className="flex items-center gap-2">
-                      <div className="w-7 h-7 rounded-lg bg-rose-50 border border-rose-200/60 flex items-center justify-center text-rose-600">
-                        <Icon className="w-3.5 h-3.5" />
-                      </div>
-                      <span className="font-bold text-slate-900 text-xs sm:text-[13px]">{b.label}</span>
+                <div key={bIdx} className="space-y-2">
+                  <div className="flex items-center justify-between text-xs sm:text-sm font-medium">
+                    <div className="flex items-center gap-2 text-white font-bold">
+                      <Icon className="w-4 h-4 text-rose-400" />
+                      <span>{bm.label}</span>
                     </div>
+                    <span className="font-mono text-emerald-400 font-bold text-xs">
+                      {bm.merqurieLabel}
+                    </span>
                   </div>
 
-                  {/* Merqurie Bar */}
-                  <div className="space-y-1 pt-1">
-                    <div className="flex justify-between text-[11px] font-mono">
-                      <span className="text-emerald-800 font-bold">Merqurie: {b.merqurieLabel}</span>
-                    </div>
-                    <div className="h-2.5 rounded-full bg-slate-200 overflow-hidden p-0.5">
-                      <div
-                        className="h-full bg-gradient-to-r from-emerald-500 via-teal-500 to-emerald-600 rounded-full shadow-xs"
-                        style={{ width: `${b.merqurie}%` }}
-                      />
-                    </div>
+                  <div className="w-full bg-slate-950 rounded-full h-3 p-0.5 border border-white/10 overflow-hidden flex gap-1">
+                    <div
+                      className="h-full bg-gradient-to-r from-emerald-400 to-cyan-400 rounded-full transition-all duration-700"
+                      style={{ width: `${bm.merqurie}%` }}
+                    />
                   </div>
 
-                  {/* Legacy Bar */}
-                  <div className="space-y-1 pt-0.5">
-                    <div className="flex justify-between text-[11px] font-mono">
-                      <span className="text-rose-700/80 font-medium">Legacy Agencies: {b.legacyLabel}</span>
-                    </div>
-                    <div className="h-1.5 rounded-full bg-slate-200 overflow-hidden">
-                      <div
-                        className="h-full bg-rose-400/60 rounded-full"
-                        style={{ width: `${b.legacy}%` }}
-                      />
-                    </div>
+                  <div className="flex justify-between text-[11px] font-mono text-slate-400">
+                    <span>Merqurie: {bm.merqurie}% efficiency</span>
+                    <span className="text-rose-400">Typical: {bm.legacyLabel}</span>
                   </div>
                 </div>
               );
@@ -214,7 +210,6 @@ export default function MetricsDashboard({ onOpenPrototypeModal }) {
         </div>
 
       </div>
-
     </section>
   );
 }

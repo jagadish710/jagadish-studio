@@ -12,7 +12,9 @@ import {
 import WhatsAppIcon from '../components/WhatsAppIcon';
 import Hero from '../components/Hero';
 import ClientMarquee from '../components/ClientMarquee';
+import CinematicVideoSection from '../components/CinematicVideoSection';
 import ProjectShowcaseCarousel from '../components/ProjectShowcaseCarousel';
+import InteractiveRoiCalculator from '../components/InteractiveRoiCalculator';
 import PricingPackages from '../components/PricingPackages';
 import FounderSpotlight from '../components/FounderSpotlight';
 import MetricsDashboard from '../components/MetricsDashboard';
@@ -32,9 +34,9 @@ export default function HomePage({ onOpenPrototypeModal, setActivePage }) {
   };
 
   return (
-    <div className="space-y-0 text-slate-900 selection:bg-rose-500/15 selection:text-rose-900">
+    <div className="space-y-0 text-white selection:bg-rose-500/30 selection:text-white bg-[#070814]">
       
-      {/* 1. Cinematic Hero with Curved Horizon Arc & Multi-Scene Showcase */}
+      {/* 1. Cinematic Hero with 3D Three.js Liquid Mercury Centerpiece & Multi-Scene Showcase */}
       <Hero 
         onOpenPrototypeModal={onOpenPrototypeModal}
         onNavigateToWork={() => navigateTo('work')}
@@ -44,79 +46,76 @@ export default function HomePage({ onOpenPrototypeModal, setActivePage }) {
       {/* 2. Continuous Silky Flowing Client & Architecture Marquee */}
       <ClientMarquee />
 
-      {/* 3. Satria-Style Interactive Horizontal Project Showcase Carousel */}
+      {/* 3. NEW: Cinematic Video & Live Speed Race Lab (0.24s Edge vs 8.4s WordPress) */}
+      <CinematicVideoSection onOpenPrototypeModal={onOpenPrototypeModal} />
+
+      {/* 4. Satria-Style Interactive Horizontal Project Showcase Carousel with Glowing Cards */}
       <section id="work">
         <ProjectShowcaseCarousel onOpenPrototypeModal={onOpenPrototypeModal} />
       </section>
 
-      {/* 4. Technical Leadership & Studio Standards (Professional Executive Framing) */}
+      {/* 5. NEW: Interactive Customer ROI & WhatsApp Lead Calculator */}
+      <InteractiveRoiCalculator onOpenPrototypeModal={onOpenPrototypeModal} />
+
+      {/* 6. Technical Leadership & Studio Standards (VIP Founder Card with Amazon & Turing Badges) */}
       <FounderSpotlight onOpenPrototypeModal={onOpenPrototypeModal} />
 
-      {/* 5. Webspacekit-Style Transparent Pricing Packages & Retainer Freedom */}
+      {/* 7. Transparent Pricing Packages with Glowing Gradients & ₹0 Retainer */}
       <section id="pricing">
         <PricingPackages onOpenPrototypeModal={onOpenPrototypeModal} />
       </section>
 
-      {/* 6. Metrics & Telemetry: The Work Behind The Results */}
-      <MetricsDashboard onOpenPrototypeModal={onOpenPrototypeModal} />
-
-      {/* 7. Honest Comparison: How Merqurie is Built Differently */}
+      {/* 8. Honest Comparison: How Merqurie is Built Differently (Designful & Colorful Cards) */}
       <ComparisonSection onOpenPrototypeModal={onOpenPrototypeModal} />
 
-      {/* 8. The 4 Core Pillars: Trusted By Growing Businesses */}
+      {/* 9. Metrics & Telemetry: The Work Behind The Results */}
+      <MetricsDashboard onOpenPrototypeModal={onOpenPrototypeModal} />
+
+      {/* 10. The 4 Core Pillars: Trusted By Growing Businesses */}
       <TrustedHeritage onOpenPrototypeModal={onOpenPrototypeModal} />
 
-      {/* 9. Frequently Asked Questions */}
+      {/* 11. Frequently Asked Questions */}
       <FaqSection onOpenPrototypeModal={onOpenPrototypeModal} />
 
-      {/* 10. Final High-Converting Call to Action (Swiss Editorial Polish) */}
-      <section className="py-20 sm:py-28 px-4 sm:px-6 lg:px-8 relative overflow-hidden bg-gradient-to-b from-white via-slate-50 to-[#FAFAFC] border-t border-slate-200/80">
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[300px] rounded-full blur-[140px] pointer-events-none bg-rose-500/[0.04]" />
-        
-        <div className="max-w-4xl mx-auto text-center relative z-10 space-y-6">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-mono bg-white border border-slate-200 text-slate-700 shadow-2xs">
-            <Sparkles className="w-3.5 h-3.5 text-rose-600" />
-            <span className="uppercase tracking-wider">LET’S BUILD SOMETHING EXCEPTIONAL</span>
+      {/* 12. Final High-Converting Call to Action Banner */}
+      <section className="py-20 sm:py-28 px-4 sm:px-6 lg:px-8 relative overflow-hidden bg-gradient-to-b from-[#070814] via-[#0E0F26] to-[#070814] text-white border-t border-white/10 text-center">
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[350px] rounded-full blur-[140px] pointer-events-none bg-rose-600/20" />
+
+        <div className="max-w-4xl mx-auto relative z-10 space-y-6">
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-mono font-semibold bg-rose-950/80 border border-rose-500/40 text-rose-300">
+            <Sparkles className="w-3.5 h-3.5 text-amber-300" />
+            <span className="uppercase tracking-wider">NO RETAINERS • NO RISK • NO JARGON</span>
           </div>
 
-          <h2 className="text-3xl sm:text-5xl md:text-6xl font-bold tracking-tight text-slate-900 leading-tight">
-            Websites that make you the <br />
-            <span className="font-serif italic font-normal text-rose-600">obvious</span>{' '}
-            <span className="crimson-text">choice.</span>
+          <h2 className="text-3xl sm:text-5xl md:text-6xl font-black tracking-tight text-white leading-tight font-display">
+            Get a Website That Wins You Customers on{' '}
+            <span className="bg-gradient-to-r from-emerald-400 via-teal-300 to-cyan-400 bg-clip-text text-transparent">
+              WhatsApp.
+            </span>
           </h2>
 
-          <p className="text-sm sm:text-base text-slate-600 max-w-xl mx-auto leading-relaxed">
-            Direct engineering partnership with Jagadish (former Amazon &amp; Turing AI systems engineering). Fast builds, mirror-finish mobile details, and zero ongoing agency retainer fees.
+          <p className="text-sm sm:text-base text-slate-300 max-w-xl mx-auto leading-relaxed">
+            We build your working prototype first. You test it on your mobile phone before paying a single rupee. If you love it, you pay once and own it 100% forever.
           </p>
 
-          <div className="pt-4 flex flex-col sm:flex-row items-center justify-center gap-3">
-            {/* Primary Crimson Button */}
-            <button
-              onClick={onOpenPrototypeModal}
-              className="btn-crimson-primary w-full sm:w-auto px-8 py-4 text-xs sm:text-sm tracking-wider uppercase font-mono cursor-pointer shadow-lg shadow-rose-600/20 active:scale-98"
-            >
-              <span>Start a Project</span>
-              <ArrowRight className="w-4 h-4 ml-2" />
-            </button>
-
-            {/* Direct WhatsApp Action */}
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4">
             <a
               href={whatsapp}
               target="_blank"
               rel="noopener noreferrer"
-              className="w-full sm:w-auto px-7 py-4 rounded-full font-bold text-sm flex items-center justify-center gap-2.5 bg-[#25D366] hover:bg-[#20bd5a] text-slate-950 shadow-md shadow-emerald-500/15 transition-all active:scale-95 cursor-pointer"
+              className="w-full sm:w-auto px-8 py-4 rounded-2xl font-bold text-sm bg-[#25D366] hover:bg-[#20bd5a] text-slate-950 flex items-center justify-center gap-2.5 shadow-2xl shadow-emerald-500/30 transition-all cursor-pointer font-mono"
             >
-              <WhatsAppIcon className="w-5 h-5 fill-current text-slate-950" />
-              <span>Connect on WhatsApp</span>
+              <WhatsAppIcon className="w-5 h-5 fill-slate-950 text-slate-950" />
+              <span>Get Free Sample on WhatsApp</span>
             </a>
-          </div>
 
-          <div className="pt-4 flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-xs font-mono text-slate-500">
-            <span>⚡ 5-7 Day Delivery</span>
-            <span className="text-slate-300 hidden sm:inline">•</span>
-            <span>📱 100% Mobile Optimized</span>
-            <span className="text-slate-300 hidden sm:inline">•</span>
-            <span className="text-emerald-700 font-semibold">₹0 Recurring Retainer Fees</span>
+            <button
+              onClick={onOpenPrototypeModal}
+              className="w-full sm:w-auto px-8 py-4 rounded-2xl font-bold text-sm bg-rose-600 hover:bg-rose-500 text-white flex items-center justify-center gap-2.5 shadow-2xl shadow-rose-950/50 transition-all cursor-pointer font-mono border border-rose-400/40"
+            >
+              <span>Request Free Architecture Blueprint</span>
+              <ArrowRight className="w-4 h-4" />
+            </button>
           </div>
         </div>
       </section>

@@ -10,6 +10,7 @@ import {
   Sparkles,
 } from 'lucide-react';
 import WhatsAppIcon from './WhatsAppIcon';
+import ThreeCenterpiece3D from './ThreeCenterpiece3D';
 
 const whatsapp = 'https://wa.me/917358618789?text=Hi%20Jagadish!%20I%20would%20like%20to%20discuss%20a%20website%20for%20my%20business.';
 
@@ -74,90 +75,103 @@ export default function Hero({ onOpenPrototypeModal, onNavigateToWork, onNavigat
   const current = showcases[activeShowcase];
 
   return (
-    <section className="relative pt-24 sm:pt-32 pb-14 sm:pb-20 flex flex-col justify-center items-center px-4 sm:px-6 lg:px-8 overflow-hidden bg-[#FAFAFC]">
+    <section className="relative pt-24 sm:pt-32 pb-14 sm:pb-20 flex flex-col justify-center items-center px-4 sm:px-6 lg:px-8 overflow-hidden bg-[#070814] text-white">
       
-      {/* Background Ambient Gradients & Architectural Perspective Grid */}
+      {/* Background Ambient Gradients & Glow Meshes */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden z-0">
-        {/* Soft Crimson & Titanium Light Glows */}
-        <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[340px] sm:w-[700px] h-[340px] sm:h-[450px] rounded-full blur-[120px] pointer-events-none bg-rose-500/[0.04]" />
-        <div className="absolute -bottom-20 right-10 w-[280px] sm:w-[500px] h-[280px] sm:h-[500px] rounded-full blur-[140px] pointer-events-none bg-slate-300/40" />
+        <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[340px] sm:w-[800px] h-[340px] sm:h-[500px] rounded-full blur-[140px] bg-rose-600/15" />
+        <div className="absolute -bottom-20 right-10 w-[280px] sm:w-[500px] h-[280px] sm:h-[500px] rounded-full blur-[140px] bg-cyan-600/15" />
+        <div className="absolute top-1/3 -left-20 w-[300px] sm:w-[500px] h-[300px] sm:h-[500px] rounded-full blur-[140px] bg-purple-600/15" />
         
         {/* Subtle architectural dot grid */}
-        <div className="absolute inset-0 opacity-40 bg-[radial-gradient(#cbd5e1_1px,transparent_1px)] [background-size:24px_24px]" />
+        <div className="absolute inset-0 opacity-20 bg-[radial-gradient(#ffffff_1px,transparent_1px)] [background-size:28px_28px]" />
       </div>
 
-      <div className="relative z-10 max-w-5xl mx-auto text-center flex flex-col items-center w-full">
+      <div className="relative z-10 max-w-6xl mx-auto w-full">
         
-        {/* Top Executive Engineering Tag */}
-        <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-mono font-medium mb-4 sm:mb-5 bg-white/95 border border-slate-200/90 text-slate-700 shadow-xs backdrop-blur-md">
-          <span className="flex h-2 w-2 relative">
-            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-rose-500 opacity-75" />
-            <span className="relative inline-flex rounded-full h-2 w-2 bg-rose-600" />
-          </span>
-          <span className="tracking-wider uppercase">MERQURIE STUDIO • CHENNAI • FORMER AMAZON &amp; TURING ENGINEERING</span>
-        </div>
-
-        {/* Dynamic Multi-Scene Animated Headline with Editorial Serif Italic & Mercurial Crimson */}
-        <AnimatePresence mode="wait">
-          <motion.div
-            key={activeShowcase}
-            initial={{ opacity: 0, y: 12, filter: 'blur(4px)' }}
-            animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
-            exit={{ opacity: 0, y: -12, filter: 'blur(4px)' }}
-            transition={{ duration: 0.35 }}
-            className="flex flex-col items-center"
-          >
-            <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight text-slate-900 leading-[1.08] mb-3 sm:mb-4 max-w-4xl">
-              {current.headlinePrefix}{' '}
-              <span className="font-serif italic font-normal text-rose-600">
-                {current.headlineAccent}
-              </span>{' '}
-              <span className="crimson-text">
-                {current.headlineSuffix}
+        {/* 2-Column Hero: Left Headline/Copy + Right 3D Interactive Centerpiece */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center mb-12">
+          
+          {/* Left Hero Content (7 cols) */}
+          <div className="lg:col-span-7 text-center lg:text-left flex flex-col items-center lg:items-start">
+            
+            {/* Top Executive Engineering Tag */}
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-mono font-medium mb-4 sm:mb-5 bg-slate-900/90 border border-white/15 text-slate-300 shadow-lg backdrop-blur-md">
+              <span className="flex h-2 w-2 relative">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-rose-500 opacity-75" />
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-rose-500" />
               </span>
-            </h1>
+              <span className="tracking-wider uppercase">MERQURIE STUDIO • EX-AMAZON &amp; TURING ENGINEERING</span>
+            </div>
 
-            <p className="max-w-2xl text-sm sm:text-base font-normal text-slate-600 leading-relaxed mb-6 sm:mb-8 px-2">
-              {current.subtext}
-            </p>
-          </motion.div>
-        </AnimatePresence>
+            {/* Dynamic Animated Headline */}
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={activeShowcase}
+                initial={{ opacity: 0, y: 12, filter: 'blur(4px)' }}
+                animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
+                exit={{ opacity: 0, y: -12, filter: 'blur(4px)' }}
+                transition={{ duration: 0.35 }}
+                className="flex flex-col items-center lg:items-start"
+              >
+                <h1 className="text-3xl sm:text-5xl md:text-6xl font-black tracking-tight text-white leading-[1.08] mb-3 sm:mb-4 font-display">
+                  {current.headlinePrefix}{' '}
+                  <span className="font-serif italic font-normal text-rose-500">
+                    {current.headlineAccent}
+                  </span>{' '}
+                  <span className="bg-gradient-to-r from-rose-400 via-pink-400 to-amber-300 bg-clip-text text-transparent">
+                    {current.headlineSuffix}
+                  </span>
+                </h1>
 
-        {/* Primary Action Buttons: Mercurial Crimson & High-Contrast WhatsApp */}
-        <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-3 w-full max-w-md sm:max-w-none mb-4 sm:mb-6 px-2">
-          {/* Mercurial Crimson Primary Button */}
-          <button
-            onClick={onOpenPrototypeModal}
-            className="btn-crimson-primary px-7 py-3.5 sm:py-4 text-xs sm:text-sm tracking-wide uppercase font-mono cursor-pointer shadow-lg shadow-rose-600/20 active:scale-98"
-          >
-            <span>Start a Project</span>
-            <ArrowRight className="w-4 h-4 ml-2" />
-          </button>
+                <p className="max-w-xl text-sm sm:text-base font-normal text-slate-300 leading-relaxed mb-6 sm:mb-8">
+                  {current.subtext}
+                </p>
+              </motion.div>
+            </AnimatePresence>
 
-          {/* WhatsApp Direct Action (WCAG AAA Contrast Compliant) */}
-          <a
-            href={whatsapp}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="px-6 py-3.5 sm:py-4 rounded-full font-bold text-xs sm:text-sm flex items-center justify-center gap-2.5 bg-[#25D366] hover:bg-[#20bd5a] text-slate-950 shadow-md shadow-emerald-500/15 active:scale-98 cursor-pointer transition-all group"
-          >
-            <WhatsAppIcon className="w-5 h-5 text-slate-950 fill-current group-hover:scale-110 transition-transform" />
-            <span>Chat on WhatsApp</span>
-          </a>
+            {/* Primary Action Buttons */}
+            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 w-full max-w-md lg:max-w-none mb-6">
+              <button
+                onClick={onOpenPrototypeModal}
+                className="px-7 py-4 rounded-2xl font-bold text-xs sm:text-sm tracking-wide uppercase font-mono bg-gradient-to-r from-rose-600 via-pink-600 to-rose-700 text-white shadow-xl shadow-rose-950/80 hover:brightness-110 active:scale-95 transition-all flex items-center justify-center gap-2 cursor-pointer border border-rose-400/40"
+              >
+                <span>Start a Project</span>
+                <ArrowRight className="w-4 h-4" />
+              </button>
+
+              <a
+                href={whatsapp}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="px-6 py-4 rounded-2xl font-bold text-xs sm:text-sm flex items-center justify-center gap-2.5 bg-[#25D366] hover:bg-[#20bd5a] text-slate-950 shadow-xl shadow-emerald-500/20 active:scale-95 cursor-pointer transition-all group font-mono"
+              >
+                <WhatsAppIcon className="w-5 h-5 text-slate-950 fill-current group-hover:scale-110 transition-transform" />
+                <span>Chat on WhatsApp</span>
+              </a>
+            </div>
+
+            {/* Quiet Proof Line */}
+            <div className="flex flex-wrap items-center justify-center lg:justify-start gap-x-5 gap-y-1.5 text-xs font-mono text-slate-400">
+              <span className="text-cyan-400 font-semibold">⚡ &lt; 0.25s Edge Speed</span>
+              <span className="text-slate-600">•</span>
+              <span className="text-emerald-400 font-semibold">₹0 Monthly Retainer Debt</span>
+              <span className="text-slate-600">•</span>
+              <span className="text-amber-300">100% Client Sovereign</span>
+            </div>
+
+          </div>
+
+          {/* Right Column: Interactive 3D Three.js Centerpiece (5 cols) */}
+          <div className="lg:col-span-5 flex justify-center items-center">
+            <ThreeCenterpiece3D />
+          </div>
+
         </div>
 
-        {/* Quiet Proof Line */}
-        <div className="flex flex-wrap items-center justify-center gap-x-5 gap-y-1.5 text-xs font-mono text-slate-500 mb-8 px-2">
-          <span>⚡ &lt; 0.25s Edge Speed</span>
-          <span className="text-slate-300 hidden sm:inline">•</span>
-          <span className="text-emerald-700 font-semibold">₹0 Monthly Retainer Debt</span>
-          <span className="text-slate-300 hidden sm:inline">•</span>
-          <span>100% Code &amp; Domain Sovereignty</span>
-        </div>
-
-        {/* Quick Filter Selector Tabs (themaxgrowth / Satria style) */}
+        {/* Quick Filter Selector Tabs */}
         <div className="flex items-center justify-center gap-2 flex-wrap max-w-2xl mx-auto mb-8 px-2">
-          <span className="text-[11px] font-mono uppercase tracking-wider text-slate-500 mr-1 hidden sm:inline">
+          <span className="text-[11px] font-mono uppercase tracking-wider text-slate-400 mr-1 hidden sm:inline">
             Tap to inspect:
           </span>
           {[
@@ -173,8 +187,8 @@ export default function Hero({ onOpenPrototypeModal, onNavigateToWork, onNavigat
                 onClick={() => setActiveShowcase(pill.id)}
                 className={`px-3.5 py-1.5 rounded-full text-xs font-mono transition-all cursor-pointer active:scale-95 border ${
                   isActive
-                    ? 'bg-slate-900 text-white border-slate-900 font-bold shadow-sm'
-                    : 'bg-white text-slate-700 border-slate-200/90 hover:text-slate-900 hover:border-slate-300 shadow-2xs'
+                    ? 'bg-rose-600 text-white border-rose-500 font-bold shadow-lg shadow-rose-900/50'
+                    : 'bg-slate-900/80 text-slate-400 border-white/10 hover:text-white hover:border-white/20'
                 }`}
               >
                 {pill.label}
@@ -185,29 +199,28 @@ export default function Hero({ onOpenPrototypeModal, onNavigateToWork, onNavigat
 
         {/* Interactive Floating Modern Device Workstation Frame with Ambient Aura */}
         <div className="w-full relative mt-2 group">
-          {/* Soft multi-color chromatic ambient radiance behind frame */}
-          <div className="absolute -inset-4 sm:-inset-6 bg-gradient-to-r from-rose-400/15 via-teal-400/15 to-indigo-400/15 rounded-3xl blur-2xl pointer-events-none opacity-50 group-hover:opacity-90 transition-opacity duration-700" />
+          <div className="absolute -inset-4 sm:-inset-6 bg-gradient-to-r from-rose-500/20 via-cyan-500/20 to-purple-500/20 rounded-3xl blur-2xl pointer-events-none opacity-50 group-hover:opacity-90 transition-opacity duration-700" />
 
-          <div className="relative rounded-2xl sm:rounded-3xl border border-slate-200/90 bg-white/95 p-2 sm:p-3 shadow-2xl shadow-slate-900/10 hover:shadow-3xl transition-all duration-500">
+          <div className="relative rounded-2xl sm:rounded-3xl border border-white/15 bg-slate-900/90 p-2 sm:p-3 shadow-2xl shadow-rose-950/40 backdrop-blur-xl">
             
             {/* Top Modern Browser Chrome Bar */}
-            <div className="px-3 sm:px-4 py-2.5 bg-slate-50/90 rounded-t-xl sm:rounded-t-2xl border-b border-slate-200/80 flex flex-col sm:flex-row items-center justify-between gap-2.5">
+            <div className="px-3 sm:px-4 py-2.5 bg-slate-950/80 rounded-t-xl sm:rounded-t-2xl border-b border-white/10 flex flex-col sm:flex-row items-center justify-between gap-2.5">
               <div className="flex items-center gap-3 w-full sm:w-auto justify-between sm:justify-start">
                 <div className="flex items-center gap-1.5">
-                  <span className="w-2.5 h-2.5 rounded-full bg-rose-400/90" />
-                  <span className="w-2.5 h-2.5 rounded-full bg-amber-400/90" />
-                  <span className="w-2.5 h-2.5 rounded-full bg-emerald-400/90" />
+                  <span className="w-2.5 h-2.5 rounded-full bg-rose-500/90" />
+                  <span className="w-2.5 h-2.5 rounded-full bg-amber-500/90" />
+                  <span className="w-2.5 h-2.5 rounded-full bg-emerald-500/90" />
                 </div>
                 
                 {/* Search Address Pill */}
-                <div className="flex items-center gap-1.5 px-3 py-1 rounded-full bg-white border border-slate-200 text-[11px] font-mono text-slate-600 shadow-2xs">
-                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
+                <div className="flex items-center gap-1.5 px-3 py-1 rounded-full bg-slate-900 border border-white/10 text-[11px] font-mono text-slate-300">
+                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
                   <span>https://{current.url ? current.url.replace('https://', '') : 'merqurie.cloud'}</span>
                 </div>
               </div>
 
               <div className="flex items-center gap-2">
-                <span className="text-[11px] font-mono text-emerald-800 bg-emerald-50 border border-emerald-200 px-2.5 py-0.5 rounded-full font-semibold">
+                <span className="text-[11px] font-mono text-emerald-300 bg-emerald-950/80 border border-emerald-500/40 px-2.5 py-0.5 rounded-full font-semibold">
                   {current.badge}
                 </span>
                 {current.url && (
@@ -215,7 +228,7 @@ export default function Hero({ onOpenPrototypeModal, onNavigateToWork, onNavigat
                     href={current.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-[11px] font-mono text-rose-600 hover:text-rose-700 flex items-center gap-1 bg-rose-50 border border-rose-200 px-2.5 py-0.5 rounded-full font-medium transition-colors"
+                    className="text-[11px] font-mono text-rose-400 hover:text-rose-300 flex items-center gap-1 bg-rose-950/60 border border-rose-500/30 px-2.5 py-0.5 rounded-full font-medium transition-colors"
                   >
                     <span>Visit Live</span>
                     <ExternalLink className="w-3 h-3" />
@@ -224,8 +237,8 @@ export default function Hero({ onOpenPrototypeModal, onNavigateToWork, onNavigat
               </div>
             </div>
 
-            {/* Showcase Preview Display with Layered Multi-Device Composition */}
-            <div className="relative aspect-[16/10] sm:aspect-[16/9] w-full rounded-b-xl sm:rounded-b-2xl bg-slate-100 overflow-hidden group/canvas">
+            {/* Showcase Preview Display */}
+            <div className="relative aspect-[16/10] sm:aspect-[16/9] w-full rounded-b-xl sm:rounded-b-2xl bg-slate-950 overflow-hidden group/canvas">
               <AnimatePresence mode="wait">
                 <motion.img
                   key={current.image}
@@ -240,124 +253,48 @@ export default function Hero({ onOpenPrototypeModal, onNavigateToWork, onNavigat
                 />
               </AnimatePresence>
 
-              {/* Specular Diagonal Light Sweep on Hover */}
-              <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-in-out pointer-events-none" />
-
               {/* Top Floating Edge Speed Chip */}
               <div className="absolute top-3 left-3 sm:top-4 sm:left-4 z-10 hidden sm:block">
-                <span className="px-3 py-1 rounded-xl text-xs font-mono font-bold bg-slate-950/85 text-emerald-300 border border-emerald-500/40 backdrop-blur-md shadow-lg flex items-center gap-1.5">
+                <span className="px-3 py-1 rounded-xl text-xs font-mono font-bold bg-slate-950/90 text-emerald-300 border border-emerald-500/40 backdrop-blur-md shadow-lg flex items-center gap-1.5">
                   <span className="w-2 h-2 rounded-full bg-emerald-400 animate-ping" />
                   <span>⚡ {current.speed}</span>
                 </span>
               </div>
 
               {/* Overlapping Floating Smartphone Mockup in Foreground */}
-              <div className="absolute -bottom-3 sm:-bottom-4 right-3 sm:right-6 w-[110px] sm:w-[145px] md:w-[160px] aspect-[9/17.5] rounded-[1.4rem] sm:rounded-[1.7rem] bg-slate-950 p-1 sm:p-1.5 shadow-2xl shadow-slate-950/40 ring-2 ring-slate-800/90 z-20 group-hover:-translate-y-3 group-hover:translate-x-1 group-hover:rotate-1 group-hover:scale-105 transition-all duration-500 ease-out pointer-events-none">
-                {/* Dynamic Island / Notch */}
-                <div className="absolute top-2 left-1/2 -translate-x-1/2 w-8 sm:w-9 h-2.5 rounded-full bg-slate-950 z-30 flex items-center justify-center">
-                  <div className="w-1.5 h-1.5 rounded-full bg-slate-800" />
-                </div>
-
-                {/* Inner Mobile Screen */}
+              <div className="absolute -bottom-3 sm:-bottom-4 right-3 sm:right-6 w-[110px] sm:w-[145px] md:w-[160px] aspect-[9/17.5] rounded-[1.4rem] sm:rounded-[1.7rem] bg-slate-950 p-1 sm:p-1.5 shadow-2xl ring-2 ring-slate-800 z-20 group-hover:-translate-y-3 group-hover:translate-x-1 group-hover:rotate-1 group-hover:scale-105 transition-all duration-500 ease-out pointer-events-none">
                 <div className="w-full h-full rounded-[1.1rem] sm:rounded-[1.35rem] overflow-hidden relative bg-slate-900 border border-slate-800">
                   <img
                     src={current.image}
                     alt={`${current.title} Mobile View`}
-                    className="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-110"
+                    className="w-full h-full object-cover object-top"
                   />
-
-                  {/* Top Mobile Status Bar */}
-                  <div className="absolute top-0 inset-x-0 pt-1 px-2.5 flex items-center justify-between text-[7px] font-mono text-white/90 bg-gradient-to-b from-black/70 to-transparent z-20">
-                    <span>9:41</span>
-                    <div className="flex items-center gap-1 text-[7px]">
-                      <span>5G</span>
-                      <span>100%</span>
-                    </div>
-                  </div>
-
-                  {/* Mobile Bottom WhatsApp 1-Tap Banner */}
                   <div className="absolute bottom-2 inset-x-2 z-20">
                     <div className="py-1 px-1.5 rounded-full bg-[#25D366] text-slate-950 text-[7px] font-mono font-bold flex items-center justify-center gap-1 shadow-md">
                       <span>Direct WhatsApp</span>
                     </div>
                   </div>
-
-                  {/* Screen Gloss */}
-                  <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/10 to-transparent pointer-events-none" />
                 </div>
               </div>
 
               {/* Bottom Modern Floating Glass Details Card */}
-              <div className="absolute left-3 sm:left-5 bottom-3 sm:bottom-5 max-w-[calc(100%-130px)] sm:max-w-[calc(100%-180px)] p-3 sm:p-4 rounded-2xl bg-white/90 backdrop-blur-md border border-white/80 shadow-lg shadow-slate-900/10 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 text-left z-10">
+              <div className="absolute left-3 sm:left-5 bottom-3 sm:bottom-5 max-w-[calc(100%-130px)] sm:max-w-[calc(100%-180px)] p-3 sm:p-4 rounded-2xl bg-slate-900/90 backdrop-blur-md border border-white/15 shadow-xl flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 text-left z-10">
                 <div>
-                  <h2 className="text-xs sm:text-sm md:text-base font-bold font-display text-slate-900 tracking-tight truncate">
+                  <h2 className="text-xs sm:text-sm md:text-base font-bold font-display text-white tracking-tight truncate">
                     {current.title}
                   </h2>
-                  <p className="text-[10px] sm:text-xs text-slate-600 line-clamp-1 mt-0.5">
+                  <p className="text-[10px] sm:text-xs text-slate-300 line-clamp-1 mt-0.5">
                     {current.desc}
                   </p>
                 </div>
-
-                <div className="hidden md:flex items-center gap-2 shrink-0">
-                  <span className="text-[10px] sm:text-[11px] font-mono text-teal-800 bg-teal-50 border border-teal-200 px-2.5 py-1 rounded-lg font-semibold shadow-2xs">
-                    ⚡ {current.speed}
-                  </span>
-                </div>
               </div>
+
             </div>
 
           </div>
         </div>
 
-        {/* 4 Bottom Metric Highlights with Colorful Gradients & Hover Lift */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 w-full mt-6 sm:mt-8">
-          {[
-            { 
-              label: 'Mobile Speed', 
-              value: '< 0.25s', 
-              sub: 'Global Edge CDN',
-              bg: 'bg-gradient-to-br from-teal-50/90 via-white to-sky-50/50',
-              border: 'border-teal-200/80 hover:border-teal-400',
-              accent: 'text-teal-700',
-            },
-            { 
-              label: 'Lead Capture', 
-              value: '1-Tap Flow', 
-              sub: 'WhatsApp Inquiries',
-              bg: 'bg-gradient-to-br from-emerald-50/90 via-white to-teal-50/50',
-              border: 'border-emerald-200/80 hover:border-emerald-400',
-              accent: 'text-emerald-700',
-            },
-            { 
-              label: 'Admin Control', 
-              value: '10 Seconds', 
-              sub: 'From Mobile Phone',
-              bg: 'bg-gradient-to-br from-indigo-50/90 via-white to-violet-50/50',
-              border: 'border-indigo-200/80 hover:border-indigo-400',
-              accent: 'text-indigo-700',
-            },
-            { 
-              label: 'Agency Retainer', 
-              value: '₹0 / Year', 
-              sub: 'Zero Retainer Fees',
-              bg: 'bg-gradient-to-br from-rose-50/90 via-white to-amber-50/50',
-              border: 'border-rose-200/80 hover:border-rose-400',
-              accent: 'text-rose-700',
-            },
-          ].map((m, i) => (
-            <div 
-              key={i} 
-              className={`p-3.5 sm:p-4 rounded-2xl ${m.bg} border ${m.border} shadow-2xs hover:shadow-md hover:-translate-y-1 transition-all duration-300 text-left cursor-default active:scale-95`}
-            >
-              <span className="text-[10px] font-mono text-slate-500 uppercase tracking-wider block">{m.label}</span>
-              <span className="text-base sm:text-lg font-bold text-slate-900 font-display block mt-0.5">{m.value}</span>
-              <span className={`text-[10px] font-mono font-semibold block mt-0.5 ${m.accent}`}>{m.sub}</span>
-            </div>
-          ))}
-        </div>
-
       </div>
-
     </section>
   );
 }

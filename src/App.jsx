@@ -9,9 +9,12 @@ const SolutionsPage = lazy(() => import('./pages/SolutionsPage'));
 const WorkPage = lazy(() => import('./pages/WorkPage'));
 const AboutPage = lazy(() => import('./pages/AboutPage'));
 const PrototypeModal = lazy(() => import('./components/PrototypeModal'));
+const LogoLabModal = lazy(() => import('./components/LogoLabModal'));
 
 export default function App() {
   const [prototypeModalOpen, setPrototypeModalOpen] = useState(false);
+  const [logoLabOpen, setLogoLabOpen] = useState(false);
+  const [activeLogoConcept, setActiveLogoConcept] = useState('concept1');
   const [showLoader, setShowLoader] = useState(true);
   const [activePage, setActivePage] = useState(() => {
     const hash = window.location.hash.replace('#', '');
@@ -45,9 +48,9 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen bg-[#FAFAFC] text-slate-900 font-sans antialiased selection:bg-rose-500/15 selection:text-rose-900">
+    <div className="min-h-screen bg-[#070814] text-white font-sans antialiased selection:bg-rose-500/30 selection:text-white">
       
-      {/* 3D Perspective Cube Loader (Chennaidesigner Style) */}
+      {/* 3D Perspective Cube Loader */}
       {showLoader && (
         <Box3DLoader onComplete={() => setShowLoader(false)} />
       )}
@@ -57,6 +60,9 @@ export default function App() {
         onOpenPrototypeModal={openPlan}
         activePage={activePage}
         setActivePage={selectPage}
+        onOpenLogoLab={() => setLogoLabOpen(true)}
+        activeConcept={activeLogoConcept}
+        isDark={true}
       />
 
       {/* Dynamic Multi-Page Main Content View */}
@@ -67,7 +73,11 @@ export default function App() {
       </main>
 
       {/* Footer */}
-      <Footer onOpenPrototypeModal={openPlan} />
+      <Footer 
+        onOpenPrototypeModal={openPlan} 
+        onOpenLogoLab={() => setLogoLabOpen(true)}
+        activeConcept={activeLogoConcept}
+      />
 
       {/* Native App-Like Mobile Navigation Bar */}
       <MobileBottomNav
@@ -85,6 +95,17 @@ export default function App() {
             isOpen={prototypeModalOpen}
             onClose={() => setPrototypeModalOpen(false)}
             isDark={false}
+          />
+        </Suspense>
+      )}
+
+      {/* Interactive Logo Design Lab Modal */}
+      {logoLabOpen && (
+        <Suspense fallback={null}>
+          <LogoLabModal
+            isOpen={logoLabOpen}
+            onClose={() => setLogoLabOpen(false)}
+            onSelectConcept={(conceptId) => setActiveLogoConcept(conceptId)}
           />
         </Suspense>
       )}

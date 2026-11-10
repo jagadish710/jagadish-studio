@@ -35,16 +35,16 @@ export default function ProjectShowcaseCarousel({ onOpenPrototypeModal }) {
       url: 'https://pmssolution.co.in',
       domain: 'pmssolution.co.in',
       theme: {
-        cardBg: 'bg-[radial-gradient(ellipse_at_top_left,rgba(204,251,241,0.7),transparent_55%),radial-gradient(ellipse_at_bottom_right,rgba(224,242,254,0.6),transparent_55%),linear-gradient(to_bottom_right,#F0FDFA,#FFFFFF,#F8FAFC)]',
-        border: 'border-teal-200/80 hover:border-teal-400',
-        glow: 'from-teal-400/20 via-cyan-400/15 to-transparent',
-        dotColor: '#5EEAD4',
-        tagBg: 'bg-teal-50 border-teal-200/80 text-teal-800',
-        accentText: 'text-teal-700',
-        speedBadge: 'bg-teal-950/90 text-teal-200 border-teal-700/60',
-        metricBorder: 'border-teal-100 bg-white/95',
-        btnHover: 'hover:text-teal-700',
-        phoneAura: 'shadow-teal-500/20',
+        cardBg: 'bg-gradient-to-b from-teal-950/60 via-slate-900 to-slate-950',
+        border: 'border-teal-500/40 hover:border-teal-400',
+        glow: 'from-teal-400/25 via-cyan-400/20 to-transparent',
+        dotColor: 'rgba(94, 234, 212, 0.15)',
+        tagBg: 'bg-teal-950 border-teal-500/40 text-teal-300',
+        accentText: 'text-teal-400',
+        speedBadge: 'bg-teal-950/90 text-teal-200 border-teal-500/50',
+        metricBorder: 'border-white/10 bg-slate-900/90',
+        btnHover: 'hover:text-teal-400',
+        phoneAura: 'shadow-teal-500/30',
       },
       metrics: [
         { label: 'Edge Speed', value: '0.24s' },
@@ -64,16 +64,16 @@ export default function ProjectShowcaseCarousel({ onOpenPrototypeModal }) {
       url: 'https://upskskarate.com',
       domain: 'upskskarate.com',
       theme: {
-        cardBg: 'bg-[radial-gradient(ellipse_at_top_left,rgba(254,205,211,0.7),transparent_55%),radial-gradient(ellipse_at_bottom_right,rgba(254,243,199,0.6),transparent_55%),linear-gradient(to_bottom_right,#FFF1F2,#FFFFFF,#FFFBEB)]',
-        border: 'border-rose-200/80 hover:border-rose-400',
-        glow: 'from-rose-400/20 via-amber-400/15 to-transparent',
-        dotColor: '#FDA4AF',
-        tagBg: 'bg-rose-50 border-rose-200/80 text-rose-800',
-        accentText: 'text-rose-700',
-        speedBadge: 'bg-rose-950/90 text-rose-200 border-rose-700/60',
-        metricBorder: 'border-rose-100 bg-white/95',
-        btnHover: 'hover:text-rose-700',
-        phoneAura: 'shadow-rose-500/20',
+        cardBg: 'bg-gradient-to-b from-rose-950/60 via-slate-900 to-slate-950',
+        border: 'border-rose-500/40 hover:border-rose-400',
+        glow: 'from-rose-400/25 via-pink-400/20 to-transparent',
+        dotColor: 'rgba(253, 164, 175, 0.15)',
+        tagBg: 'bg-rose-950 border-rose-500/40 text-rose-300',
+        accentText: 'text-rose-400',
+        speedBadge: 'bg-rose-950/90 text-rose-200 border-rose-500/50',
+        metricBorder: 'border-white/10 bg-slate-900/90',
+        btnHover: 'hover:text-rose-400',
+        phoneAura: 'shadow-rose-500/30',
       },
       metrics: [
         { label: 'Edge Speed', value: '0.22s' },
@@ -93,16 +93,16 @@ export default function ProjectShowcaseCarousel({ onOpenPrototypeModal }) {
       url: null,
       domain: 'merqurie.cloud/admin',
       theme: {
-        cardBg: 'bg-[radial-gradient(ellipse_at_top_left,rgba(224,231,255,0.75),transparent_55%),radial-gradient(ellipse_at_bottom_right,rgba(243,232,255,0.6),transparent_55%),linear-gradient(to_bottom_right,#EEF2FF,#FFFFFF,#FAF5FF)]',
-        border: 'border-indigo-200/80 hover:border-indigo-400',
-        glow: 'from-indigo-400/20 via-purple-400/15 to-transparent',
-        dotColor: '#A5B4FC',
-        tagBg: 'bg-indigo-50 border-indigo-200/80 text-indigo-800',
-        accentText: 'text-indigo-700',
-        speedBadge: 'bg-indigo-950/90 text-indigo-200 border-indigo-700/60',
-        metricBorder: 'border-indigo-100 bg-white/95',
-        btnHover: 'hover:text-indigo-700',
-        phoneAura: 'shadow-indigo-500/20',
+        cardBg: 'bg-gradient-to-b from-indigo-950/60 via-slate-900 to-slate-950',
+        border: 'border-indigo-500/40 hover:border-indigo-400',
+        glow: 'from-indigo-400/25 via-purple-400/20 to-transparent',
+        dotColor: 'rgba(165, 180, 252, 0.15)',
+        tagBg: 'bg-indigo-950 border-indigo-500/40 text-indigo-300',
+        accentText: 'text-indigo-400',
+        speedBadge: 'bg-indigo-950/90 text-indigo-200 border-indigo-500/50',
+        metricBorder: 'border-white/10 bg-slate-900/90',
+        btnHover: 'hover:text-indigo-400',
+        phoneAura: 'shadow-indigo-500/30',
       },
       metrics: [
         { label: 'Edit Latency', value: '10 Secs' },
@@ -122,16 +122,16 @@ export default function ProjectShowcaseCarousel({ onOpenPrototypeModal }) {
       url: null,
       domain: 'store.merqurie.cloud',
       theme: {
-        cardBg: 'bg-[radial-gradient(ellipse_at_top_left,rgba(209,250,229,0.75),transparent_55%),radial-gradient(ellipse_at_bottom_right,rgba(204,251,241,0.6),transparent_55%),linear-gradient(to_bottom_right,#ECFDF5,#FFFFFF,#F0FDFA)]',
-        border: 'border-emerald-200/80 hover:border-emerald-400',
-        glow: 'from-emerald-400/20 via-teal-400/15 to-transparent',
-        dotColor: '#6EE7B7',
-        tagBg: 'bg-emerald-50 border-emerald-200/80 text-emerald-800',
-        accentText: 'text-emerald-700',
-        speedBadge: 'bg-emerald-950/90 text-emerald-200 border-emerald-700/60',
-        metricBorder: 'border-emerald-100 bg-white/95',
-        btnHover: 'hover:text-emerald-700',
-        phoneAura: 'shadow-emerald-500/20',
+        cardBg: 'bg-gradient-to-b from-emerald-950/60 via-slate-900 to-slate-950',
+        border: 'border-emerald-500/40 hover:border-emerald-400',
+        glow: 'from-emerald-400/25 via-teal-400/20 to-transparent',
+        dotColor: 'rgba(110, 231, 183, 0.15)',
+        tagBg: 'bg-emerald-950 border-emerald-500/40 text-emerald-300',
+        accentText: 'text-emerald-400',
+        speedBadge: 'bg-emerald-950/90 text-emerald-200 border-emerald-500/50',
+        metricBorder: 'border-white/10 bg-slate-900/90',
+        btnHover: 'hover:text-emerald-400',
+        phoneAura: 'shadow-emerald-500/30',
       },
       metrics: [
         { label: 'Checkout', value: '1-Tap Flow' },
@@ -159,30 +159,30 @@ export default function ProjectShowcaseCarousel({ onOpenPrototypeModal }) {
   };
 
   return (
-    <section className="py-20 sm:py-28 px-4 sm:px-6 lg:px-8 bg-slate-50/50 border-t border-slate-200/80 relative overflow-hidden">
+    <section className="py-20 sm:py-28 px-4 sm:px-6 lg:px-8 bg-[#070814] border-t border-white/10 text-white relative overflow-hidden">
       
       {/* Background Soft Chromatic Glows */}
-      <div className="absolute top-1/3 left-10 w-96 h-96 rounded-full blur-[140px] pointer-events-none bg-rose-400/10" />
-      <div className="absolute bottom-10 right-10 w-96 h-96 rounded-full blur-[140px] pointer-events-none bg-indigo-400/10" />
+      <div className="absolute top-1/3 left-10 w-96 h-96 rounded-full blur-[140px] pointer-events-none bg-rose-600/15" />
+      <div className="absolute bottom-10 right-10 w-96 h-96 rounded-full blur-[140px] pointer-events-none bg-cyan-600/15" />
 
       <div className="max-w-7xl mx-auto relative z-10">
         
         {/* Section Header: Satria Studio Editorial Style */}
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 sm:mb-16 gap-6">
           <div className="max-w-2xl space-y-3">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-mono font-semibold bg-white border border-slate-200 shadow-2xs text-slate-800">
-              <span className="w-2 h-2 rounded-full bg-rose-600 animate-pulse" />
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-mono font-semibold bg-slate-900 border border-white/15 shadow-md text-slate-300">
+              <span className="w-2 h-2 rounded-full bg-rose-500 animate-pulse" />
               <span className="uppercase tracking-wider">SELECTED CLIENT CASE STUDIES</span>
             </div>
 
-            <h2 className="text-3xl sm:text-5xl font-bold tracking-tight text-slate-900 leading-[1.1]">
+            <h2 className="text-3xl sm:text-5xl font-bold tracking-tight text-white leading-[1.1] font-display">
               Real Websites Engineered for{' '}
-              <span className="font-serif italic font-normal text-rose-600">
+              <span className="bg-gradient-to-r from-rose-400 via-pink-400 to-amber-300 bg-clip-text text-transparent">
                 Real Businesses.
               </span>
             </h2>
 
-            <p className="text-xs sm:text-sm text-slate-600 leading-relaxed max-w-xl">
+            <p className="text-xs sm:text-sm text-slate-300 leading-relaxed max-w-xl">
               Don’t take our word for it. Browse through live production client platforms and test their mobile speed, design precision, and lead generation in real time.
             </p>
           </div>
@@ -194,8 +194,8 @@ export default function ProjectShowcaseCarousel({ onOpenPrototypeModal }) {
               disabled={!canScrollLeft}
               className={`w-10 h-10 rounded-full flex items-center justify-center border transition-all cursor-pointer active:scale-90 ${
                 canScrollLeft 
-                  ? 'bg-white border-slate-300 text-slate-900 shadow-xs hover:border-slate-900 hover:scale-105' 
-                  : 'bg-slate-100 border-slate-200 text-slate-400 opacity-40 cursor-not-allowed'
+                  ? 'bg-slate-900 border-white/20 text-white shadow-md hover:border-rose-500 hover:scale-105' 
+                  : 'bg-slate-950 border-white/5 text-slate-600 opacity-40 cursor-not-allowed'
               }`}
               aria-label="Scroll left"
             >
@@ -207,8 +207,8 @@ export default function ProjectShowcaseCarousel({ onOpenPrototypeModal }) {
               disabled={!canScrollRight}
               className={`w-10 h-10 rounded-full flex items-center justify-center border transition-all cursor-pointer active:scale-90 ${
                 canScrollRight 
-                  ? 'bg-white border-slate-300 text-slate-900 shadow-xs hover:border-slate-900 hover:scale-105' 
-                  : 'bg-slate-100 border-slate-200 text-slate-400 opacity-40 cursor-not-allowed'
+                  ? 'bg-slate-900 border-white/20 text-white shadow-md hover:border-rose-500 hover:scale-105' 
+                  : 'bg-slate-950 border-white/5 text-slate-600 opacity-40 cursor-not-allowed'
               }`}
               aria-label="Scroll right"
             >
@@ -254,18 +254,18 @@ export default function ProjectShowcaseCarousel({ onOpenPrototypeModal }) {
                   ============================================================
                 */}
                 <div className="p-3.5 sm:p-5 pb-0">
-                  <div className="relative rounded-2xl border border-slate-200/90 bg-white/95 p-2 sm:p-2.5 shadow-md shadow-slate-900/5 group-hover:shadow-xl transition-all duration-500">
+                  <div className="relative rounded-2xl border border-white/15 bg-slate-950/80 p-2 sm:p-2.5 shadow-xl transition-all duration-500">
                     
                     {/* Micro Browser Window Bar */}
-                    <div className="px-2 sm:px-3 py-1.5 flex items-center justify-between border-b border-slate-100/90 mb-2">
+                    <div className="px-2 sm:px-3 py-1.5 flex items-center justify-between border-b border-white/10 mb-2">
                       <div className="flex items-center gap-1.5">
-                        <span className="w-2 h-2 rounded-full bg-rose-400/90" />
-                        <span className="w-2 h-2 rounded-full bg-amber-400/90" />
-                        <span className="w-2 h-2 rounded-full bg-emerald-400/90" />
+                        <span className="w-2 h-2 rounded-full bg-rose-500/90" />
+                        <span className="w-2 h-2 rounded-full bg-amber-500/90" />
+                        <span className="w-2 h-2 rounded-full bg-emerald-500/90" />
                       </div>
 
-                      <div className="flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-slate-50 border border-slate-200/70 text-[10px] font-mono text-slate-500 max-w-[180px] truncate">
-                        <Lock className="w-2.5 h-2.5 text-emerald-600 shrink-0" />
+                      <div className="flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-slate-900 border border-white/10 text-[10px] font-mono text-slate-300 max-w-[180px] truncate">
+                        <Lock className="w-2.5 h-2.5 text-emerald-400 shrink-0" />
                         <span className="truncate">{project.domain}</span>
                       </div>
 
@@ -358,7 +358,7 @@ export default function ProjectShowcaseCarousel({ onOpenPrototypeModal }) {
                 <div className="p-5 sm:p-6 space-y-4">
                   <div>
                     <div className="flex items-center justify-between gap-2 mb-1.5">
-                      <span className="text-[10px] sm:text-[11px] font-mono font-bold uppercase tracking-wider text-slate-500">
+                      <span className="text-[10px] sm:text-[11px] font-mono font-bold uppercase tracking-wider text-slate-400">
                         {project.sectorBadge}
                       </span>
                       <span className={`text-[10px] font-mono font-semibold ${project.theme.accentText}`}>
@@ -366,26 +366,26 @@ export default function ProjectShowcaseCarousel({ onOpenPrototypeModal }) {
                       </span>
                     </div>
 
-                    <h3 className="text-lg sm:text-xl font-bold font-display text-slate-900 tracking-tight leading-tight group-hover:text-rose-600 transition-colors">
+                    <h3 className="text-lg sm:text-xl font-bold font-display text-white tracking-tight leading-tight group-hover:text-rose-400 transition-colors">
                       {project.title}
                     </h3>
                     
-                    <p className="text-xs sm:text-[13px] text-slate-600 leading-relaxed mt-2 line-clamp-2">
+                    <p className="text-xs sm:text-[13px] text-slate-300 leading-relaxed mt-2 line-clamp-2">
                       {project.description}
                     </p>
                   </div>
 
                   {/* Micro-Metrics Row */}
-                  <div className="grid grid-cols-3 gap-2 pt-2 border-t border-slate-200/60">
+                  <div className="grid grid-cols-3 gap-2 pt-2 border-t border-white/10">
                     {project.metrics.map((metric, mIdx) => (
                       <div
                         key={mIdx}
-                        className={`p-2 rounded-xl ${project.theme.metricBorder} border text-center shadow-2xs hover:shadow-xs transition-all`}
+                        className={`p-2 rounded-xl ${project.theme.metricBorder} border text-center shadow-lg transition-all`}
                       >
-                        <span className="text-[9px] sm:text-[10px] font-mono text-slate-500 uppercase tracking-wider block mb-0.5">
+                        <span className="text-[9px] sm:text-[10px] font-mono text-slate-400 uppercase tracking-wider block mb-0.5">
                           {metric.label}
                         </span>
-                        <strong className="text-xs sm:text-[13px] font-bold font-display text-slate-900 block truncate">
+                        <strong className="text-xs sm:text-[13px] font-bold font-display text-white block truncate">
                           {metric.value}
                         </strong>
                       </div>
@@ -396,10 +396,10 @@ export default function ProjectShowcaseCarousel({ onOpenPrototypeModal }) {
               </div>
 
               {/* Bottom Action Footer */}
-              <div className="p-4 sm:p-5 pt-0 mt-auto border-t border-slate-200/60 flex items-center justify-between gap-3 relative z-10">
+              <div className="p-4 sm:p-5 pt-0 mt-auto border-t border-white/10 flex items-center justify-between gap-3 relative z-10">
                 <button
                   onClick={onOpenPrototypeModal}
-                  className="text-xs font-mono font-bold text-slate-900 hover:text-rose-600 flex items-center gap-1.5 transition-colors cursor-pointer group/btn"
+                  className="text-xs font-mono font-bold text-white hover:text-rose-400 flex items-center gap-1.5 transition-colors cursor-pointer group/btn"
                 >
                   <span>Plan Similar Site</span>
                   <ArrowRight className="w-3.5 h-3.5 group-hover/btn:translate-x-1 transition-transform" />
@@ -410,10 +410,10 @@ export default function ProjectShowcaseCarousel({ onOpenPrototypeModal }) {
                     href={project.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-mono font-semibold bg-white border border-slate-200 text-slate-700 hover:text-slate-900 hover:border-slate-400 transition-all shadow-2xs active:scale-95"
+                    className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-mono font-semibold bg-slate-900 border border-white/15 text-white hover:text-rose-400 hover:border-rose-500/50 transition-all shadow-md active:scale-95"
                   >
                     <span>Visit Live</span>
-                    <ExternalLink className="w-3 h-3 text-rose-600" />
+                    <ExternalLink className="w-3 h-3 text-rose-400" />
                   </a>
                 ) : (
                   <span className="text-[10px] font-mono text-slate-400 uppercase tracking-wider">

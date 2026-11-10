@@ -183,89 +183,128 @@ export default function Hero({ onOpenPrototypeModal, onNavigateToWork, onNavigat
           })}
         </div>
 
-        {/* Interactive Device Workstation Frame with Real Site Screenshots */}
-        <div className="w-full rounded-2xl sm:rounded-3xl border border-slate-200/90 bg-white overflow-hidden shadow-2xl shadow-slate-900/8">
-          
-          {/* Top Window Bar */}
-          <div className="px-4 py-3 bg-slate-50/90 border-b border-slate-200 flex flex-col sm:flex-row items-center justify-between gap-3">
-            <div className="flex items-center gap-3 w-full sm:w-auto justify-between sm:justify-start">
-              <div className="flex items-center gap-1.5">
-                <span className="w-2.5 h-2.5 rounded-full bg-rose-400" />
-                <span className="w-2.5 h-2.5 rounded-full bg-amber-400" />
-                <span className="w-2.5 h-2.5 rounded-full bg-emerald-400" />
-              </div>
-              <span className="text-xs font-mono font-medium text-slate-600 truncate">
-                merqurie.cloud • {current.client}
-              </span>
-            </div>
+        {/* Interactive Floating Modern Device Workstation Frame with Ambient Aura */}
+        <div className="w-full relative mt-2 group">
+          {/* Soft multi-color chromatic ambient radiance behind frame */}
+          <div className="absolute -inset-4 sm:-inset-6 bg-gradient-to-r from-rose-400/15 via-teal-400/15 to-indigo-400/15 rounded-3xl blur-2xl pointer-events-none opacity-50 group-hover:opacity-90 transition-opacity duration-700" />
 
-            <div className="flex items-center gap-2">
-              <span className="text-xs font-mono text-emerald-700 bg-emerald-50 border border-emerald-200 px-2.5 py-0.5 rounded-md font-semibold">
-                {current.badge}
-              </span>
-              {current.url && (
-                <a
-                  href={current.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-xs font-mono text-rose-600 hover:text-rose-700 flex items-center gap-1 bg-rose-50 border border-rose-200 px-2.5 py-0.5 rounded-md font-medium transition-colors"
-                >
-                  <span>Visit Live</span>
-                  <ExternalLink className="w-3 h-3" />
-                </a>
-              )}
-            </div>
-          </div>
-
-          {/* Showcase Preview Display */}
-          <div className="relative aspect-[16/10] sm:aspect-[16/9] w-full bg-slate-950 overflow-hidden">
-            <AnimatePresence mode="wait">
-              <motion.img
-                key={current.image}
-                src={current.image}
-                alt={current.title}
-                fetchPriority="high"
-                initial={{ opacity: 0, scale: 1.02 }}
-                animate={{ opacity: 1, scale: 1 }}
-                exit={{ opacity: 0 }}
-                transition={{ duration: 0.4 }}
-                className="w-full h-full object-cover object-top"
-              />
-            </AnimatePresence>
-
-            {/* Bottom floating details overlay */}
-            <div className="absolute inset-x-0 bottom-0 p-4 sm:p-6 bg-gradient-to-t from-slate-950/95 via-slate-950/80 to-transparent flex flex-col sm:flex-row items-start sm:items-end justify-between gap-3 text-left">
-              <div>
-                <h2 className="text-lg sm:text-2xl font-bold font-display text-white">
-                  {current.title}
-                </h2>
-                <p className="text-xs sm:text-sm text-slate-200 max-w-xl mt-1 line-clamp-2">
-                  {current.desc}
-                </p>
+          <div className="relative rounded-2xl sm:rounded-3xl border border-slate-200/90 bg-white/95 p-2 sm:p-3 shadow-2xl shadow-slate-900/10 hover:shadow-3xl transition-all duration-500">
+            
+            {/* Top Modern Browser Chrome Bar */}
+            <div className="px-3 sm:px-4 py-2.5 bg-slate-50/90 rounded-t-xl sm:rounded-t-2xl border-b border-slate-200/80 flex flex-col sm:flex-row items-center justify-between gap-2.5">
+              <div className="flex items-center gap-3 w-full sm:w-auto justify-between sm:justify-start">
+                <div className="flex items-center gap-1.5">
+                  <span className="w-2.5 h-2.5 rounded-full bg-rose-400/90" />
+                  <span className="w-2.5 h-2.5 rounded-full bg-amber-400/90" />
+                  <span className="w-2.5 h-2.5 rounded-full bg-emerald-400/90" />
+                </div>
+                
+                {/* Search Address Pill */}
+                <div className="flex items-center gap-1.5 px-3 py-1 rounded-full bg-white border border-slate-200 text-[11px] font-mono text-slate-600 shadow-2xs">
+                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
+                  <span>https://{current.url ? current.url.replace('https://', '') : 'merqurie.cloud'}</span>
+                </div>
               </div>
 
-              <div className="flex items-center gap-2 shrink-0">
-                <span className="text-xs font-mono text-rose-300 bg-rose-950/80 border border-rose-700/60 px-3 py-1.5 rounded-lg font-semibold">
-                  {current.speed}
+              <div className="flex items-center gap-2">
+                <span className="text-[11px] font-mono text-emerald-800 bg-emerald-50 border border-emerald-200 px-2.5 py-0.5 rounded-full font-semibold">
+                  {current.badge}
                 </span>
+                {current.url && (
+                  <a
+                    href={current.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-[11px] font-mono text-rose-600 hover:text-rose-700 flex items-center gap-1 bg-rose-50 border border-rose-200 px-2.5 py-0.5 rounded-full font-medium transition-colors"
+                  >
+                    <span>Visit Live</span>
+                    <ExternalLink className="w-3 h-3" />
+                  </a>
+                )}
               </div>
             </div>
-          </div>
 
+            {/* Showcase Preview Display with Floating Glass Details */}
+            <div className="relative aspect-[16/10] sm:aspect-[16/9] w-full rounded-b-xl sm:rounded-b-2xl bg-slate-100 overflow-hidden">
+              <AnimatePresence mode="wait">
+                <motion.img
+                  key={current.image}
+                  src={current.image}
+                  alt={current.title}
+                  fetchPriority="high"
+                  initial={{ opacity: 0, scale: 1.02 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  exit={{ opacity: 0 }}
+                  transition={{ duration: 0.4 }}
+                  className="w-full h-full object-cover object-top transition-transform duration-700 ease-out group-hover:scale-104"
+                />
+              </AnimatePresence>
+
+              {/* Bottom Modern Floating Glass Details Card */}
+              <div className="absolute inset-x-3 sm:inset-x-5 bottom-3 sm:bottom-5 p-3.5 sm:p-4 rounded-2xl bg-white/90 backdrop-blur-md border border-white/80 shadow-lg shadow-slate-900/10 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 text-left">
+                <div>
+                  <h2 className="text-sm sm:text-base font-bold font-display text-slate-900 tracking-tight">
+                    {current.title}
+                  </h2>
+                  <p className="text-[11px] sm:text-xs text-slate-600 line-clamp-1 mt-0.5">
+                    {current.desc}
+                  </p>
+                </div>
+
+                <div className="flex items-center gap-2 shrink-0">
+                  <span className="text-[11px] font-mono text-teal-800 bg-teal-50 border border-teal-200 px-2.5 py-1 rounded-lg font-semibold shadow-2xs">
+                    ⚡ {current.speed}
+                  </span>
+                </div>
+              </div>
+            </div>
+
+          </div>
         </div>
 
-        {/* 4 Bottom Metric Highlights */}
+        {/* 4 Bottom Metric Highlights with Colorful Gradients & Hover Lift */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 w-full mt-6 sm:mt-8">
           {[
-            { label: 'Mobile Speed', value: '< 1.0s', sub: 'Edge CDN' },
-            { label: 'Lead Capture', value: 'WhatsApp', sub: '1-Tap Direct' },
-            { label: 'Admin Updates', value: '10 Secs', sub: 'From Your Phone' },
-            { label: 'Monthly Retainer', value: '₹0 / Year', sub: 'Zero Retainer Fees' },
+            { 
+              label: 'Mobile Speed', 
+              value: '< 0.25s', 
+              sub: 'Global Edge CDN',
+              bg: 'bg-gradient-to-br from-teal-50/90 via-white to-sky-50/50',
+              border: 'border-teal-200/80 hover:border-teal-400',
+              accent: 'text-teal-700',
+            },
+            { 
+              label: 'Lead Capture', 
+              value: '1-Tap Flow', 
+              sub: 'WhatsApp Inquiries',
+              bg: 'bg-gradient-to-br from-emerald-50/90 via-white to-teal-50/50',
+              border: 'border-emerald-200/80 hover:border-emerald-400',
+              accent: 'text-emerald-700',
+            },
+            { 
+              label: 'Admin Control', 
+              value: '10 Seconds', 
+              sub: 'From Mobile Phone',
+              bg: 'bg-gradient-to-br from-indigo-50/90 via-white to-violet-50/50',
+              border: 'border-indigo-200/80 hover:border-indigo-400',
+              accent: 'text-indigo-700',
+            },
+            { 
+              label: 'Agency Retainer', 
+              value: '₹0 / Year', 
+              sub: 'Zero Retainer Fees',
+              bg: 'bg-gradient-to-br from-rose-50/90 via-white to-amber-50/50',
+              border: 'border-rose-200/80 hover:border-rose-400',
+              accent: 'text-rose-700',
+            },
           ].map((m, i) => (
-            <div key={i} className="p-3.5 sm:p-4 rounded-2xl bg-white border border-slate-200/90 shadow-2xs text-left">
-              <span className="text-[11px] font-mono text-slate-500 block">{m.label}</span>
-              <span className="text-lg sm:text-xl font-bold text-slate-900 font-display block mt-0.5">{m.value}</span>
-              <span className="text-[10px] font-mono text-rose-600 font-semibold block mt-0.5">{m.sub}</span>
+            <div 
+              key={i} 
+              className={`p-3.5 sm:p-4 rounded-2xl ${m.bg} border ${m.border} shadow-2xs hover:shadow-md hover:-translate-y-1 transition-all duration-300 text-left cursor-default active:scale-95`}
+            >
+              <span className="text-[10px] font-mono text-slate-500 uppercase tracking-wider block">{m.label}</span>
+              <span className="text-base sm:text-lg font-bold text-slate-900 font-display block mt-0.5">{m.value}</span>
+              <span className={`text-[10px] font-mono font-semibold block mt-0.5 ${m.accent}`}>{m.sub}</span>
             </div>
           ))}
         </div>

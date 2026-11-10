@@ -93,88 +93,93 @@ export default function PricingPackages({ onOpenPrototypeModal }) {
           </p>
         </div>
 
-        {/* Pricing Cards Grid (Webspacekit Style) */}
+        {/* Pricing Cards Grid (Webspacekit Style) with Colorful Gradients & Hover Lift */}
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-stretch mb-14">
-          {plans.map((plan, idx) => (
-            <div
-              key={idx}
-              className={`rounded-3xl transition-all duration-300 flex flex-col justify-between relative p-7 sm:p-9 ${
-                plan.popular
-                  ? 'bg-white border-2 border-rose-500 shadow-2xl shadow-rose-500/10 scale-100 lg:-translate-y-2'
-                  : 'bg-white border border-slate-200/90 shadow-sm hover:shadow-xl hover:border-slate-300'
-              }`}
-            >
-              {plan.popular && (
-                <div className="absolute -top-3.5 left-1/2 -translate-x-1/2">
-                  <span className="px-4 py-1 rounded-full text-xs font-mono font-bold tracking-wide uppercase bg-gradient-to-r from-rose-600 to-red-600 text-white shadow-md">
-                    {plan.badge}
-                  </span>
-                </div>
-              )}
+          {plans.map((plan, idx) => {
+            const isPopular = plan.popular;
+            const bgClass = idx === 0 
+              ? 'bg-gradient-to-b from-slate-50/80 via-white to-teal-50/30 border-slate-200/90 hover:border-teal-400 hover:shadow-2xl' 
+              : idx === 1 
+              ? 'bg-gradient-to-b from-rose-50/80 via-white to-amber-50/40 border-2 border-rose-500 shadow-2xl shadow-rose-500/15 hover:shadow-3xl hover:border-rose-600' 
+              : 'bg-gradient-to-b from-indigo-50/80 via-white to-violet-50/30 border-indigo-200/80 hover:border-indigo-400 hover:shadow-2xl';
 
-              <div>
-                <div className="border-b border-slate-100 pb-6 mb-6">
-                  <span className="text-xs font-mono font-bold uppercase tracking-wider text-slate-500 block mb-1">
-                    {!plan.popular ? plan.badge : 'RECOMMENDED'}
-                  </span>
-                  <h3 className="text-2xl font-bold text-slate-900 mb-2">
-                    {plan.name}
-                  </h3>
-                  <p className="text-xs sm:text-sm text-slate-600 leading-relaxed mb-6">
-                    {plan.tagline}
-                  </p>
-
-                  <div className="flex items-baseline gap-2">
-                    <span className="text-4xl sm:text-5xl font-extrabold font-display text-slate-900 tracking-tight">
-                      {plan.price}
-                    </span>
-                    <span className="text-xs font-mono text-slate-500">
-                      / {plan.period}
+            return (
+              <div
+                key={idx}
+                className={`rounded-3xl transition-all duration-400 ease-out flex flex-col justify-between relative p-6 sm:p-8 ${bgClass} hover:-translate-y-2 active:scale-[0.99] group`}
+              >
+                {isPopular && (
+                  <div className="absolute -top-3.5 left-1/2 -translate-x-1/2">
+                    <span className="px-4 py-1 rounded-full text-[11px] font-mono font-bold tracking-wider uppercase bg-gradient-to-r from-rose-600 to-red-600 text-white shadow-md">
+                      {plan.badge}
                     </span>
                   </div>
+                )}
 
-                  <div className="mt-3 flex items-center gap-2 text-xs font-mono font-semibold text-emerald-700 bg-emerald-50 border border-emerald-200 px-2.5 py-1 rounded-lg w-fit">
-                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
-                    <span>₹0 / Year Recurring Retainer Debt</span>
-                  </div>
-                </div>
+                <div>
+                  <div className="border-b border-slate-200/60 pb-5 mb-5">
+                    <span className="text-[10px] font-mono font-bold uppercase tracking-[0.16em] text-slate-500 block mb-1">
+                      {!isPopular ? plan.badge : 'RECOMMENDED ARCHITECTURE'}
+                    </span>
+                    <h3 className="text-xl sm:text-2xl font-bold font-display text-slate-900 mb-1.5 tracking-tight">
+                      {plan.name}
+                    </h3>
+                    <p className="text-xs text-slate-600 leading-relaxed mb-5">
+                      {plan.tagline}
+                    </p>
 
-                {/* Feature Checklist */}
-                <div className="space-y-3 mb-8">
-                  <span className="text-xs font-mono font-bold uppercase text-slate-400 tracking-wider block mb-2">
-                    What’s Included:
-                  </span>
-                  {plan.features.map((feat, fIdx) => (
-                    <div key={fIdx} className="flex items-start gap-2.5 text-xs sm:text-sm text-slate-700">
-                      <div className="w-4 h-4 rounded-full bg-rose-50 border border-rose-200 flex items-center justify-center shrink-0 mt-0.5 text-rose-600">
-                        <Check className="w-2.5 h-2.5 stroke-[3]" />
-                      </div>
-                      <span className="leading-snug">{feat}</span>
+                    <div className="flex items-baseline gap-2">
+                      <span className="text-3xl sm:text-4xl font-extrabold font-display text-slate-900 tracking-tight">
+                        {plan.price}
+                      </span>
+                      <span className="text-xs font-mono text-slate-500">
+                        / {plan.period}
+                      </span>
                     </div>
-                  ))}
+
+                    <div className="mt-3 flex items-center gap-1.5 text-[11px] font-mono font-semibold text-emerald-800 bg-emerald-50 border border-emerald-200 px-2.5 py-1 rounded-lg w-fit">
+                      <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
+                      <span>₹0 / Year Recurring Retainer Debt</span>
+                    </div>
+                  </div>
+
+                  {/* Feature Checklist */}
+                  <div className="space-y-2.5 mb-6">
+                    <span className="text-[10px] font-mono font-bold uppercase text-slate-400 tracking-wider block mb-2">
+                      What’s Included:
+                    </span>
+                    {plan.features.map((feat, fIdx) => (
+                      <div key={fIdx} className="flex items-start gap-2 text-xs text-slate-700">
+                        <div className="w-4 h-4 rounded-full bg-rose-50 border border-rose-200 flex items-center justify-center shrink-0 mt-0.5 text-rose-600">
+                          <Check className="w-2.5 h-2.5 stroke-[3]" />
+                        </div>
+                        <span className="leading-snug">{feat}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Action Button */}
+                <div className="pt-4 border-t border-slate-200/60 space-y-2 mt-auto">
+                  <button
+                    onClick={onOpenPrototypeModal}
+                    className={`w-full py-3 px-5 rounded-full font-bold text-xs sm:text-sm tracking-wide transition-all cursor-pointer flex items-center justify-center gap-2 active:scale-95 ${
+                      plan.primary
+                        ? 'btn-crimson-primary shadow-lg shadow-rose-500/25'
+                        : 'bg-slate-900 text-white hover:bg-slate-800 shadow-sm'
+                    }`}
+                  >
+                    <span>{plan.cta}</span>
+                    <ArrowRight className="w-4 h-4" />
+                  </button>
+
+                  <div className="text-center text-[10px] font-mono text-slate-500 pt-0.5">
+                    ⚡ {plan.delivery} • Direct Founder Engineering
+                  </div>
                 </div>
               </div>
-
-              {/* Action Button */}
-              <div className="pt-4 border-t border-slate-100 space-y-2 mt-auto">
-                <button
-                  onClick={onOpenPrototypeModal}
-                  className={`w-full py-3.5 px-6 rounded-full font-bold text-xs sm:text-sm tracking-wide transition-all cursor-pointer flex items-center justify-center gap-2 ${
-                    plan.primary
-                      ? 'btn-crimson-primary shadow-lg shadow-rose-500/25'
-                      : 'bg-slate-900 text-white hover:bg-slate-800 shadow-sm active:scale-97'
-                  }`}
-                >
-                  <span>{plan.cta}</span>
-                  <ArrowRight className="w-4 h-4" />
-                </button>
-
-                <div className="text-center text-[11px] font-mono text-slate-500 pt-1">
-                  ⚡ {plan.delivery} • Direct Founder Engineering
-                </div>
-              </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
 
         {/* Retainer Comparison Banner (Webspacekit Style Trust Bar) */}

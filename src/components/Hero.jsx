@@ -224,8 +224,8 @@ export default function Hero({ onOpenPrototypeModal, onNavigateToWork, onNavigat
               </div>
             </div>
 
-            {/* Showcase Preview Display with Floating Glass Details */}
-            <div className="relative aspect-[16/10] sm:aspect-[16/9] w-full rounded-b-xl sm:rounded-b-2xl bg-slate-100 overflow-hidden">
+            {/* Showcase Preview Display with Layered Multi-Device Composition */}
+            <div className="relative aspect-[16/10] sm:aspect-[16/9] w-full rounded-b-xl sm:rounded-b-2xl bg-slate-100 overflow-hidden group/canvas">
               <AnimatePresence mode="wait">
                 <motion.img
                   key={current.image}
@@ -240,19 +240,66 @@ export default function Hero({ onOpenPrototypeModal, onNavigateToWork, onNavigat
                 />
               </AnimatePresence>
 
+              {/* Specular Diagonal Light Sweep on Hover */}
+              <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-in-out pointer-events-none" />
+
+              {/* Top Floating Edge Speed Chip */}
+              <div className="absolute top-3 left-3 sm:top-4 sm:left-4 z-10 hidden sm:block">
+                <span className="px-3 py-1 rounded-xl text-xs font-mono font-bold bg-slate-950/85 text-emerald-300 border border-emerald-500/40 backdrop-blur-md shadow-lg flex items-center gap-1.5">
+                  <span className="w-2 h-2 rounded-full bg-emerald-400 animate-ping" />
+                  <span>⚡ {current.speed}</span>
+                </span>
+              </div>
+
+              {/* Overlapping Floating Smartphone Mockup in Foreground */}
+              <div className="absolute -bottom-3 sm:-bottom-4 right-3 sm:right-6 w-[110px] sm:w-[145px] md:w-[160px] aspect-[9/17.5] rounded-[1.4rem] sm:rounded-[1.7rem] bg-slate-950 p-1 sm:p-1.5 shadow-2xl shadow-slate-950/40 ring-2 ring-slate-800/90 z-20 group-hover:-translate-y-3 group-hover:translate-x-1 group-hover:rotate-1 group-hover:scale-105 transition-all duration-500 ease-out pointer-events-none">
+                {/* Dynamic Island / Notch */}
+                <div className="absolute top-2 left-1/2 -translate-x-1/2 w-8 sm:w-9 h-2.5 rounded-full bg-slate-950 z-30 flex items-center justify-center">
+                  <div className="w-1.5 h-1.5 rounded-full bg-slate-800" />
+                </div>
+
+                {/* Inner Mobile Screen */}
+                <div className="w-full h-full rounded-[1.1rem] sm:rounded-[1.35rem] overflow-hidden relative bg-slate-900 border border-slate-800">
+                  <img
+                    src={current.image}
+                    alt={`${current.title} Mobile View`}
+                    className="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-110"
+                  />
+
+                  {/* Top Mobile Status Bar */}
+                  <div className="absolute top-0 inset-x-0 pt-1 px-2.5 flex items-center justify-between text-[7px] font-mono text-white/90 bg-gradient-to-b from-black/70 to-transparent z-20">
+                    <span>9:41</span>
+                    <div className="flex items-center gap-1 text-[7px]">
+                      <span>5G</span>
+                      <span>100%</span>
+                    </div>
+                  </div>
+
+                  {/* Mobile Bottom WhatsApp 1-Tap Banner */}
+                  <div className="absolute bottom-2 inset-x-2 z-20">
+                    <div className="py-1 px-1.5 rounded-full bg-[#25D366] text-slate-950 text-[7px] font-mono font-bold flex items-center justify-center gap-1 shadow-md">
+                      <span>Direct WhatsApp</span>
+                    </div>
+                  </div>
+
+                  {/* Screen Gloss */}
+                  <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/10 to-transparent pointer-events-none" />
+                </div>
+              </div>
+
               {/* Bottom Modern Floating Glass Details Card */}
-              <div className="absolute inset-x-3 sm:inset-x-5 bottom-3 sm:bottom-5 p-3.5 sm:p-4 rounded-2xl bg-white/90 backdrop-blur-md border border-white/80 shadow-lg shadow-slate-900/10 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 text-left">
+              <div className="absolute left-3 sm:left-5 bottom-3 sm:bottom-5 max-w-[calc(100%-130px)] sm:max-w-[calc(100%-180px)] p-3 sm:p-4 rounded-2xl bg-white/90 backdrop-blur-md border border-white/80 shadow-lg shadow-slate-900/10 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 text-left z-10">
                 <div>
-                  <h2 className="text-sm sm:text-base font-bold font-display text-slate-900 tracking-tight">
+                  <h2 className="text-xs sm:text-sm md:text-base font-bold font-display text-slate-900 tracking-tight truncate">
                     {current.title}
                   </h2>
-                  <p className="text-[11px] sm:text-xs text-slate-600 line-clamp-1 mt-0.5">
+                  <p className="text-[10px] sm:text-xs text-slate-600 line-clamp-1 mt-0.5">
                     {current.desc}
                   </p>
                 </div>
 
-                <div className="flex items-center gap-2 shrink-0">
-                  <span className="text-[11px] font-mono text-teal-800 bg-teal-50 border border-teal-200 px-2.5 py-1 rounded-lg font-semibold shadow-2xs">
+                <div className="hidden md:flex items-center gap-2 shrink-0">
+                  <span className="text-[10px] sm:text-[11px] font-mono text-teal-800 bg-teal-50 border border-teal-200 px-2.5 py-1 rounded-lg font-semibold shadow-2xs">
                     ⚡ {current.speed}
                   </span>
                 </div>

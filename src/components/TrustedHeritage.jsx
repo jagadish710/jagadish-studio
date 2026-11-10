@@ -20,104 +20,127 @@ export default function TrustedHeritage({ onOpenPrototypeModal }) {
       title: 'Zero Recurring Retainer Taxes',
       desc: 'Most agencies bill ₹5,000 to ₹15,000 every single month just to maintain basic templates. With Merqurie, you fund the architecture once and pay ₹0 ongoing retainers forever.',
       icon: Lock,
-      bg: 'bg-gradient-to-b from-teal-950/60 via-slate-900 to-slate-950',
-      border: 'border-teal-500/40 hover:border-teal-400',
-      badge: 'bg-teal-950 text-teal-300 border-teal-500/40',
-      iconBox: 'bg-teal-950 border-teal-500/40 text-teal-400',
+      bg: 'bg-white',
+      border: 'border-teal-200 hover:border-teal-400',
+      badge: 'bg-teal-50 text-teal-800 border-teal-200',
+      iconBox: 'bg-teal-50 border-teal-200 text-teal-600',
     },
     {
       num: '02',
       title: '10-Second Visual Control from Phone',
       desc: 'Never wait 5 days for a developer ticket. Our self-serve visual management cockpit lets you edit headlines, update pricing, and post announcements from your phone in 10 seconds.',
       icon: Smartphone,
-      bg: 'bg-gradient-to-b from-indigo-950/60 via-slate-900 to-slate-950',
-      border: 'border-indigo-500/40 hover:border-indigo-400',
-      badge: 'bg-indigo-950 text-indigo-300 border-indigo-500/40',
-      iconBox: 'bg-indigo-950 border-indigo-500/40 text-indigo-400',
+      bg: 'bg-white',
+      border: 'border-indigo-200 hover:border-indigo-400',
+      badge: 'bg-indigo-50 text-indigo-800 border-indigo-200',
+      iconBox: 'bg-indigo-50 border-indigo-200 text-indigo-600',
     },
     {
       num: '03',
       title: 'Sub-0.3s Pure Mobile Speed',
       desc: 'Google ranks speed. By deploying decoupled modern frontend code to global edge networks, your digital storefront loads instantly and scores 99/100 on Google Core Web Vitals.',
       icon: Zap,
-      bg: 'bg-gradient-to-b from-rose-950/60 via-slate-900 to-slate-950',
-      border: 'border-rose-500/40 hover:border-rose-400',
-      badge: 'bg-rose-950 text-rose-300 border-rose-500/40',
-      iconBox: 'bg-rose-950 border-rose-500/40 text-rose-400',
+      bg: 'bg-white',
+      border: 'border-rose-200 hover:border-rose-400',
+      badge: 'bg-rose-50 text-rose-800 border-rose-200',
+      iconBox: 'bg-rose-50 border-rose-200 text-rose-600',
     },
     {
       num: '04',
       title: '100% Code & Asset Sovereignty',
       desc: 'Complete transfer of all Git repositories, databases, and DNS keys on project completion. You own 100% of your intellectual property with zero hostage lock-in.',
       icon: KeyRound,
-      bg: 'bg-gradient-to-b from-amber-950/60 via-slate-900 to-slate-950',
-      border: 'border-amber-500/40 hover:border-amber-400',
-      badge: 'bg-amber-950 text-amber-300 border-amber-500/40',
-      iconBox: 'bg-amber-950 border-amber-500/40 text-amber-400',
+      bg: 'bg-white',
+      border: 'border-amber-200 hover:border-amber-400',
+      badge: 'bg-amber-50 text-amber-800 border-amber-200',
+      iconBox: 'bg-amber-50 border-amber-200 text-amber-600',
     },
   ];
 
   return (
-    <section className="py-20 sm:py-28 px-4 sm:px-6 lg:px-8 relative overflow-hidden bg-[#070814] text-white border-t border-white/10">
+    <section className="py-20 sm:py-28 px-4 sm:px-6 lg:px-8 relative overflow-hidden bg-white text-slate-900 border-t border-slate-200/80">
       
-      {/* Background Soft Glow */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[350px] rounded-full blur-[140px] pointer-events-none bg-rose-600/10" />
+      {/* Background Soft Ambient Light */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[400px] rounded-full blur-[140px] pointer-events-none bg-rose-400/10" />
 
       <div className="max-w-6xl mx-auto relative z-10">
         
         {/* Header */}
-        <div className="text-center max-w-3xl mx-auto mb-14 sm:mb-20">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-mono font-semibold mb-3 bg-slate-900 border border-white/15 text-slate-300 shadow-md">
-            <Sparkles className="w-3.5 h-3.5 text-rose-400" />
-            <span className="uppercase tracking-wider">THE FOUR PILLARS</span>
+        <div className="text-center max-w-3xl mx-auto mb-16 sm:mb-20">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-mono font-semibold bg-rose-50 border border-rose-200 text-rose-800 mb-4 shadow-xs">
+            <Sparkles className="w-3.5 h-3.5 text-rose-600" />
+            <span className="uppercase tracking-wider">FOUNDATIONAL PRINCIPLES</span>
           </div>
 
-          <h2 className="text-3xl sm:text-5xl font-bold tracking-tight text-white mb-4 leading-[1.1] font-display">
-            Built for Independence.{' '}
-            <span className="bg-gradient-to-r from-rose-400 via-pink-400 to-amber-300 bg-clip-text text-transparent">
-              Engineered to Last.
+          <h2 className="text-3xl sm:text-5xl font-black font-display tracking-tight text-slate-950 mb-4">
+            Our Four Non-Negotiable{' '}
+            <span className="bg-gradient-to-r from-rose-600 via-pink-600 to-amber-600 bg-clip-text text-transparent">
+              Engineering Standards.
             </span>
           </h2>
-          <p className="text-xs sm:text-sm text-slate-300 max-w-2xl mx-auto leading-relaxed">
-            Every decision at Merqurie is guided by four architectural commitments to the business owners we build for.
+
+          <p className="text-sm sm:text-base text-slate-600 max-w-2xl mx-auto leading-relaxed">
+            Every website Merqurie builds must pass these four rigorous gates before handover.
           </p>
         </div>
 
-        {/* 4 Cards Grid with Glowing Gradients */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 mb-14">
+        {/* 4 Pillars Grid with Distinct Color Borders */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
           {pillars.map((pillar, idx) => {
             const Icon = pillar.icon;
             return (
               <div
                 key={idx}
-                className={`p-6 sm:p-8 rounded-3xl border ${pillar.bg} ${pillar.border} shadow-xl hover:shadow-2xl hover:-translate-y-2 transition-all duration-400 ease-out flex flex-col justify-between relative overflow-hidden group active:scale-[0.99]`}
+                className={`p-6 sm:p-8 rounded-3xl border ${pillar.bg} ${pillar.border} shadow-xl shadow-slate-200/40 hover:shadow-2xl hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between group active:scale-[0.99]`}
               >
                 <div>
-                  <div className="flex items-center justify-between mb-6">
-                    <span className={`text-[10px] sm:text-[11px] font-mono font-bold px-3 py-1 rounded-full border ${pillar.badge} shadow-sm`}>
-                      PILLAR // {pillar.num}
-                    </span>
-                    <div className={`w-10 h-10 rounded-2xl border ${pillar.iconBox} flex items-center justify-center shadow-md group-hover:scale-110 transition-transform duration-300`}>
-                      <Icon className="w-5 h-5 stroke-[2.2]" />
+                  <div className="flex items-center justify-between mb-5">
+                    <div className={`w-12 h-12 rounded-2xl border ${pillar.iconBox} flex items-center justify-center shadow-xs`}>
+                      <Icon className="w-6 h-6" />
                     </div>
+                    <span className={`text-[10px] font-mono font-bold px-3 py-1 rounded-full border ${pillar.badge}`}>
+                      STANDARD {pillar.num}
+                    </span>
                   </div>
 
-                  <h3 className="text-xl sm:text-2xl font-bold font-display text-white mb-2.5 group-hover:text-rose-400 transition-colors">
+                  <h3 className="text-xl sm:text-2xl font-bold font-display text-slate-950 mb-2.5 tracking-tight group-hover:text-rose-600 transition-colors">
                     {pillar.title}
                   </h3>
 
-                  <p className="text-xs sm:text-[13px] text-slate-300 leading-relaxed">
+                  <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
                     {pillar.desc}
                   </p>
                 </div>
 
-                <div className="mt-6 pt-4 border-t border-white/10 flex items-center gap-2 text-xs font-mono text-emerald-300 font-semibold">
-                  <Check className="w-3.5 h-3.5 stroke-[3] text-emerald-400" />
-                  <span>Non-Negotiable Production Standard</span>
+                <div className="mt-6 pt-4 border-t border-slate-100 flex items-center gap-2 text-xs font-mono text-emerald-700 font-semibold">
+                  <Check className="w-4 h-4 text-emerald-600" />
+                  <span>Guaranteed in every contract</span>
                 </div>
               </div>
             );
           })}
+        </div>
+
+        {/* Bottom Banner */}
+        <div className="mt-14 p-6 sm:p-8 rounded-3xl bg-slate-50 border border-slate-200 shadow-sm flex flex-col sm:flex-row items-center justify-between gap-6 text-center sm:text-left">
+          <div>
+            <h4 className="text-lg font-bold text-slate-950 font-display">
+              Test these standards on your own smartphone.
+            </h4>
+            <p className="text-xs sm:text-sm text-slate-600 mt-1">
+              We build your working prototype before you pay a single rupee.
+            </p>
+          </div>
+
+          <div className="flex items-center gap-3">
+            <button
+              onClick={onOpenPrototypeModal}
+              className="px-5 py-3 rounded-xl text-xs font-bold bg-gradient-to-r from-rose-600 via-rose-500 to-pink-600 text-white shadow-lg shadow-rose-500/25 active:scale-95 hover:brightness-105 transition-all flex items-center gap-1.5 cursor-pointer whitespace-nowrap"
+            >
+              <span>Request Free Sample</span>
+              <ArrowRight className="w-3.5 h-3.5" />
+            </button>
+          </div>
         </div>
 
       </div>

@@ -5,7 +5,7 @@ import Logo from './Logo';
 
 const whatsapp = 'https://wa.me/917358618789?text=Hi%20Jagadish!%20I%20would%20like%20to%20discuss%20a%20website%20for%20my%20business.';
 
-export default function Footer({ onOpenPrototypeModal, onOpenLogoLab, activeConcept = 'concept1' }) {
+export default function Footer({ onOpenPrototypeModal }) {
   return (
     <footer className="bg-slate-950 border-t border-slate-800/90 text-slate-400 py-12 sm:py-16 px-4 sm:px-6 lg:px-8 pb-24 md:pb-16">
       <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-12 gap-8 lg:gap-12 items-start">
@@ -13,7 +13,7 @@ export default function Footer({ onOpenPrototypeModal, onOpenLogoLab, activeConc
         {/* Left: Brand & Founder Bio */}
         <div className="md:col-span-5 space-y-4">
           <div className="flex items-center gap-2.5">
-            <Logo isDark={true} concept={activeConcept} className="w-8 h-8" />
+            <Logo isDark={true} className="w-8 h-8" />
             <span className="font-display font-black text-base tracking-[0.18em] text-white">
               MERQURIE
             </span>
@@ -65,17 +65,6 @@ export default function Footer({ onOpenPrototypeModal, onOpenLogoLab, activeConc
                 100% Client Code Ownership • Zero Retainer Fees
               </span>
             </li>
-            {onOpenLogoLab && (
-              <li className="pt-2">
-                <button
-                  onClick={onOpenLogoLab}
-                  className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-mono font-bold bg-white/5 border border-white/10 text-rose-400 hover:text-white hover:bg-white/10 transition-all cursor-pointer active:scale-95 shadow-2xs"
-                >
-                  <Sparkles className="w-3.5 h-3.5 text-rose-500" />
-                  <span>Inspect Brand Logo Lab (4 World-Class Options)</span>
-                </button>
-              </li>
-            )}
           </ul>
         </div>
 
@@ -99,18 +88,21 @@ export default function Footer({ onOpenPrototypeModal, onOpenLogoLab, activeConc
             </p>
             <button
               onClick={onOpenPrototypeModal}
-              className="mt-2 text-xs font-mono text-rose-400 hover:text-rose-300 underline underline-offset-4 cursor-pointer"
+              className="inline-flex items-center gap-1.5 text-xs font-mono font-bold text-rose-400 hover:text-rose-300 transition-colors pt-1 cursor-pointer"
             >
-              Request a free website preview →
+              <span>Request Free Sample Preview</span>
+              <ArrowUpRight className="w-3.5 h-3.5" />
             </button>
           </div>
         </div>
 
       </div>
 
-      <div className="max-w-6xl mx-auto mt-10 pt-6 border-t border-slate-800/80 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
-        <p>© {new Date().getFullYear()} Merqurie Studio. Crafted with care by Jagadish.</p>
-        <p className="font-mono text-slate-500">Fast • Reliable • Built to Convert</p>
+      <div className="max-w-6xl mx-auto pt-8 mt-8 border-t border-slate-900 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-mono text-slate-400">
+        <p>© {new Date().getFullYear()} Merqurie Systems. All rights reserved.</p>
+        <p className="text-[11px] text-slate-400">
+          Engineered for speed in Chennai, India. Built with React &amp; Tailwind.
+        </p>
       </div>
     </footer>
   );

@@ -14,9 +14,9 @@ export default function ThreeCenterpiece3D() {
 
   const shaderPresets = [
     { id: 'mercury', label: '🔮 Liquid Mercury', color: 0xffffff, metalness: 0.98, roughness: 0.04, clearcoat: 1.0 },
-    { id: 'cyber', label: '⚡ Cyber Neon', color: 0x00f0ff, metalness: 0.85, roughness: 0.15, clearcoat: 0.8 },
-    { id: 'gold', label: '👑 Liquid Gold', color: 0xf59e0b, metalness: 0.95, roughness: 0.08, clearcoat: 1.0 },
-    { id: 'obsidian', label: '💎 Deep Obsidian', color: 0x1e1b4b, metalness: 0.6, roughness: 0.12, clearcoat: 1.0 },
+    { id: 'cyber', label: '⚡ Cyber Rose', color: 0xe11d48, metalness: 0.85, roughness: 0.12, clearcoat: 0.9 },
+    { id: 'gold', label: '👑 Liquid Gold', color: 0xd97706, metalness: 0.95, roughness: 0.08, clearcoat: 1.0 },
+    { id: 'emerald', label: '🌿 Radiant Jade', color: 0x059669, metalness: 0.7, roughness: 0.15, clearcoat: 1.0 },
   ];
 
   useEffect(() => {
@@ -40,21 +40,21 @@ export default function ThreeCenterpiece3D() {
     renderer.setSize(width, height);
     renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
     renderer.toneMapping = THREE.ACESFilmicToneMapping;
-    renderer.toneMappingExposure = 1.3;
+    renderer.toneMappingExposure = 1.35;
 
-    // Studio Lighting Rig
-    const ambientLight = new THREE.AmbientLight(0xffffff, 0.7);
+    // Daylight Studio Lighting Rig tuned for luminous white canvas
+    const ambientLight = new THREE.AmbientLight(0xffffff, 1.2);
     scene.add(ambientLight);
 
-    const keyLight = new THREE.DirectionalLight(0xff0055, 3.5);
+    const keyLight = new THREE.DirectionalLight(0xe11d48, 4.0);
     keyLight.position.set(4, 5, 4);
     scene.add(keyLight);
 
-    const fillLight = new THREE.DirectionalLight(0x00f0ff, 3.0);
+    const fillLight = new THREE.DirectionalLight(0x0284c7, 3.5);
     fillLight.position.set(-4, -3, 3);
     scene.add(fillLight);
 
-    const rimLight = new THREE.DirectionalLight(0x8b5cf6, 4.0);
+    const rimLight = new THREE.DirectionalLight(0x10b981, 3.5);
     rimLight.position.set(0, 4, -4);
     scene.add(rimLight);
 
@@ -77,7 +77,7 @@ export default function ThreeCenterpiece3D() {
     meshRef.current = mesh;
     scene.add(mesh);
 
-    // Background Orbiting Particle Ring
+    // Dynamic Orbiting Particle Ring
     const particleCount = 140;
     const particleGeo = new THREE.BufferGeometry();
     const particlePositions = new Float32Array(particleCount * 3);
@@ -92,29 +92,28 @@ export default function ThreeCenterpiece3D() {
       particlePositions[i + 1] = radius * Math.sin(phi);
       particlePositions[i + 2] = radius * Math.sin(theta) * Math.cos(phi);
 
-      const isCyan = Math.random() > 0.5;
-      particleColors[i] = isCyan ? 0.0 : 1.0;
-      particleColors[i + 1] = isCyan ? 0.85 : 0.1;
-      particleColors[i + 2] = isCyan ? 1.0 : 0.4;
+      const isRose = Math.random() > 0.5;
+      particleColors[i] = isRose ? 0.88 : 0.0;
+      particleColors[i + 1] = isRose ? 0.11 : 0.72;
+      particleColors[i + 2] = isRose ? 0.28 : 0.55;
     }
 
     particleGeo.setAttribute('position', new THREE.BufferAttribute(particlePositions, 3));
     particleGeo.setAttribute('color', new THREE.BufferAttribute(particleColors, 3));
 
     const particleMat = new THREE.PointsMaterial({
-      size: 0.045,
+      size: 0.05,
       vertexColors: true,
       transparent: true,
-      opacity: 0.7,
-      blending: THREE.AdditiveBlending,
+      opacity: 0.75,
     });
 
     const particles = new THREE.Points(particleGeo, particleMat);
     scene.add(particles);
 
-    // Mouse tilt tracking with smooth damping
+    // Mouse pointer interaction
     const handlePointerMove = (e) => {
-      const rect = container.getBoundingClientRect();
+      const rect = canvas.getBoundingClientRect();
       const x = ((e.clientX - rect.left) / rect.width) * 2 - 1;
       const y = -(((e.clientY - rect.top) / rect.height) * 2 - 1);
       mouseRef.current.targetX = x * 1.2;
@@ -123,15 +122,17 @@ export default function ThreeCenterpiece3D() {
 
     window.addEventListener('pointermove', handlePointerMove);
 
-    // Resize Observer
-    const resizeObserver = new ResizeObserver(() => {
-      if (!containerRef.current) return;
-      const w = containerRef.current.clientWidth;
-      const h = containerRef.current.clientHeight;
+    // Responsive Canvas Resizing
+    const handleResize = () => {
+      if (!containerRef.current || !renderer || !camera) return;
+      const w = containerRef.current.clientWidth || 360;
+      const h = containerRef.current.clientHeight || 360;
       camera.aspect = w / h;
       camera.updateProjectionMatrix();
       renderer.setSize(w, h);
-    });
+    };
+
+    const resizeObserver = new ResizeObserver(() => handleResize());
     resizeObserver.observe(container);
 
     // Animation Loop
@@ -142,7 +143,7 @@ export default function ThreeCenterpiece3D() {
       animationFrameId = requestAnimationFrame(animate);
       const elapsed = clock.getElapsedTime();
 
-      // Smooth inertia lerp for mouse orientation
+      // Smooth mouse damping
       mouseRef.current.x += (mouseRef.current.targetX - mouseRef.current.x) * 0.05;
       mouseRef.current.y += (mouseRef.current.targetY - mouseRef.current.y) * 0.05;
 
@@ -189,21 +190,20 @@ export default function ThreeCenterpiece3D() {
     materialRef.current.clearcoat = preset.clearcoat;
     materialRef.current.needsUpdate = true;
 
-    // Small celebratory burst
     confetti({
-      particleCount: 20,
+      particleCount: 22,
       spread: 60,
       origin: { y: 0.4, x: 0.65 },
-      colors: ['#FF0055', '#00F0FF', '#F59E0B', '#8B5CF6'],
+      colors: ['#E11D48', '#0284C7', '#D97706', '#10B981'],
     });
   };
 
   const handleOrbClick = () => {
     confetti({
-      particleCount: 50,
+      particleCount: 45,
       spread: 80,
       origin: { y: 0.45, x: 0.65 },
-      colors: ['#FF0055', '#00F0FF', '#FFFFFF', '#F59E0B'],
+      colors: ['#E11D48', '#0284C7', '#D97706', '#10B981'],
     });
   };
 
@@ -212,10 +212,10 @@ export default function ThreeCenterpiece3D() {
       
       {/* Dynamic Ambient Glow Behind 3D Canvas */}
       <div className={`absolute inset-0 rounded-full blur-[80px] transition-all duration-700 pointer-events-none ${
-        activeShader === 'mercury' ? 'bg-gradient-to-tr from-sky-500/25 via-rose-500/20 to-violet-500/20' :
-        activeShader === 'cyber' ? 'bg-gradient-to-tr from-cyan-500/35 via-blue-500/20 to-purple-500/30' :
-        activeShader === 'gold' ? 'bg-gradient-to-tr from-amber-500/30 via-yellow-500/20 to-rose-500/20' :
-        'bg-gradient-to-tr from-purple-900/40 via-indigo-900/30 to-slate-900/40'
+        activeShader === 'mercury' ? 'bg-gradient-to-tr from-sky-400/25 via-rose-400/20 to-violet-400/20' :
+        activeShader === 'cyber' ? 'bg-gradient-to-tr from-rose-500/30 via-pink-400/25 to-purple-400/25' :
+        activeShader === 'gold' ? 'bg-gradient-to-tr from-amber-400/30 via-yellow-400/20 to-orange-400/20' :
+        'bg-gradient-to-tr from-emerald-400/30 via-teal-400/20 to-cyan-400/20'
       }`} />
 
       {/* Interactive 3D Canvas Container */}
@@ -230,20 +230,20 @@ export default function ThreeCenterpiece3D() {
         <canvas ref={canvasRef} className="w-full h-full" />
 
         {/* Floating Badge on Canvas */}
-        <div className="absolute top-3 right-3 px-3 py-1 rounded-full bg-slate-900/80 backdrop-blur-md border border-white/15 text-[10px] font-mono text-cyan-300 flex items-center gap-1.5 shadow-lg">
-          <span className="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-ping" />
+        <div className="absolute top-3 right-3 px-3 py-1 rounded-full bg-white/95 backdrop-blur-md border border-slate-200/90 text-[10px] font-mono text-cyan-800 font-bold flex items-center gap-1.5 shadow-md">
+          <span className="w-1.5 h-1.5 rounded-full bg-cyan-600 animate-ping" />
           <span>REAL-TIME 3D</span>
         </div>
 
         {/* Click hint tooltip */}
-        <div className="absolute bottom-14 left-1/2 -translate-x-1/2 px-3 py-1 rounded-full bg-black/60 backdrop-blur-md border border-white/10 text-[10px] font-mono text-slate-300 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none flex items-center gap-1.5 whitespace-nowrap">
+        <div className="absolute bottom-14 left-1/2 -translate-x-1/2 px-3 py-1 rounded-full bg-slate-900/80 backdrop-blur-md border border-slate-800 text-[10px] font-mono text-white opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none flex items-center gap-1.5 whitespace-nowrap shadow-lg">
           <Zap className="w-3 h-3 text-rose-400" />
           <span>Move mouse or click to pulse</span>
         </div>
       </div>
 
       {/* Interactive Shader Material Selector Pill Bar */}
-      <div className="relative z-20 flex items-center gap-1.5 p-1 rounded-full bg-slate-900/90 backdrop-blur-xl border border-white/15 shadow-2xl -mt-6 max-w-full overflow-x-auto">
+      <div className="relative z-20 flex items-center gap-1.5 p-1 rounded-full bg-white/95 backdrop-blur-xl border border-slate-200/90 shadow-xl shadow-slate-300/40 -mt-6 max-w-full overflow-x-auto">
         {shaderPresets.map((preset) => {
           const isActive = activeShader === preset.id;
           return (
@@ -252,8 +252,8 @@ export default function ThreeCenterpiece3D() {
               onClick={() => applyShaderPreset(preset)}
               className={`px-3 py-1 rounded-full text-[11px] font-medium font-sans whitespace-nowrap transition-all duration-200 cursor-pointer ${
                 isActive
-                  ? 'bg-gradient-to-r from-rose-500 to-red-600 text-white shadow-lg shadow-rose-500/30 font-semibold scale-105'
-                  : 'text-slate-400 hover:text-white hover:bg-white/10'
+                  ? 'bg-gradient-to-r from-rose-600 via-rose-500 to-pink-600 text-white shadow-md shadow-rose-500/25 font-semibold scale-105'
+                  : 'text-slate-600 hover:text-slate-950 hover:bg-slate-100'
               }`}
             >
               {preset.label}

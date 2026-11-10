@@ -1,7 +1,6 @@
 import React from 'react';
 import { 
   ArrowRight, 
-  ExternalLink, 
   Sparkles, 
   CheckCircle2, 
   ShieldCheck, 
@@ -34,7 +33,7 @@ export default function HomePage({ onOpenPrototypeModal, setActivePage }) {
   };
 
   return (
-    <div className="space-y-0 text-white selection:bg-rose-500/30 selection:text-white bg-[#070814]">
+    <div className="space-y-0 text-slate-900 selection:bg-rose-500/15 selection:text-rose-900 bg-[#F8FAFC]">
       
       {/* 1. Cinematic Hero with 3D Three.js Liquid Mercury Centerpiece & Multi-Scene Showcase */}
       <Hero 
@@ -46,26 +45,26 @@ export default function HomePage({ onOpenPrototypeModal, setActivePage }) {
       {/* 2. Continuous Silky Flowing Client & Architecture Marquee */}
       <ClientMarquee />
 
-      {/* 3. NEW: Cinematic Video & Live Speed Race Lab (0.24s Edge vs 8.4s WordPress) */}
+      {/* 3. Cinematic Video & Live Speed Race Lab (0.24s Edge vs 8.4s WordPress) */}
       <CinematicVideoSection onOpenPrototypeModal={onOpenPrototypeModal} />
 
-      {/* 4. Satria-Style Interactive Horizontal Project Showcase Carousel with Glowing Cards */}
+      {/* 4. Interactive Project Showcase Carousel with Authentic Client Screens */}
       <section id="work">
         <ProjectShowcaseCarousel onOpenPrototypeModal={onOpenPrototypeModal} />
       </section>
 
-      {/* 5. NEW: Interactive Customer ROI & WhatsApp Lead Calculator */}
+      {/* 5. Interactive Customer ROI & WhatsApp Lead Calculator */}
       <InteractiveRoiCalculator onOpenPrototypeModal={onOpenPrototypeModal} />
 
       {/* 6. Technical Leadership & Studio Standards (VIP Founder Card with Amazon & Turing Badges) */}
       <FounderSpotlight onOpenPrototypeModal={onOpenPrototypeModal} />
 
-      {/* 7. Transparent Pricing Packages with Glowing Gradients & ₹0 Retainer */}
+      {/* 7. Transparent Pricing Packages with ₹0 Retainer Debt Guarantee */}
       <section id="pricing">
         <PricingPackages onOpenPrototypeModal={onOpenPrototypeModal} />
       </section>
 
-      {/* 8. Honest Comparison: How Merqurie is Built Differently (Designful & Colorful Cards) */}
+      {/* 8. Honest Comparison: How Merqurie is Built Differently */}
       <ComparisonSection onOpenPrototypeModal={onOpenPrototypeModal} />
 
       {/* 9. Metrics & Telemetry: The Work Behind The Results */}
@@ -78,23 +77,23 @@ export default function HomePage({ onOpenPrototypeModal, setActivePage }) {
       <FaqSection onOpenPrototypeModal={onOpenPrototypeModal} />
 
       {/* 12. Final High-Converting Call to Action Banner */}
-      <section className="py-20 sm:py-28 px-4 sm:px-6 lg:px-8 relative overflow-hidden bg-gradient-to-b from-[#070814] via-[#0E0F26] to-[#070814] text-white border-t border-white/10 text-center">
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[350px] rounded-full blur-[140px] pointer-events-none bg-rose-600/20" />
+      <section className="py-20 sm:py-28 px-4 sm:px-6 lg:px-8 relative overflow-hidden bg-white text-slate-900 border-t border-slate-200/80 text-center">
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[350px] rounded-full blur-[140px] pointer-events-none bg-rose-400/10" />
 
         <div className="max-w-4xl mx-auto relative z-10 space-y-6">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-mono font-semibold bg-rose-950/80 border border-rose-500/40 text-rose-300">
-            <Sparkles className="w-3.5 h-3.5 text-amber-300" />
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-mono font-semibold bg-rose-50 border border-rose-200 text-rose-800">
+            <Sparkles className="w-3.5 h-3.5 text-amber-500" />
             <span className="uppercase tracking-wider">NO RETAINERS • NO RISK • NO JARGON</span>
           </div>
 
-          <h2 className="text-3xl sm:text-5xl md:text-6xl font-black tracking-tight text-white leading-tight font-display">
+          <h2 className="text-3xl sm:text-5xl md:text-6xl font-black tracking-tight text-slate-950 leading-tight font-display">
             Get a Website That Wins You Customers on{' '}
-            <span className="bg-gradient-to-r from-emerald-400 via-teal-300 to-cyan-400 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-emerald-600 via-teal-600 to-cyan-600 bg-clip-text text-transparent">
               WhatsApp.
             </span>
           </h2>
 
-          <p className="text-sm sm:text-base text-slate-300 max-w-xl mx-auto leading-relaxed">
+          <p className="text-sm sm:text-base text-slate-600 max-w-xl mx-auto leading-relaxed">
             We build your working prototype first. You test it on your mobile phone before paying a single rupee. If you love it, you pay once and own it 100% forever.
           </p>
 
@@ -103,15 +102,15 @@ export default function HomePage({ onOpenPrototypeModal, setActivePage }) {
               href={whatsapp}
               target="_blank"
               rel="noopener noreferrer"
-              className="w-full sm:w-auto px-8 py-4 rounded-2xl font-bold text-sm bg-[#25D366] hover:bg-[#20bd5a] text-slate-950 flex items-center justify-center gap-2.5 shadow-2xl shadow-emerald-500/30 transition-all cursor-pointer font-mono"
+              className="w-full sm:w-auto px-8 py-4 rounded-2xl font-bold text-sm bg-emerald-600 hover:bg-emerald-500 text-white flex items-center justify-center gap-2.5 shadow-xl shadow-emerald-500/25 transition-all cursor-pointer font-mono"
             >
-              <WhatsAppIcon className="w-5 h-5 fill-slate-950 text-slate-950" />
+              <WhatsAppIcon className="w-5 h-5 fill-white text-white" />
               <span>Get Free Sample on WhatsApp</span>
             </a>
 
             <button
               onClick={onOpenPrototypeModal}
-              className="w-full sm:w-auto px-8 py-4 rounded-2xl font-bold text-sm bg-rose-600 hover:bg-rose-500 text-white flex items-center justify-center gap-2.5 shadow-2xl shadow-rose-950/50 transition-all cursor-pointer font-mono border border-rose-400/40"
+              className="w-full sm:w-auto px-8 py-4 rounded-2xl font-bold text-sm bg-gradient-to-r from-rose-600 via-rose-500 to-pink-600 text-white flex items-center justify-center gap-2.5 shadow-xl shadow-rose-500/25 transition-all cursor-pointer font-mono hover:brightness-105"
             >
               <span>Request Free Architecture Blueprint</span>
               <ArrowRight className="w-4 h-4" />

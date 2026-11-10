@@ -11,10 +11,8 @@ import {
   Smartphone, 
   Ban, 
   Lock, 
-  UserCheck,
   CheckCircle2
 } from 'lucide-react';
-import confetti from 'canvas-confetti';
 import WhatsAppIcon from './WhatsAppIcon';
 
 const whatsapp = 'https://wa.me/917358618789?text=Hi%20Jagadish!%20I%20want%20to%20learn%20more%20about%20the%20Merqurie%20approach.';
@@ -73,29 +71,29 @@ export default function ComparisonSection({ onOpenPrototypeModal }) {
   const filteredPoints = activeFilter === 'all' ? points : points.filter((p) => p.id === activeFilter);
 
   return (
-    <section className="py-20 sm:py-28 px-4 sm:px-6 lg:px-8 relative overflow-hidden bg-[#070814] text-white border-t border-white/10">
+    <section className="py-20 sm:py-28 px-4 sm:px-6 lg:px-8 relative overflow-hidden bg-[#F8FAFC] text-slate-900 border-t border-slate-200/80">
       
       {/* Background Soft Glows */}
-      <div className="absolute top-1/3 left-10 w-96 h-96 rounded-full bg-rose-600/15 blur-[120px] pointer-events-none" />
-      <div className="absolute bottom-1/3 right-10 w-96 h-96 rounded-full bg-emerald-600/15 blur-[120px] pointer-events-none" />
+      <div className="absolute top-1/3 left-10 w-96 h-96 rounded-full bg-rose-400/10 blur-[120px] pointer-events-none" />
+      <div className="absolute bottom-1/3 right-10 w-96 h-96 rounded-full bg-emerald-400/10 blur-[120px] pointer-events-none" />
 
       <div className="max-w-6xl mx-auto relative z-10">
         
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto mb-14 sm:mb-20">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-mono font-semibold bg-gradient-to-r from-rose-950/80 to-purple-950/80 border border-rose-500/30 text-rose-300 mb-4 shadow-lg">
-            <Sparkles className="w-3.5 h-3.5 text-rose-400" />
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-mono font-semibold bg-rose-50 border border-rose-200 text-rose-800 mb-4 shadow-xs">
+            <Sparkles className="w-3.5 h-3.5 text-rose-600" />
             <span className="uppercase tracking-wider">THE UNVARNISHED TRUTH</span>
           </div>
 
-          <h2 className="text-3xl sm:text-5xl font-extrabold tracking-tight text-white leading-tight mb-4 font-display">
+          <h2 className="text-3xl sm:text-5xl font-extrabold tracking-tight text-slate-950 leading-tight mb-4 font-display">
             Traditional Agency Lock-In vs.{' '}
-            <span className="bg-gradient-to-r from-emerald-400 via-teal-300 to-cyan-400 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-emerald-600 via-teal-600 to-cyan-600 bg-clip-text text-transparent">
               Merqurie Freedom.
             </span>
           </h2>
 
-          <p className="text-sm sm:text-base text-slate-300 max-w-2xl mx-auto leading-relaxed">
+          <p className="text-sm sm:text-base text-slate-600 max-w-2xl mx-auto leading-relaxed">
             Here is the side-by-side breakdown in plain, simple terms so you know exactly what you are paying for and why our clients never pay a monthly retainer again.
           </p>
 
@@ -116,8 +114,8 @@ export default function ComparisonSection({ onOpenPrototypeModal }) {
                   onClick={() => setActiveFilter(pill.id)}
                   className={`px-3.5 py-1.5 rounded-full text-xs font-mono transition-all cursor-pointer ${
                     isSelected
-                      ? 'bg-gradient-to-r from-rose-600 to-red-600 text-white font-bold shadow-lg shadow-rose-900/40 border border-rose-400/40 scale-105'
-                      : 'bg-slate-900/80 text-slate-400 hover:text-white border border-white/10'
+                      ? 'bg-rose-50 text-rose-700 font-bold border-2 border-rose-500 shadow-sm scale-105'
+                      : 'bg-white text-slate-600 hover:text-slate-950 border border-slate-200 shadow-2xs'
                   }`}
                 >
                   {pill.label}
@@ -134,18 +132,18 @@ export default function ComparisonSection({ onOpenPrototypeModal }) {
             return (
               <div
                 key={item.id}
-                className="rounded-3xl border border-white/15 bg-slate-900/60 backdrop-blur-xl p-6 sm:p-8 shadow-2xl relative overflow-hidden group hover:border-white/30 transition-all duration-300"
+                className="rounded-3xl border border-slate-200/90 bg-white p-6 sm:p-8 shadow-xl shadow-slate-200/40 relative overflow-hidden group hover:border-slate-300 transition-all duration-300"
               >
                 {/* Header of Feature */}
-                <div className="flex items-center gap-3 mb-6 pb-4 border-b border-white/10">
-                  <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-rose-500/20 to-purple-500/20 border border-rose-500/40 flex items-center justify-center shrink-0">
-                    <Icon className="w-5 h-5 text-rose-400" />
+                <div className="flex items-center gap-3 mb-6 pb-4 border-b border-slate-200">
+                  <div className="w-10 h-10 rounded-xl bg-rose-50 border border-rose-200 flex items-center justify-center shrink-0">
+                    <Icon className="w-5 h-5 text-rose-600" />
                   </div>
                   <div>
-                    <span className="text-[10px] font-mono font-bold text-slate-400 uppercase tracking-widest block">
+                    <span className="text-[10px] font-mono font-bold text-slate-500 uppercase tracking-widest block">
                       COMPARISON 0{idx + 1}
                     </span>
-                    <h3 className="text-xl sm:text-2xl font-bold text-white tracking-tight">
+                    <h3 className="text-xl sm:text-2xl font-bold text-slate-950 tracking-tight">
                       {item.feature}
                     </h3>
                   </div>
@@ -154,48 +152,48 @@ export default function ComparisonSection({ onOpenPrototypeModal }) {
                 {/* 2-Column Side-by-Side Colorful Cards */}
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-5">
                   
-                  {/* Traditional Agency Card: Red/Burgundy Warning Aesthetic */}
-                  <div className="p-5 sm:p-6 rounded-2xl bg-gradient-to-br from-red-950/50 via-slate-900/90 to-rose-950/40 border border-red-500/40 shadow-xl relative overflow-hidden flex flex-col justify-between">
+                  {/* Traditional Agency Card: Warning Aesthetic */}
+                  <div className="p-5 sm:p-6 rounded-2xl bg-rose-50/70 border border-rose-200 text-slate-900 shadow-sm relative overflow-hidden flex flex-col justify-between">
                     <div>
                       <div className="flex items-center justify-between gap-2 mb-3">
-                        <span className="text-xs font-mono font-bold uppercase tracking-wider text-rose-400 flex items-center gap-1.5">
-                          <X className="w-4 h-4 text-rose-500 shrink-0" />
+                        <span className="text-xs font-mono font-bold uppercase tracking-wider text-rose-900 flex items-center gap-1.5">
+                          <X className="w-4 h-4 text-rose-600 shrink-0" />
                           <span>Typical Website Agency</span>
                         </span>
-                        <span className="text-[10px] font-mono px-2.5 py-0.5 rounded-full bg-red-950 border border-red-500/40 text-red-300 font-bold">
+                        <span className="text-[10px] font-mono px-2.5 py-0.5 rounded-full bg-rose-100 border border-rose-300 text-rose-900 font-bold">
                           {item.typicalTag}
                         </span>
                       </div>
-                      <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                      <p className="text-xs sm:text-sm text-rose-950/80 leading-relaxed">
                         {item.typical}
                       </p>
                     </div>
-                    <div className="mt-4 pt-3 border-t border-red-500/20 flex items-center gap-2 text-[11px] font-mono text-rose-400">
+                    <div className="mt-4 pt-3 border-t border-rose-200 flex items-center gap-2 text-[11px] font-mono text-rose-800">
                       <AlertTriangle className="w-3.5 h-3.5 shrink-0" />
-                      <span>Causes customer frustration & ongoing bills</span>
+                      <span>Causes customer drop-off &amp; ongoing bills</span>
                     </div>
                   </div>
 
                   {/* Merqurie Freedom Card: Cyber Emerald / Cyan Vibrant Aesthetic */}
-                  <div className="p-5 sm:p-6 rounded-2xl bg-gradient-to-br from-emerald-950/60 via-slate-900/90 to-cyan-950/50 border-2 border-emerald-500/60 shadow-2xl shadow-emerald-500/15 relative overflow-hidden flex flex-col justify-between">
+                  <div className="p-5 sm:p-6 rounded-2xl bg-emerald-50/70 border-2 border-emerald-500 text-slate-900 shadow-lg shadow-emerald-500/10 relative overflow-hidden flex flex-col justify-between">
                     <div>
                       <div className="flex items-center justify-between gap-2 mb-3">
-                        <span className="text-xs font-mono font-bold uppercase tracking-wider text-emerald-300 flex items-center gap-1.5">
-                          <Check className="w-4 h-4 text-emerald-400 shrink-0" />
+                        <span className="text-xs font-mono font-bold uppercase tracking-wider text-emerald-950 flex items-center gap-1.5">
+                          <Check className="w-4 h-4 text-emerald-600 shrink-0" />
                           <span>Merqurie Architecture</span>
                         </span>
-                        <span className="text-[10px] font-mono px-2.5 py-0.5 rounded-full bg-emerald-950 border border-emerald-400/50 text-emerald-300 font-bold flex items-center gap-1">
-                          <Sparkles className="w-3 h-3 text-emerald-400" />
+                        <span className="text-[10px] font-mono px-2.5 py-0.5 rounded-full bg-emerald-100 border border-emerald-300 text-emerald-900 font-bold flex items-center gap-1">
+                          <Sparkles className="w-3 h-3 text-emerald-600" />
                           <span>{item.merqurieTag}</span>
                         </span>
                       </div>
-                      <p className="text-xs sm:text-sm text-white font-medium leading-relaxed">
+                      <p className="text-xs sm:text-sm text-slate-800 font-medium leading-relaxed">
                         {item.merqurie}
                       </p>
                     </div>
-                    <div className="mt-4 pt-3 border-t border-emerald-500/30 flex items-center gap-2 text-[11px] font-mono text-emerald-300 font-bold">
-                      <CheckCircle2 className="w-3.5 h-3.5 shrink-0 text-emerald-400" />
-                      <span>You get instant customer inquiries & zero monthly fees</span>
+                    <div className="mt-4 pt-3 border-t border-emerald-200 flex items-center gap-2 text-[11px] font-mono text-emerald-800 font-bold">
+                      <CheckCircle2 className="w-3.5 h-3.5 shrink-0 text-emerald-600" />
+                      <span>You get instant customer inquiries &amp; zero monthly fees</span>
                     </div>
                   </div>
 
@@ -206,12 +204,12 @@ export default function ComparisonSection({ onOpenPrototypeModal }) {
         </div>
 
         {/* Bottom CTA Card */}
-        <div className="mt-12 p-6 sm:p-8 rounded-3xl bg-gradient-to-r from-slate-900 via-rose-950/50 to-slate-900 border border-rose-500/30 text-center flex flex-col sm:flex-row items-center justify-between gap-6 shadow-2xl">
+        <div className="mt-12 p-6 sm:p-8 rounded-3xl bg-white border-2 border-slate-200 text-center flex flex-col sm:flex-row items-center justify-between gap-6 shadow-xl shadow-slate-200/50">
           <div className="text-left">
-            <h4 className="text-xl font-bold text-white tracking-tight">
+            <h4 className="text-xl font-bold text-slate-950 tracking-tight">
               Ready to free your business from monthly retainer debt?
             </h4>
-            <p className="text-xs sm:text-sm text-slate-300 mt-1">
+            <p className="text-xs sm:text-sm text-slate-600 mt-1">
               We build your working sample website first. You test it on your own phone before spending a single rupee.
             </p>
           </div>
@@ -221,15 +219,15 @@ export default function ComparisonSection({ onOpenPrototypeModal }) {
               href={whatsapp}
               target="_blank"
               rel="noopener noreferrer"
-              className="px-6 py-3.5 rounded-2xl text-xs sm:text-sm font-bold bg-[#25D366] hover:bg-[#20bd5a] text-slate-950 flex items-center gap-2 shadow-lg shadow-emerald-500/20 transition-all cursor-pointer"
+              className="px-6 py-3.5 rounded-2xl text-xs sm:text-sm font-bold bg-emerald-600 hover:bg-emerald-500 text-white flex items-center gap-2 shadow-lg shadow-emerald-500/25 transition-all cursor-pointer"
             >
-              <WhatsAppIcon className="w-4 h-4 fill-slate-950 text-slate-950" />
+              <WhatsAppIcon className="w-4 h-4 fill-white text-white" />
               <span>Discuss on WhatsApp</span>
             </a>
 
             <button
               onClick={onOpenPrototypeModal}
-              className="px-6 py-3.5 rounded-2xl text-xs sm:text-sm font-bold bg-rose-600 hover:bg-rose-500 text-white shadow-lg shadow-rose-900/30 transition-all cursor-pointer"
+              className="px-6 py-3.5 rounded-2xl text-xs sm:text-sm font-bold bg-gradient-to-r from-rose-600 via-rose-500 to-pink-600 text-white shadow-lg shadow-rose-500/25 transition-all cursor-pointer hover:brightness-105"
             >
               <span>Get Free Blueprint</span>
             </button>

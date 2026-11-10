@@ -35,54 +35,54 @@ export default function FaqSection({ onOpenPrototypeModal }) {
   ];
 
   return (
-    <section id="faq" className="py-20 sm:py-28 px-4 sm:px-6 lg:px-8 relative overflow-hidden bg-[#070814] text-white border-t border-white/10">
+    <section id="faq" className="py-20 sm:py-28 px-4 sm:px-6 lg:px-8 relative overflow-hidden bg-[#F8FAFC] text-slate-900 border-t border-slate-200/80">
       
       {/* Background Soft Glow */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[300px] rounded-full blur-[140px] pointer-events-none bg-rose-600/10" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[300px] rounded-full blur-[140px] pointer-events-none bg-rose-400/10" />
 
       <div className="max-w-4xl mx-auto relative z-10">
         
         {/* Header */}
         <div className="text-center max-w-2xl mx-auto mb-14 sm:mb-20">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-mono mb-3 bg-slate-900 border border-white/15 text-slate-300 shadow-md">
-            <HelpCircle className="w-3.5 h-3.5 text-rose-400" />
-            <span className="uppercase tracking-wider">FREQUENTLY ASKED QUESTIONS</span>
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-mono mb-3 bg-white border border-slate-200 text-slate-800 shadow-xs">
+            <HelpCircle className="w-3.5 h-3.5 text-rose-600" />
+            <span className="uppercase tracking-wider font-semibold">FREQUENTLY ASKED QUESTIONS</span>
           </div>
 
-          <h2 className="text-3xl sm:text-5xl font-bold tracking-tight text-white mb-4 font-display">
+          <h2 className="text-3xl sm:text-5xl font-black tracking-tight text-slate-950 mb-4 font-display">
             Everything You Need to{' '}
-            <span className="bg-gradient-to-r from-rose-400 via-pink-400 to-amber-300 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-rose-600 via-pink-600 to-amber-600 bg-clip-text text-transparent">
               Know.
             </span>
           </h2>
-          <p className="text-sm sm:text-base text-slate-300 leading-relaxed">
+          <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
             Direct, honest answers about pricing, ownership, timelines, and how we work together.
           </p>
         </div>
 
-        {/* Accordion List with Glowing Cards */}
+        {/* Accordion FAQ List */}
         <div className="space-y-3.5">
           {faqs.map((faq, idx) => {
             const isOpen = openIdx === idx;
             return (
               <div
                 key={idx}
-                className={`border rounded-2xl overflow-hidden transition-all duration-200 backdrop-blur-xl ${
-                  isOpen 
-                    ? 'bg-slate-900/90 shadow-xl border-rose-500/50' 
-                    : 'bg-slate-900/60 border-white/10 hover:border-white/20'
+                className={`rounded-2xl border transition-all duration-200 overflow-hidden ${
+                  isOpen
+                    ? 'bg-white border-rose-400 shadow-md shadow-rose-100/50'
+                    : 'bg-white border-slate-200 hover:border-slate-300 shadow-xs'
                 }`}
               >
                 <button
                   onClick={() => setOpenIdx(isOpen ? -1 : idx)}
-                  className="w-full p-5 sm:p-6 text-left flex items-center justify-between gap-4 cursor-pointer hover:bg-white/5 transition-colors"
+                  className="w-full text-left p-5 sm:p-6 flex items-center justify-between gap-4 cursor-pointer"
                 >
-                  <span className="text-sm sm:text-base font-bold text-white leading-snug">
+                  <span className="font-bold text-sm sm:text-base text-slate-950">
                     {faq.q}
                   </span>
                   <div
-                    className={`w-7 h-7 rounded-full bg-slate-800 border border-white/10 flex items-center justify-center shrink-0 transition-transform duration-200 ${
-                      isOpen ? 'rotate-180 bg-rose-950 border-rose-500/50 text-rose-300' : 'text-slate-400'
+                    className={`w-7 h-7 rounded-full flex items-center justify-center shrink-0 transition-transform duration-300 ${
+                      isOpen ? 'rotate-180 bg-rose-50 text-rose-600' : 'bg-slate-100 text-slate-500'
                     }`}
                   >
                     <ChevronDown className="w-4 h-4" />
@@ -90,8 +90,8 @@ export default function FaqSection({ onOpenPrototypeModal }) {
                 </button>
 
                 {isOpen && (
-                  <div className="px-5 sm:px-6 pb-6 pt-1 text-xs sm:text-sm text-slate-300 leading-relaxed border-t border-white/10 font-sans">
-                    {faq.a}
+                  <div className="px-5 sm:px-6 pb-6 pt-1 text-xs sm:text-sm text-slate-600 leading-relaxed border-t border-slate-100">
+                    <p>{faq.a}</p>
                   </div>
                 )}
               </div>
@@ -99,23 +99,24 @@ export default function FaqSection({ onOpenPrototypeModal }) {
           })}
         </div>
 
-        {/* Bottom Card: Still have questions? */}
-        <div className="mt-12 p-6 sm:p-8 rounded-3xl bg-slate-900/80 border border-white/15 flex flex-col sm:flex-row items-center justify-between gap-5 text-center sm:text-left shadow-xl">
-          <div>
-            <h3 className="text-base sm:text-lg font-bold text-white mb-1">
-              Have a specific question about your business?
-            </h3>
-            <p className="text-xs sm:text-sm text-slate-300">
-              Message Jagadish directly on WhatsApp. You will get a quick, honest reply within an hour.
+        {/* Bottom Contact Help */}
+        <div className="mt-12 text-center p-6 rounded-2xl bg-white border border-slate-200 shadow-sm flex flex-col sm:flex-row items-center justify-between gap-4">
+          <div className="text-left">
+            <h4 className="text-sm font-bold text-slate-950">
+              Have a specific question about your business website?
+            </h4>
+            <p className="text-xs text-slate-600 mt-0.5">
+              Ask Jagadish directly on WhatsApp. No sales pitch, just honest engineering answers.
             </p>
           </div>
+
           <a
             href={whatsapp}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 px-6 py-3.5 rounded-2xl text-xs sm:text-sm font-bold bg-[#25D366] hover:bg-[#20bd5a] text-slate-950 shadow-xl shadow-emerald-500/20 transition-all active:scale-95 shrink-0 cursor-pointer font-mono"
+            className="px-5 py-2.5 rounded-xl text-xs font-semibold bg-emerald-600 hover:bg-emerald-500 text-white flex items-center gap-1.5 shadow-md shadow-emerald-500/20 transition-all shrink-0"
           >
-            <WhatsAppIcon className="w-4 h-4 fill-slate-950 text-slate-950" />
+            <WhatsAppIcon className="w-3.5 h-3.5 fill-current" />
             <span>Chat on WhatsApp</span>
           </a>
         </div>

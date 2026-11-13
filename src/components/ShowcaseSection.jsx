@@ -43,7 +43,7 @@ export default function ShowcaseSection({ onSelectProject }) {
       id: 'apex-logistics',
       title: 'Apex Global Logistics OS',
       client: 'Apex Fleet Corp',
-      subdomain: 'apexlogistics.jagadish.online',
+      subdomain: 'apexlogistics.merqurie.com',
       status: 'Active Client Staging',
       category: 'Supply Chain & Real-Time Tracking',
       highlight: 'Enterprise Grade',
@@ -78,7 +78,7 @@ export default function ShowcaseSection({ onSelectProject }) {
             </h2>
           </div>
           <p className="max-w-md text-slate-400 text-sm font-sans">
-            Every client receives a custom staging link on <code className="text-cyan-400 bg-cyan-950/60 px-1.5 py-0.5 rounded">*.jagadish.online</code> for instant review, tweaks, and frictionless zero-downtime domain handoff.
+            Every client receives a custom staging link on <code className="text-cyan-400 bg-cyan-950/60 px-1.5 py-0.5 rounded">*.merqurie.com</code> for instant review, tweaks, and frictionless zero-downtime domain handoff.
           </p>
         </div>
 

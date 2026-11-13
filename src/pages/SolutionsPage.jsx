@@ -9,6 +9,7 @@ import {
   Zap, 
   ShieldCheck, 
   Smartphone, 
+  Laptop,
   Lock, 
   MessageSquare, 
   CheckCircle2, 
@@ -38,7 +39,8 @@ export default function SolutionsPage({ onOpenPrototypeModal }) {
       title: 'High-Speed Website for Your Business',
       tagline: 'Ideal for clinics, local businesses, schools, and professional practices.',
       desc: 'A beautiful, modern website designed to make your business look established, win customer trust, and make it effortless for visitors to reach you.',
-      image: '/images/showcase_business_website.webp',
+      desktopImage: '/images/pms_real.webp',
+      mobileImage: '/images/pms_mobile_real.jpg',
       badge: 'Most Popular for Local Businesses',
       theme: {
         cardBg: 'bg-white',
@@ -68,7 +70,8 @@ export default function SolutionsPage({ onOpenPrototypeModal }) {
       title: 'Interactive Catalog & WhatsApp Store',
       tagline: 'Ideal for retailers, wholesalers, distributors, and manufacturers.',
       desc: 'Display your entire product line with high-resolution photos, prices, and specifications. Customers browse smoothly and place orders or ask for price quotes directly through WhatsApp.',
-      image: '/images/showcase_ecommerce_catalog.webp',
+      desktopImage: '/images/showcase_ecommerce_catalog.webp',
+      mobileImage: '/images/showcase_ecommerce_catalog.webp',
       badge: 'Zero Cart Drop-Offs',
       theme: {
         cardBg: 'bg-white',
@@ -95,11 +98,12 @@ export default function SolutionsPage({ onOpenPrototypeModal }) {
     {
       icon: Layers,
       solutionNum: '03',
-      title: 'Custom Portals & Booking Systems',
+      title: 'Custom Apps & Client Member Portals',
       tagline: 'Ideal for sports academies, medical suppliers, and growing companies.',
-      desc: 'Custom web tools and member systems (proven live on pmssolution.co.in and upskskarate.com). From student belt registries to hospital equipment quote engines, built to run smoothly without bugs.',
-      image: '/images/showcase_custom_cloud_system.webp',
-      badge: 'Enterprise Engineering',
+      desc: 'Custom web apps, member portals, and student registries (proven live on pmssolution.co.in and upskskarate.com). Built with precision to run smoothly on any device.',
+      desktopImage: '/images/upsks_real.webp',
+      mobileImage: '/images/upsks_mobile_real.jpg',
+      badge: 'Custom Cloud Architecture',
       theme: {
         cardBg: 'bg-white',
         border: 'border-indigo-200 hover:border-indigo-400',
@@ -111,11 +115,11 @@ export default function SolutionsPage({ onOpenPrototypeModal }) {
       points: [
         'Customer quote enquiries delivered straight to your WhatsApp & email',
         'Private dashboard to manage students, inventory, or client bookings',
-        'Engineered with Amazon & Turing big-tech precision',
+        'Engineered with Amazon & Google AI big-tech precision',
         'Sub-second speed that scores 99/100 on Google tests',
         'Full transfer of code and database on launch day — 100% owned by you',
       ],
-      chatPreview: 'Hi Jagadish! We need an equipment quote for ICU setup in Chennai.',
+      chatPreview: 'Hi Sensei! Want to enrol my daughter in evening karate batch.',
       stats: [
         { label: 'Lead Delivery', val: 'Instant 0.2s' },
         { label: 'Architecture', val: 'Direct Founder' },
@@ -229,108 +233,106 @@ export default function SolutionsPage({ onOpenPrototypeModal }) {
 
               </div>
 
-              {/* Right Column: Multi-Device Interactive Canvas */}
-              <div className="lg:col-span-5 relative z-10">
+              {/* Right Column: Distinct Multi-Device Interactive Canvas */}
+              <div className="lg:col-span-5 flex flex-col items-center relative z-10">
                 
-                {/* Device Switcher */}
-                <div className="flex items-center justify-between mb-2 px-1">
+                {/* Device Switcher Pills */}
+                <div className="w-full flex items-center justify-between mb-3 px-1">
                   <span className="text-[11px] font-mono text-slate-500 font-semibold">Interactive Mockup:</span>
-                  <div className="inline-flex p-0.5 rounded-xl bg-slate-100 border border-slate-200 text-[10px] font-mono">
+                  <div className="inline-flex p-1 rounded-xl bg-slate-100 border border-slate-200 text-[11px] font-mono">
                     <button
                       onClick={() => toggleView(idx, 'mobile')}
-                      className={`px-2.5 py-0.5 rounded-lg transition-all cursor-pointer ${
+                      className={`px-3 py-1 rounded-lg flex items-center gap-1.5 transition-all cursor-pointer ${
                         currentView === 'mobile'
-                          ? 'bg-rose-600 text-white font-bold'
+                          ? 'bg-rose-600 text-white font-bold shadow-sm'
                           : 'text-slate-600 hover:text-slate-900'
                       }`}
                     >
-                      📱 Phone View
+                      <Smartphone className="w-3 h-3" />
+                      <span>Phone View</span>
                     </button>
                     <button
                       onClick={() => toggleView(idx, 'desktop')}
-                      className={`px-2.5 py-0.5 rounded-lg transition-all cursor-pointer ${
+                      className={`px-3 py-1 rounded-lg flex items-center gap-1.5 transition-all cursor-pointer ${
                         currentView === 'desktop'
-                          ? 'bg-rose-600 text-white font-bold'
+                          ? 'bg-rose-600 text-white font-bold shadow-sm'
                           : 'text-slate-600 hover:text-slate-900'
                       }`}
                     >
-                      💻 Desktop View
+                      <Laptop className="w-3 h-3" />
+                      <span>Desktop View</span>
                     </button>
                   </div>
                 </div>
 
-                {/* Modern Workstation Frame */}
-                <div className="rounded-2xl border border-slate-200 bg-slate-900 p-2 sm:p-2.5 shadow-xl group/frame relative">
+                {/* Genuinely Different Mockup Frames based on selected view */}
+                {currentView === 'mobile' ? (
                   
-                  {/* Micro Browser Bar */}
-                  <div className="px-2.5 py-1.5 flex items-center justify-between border-b border-white/10 mb-2">
-                    <div className="flex items-center gap-1.5">
-                      <span className="w-2 h-2 rounded-full bg-rose-500" />
-                      <span className="w-2 h-2 rounded-full bg-amber-500" />
-                      <span className="w-2 h-2 rounded-full bg-emerald-500" />
+                  /* 1. Authentic iPhone 16 Pro Mockup Frame */
+                  <div className="w-[260px] sm:w-[280px] rounded-[44px] bg-slate-950 border-[6px] border-slate-800 p-2.5 shadow-2xl shadow-slate-300/60 relative animate-fade-in">
+                    {/* Dynamic Island */}
+                    <div className="w-20 h-4 bg-slate-900 rounded-full mx-auto mb-2 flex items-center justify-end px-2">
+                      <div className="w-1.5 h-1.5 rounded-full bg-emerald-400/90 animate-pulse" />
                     </div>
 
-                    <div className="flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-slate-950 border border-white/10 text-[10px] font-mono text-slate-300">
-                      <Lock className="w-2.5 h-2.5 text-emerald-400 shrink-0" />
-                      <span>merqurie.cloud/live</span>
-                    </div>
-
-                    <span className="text-[9px] font-mono font-bold text-emerald-300 bg-emerald-950 px-2 py-0.5 rounded-md border border-emerald-500/40">
-                      ⚡ 0.24s Speed
-                    </span>
-                  </div>
-
-                  {/* Main Desktop Image Viewport */}
-                  <div className="relative aspect-[16/10] rounded-xl overflow-hidden bg-slate-950 group/img">
-                    <img
-                      src={offer.image}
-                      alt={offer.title}
-                      loading="lazy"
-                      decoding="async"
-                      className="w-full h-full object-cover object-top transition-transform duration-700 ease-out group-hover:scale-104"
-                    />
-
-                    {/* Overlapping Floating Titanium Smartphone */}
-                    <div className={`absolute -bottom-2 sm:-bottom-3 -right-1 sm:right-2 w-[115px] sm:w-[145px] aspect-[9/18] rounded-[1.3rem] sm:rounded-[1.6rem] bg-slate-950 p-1 sm:p-1.5 shadow-2xl ring-2 ring-slate-800 z-20 transition-all duration-500 ease-out ${
-                      currentView === 'desktop' ? 'opacity-40 scale-95 translate-y-3' : 'group-hover:-translate-y-2 group-hover:scale-103'
-                    }`}>
-                      <div className="w-full h-full rounded-[1.05rem] sm:rounded-[1.3rem] overflow-hidden relative bg-slate-900 border border-slate-800">
-                        <img
-                          src={offer.image}
-                          alt={`${offer.title} Mobile View`}
-                          className="w-full h-full object-cover object-top"
-                        />
-
-                        {/* Top Mobile Status Bar */}
-                        <div className="absolute top-0 inset-x-0 pt-1 px-2 flex items-center justify-between text-[7px] font-mono text-white/90 bg-gradient-to-b from-black/70 to-transparent z-20">
-                          <span>9:41</span>
-                          <div className="flex items-center gap-1">
-                            <Wifi className="w-2 h-2" />
-                            <Battery className="w-2 h-2" />
-                          </div>
+                    {/* Phone Screen: Authentic 1:1 Mobile Screenshot */}
+                    <div className="relative rounded-[32px] overflow-hidden aspect-[9/18.5] bg-slate-900 group">
+                      <img
+                        src={offer.mobileImage}
+                        alt={`${offer.title} Mobile Screen`}
+                        className="w-full h-full object-cover object-top"
+                      />
+                      
+                      {/* Floating WhatsApp Lead simulation card */}
+                      <div className="absolute bottom-3 left-2.5 right-2.5 p-2.5 rounded-xl bg-slate-900/95 backdrop-blur-md border border-emerald-500/40 shadow-lg text-left">
+                        <div className="flex items-center gap-1.5 mb-1">
+                          <div className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-ping" />
+                          <span className="text-[9px] font-mono font-bold text-emerald-400">1-TAP WHATSAPP ENQUIRY</span>
                         </div>
-
-                        {/* Simulated Customer WhatsApp Message Bubble */}
-                        <div className="absolute bottom-2 inset-x-1.5 z-20 space-y-1">
-                          <div className="p-1.5 rounded-xl bg-slate-900/95 backdrop-blur-md border border-emerald-400 shadow-md text-left">
-                            <div className="flex items-center gap-1 text-[7px] font-mono font-bold text-emerald-400 mb-0.5">
-                              <MessageSquare className="w-2 h-2 text-emerald-400 fill-current" />
-                              <span>Direct WhatsApp Enquiry</span>
-                            </div>
-                            <p className="text-[7.5px] leading-tight text-white line-clamp-2">
-                              "{offer.chatPreview}"
-                            </p>
-                          </div>
-
-                          <div className="py-1 px-2 rounded-full bg-[#25D366] text-white text-[7px] font-mono font-bold flex items-center justify-center gap-1 shadow-sm">
-                            <span>1-Tap Connect</span>
-                          </div>
-                        </div>
+                        <p className="text-[9.5px] text-white font-medium line-clamp-2">"{offer.chatPreview}"</p>
                       </div>
                     </div>
 
+                    {/* Home Indicator Bar */}
+                    <div className="w-20 h-1 bg-white/40 mx-auto mt-2 rounded-full" />
                   </div>
-                </div>
+
+                ) : (
+
+                  /* 2. Authentic MacBook Pro Glass Frame */
+                  <div className="w-full rounded-2xl bg-slate-900 border-2 border-slate-700 p-2.5 shadow-2xl shadow-slate-300/60 relative animate-fade-in">
+                    {/* Laptop Chrome Bar */}
+                    <div className="px-2.5 py-1.5 flex items-center justify-between border-b border-white/10 mb-2">
+                      <div className="flex items-center gap-1.5">
+                        <span className="w-2 h-2 rounded-full bg-red-500" />
+                        <span className="w-2 h-2 rounded-full bg-amber-500" />
+                        <span className="w-2 h-2 rounded-full bg-emerald-500" />
+                      </div>
+
+                      <div className="flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-slate-950 border border-white/10 text-[10px] font-mono text-slate-300">
+                        <Lock className="w-2.5 h-2.5 text-emerald-400 shrink-0" />
+                        <span>https://merqurie.com</span>
+                      </div>
+
+                      <span className="text-[9px] font-mono font-bold text-emerald-300 bg-emerald-950 px-2 py-0.5 rounded-md border border-emerald-500/40">
+                        ⚡ 0.24s Speed
+                      </span>
+                    </div>
+
+                    {/* Desktop Viewport */}
+                    <div className="relative aspect-[16/10] rounded-xl overflow-hidden bg-slate-950">
+                      <img
+                        src={offer.desktopImage}
+                        alt={`${offer.title} Desktop Screen`}
+                        className="w-full h-full object-cover object-top"
+                      />
+                    </div>
+
+                    {/* Laptop Notch */}
+                    <div className="w-24 h-1 bg-white/20 mx-auto mt-2 rounded-full" />
+                  </div>
+
+                )}
 
               </div>
 

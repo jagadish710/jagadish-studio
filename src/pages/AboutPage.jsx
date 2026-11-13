@@ -14,7 +14,7 @@ import {
   Check 
 } from 'lucide-react';
 import WhatsAppIcon from '../components/WhatsAppIcon';
-import { AmazonLogo, TuringLogo } from '../components/CompanyLogos';
+import { GoogleLogo, AmazonLogo, TuringLogo } from '../components/CompanyLogos';
 
 const whatsapp = 'https://wa.me/917358618789?text=Hi%20Jagadish!%20I%20would%20like%20to%20discuss%20a%20website%20for%20my%20business.';
 
@@ -82,13 +82,13 @@ export default function AboutPage({ onOpenPrototypeModal }) {
         </p>
       </div>
 
-      {/* Main Founder Story VIP Glowing Card */}
+      {/* Main Founder Story VIP Card */}
       <div className="p-6 sm:p-10 lg:p-12 rounded-3xl border border-slate-200/90 bg-white shadow-2xl shadow-slate-200/60 relative overflow-hidden group">
         
         <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-center relative z-10">
           
           {/* Founder Profile Badge */}
-          <div className="md:col-span-4 flex flex-col items-center text-center">
+          <div className="md:col-span-5 flex flex-col items-center text-center">
             <div className="w-52 h-64 rounded-3xl p-1 bg-gradient-to-br from-rose-500 via-amber-400 to-sky-500 shadow-xl shadow-rose-200/50 mb-4">
               <div className="w-full h-full rounded-[22px] bg-white border border-slate-200 flex flex-col items-center justify-center p-4">
                 <div className="w-28 h-28 rounded-2xl overflow-hidden mb-3 shadow-lg ring-2 ring-rose-500/20 border-2 border-slate-100 bg-slate-100 shrink-0">
@@ -105,31 +105,41 @@ export default function AboutPage({ onOpenPrototypeModal }) {
             </div>
 
             {/* Credibility Badges with Official Logos */}
-            <div className="space-y-2.5 w-full text-xs font-mono">
-              <div className="p-3 rounded-2xl bg-slate-50 border border-slate-200 text-left flex items-center gap-3 shadow-xs">
+            <div className="space-y-2 w-full text-xs font-mono">
+              <div className="p-2.5 rounded-2xl bg-slate-50 border border-slate-200 text-left flex items-center gap-3 shadow-2xs">
+                <div className="w-9 h-9 rounded-xl bg-white border border-slate-200 flex items-center justify-center shrink-0 shadow-xs">
+                  <GoogleLogo className="w-5 h-5" />
+                </div>
+                <div>
+                  <strong className="text-slate-950 block font-bold text-xs">Google</strong>
+                  <span className="text-slate-600 text-[10px]">Frontier AI Evaluation (Gemini)</span>
+                </div>
+              </div>
+
+              <div className="p-2.5 rounded-2xl bg-slate-50 border border-slate-200 text-left flex items-center gap-3 shadow-2xs">
                 <div className="w-9 h-9 rounded-xl bg-white border border-slate-200 flex items-center justify-center shrink-0 shadow-xs">
                   <AmazonLogo className="w-5 h-5 text-slate-900" />
                 </div>
                 <div>
                   <strong className="text-slate-950 block font-bold text-xs">Amazon</strong>
-                  <span className="text-slate-600 text-[11px]">Former Technical Engineer</span>
+                  <span className="text-slate-600 text-[10px]">Former Technical Engineer</span>
                 </div>
               </div>
 
-              <div className="p-3 rounded-2xl bg-slate-50 border border-slate-200 text-left flex items-center gap-3 shadow-xs">
+              <div className="p-2.5 rounded-2xl bg-slate-50 border border-slate-200 text-left flex items-center gap-3 shadow-2xs">
                 <div className="w-9 h-9 rounded-xl bg-white border border-slate-200 flex items-center justify-center shrink-0 shadow-xs">
                   <TuringLogo className="w-5 h-5" />
                 </div>
                 <div>
                   <strong className="text-slate-950 block font-bold text-xs">Turing</strong>
-                  <span className="text-slate-600 text-[11px]">Frontier AI Systems (Gemini, Claude)</span>
+                  <span className="text-slate-600 text-[10px]">Frontier AI Systems (Gemini, Claude)</span>
                 </div>
               </div>
             </div>
           </div>
 
           {/* Honest Founder Narrative in Plain English */}
-          <div className="md:col-span-8 space-y-4 text-left">
+          <div className="md:col-span-7 space-y-4 text-left">
             <span className="text-xs font-mono uppercase tracking-widest text-rose-600 font-bold block">
               THE STORY &amp; MISSION
             </span>
@@ -138,10 +148,10 @@ export default function AboutPage({ onOpenPrototypeModal }) {
             </h2>
             <div className="space-y-3.5 text-xs sm:text-sm text-slate-600 leading-relaxed">
               <p>
-                During my career at <strong className="text-slate-950">Amazon</strong> and developing AI systems at <strong className="text-slate-950">Turing</strong>, I saw how top tech companies build software: fast, simple, and laser-focused on the user.
+                During my engineering career at <strong className="text-slate-950">Amazon</strong> and evaluating frontier AI models for clients like <strong className="text-slate-950">Google (Gemini)</strong> via <strong className="text-slate-950">Turing</strong>, I saw how top tech companies build software: fast, simple, and laser-focused on user experience.
               </p>
               <p>
-                When looking at how website agencies treat small businesses in India, I saw an unfair model: agencies build slow WordPress templates that take 8 seconds to load, take 5 days to answer simple emails, and send endless monthly bills of ₹5,000 to ₹15,000 just for "maintenance" that delivers zero value.
+                When looking at how website agencies treat small and growing businesses in India, I saw an unfair model: agencies build slow WordPress templates that take 8 seconds to load, take 5 days to answer simple emails, and send endless monthly bills of ₹5,000 to ₹15,000 just for "maintenance" that delivers zero value.
               </p>
               <p className="text-slate-900 font-medium bg-rose-50 p-4 rounded-2xl border border-rose-200">
                 Merqurie was created to fix this. We build ultra-fast, mobile-first websites that load in under 1 second, connect directly to your WhatsApp, and give you 100% full ownership from day one — with ₹0 monthly retainer fees forever.
@@ -155,7 +165,7 @@ export default function AboutPage({ onOpenPrototypeModal }) {
                 rel="noopener noreferrer"
                 className="px-6 py-3 rounded-xl text-xs font-bold bg-emerald-600 hover:bg-emerald-500 text-white flex items-center gap-2 shadow-lg shadow-emerald-500/25 transition-all active:scale-95 cursor-pointer"
               >
-                <WhatsAppIcon className="w-4 h-4 fill-white text-white" />
+                <WhatsAppIcon className="w-4 h-4 fill-white" />
                 <span>Chat with Jagadish</span>
               </a>
 

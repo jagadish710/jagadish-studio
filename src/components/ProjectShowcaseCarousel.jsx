@@ -94,7 +94,7 @@ export default function ProjectShowcaseCarousel({ onOpenPrototypeModal }) {
       mobileImage: '/images/showcase_admin_portal.webp',
       badge: 'Visual Cockpit',
       url: null,
-      domain: 'merqurie.cloud/admin',
+      domain: 'admin.merqurie.com',
       theme: {
         cardBg: 'bg-white',
         border: 'border-indigo-200 hover:border-indigo-400',
@@ -124,7 +124,7 @@ export default function ProjectShowcaseCarousel({ onOpenPrototypeModal }) {
       mobileImage: '/images/showcase_ecommerce_catalog.webp',
       badge: 'Interactive Storefront',
       url: null,
-      domain: 'store.merqurie.cloud',
+      domain: 'store.merqurie.com',
       theme: {
         cardBg: 'bg-white',
         border: 'border-emerald-200 hover:border-emerald-400',

@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import * as THREE from 'three';
 import confetti from 'canvas-confetti';
-import { Sparkles, RefreshCw, Zap } from 'lucide-react';
+import { Sparkles, Zap, Info } from 'lucide-react';
 
 export default function ThreeCenterpiece3D() {
   const containerRef = useRef(null);
@@ -10,13 +10,51 @@ export default function ThreeCenterpiece3D() {
   const [isHovered, setIsHovered] = useState(false);
   const meshRef = useRef(null);
   const materialRef = useRef(null);
+  const lightsRef = useRef({});
+  const particlesRef = useRef(null);
   const mouseRef = useRef({ x: 0, y: 0, targetX: 0, targetY: 0 });
 
   const shaderPresets = [
-    { id: 'mercury', label: '🔮 Liquid Mercury', color: 0xffffff, metalness: 0.98, roughness: 0.04, clearcoat: 1.0 },
-    { id: 'cyber', label: '⚡ Cyber Rose', color: 0xe11d48, metalness: 0.85, roughness: 0.12, clearcoat: 0.9 },
-    { id: 'gold', label: '👑 Liquid Gold', color: 0xd97706, metalness: 0.95, roughness: 0.08, clearcoat: 1.0 },
-    { id: 'emerald', label: '🌿 Radiant Jade', color: 0x059669, metalness: 0.7, roughness: 0.15, clearcoat: 1.0 },
+    { 
+      id: 'mercury', 
+      label: '🔮 Liquid Mercury', 
+      color: 0xffffff, 
+      metalness: 0.98, 
+      roughness: 0.04, 
+      clearcoat: 1.0,
+      glow: 'from-sky-400/25 via-slate-300/30 to-violet-400/20',
+      desc: 'Specular chrome liquid metal'
+    },
+    { 
+      id: 'gold', 
+      label: '👑 Liquid Gold', 
+      color: 0xffb703, 
+      metalness: 0.95, 
+      roughness: 0.08, 
+      clearcoat: 1.0,
+      glow: 'from-amber-400/35 via-yellow-400/25 to-orange-400/20',
+      desc: '24K radiant polished gold'
+    },
+    { 
+      id: 'cyber', 
+      label: '⚡ Cyber Rose', 
+      color: 0xe11d48, 
+      metalness: 0.88, 
+      roughness: 0.10, 
+      clearcoat: 0.9,
+      glow: 'from-rose-500/30 via-pink-400/25 to-purple-400/25',
+      desc: 'Electric crimson anodized alloy'
+    },
+    { 
+      id: 'emerald', 
+      label: '🌿 Radiant Jade', 
+      color: 0x10b981, 
+      metalness: 0.85, 
+      roughness: 0.10, 
+      clearcoat: 1.0,
+      glow: 'from-emerald-400/30 via-teal-400/20 to-cyan-400/20',
+      desc: 'Luminous emerald titanium'
+    },
   ];
 
   useEffect(() => {
@@ -42,30 +80,32 @@ export default function ThreeCenterpiece3D() {
     renderer.toneMapping = THREE.ACESFilmicToneMapping;
     renderer.toneMappingExposure = 1.35;
 
-    // Daylight Studio Lighting Rig tuned for luminous white canvas
-    const ambientLight = new THREE.AmbientLight(0xffffff, 1.2);
+    // High-spec pure studio lighting (neutral white so true metallic colors pop!)
+    const ambientLight = new THREE.AmbientLight(0xffffff, 1.4);
     scene.add(ambientLight);
 
-    const keyLight = new THREE.DirectionalLight(0xe11d48, 4.0);
+    const keyLight = new THREE.DirectionalLight(0xffffff, 3.4);
     keyLight.position.set(4, 5, 4);
     scene.add(keyLight);
 
-    const fillLight = new THREE.DirectionalLight(0x0284c7, 3.5);
+    const fillLight = new THREE.DirectionalLight(0xf1f5f9, 2.4);
     fillLight.position.set(-4, -3, 3);
     scene.add(fillLight);
 
-    const rimLight = new THREE.DirectionalLight(0x10b981, 3.5);
+    const rimLight = new THREE.DirectionalLight(0xffffff, 2.2);
     rimLight.position.set(0, 4, -4);
     scene.add(rimLight);
 
-    // Kinetic Complex Geometry: Torus Knot with liquid organic proportions
+    lightsRef.current = { ambientLight, keyLight, fillLight, rimLight };
+
+    // Kinetic Complex Geometry: Torus Knot forming the Merqurie "M" Infinite Loop
     const geometry = new THREE.TorusKnotGeometry(1.2, 0.42, 128, 32, 2, 3);
     
     // Physical Metallic Shading
     const material = new THREE.MeshPhysicalMaterial({
       color: 0xffffff,
       metalness: 0.98,
-      roughness: 0.05,
+      roughness: 0.04,
       clearcoat: 1.0,
       clearcoatRoughness: 0.08,
       reflectivity: 0.98,
@@ -92,10 +132,9 @@ export default function ThreeCenterpiece3D() {
       particlePositions[i + 1] = radius * Math.sin(phi);
       particlePositions[i + 2] = radius * Math.sin(theta) * Math.cos(phi);
 
-      const isRose = Math.random() > 0.5;
-      particleColors[i] = isRose ? 0.88 : 0.0;
-      particleColors[i + 1] = isRose ? 0.11 : 0.72;
-      particleColors[i + 2] = isRose ? 0.28 : 0.55;
+      particleColors[i] = 0.85;
+      particleColors[i + 1] = 0.88;
+      particleColors[i + 2] = 0.92;
     }
 
     particleGeo.setAttribute('position', new THREE.BufferAttribute(particlePositions, 3));
@@ -109,6 +148,7 @@ export default function ThreeCenterpiece3D() {
     });
 
     const particles = new THREE.Points(particleGeo, particleMat);
+    particlesRef.current = particles;
     scene.add(particles);
 
     // Mouse pointer interaction
@@ -179,7 +219,7 @@ export default function ThreeCenterpiece3D() {
     };
   }, []);
 
-  // Update Shader Preset Material dynamically
+  // Update Shader Preset Material dynamically with true vibrant metallic colors
   const applyShaderPreset = (preset) => {
     setActiveShader(preset.id);
     if (!materialRef.current) return;
@@ -194,7 +234,7 @@ export default function ThreeCenterpiece3D() {
       particleCount: 22,
       spread: 60,
       origin: { y: 0.4, x: 0.65 },
-      colors: ['#E11D48', '#0284C7', '#D97706', '#10B981'],
+      colors: ['#F59E0B', '#E11D48', '#10B981', '#0284C7'],
     });
   };
 
@@ -203,20 +243,17 @@ export default function ThreeCenterpiece3D() {
       particleCount: 45,
       spread: 80,
       origin: { y: 0.45, x: 0.65 },
-      colors: ['#E11D48', '#0284C7', '#D97706', '#10B981'],
+      colors: ['#F59E0B', '#E11D48', '#10B981', '#0284C7'],
     });
   };
+
+  const currentPreset = shaderPresets.find(p => p.id === activeShader) || shaderPresets[0];
 
   return (
     <div className="relative w-full max-w-[440px] aspect-square mx-auto flex flex-col items-center justify-center select-none group">
       
-      {/* Dynamic Ambient Glow Behind 3D Canvas */}
-      <div className={`absolute inset-0 rounded-full blur-[80px] transition-all duration-700 pointer-events-none ${
-        activeShader === 'mercury' ? 'bg-gradient-to-tr from-sky-400/25 via-rose-400/20 to-violet-400/20' :
-        activeShader === 'cyber' ? 'bg-gradient-to-tr from-rose-500/30 via-pink-400/25 to-purple-400/25' :
-        activeShader === 'gold' ? 'bg-gradient-to-tr from-amber-400/30 via-yellow-400/20 to-orange-400/20' :
-        'bg-gradient-to-tr from-emerald-400/30 via-teal-400/20 to-cyan-400/20'
-      }`} />
+      {/* Dynamic Ambient Glow Behind 3D Canvas matching selected material */}
+      <div className={`absolute inset-0 rounded-full blur-[80px] transition-all duration-700 pointer-events-none bg-gradient-to-tr ${currentPreset.glow}`} />
 
       {/* Interactive 3D Canvas Container */}
       <div 
@@ -225,19 +262,19 @@ export default function ThreeCenterpiece3D() {
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
         className="w-full h-full relative z-10 cursor-grab active:cursor-grabbing flex items-center justify-center"
-        title="Click or drag to interact with the 3D Liquid Mercury emblem!"
+        title="Click or drag to interact with Merqurie's Kinetic 'M' loop!"
       >
         <canvas ref={canvasRef} className="w-full h-full" />
 
-        {/* Floating Badge on Canvas */}
-        <div className="absolute top-3 right-3 px-3 py-1 rounded-full bg-white/95 backdrop-blur-md border border-slate-200/90 text-[10px] font-mono text-cyan-800 font-bold flex items-center gap-1.5 shadow-md">
-          <span className="w-1.5 h-1.5 rounded-full bg-cyan-600 animate-ping" />
-          <span>REAL-TIME 3D</span>
+        {/* Floating Badge with Exact Meaning */}
+        <div className="absolute top-2 right-2 px-3 py-1 rounded-full bg-white/95 backdrop-blur-md border border-slate-200/90 text-[10px] font-mono text-slate-800 font-bold flex items-center gap-1.5 shadow-md">
+          <span className="w-1.5 h-1.5 rounded-full bg-rose-500 animate-ping" />
+          <span>KINETIC "M" EMBLEM</span>
         </div>
 
         {/* Click hint tooltip */}
-        <div className="absolute bottom-14 left-1/2 -translate-x-1/2 px-3 py-1 rounded-full bg-slate-900/80 backdrop-blur-md border border-slate-800 text-[10px] font-mono text-white opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none flex items-center gap-1.5 whitespace-nowrap shadow-lg">
-          <Zap className="w-3 h-3 text-rose-400" />
+        <div className="absolute bottom-16 left-1/2 -translate-x-1/2 px-3 py-1 rounded-full bg-slate-900/85 backdrop-blur-md border border-slate-800 text-[10px] font-mono text-white opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none flex items-center gap-1.5 whitespace-nowrap shadow-lg">
+          <Zap className="w-3 h-3 text-amber-400" />
           <span>Move mouse or click to pulse</span>
         </div>
       </div>
@@ -261,6 +298,15 @@ export default function ThreeCenterpiece3D() {
           );
         })}
       </div>
+
+      {/* Precise 1-Line Explanation of the 3D Image */}
+      <div className="relative z-20 mt-3 text-center px-4">
+        <p className="text-[11px] font-mono text-slate-500 flex items-center justify-center gap-1">
+          <Info className="w-3.5 h-3.5 text-rose-500 shrink-0" />
+          <span>Kinetic "M" Infinite Loop — Symbolizing speed, fluid motion, and zero latency.</span>
+        </p>
+      </div>
+
     </div>
   );
 }

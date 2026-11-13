@@ -224,7 +224,7 @@ export default function Hero({ onOpenPrototypeModal, onNavigateToWork, onNavigat
                 {/* Search Address Pill */}
                 <div className="flex items-center gap-1.5 px-3 py-1 rounded-full bg-white border border-slate-200 text-[11px] font-mono text-slate-700 shadow-xs">
                   <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
-                  <span>https://{current.url ? current.url.replace('https://', '') : 'merqurie.cloud'}</span>
+                  <span>https://{current.url ? current.url.replace('https://', '') : 'merqurie.com'}</span>
                 </div>
               </div>
 

@@ -1,21 +1,103 @@
 import React from 'react';
-import { 
-  Home, 
-  Layers, 
-  Sparkles, 
-  ShieldCheck, 
-  Bot 
-} from 'lucide-react';
 import WhatsAppIcon from './WhatsAppIcon';
 
 const whatsapp = 'https://wa.me/917358618789?text=Hi%20Jagadish!%20I%20would%20like%20to%20discuss%20a%20website%20for%20my%20business.';
+
+/**
+ * Clean Instagram / YouTube style navigation icons with visible inner cutout lines
+ */
+function HomeNavIcon({ active }) {
+  return (
+    <svg 
+      className={`w-6 h-6 transition-transform duration-200 ${active ? 'scale-110' : ''}`}
+      viewBox="0 0 24 24" 
+      fill="none" 
+      stroke="currentColor" 
+      strokeWidth={active ? "2.4" : "1.8"} 
+      strokeLinecap="round" 
+      strokeLinejoin="round"
+    >
+      {active ? (
+        <>
+          {/* Filled silhouette with distinct inner cutout door */}
+          <path d="M3 10.5L12 3l9 7.5V20a1.5 1.5 0 0 1-1.5 1.5H15v-6a3 3 0 0 0-6 0v6H4.5A1.5 1.5 0 0 1 3 20v-9.5z" fill="currentColor" />
+          <path d="M9 21.5v-6a3 3 0 0 1 6 0v6" fill="#F8FAFC" stroke="#F8FAFC" strokeWidth="1" />
+        </>
+      ) : (
+        <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z M9 22V12h6v10" />
+      )}
+    </svg>
+  );
+}
+
+function ServicesNavIcon({ active }) {
+  return (
+    <svg 
+      className={`w-6 h-6 transition-transform duration-200 ${active ? 'scale-110' : ''}`}
+      viewBox="0 0 24 24" 
+      fill="none" 
+      stroke="currentColor" 
+      strokeWidth={active ? "2.4" : "1.8"} 
+      strokeLinecap="round" 
+      strokeLinejoin="round"
+    >
+      {/* 3 crisp stacked layer plates with clear separator lines */}
+      <polygon points="12 2 2 7 12 12 22 7 12 2" fill={active ? "currentColor" : "none"} fillOpacity={active ? "0.2" : "0"} />
+      <polyline points="2 12 12 17 22 12" />
+      <polyline points="2 17 12 22 22 17" />
+    </svg>
+  );
+}
+
+function WorkNavIcon({ active }) {
+  return (
+    <svg 
+      className={`w-6 h-6 transition-transform duration-200 ${active ? 'scale-110' : ''}`}
+      viewBox="0 0 24 24" 
+      fill="none" 
+      stroke="currentColor" 
+      strokeWidth={active ? "2.4" : "1.8"} 
+      strokeLinecap="round" 
+      strokeLinejoin="round"
+    >
+      {/* Primary sparkle star with inner line detail */}
+      <path 
+        d="M12 2l2.4 6.8L21 11.2l-5.6 4.4L17.2 22 12 17.8 6.8 22l1.8-6.4L3 11.2l6.6-2.4L12 2z" 
+        fill={active ? "currentColor" : "none"} 
+        fillOpacity={active ? "0.25" : "0"} 
+      />
+    </svg>
+  );
+}
+
+function StudioNavIcon({ active }) {
+  return (
+    <svg 
+      className={`w-6 h-6 transition-transform duration-200 ${active ? 'scale-110' : ''}`}
+      viewBox="0 0 24 24" 
+      fill="none" 
+      stroke="currentColor" 
+      strokeWidth={active ? "2.4" : "1.8"} 
+      strokeLinecap="round" 
+      strokeLinejoin="round"
+    >
+      {/* Shield with interior check line cutout */}
+      <path 
+        d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" 
+        fill={active ? "currentColor" : "none"} 
+        fillOpacity={active ? "0.2" : "0"} 
+      />
+      <path d="M9 12l2 2 4-4" strokeWidth={active ? "2.6" : "2"} />
+    </svg>
+  );
+}
 
 export default function MobileBottomNav({ 
   activePage, 
   setActivePage, 
   onOpenChat, 
   chatOpen, 
-  isDark = true 
+  isDark = false 
 }) {
   const handleNav = (pageId) => {
     setActivePage(pageId);
@@ -26,130 +108,79 @@ export default function MobileBottomNav({
   return (
     <nav 
       aria-label="Mobile Bottom Navigation"
-      className={`md:hidden fixed bottom-0 left-0 right-0 z-50 px-2 py-2 backdrop-blur-2xl transition-colors duration-300 ${
-        isDark 
-          ? 'border-t border-zinc-800/90 bg-[#09090D]/95 shadow-[0_-8px_30px_rgba(0,0,0,0.8)]' 
-          : 'border-t border-slate-200/90 bg-white/95 shadow-[0_-4px_25px_rgba(15,23,42,0.08)]'
-      }`}
-      style={{ paddingBottom: 'calc(0.5rem + env(safe-area-inset-bottom, 0px))' }}
+      className="md:hidden fixed bottom-0 left-0 right-0 z-50 px-2 py-1.5 backdrop-blur-2xl transition-colors duration-300 border-t border-slate-200/90 bg-white/95 shadow-[0_-4px_25px_rgba(15,23,42,0.08)]"
+      style={{ paddingBottom: 'calc(0.4rem + env(safe-area-inset-bottom, 0px))' }}
     >
       <div className="grid grid-cols-5 items-center justify-around max-w-md mx-auto">
         
-        {/* 1. Overview */}
+        {/* 1. Home */}
         <button
           onClick={() => handleNav('home')}
-          className={`flex flex-col items-center justify-center gap-1 py-1 px-1 rounded-xl transition-all duration-200 active:scale-90 cursor-pointer ${
+          className={`flex flex-col items-center justify-center gap-1 py-1 px-1 rounded-xl transition-all duration-200 active:scale-95 cursor-pointer ${
             activePage === 'home' 
-              ? (isDark ? 'text-white' : 'text-rose-600 font-bold') 
-              : (isDark ? 'text-zinc-500 hover:text-zinc-300' : 'text-slate-500 hover:text-slate-900')
+              ? 'text-rose-600 font-bold' 
+              : 'text-slate-500 hover:text-slate-900'
           }`}
           aria-label="Home"
         >
-          <div className="relative">
-            <Home 
-              className={`w-5 h-5 transition-transform duration-200 ${
-                activePage === 'home' ? 'fill-current scale-110' : ''
-              }`} 
-            />
-            {activePage === 'home' && (
-              <span className={`absolute -top-1 left-1/2 -translate-x-1/2 w-1.5 h-1.5 rounded-full ${
-                isDark ? 'bg-white shadow-[0_0_8px_#ffffff]' : 'bg-rose-600 shadow-[0_0_8px_#e11d48]'
-              }`} />
-            )}
-          </div>
-          <span className="text-[10px] font-mono leading-none tracking-tight">Home</span>
+          <HomeNavIcon active={activePage === 'home'} />
+          <span className="text-[10px] font-sans leading-none tracking-tight">Home</span>
         </button>
 
         {/* 2. Services */}
         <button
           onClick={() => handleNav('solutions')}
-          className={`flex flex-col items-center justify-center gap-1 py-1 px-1 rounded-xl transition-all duration-200 active:scale-90 cursor-pointer ${
+          className={`flex flex-col items-center justify-center gap-1 py-1 px-1 rounded-xl transition-all duration-200 active:scale-95 cursor-pointer ${
             activePage === 'solutions' 
-              ? (isDark ? 'text-white' : 'text-rose-600 font-bold') 
-              : (isDark ? 'text-zinc-500 hover:text-zinc-300' : 'text-slate-500 hover:text-slate-900')
+              ? 'text-rose-600 font-bold' 
+              : 'text-slate-500 hover:text-slate-900'
           }`}
           aria-label="Services"
         >
-          <div className="relative">
-            <Layers 
-              className={`w-5 h-5 transition-transform duration-200 ${
-                activePage === 'solutions' ? 'fill-current scale-110' : ''
-              }`} 
-            />
-            {activePage === 'solutions' && (
-              <span className={`absolute -top-1 left-1/2 -translate-x-1/2 w-1.5 h-1.5 rounded-full ${
-                isDark ? 'bg-white shadow-[0_0_8px_#ffffff]' : 'bg-rose-600 shadow-[0_0_8px_#e11d48]'
-              }`} />
-            )}
-          </div>
-          <span className="text-[10px] font-mono leading-none tracking-tight">Services</span>
+          <ServicesNavIcon active={activePage === 'solutions'} />
+          <span className="text-[10px] font-sans leading-none tracking-tight">Services</span>
         </button>
 
         {/* 3. Selected Work */}
         <button
           onClick={() => handleNav('work')}
-          className={`flex flex-col items-center justify-center gap-1 py-1 px-1 rounded-xl transition-all duration-200 active:scale-90 cursor-pointer ${
+          className={`flex flex-col items-center justify-center gap-1 py-1 px-1 rounded-xl transition-all duration-200 active:scale-95 cursor-pointer ${
             activePage === 'work' 
-              ? (isDark ? 'text-white' : 'text-rose-600 font-bold') 
-              : (isDark ? 'text-zinc-500 hover:text-zinc-300' : 'text-slate-500 hover:text-slate-900')
+              ? 'text-rose-600 font-bold' 
+              : 'text-slate-500 hover:text-slate-900'
           }`}
           aria-label="Work"
         >
-          <div className="relative">
-            <Sparkles 
-              className={`w-5 h-5 transition-transform duration-200 ${
-                activePage === 'work' ? 'fill-current scale-110' : ''
-              }`} 
-            />
-            {activePage === 'work' && (
-              <span className={`absolute -top-1 left-1/2 -translate-x-1/2 w-1.5 h-1.5 rounded-full ${
-                isDark ? 'bg-cyan-400 shadow-[0_0_8px_#06b6d4]' : 'bg-rose-600 shadow-[0_0_8px_#e11d48]'
-              }`} />
-            )}
-          </div>
-          <span className="text-[10px] font-mono leading-none tracking-tight">Work</span>
+          <WorkNavIcon active={activePage === 'work'} />
+          <span className="text-[10px] font-sans leading-none tracking-tight">Work</span>
         </button>
 
-        {/* 4. Studio */}
+        {/* 4. Studio / About */}
         <button
           onClick={() => handleNav('about')}
-          className={`flex flex-col items-center justify-center gap-1 py-1 px-1 rounded-xl transition-all duration-200 active:scale-90 cursor-pointer ${
+          className={`flex flex-col items-center justify-center gap-1 py-1 px-1 rounded-xl transition-all duration-200 active:scale-95 cursor-pointer ${
             activePage === 'about' 
-              ? (isDark ? 'text-white' : 'text-rose-600 font-bold') 
-              : (isDark ? 'text-zinc-500 hover:text-zinc-300' : 'text-slate-500 hover:text-slate-900')
+              ? 'text-rose-600 font-bold' 
+              : 'text-slate-500 hover:text-slate-900'
           }`}
           aria-label="Studio"
         >
-          <div className="relative">
-            <ShieldCheck 
-              className={`w-5 h-5 transition-transform duration-200 ${
-                activePage === 'about' ? 'fill-current scale-110' : ''
-              }`} 
-            />
-            {activePage === 'about' && (
-              <span className={`absolute -top-1 left-1/2 -translate-x-1/2 w-1.5 h-1.5 rounded-full ${
-                isDark ? 'bg-white shadow-[0_0_8px_#ffffff]' : 'bg-rose-600 shadow-[0_0_8px_#e11d48]'
-              }`} />
-            )}
-          </div>
-          <span className="text-[10px] font-mono leading-none tracking-tight">Studio</span>
+          <StudioNavIcon active={activePage === 'about'} />
+          <span className="text-[10px] font-sans leading-none tracking-tight">Studio</span>
         </button>
 
-        {/* 5. Direct WhatsApp */}
+        {/* 5. Direct WhatsApp Button */}
         <a
           href={whatsapp}
           target="_blank"
           rel="noopener noreferrer"
-          className="flex flex-col items-center justify-center gap-1 py-1 px-1 rounded-xl text-emerald-500 hover:text-emerald-400 transition-all duration-200 active:scale-90 cursor-pointer"
-          aria-label="Chat on WhatsApp"
+          className="flex flex-col items-center justify-center gap-1 py-1 px-1 rounded-xl text-emerald-600 font-bold transition-all duration-200 active:scale-95 cursor-pointer"
+          aria-label="WhatsApp"
         >
-          <div className="relative">
-            <WhatsAppIcon className="w-5 h-5 fill-current transition-transform duration-200 hover:scale-110" />
-            <span className="absolute -top-0.5 -right-0.5 w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
+          <div className="w-6 h-6 flex items-center justify-center">
+            <WhatsAppIcon className="w-5 h-5 fill-emerald-600 text-emerald-600" />
           </div>
-          <span className="text-[10px] font-mono leading-none tracking-tight font-semibold text-emerald-500">
-            WhatsApp
-          </span>
+          <span className="text-[10px] font-sans leading-none tracking-tight">WhatsApp</span>
         </a>
 
       </div>

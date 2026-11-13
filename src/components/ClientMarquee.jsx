@@ -16,10 +16,10 @@ export default function ClientMarquee() {
   const platforms = [
     { name: 'PMS SOLUTION', tag: 'pmssolution.co.in', icon: Cpu, sector: 'Hospital Medical Equipment Sales & Rentals' },
     { name: 'UPSKS KARATE', tag: 'upskskarate.com', icon: Activity, sector: 'Martial Arts & Student Platform' },
-    { name: 'WHATSAPP E-STORE', tag: 'store.merqurie.cloud', icon: ShoppingBag, sector: '1-Tap Mobile Commerce' },
-    { name: 'VISUAL PHONE COCKPIT', tag: 'admin.merqurie.cloud', icon: Zap, sector: '10-Second Self-Serve Edits' },
-    { name: 'EDGE SPEED ENGINE', tag: 'core.merqurie.cloud', icon: Server, sector: '< 0.3s Global PageSpeed' },
-    { name: '100% CODE SOVEREIGNTY', tag: 'git.merqurie.cloud', icon: ShieldCheck, sector: 'Full Client IP Ownership' },
+    { name: 'WHATSAPP E-STORE', tag: 'store.merqurie.com', icon: ShoppingBag, sector: '1-Tap Mobile Commerce' },
+    { name: 'VISUAL PHONE COCKPIT', tag: 'admin.merqurie.com', icon: Zap, sector: '10-Second Self-Serve Edits' },
+    { name: 'EDGE SPEED ENGINE', tag: 'merqurie.com', icon: Server, sector: '< 0.3s Global PageSpeed' },
+    { name: '100% CODE SOVEREIGNTY', tag: 'git.merqurie.com', icon: ShieldCheck, sector: 'Full Client IP Ownership' },
   ];
 
   const stream = [...platforms, ...platforms, ...platforms];

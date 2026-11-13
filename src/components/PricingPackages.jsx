@@ -1,5 +1,5 @@
 import React from 'react';
-import { Check, ShieldCheck, Zap, ArrowRight, Sparkles } from 'lucide-react';
+import { Check, ShieldCheck, Zap, ArrowRight, Sparkles, Plus } from 'lucide-react';
 import WhatsAppIcon from './WhatsAppIcon';
 
 const whatsapp = 'https://wa.me/917358618789?text=Hi%20Jagadish!%20I%20would%20like%20to%20discuss%20a%20website%20package%20for%20my%20business.';
@@ -12,18 +12,19 @@ export default function PricingPackages({ onOpenPrototypeModal }) {
       price: '₹14,999',
       period: 'one-time build',
       popular: false,
-      delivery: '5-7 Days Delivery',
+      delivery: '2 Days Delivery',
       badge: 'STARTER ARCHITECTURE',
       cardStyle: 'bg-white border border-slate-200 shadow-xl shadow-slate-200/50 hover:border-teal-500 hover:shadow-2xl',
       badgeStyle: 'bg-teal-50 border-teal-200 text-teal-800',
       accentColor: 'text-teal-600',
       buttonStyle: 'bg-slate-900 hover:bg-teal-700 text-white shadow-md',
+      includesPrevious: null,
       features: [
         'Up to 5 bespoke high-speed mobile pages',
         'Direct 1-tap WhatsApp inquiry button',
         'Sub-second 4G/5G mobile edge performance',
         '10-second phone admin cockpit for text edits',
-        'Google Search Console & SEO verification',
+        'Google Search Console & Google Maps verification',
         '100% source code & domain ownership',
         'Zero monthly agency retainer fees forever',
       ],
@@ -36,46 +37,46 @@ export default function PricingPackages({ onOpenPrototypeModal }) {
       price: '₹29,999',
       period: 'one-time build',
       popular: true,
-      delivery: '7-10 Days Delivery',
+      delivery: '2-3 Days Delivery',
       badge: 'RECOMMENDED FOR BUSINESSES',
       cardStyle: 'bg-white border-2 border-rose-500 shadow-2xl shadow-rose-200/60 ring-4 ring-rose-500/10 hover:border-rose-600',
       badgeStyle: 'bg-rose-50 border-rose-200 text-rose-800',
       accentColor: 'text-rose-600',
       buttonStyle: 'bg-gradient-to-r from-rose-600 via-rose-500 to-pink-600 text-white shadow-xl shadow-rose-500/30 hover:brightness-105 border border-rose-400/40',
+      includesPrevious: 'Everything in Essential, PLUS:',
       features: [
         'Interactive product catalog & spec configurator',
-        '1-tap WhatsApp order flow & RFQ calculators',
+        '1-tap WhatsApp order flow & instant quote calculators',
+        'Visitor Tracking Tool (see who visited, where they came from, and what they clicked)',
         'Sub-0.3s edge speed scoring 99/100 Core Web Vitals',
         'Self-serve phone admin for price & photo edits',
         'Automated multi-channel routing to WhatsApp & email',
-        'Full Google Analytics 4 (GA4) conversion setup',
-        '100% source code repository & DNS transfer',
         'Zero recurring monthly agency retainer fees',
       ],
       cta: 'Choose Growth Platform',
       primary: true,
     },
     {
-      name: 'Custom Cloud Architecture',
-      tagline: 'Tailored web portals, member registries, and specialized client platforms.',
-      price: 'Custom Scoped',
-      period: 'starting at ₹49,999',
+      name: 'Custom Apps & Web Applications',
+      tagline: 'Tailored web portals, client member registries, custom webapps, and booking platforms.',
+      price: 'Starts at ₹34,999',
+      period: 'one-time build',
       popular: false,
-      delivery: '14-21 Days Delivery',
-      badge: 'ENTERPRISE SYSTEMS',
+      delivery: '3-5 Days Delivery',
+      badge: 'CUSTOM WEBAPPS & APPS',
       cardStyle: 'bg-white border border-slate-200 shadow-xl shadow-slate-200/50 hover:border-purple-500 hover:shadow-2xl',
       badgeStyle: 'bg-purple-50 border-purple-200 text-purple-800',
       accentColor: 'text-purple-600',
       buttonStyle: 'bg-slate-900 hover:bg-purple-700 text-white shadow-md',
+      includesPrevious: 'Everything in Growth, PLUS:',
       features: [
-        'Custom student/client registry & grading databases',
-        'Role-based authentication & secure client portals',
-        'Direct systems architecture with Jagadish (ex-Amazon/Turing)',
-        'Custom API & third-party service integrations',
-        'Cloudflare edge security audit & hardened CSP headers',
-        'Full CI/CD automated deployment pipeline',
+        'Custom web application or progressive app for your business',
+        'Secure client / student login portal & user database',
+        'Custom appointment booking, forms, or custom quote engine',
+        'Direct systems architecture with Jagadish (ex-Amazon/Google AI)',
+        'Custom payment gateway & third-party API integrations',
         '100% legal intellectual property sovereignty',
-        'Zero vendor lock-in or recurring hosting markups',
+        'Zero vendor lock-in or recurring software subscriptions',
       ],
       cta: 'Scope Custom System',
       primary: false,
@@ -158,6 +159,13 @@ export default function PricingPackages({ onOpenPrototypeModal }) {
 
                   {/* Feature Checklist */}
                   <div className="space-y-2.5 mb-6">
+                    {plan.includesPrevious && (
+                      <div className="p-2 rounded-xl bg-slate-50 border border-slate-200 text-xs font-mono font-bold text-slate-800 flex items-center gap-1.5 mb-3">
+                        <Plus className="w-3.5 h-3.5 text-rose-600 stroke-[3]" />
+                        <span>{plan.includesPrevious}</span>
+                      </div>
+                    )}
+
                     <span className="text-[10px] font-mono font-bold uppercase text-slate-500 tracking-wider block mb-2">
                       WHAT'S INCLUDED:
                     </span>
@@ -173,7 +181,7 @@ export default function PricingPackages({ onOpenPrototypeModal }) {
                 {/* Plan Footer Action */}
                 <div className="pt-4 border-t border-slate-200">
                   <div className="text-[10px] font-mono text-slate-500 mb-3 flex items-center justify-between">
-                    <span>{plan.delivery}</span>
+                    <span className="font-semibold text-slate-800">{plan.delivery}</span>
                     <span className="text-emerald-700 font-semibold">100% Guaranteed</span>
                   </div>
 

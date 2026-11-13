@@ -37,7 +37,7 @@ export default function PrototypeModal({ isOpen, onClose, isDark }) {
       businessName: cleanBusinessName,
       industry: projectType,
       phone: cleanPhone,
-      targetUrl: 'jagadish.online',
+      targetUrl: 'merqurie.com',
     });
 
     setSubmitted(true);

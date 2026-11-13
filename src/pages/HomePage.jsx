@@ -2,23 +2,16 @@ import React from 'react';
 import { 
   ArrowRight, 
   Sparkles, 
-  CheckCircle2, 
   ShieldCheck, 
-  Zap, 
-  Layers, 
-  ArrowUpRight 
+  Zap
 } from 'lucide-react';
 import WhatsAppIcon from '../components/WhatsAppIcon';
 import Hero from '../components/Hero';
 import ClientMarquee from '../components/ClientMarquee';
-import CinematicVideoSection from '../components/CinematicVideoSection';
+import CartoonMascotExplainer from '../components/CartoonMascotExplainer';
 import ProjectShowcaseCarousel from '../components/ProjectShowcaseCarousel';
-import InteractiveRoiCalculator from '../components/InteractiveRoiCalculator';
-import PricingPackages from '../components/PricingPackages';
 import FounderSpotlight from '../components/FounderSpotlight';
-import MetricsDashboard from '../components/MetricsDashboard';
-import ComparisonSection from '../components/ComparisonSection';
-import TrustedHeritage from '../components/TrustedHeritage';
+import PricingPackages from '../components/PricingPackages';
 import FaqSection from '../components/FaqSection';
 
 const whatsapp = 'https://wa.me/917358618789?text=Hi%20Jagadish!%20I%20would%20like%20to%20discuss%20a%20website%20for%20my%20business.';
@@ -35,55 +28,43 @@ export default function HomePage({ onOpenPrototypeModal, setActivePage }) {
   return (
     <div className="space-y-0 text-slate-900 selection:bg-rose-500/15 selection:text-rose-900 bg-[#F8FAFC]">
       
-      {/* 1. Cinematic Hero with 3D Three.js Liquid Mercury Centerpiece & Multi-Scene Showcase */}
+      {/* 1. Cinematic Hero with 3D Three.js Liquid Mercury Centerpiece & Live Client Switcher */}
       <Hero 
         onOpenPrototypeModal={onOpenPrototypeModal}
         onNavigateToWork={() => navigateTo('work')}
         onNavigateToSolutions={() => navigateTo('solutions')}
       />
 
-      {/* 2. Continuous Silky Flowing Client & Architecture Marquee */}
+      {/* 2. Flowing Client & Architecture Marquee */}
       <ClientMarquee />
 
-      {/* 3. Cinematic Video & Live Speed Race Lab (0.24s Edge vs 8.4s WordPress) */}
-      <CinematicVideoSection onOpenPrototypeModal={onOpenPrototypeModal} />
+      {/* 3. Interactive Cartoon Mascot (Captain Merq) - Simple Plain-English Explainer */}
+      <CartoonMascotExplainer onOpenPrototypeModal={onOpenPrototypeModal} />
 
       {/* 4. Interactive Project Showcase Carousel with Authentic Client Screens */}
       <section id="work">
         <ProjectShowcaseCarousel onOpenPrototypeModal={onOpenPrototypeModal} />
       </section>
 
-      {/* 5. Interactive Customer ROI & WhatsApp Lead Calculator */}
-      <InteractiveRoiCalculator onOpenPrototypeModal={onOpenPrototypeModal} />
-
-      {/* 6. Technical Leadership & Studio Standards (VIP Founder Card with Amazon & Turing Badges) */}
+      {/* 5. Technical Leadership & Studio Standards (Founder Card with Amazon & Turing Badges) */}
       <FounderSpotlight onOpenPrototypeModal={onOpenPrototypeModal} />
 
-      {/* 7. Transparent Pricing Packages with ₹0 Retainer Debt Guarantee */}
+      {/* 6. Transparent Pricing Packages with 100% Code Ownership Guarantee */}
       <section id="pricing">
         <PricingPackages onOpenPrototypeModal={onOpenPrototypeModal} />
       </section>
 
-      {/* 8. Honest Comparison: How Merqurie is Built Differently */}
-      <ComparisonSection onOpenPrototypeModal={onOpenPrototypeModal} />
-
-      {/* 9. Metrics & Telemetry: The Work Behind The Results */}
-      <MetricsDashboard onOpenPrototypeModal={onOpenPrototypeModal} />
-
-      {/* 10. The 4 Core Pillars: Trusted By Growing Businesses */}
-      <TrustedHeritage onOpenPrototypeModal={onOpenPrototypeModal} />
-
-      {/* 11. Frequently Asked Questions */}
+      {/* 7. Frequently Asked Questions */}
       <FaqSection onOpenPrototypeModal={onOpenPrototypeModal} />
 
-      {/* 12. Final High-Converting Call to Action Banner */}
+      {/* 8. Final High-Converting Call to Action Banner */}
       <section className="py-20 sm:py-28 px-4 sm:px-6 lg:px-8 relative overflow-hidden bg-white text-slate-900 border-t border-slate-200/80 text-center">
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[350px] rounded-full blur-[140px] pointer-events-none bg-rose-400/10" />
 
         <div className="max-w-4xl mx-auto relative z-10 space-y-6">
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-mono font-semibold bg-rose-50 border border-rose-200 text-rose-800">
             <Sparkles className="w-3.5 h-3.5 text-amber-500" />
-            <span className="uppercase tracking-wider">NO RETAINERS • NO RISK • NO JARGON</span>
+            <span className="uppercase tracking-wider">NO FORCED CONTRACTS • 100% YOUR DIGITAL ASSET</span>
           </div>
 
           <h2 className="text-3xl sm:text-5xl md:text-6xl font-black tracking-tight text-slate-950 leading-tight font-display">

@@ -120,7 +120,7 @@ export default function FounderSpotlight({ onOpenPrototypeModal }) {
                   Throughout my engineering career at <strong className="text-slate-950">Amazon</strong> and evaluating frontier AI models for clients like <strong className="text-slate-950">Google (Gemini)</strong> via <strong className="text-slate-950">Turing</strong>, one standard was uncompromising: <em>speed is everything, simplicity scales, and client trust cannot be bought.</em>
                 </p>
                 <p>
-                  When looking at how local businesses in Chennai and India were being served by agencies, I saw an unfair model: outdated WordPress templates taking 8 seconds to load, slow customer responses, and recurring monthly retainers of ₹5,000 to ₹15,000 just for "maintenance" that delivers zero real value.
+                  When looking at how local businesses in Chennai and India were being served by agencies, I saw an unfair model: outdated WordPress templates taking 8 seconds to load, slow customer responses, and endless recurring maintenance retainers that deliver zero real value.
                 </p>
                 <p>
                   Merqurie was built to be the antidote. We engineer modern, mobile-first websites that load in under 1 second, capture direct WhatsApp enquiries, and are 100% owned by the business owner from day one—with ₹0 recurring agency retainers.

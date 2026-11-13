@@ -41,11 +41,11 @@ export default function ComparisonSection({ onOpenPrototypeModal }) {
     },
     {
       id: 'cost',
-      feature: 'Monthly Agency Retainers',
-      typical: 'Agencies charge you ₹5,000 to ₹15,000 every single month just for "maintenance" and "plugin updates" that do not bring you any new sales.',
-      merqurie: '₹0 monthly retainer fees forever. You pay once for the build, and it is 100% yours forever. Zero recurring debt.',
-      typicalTag: '₹5k-₹15k/Mo Drain (₹1.2L/yr)',
-      merqurieTag: '₹0 Forever Freedom',
+      feature: 'Ongoing Maintenance & Support',
+      typical: 'Traditional agencies bundle basic plugin updates into expensive ongoing retainer contracts that lock you in year after year.',
+      merqurie: 'Zero forced contracts. You pay once for your build, own every line of code outright, and receive 30 days of launch support included.',
+      typicalTag: 'Mandatory Retainer Lock-in',
+      merqurieTag: 'Pay Once • 100% Lifetime Ownership',
       icon: Ban,
     },
     {
@@ -207,7 +207,7 @@ export default function ComparisonSection({ onOpenPrototypeModal }) {
         <div className="mt-12 p-6 sm:p-8 rounded-3xl bg-white border-2 border-slate-200 text-center flex flex-col sm:flex-row items-center justify-between gap-6 shadow-xl shadow-slate-200/50">
           <div className="text-left">
             <h4 className="text-xl font-bold text-slate-950 tracking-tight">
-              Ready to free your business from monthly retainer debt?
+              Ready to own your website outright with zero ongoing fees?
             </h4>
             <p className="text-xs sm:text-sm text-slate-600 mt-1">
               We build your working sample website first. You test it on your own phone before spending a single rupee.

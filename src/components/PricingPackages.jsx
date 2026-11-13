@@ -26,7 +26,7 @@ export default function PricingPackages({ onOpenPrototypeModal }) {
         '10-second phone admin cockpit for text edits',
         'Google Search Console & Google Maps verification',
         '100% source code & domain ownership',
-        'Zero monthly agency retainer fees forever',
+        '30 days of post-launch support included',
       ],
       cta: 'Choose Essential',
       primary: false,
@@ -51,7 +51,7 @@ export default function PricingPackages({ onOpenPrototypeModal }) {
         'Sub-0.3s edge speed scoring 99/100 Core Web Vitals',
         'Self-serve phone admin for price & photo edits',
         'Automated multi-channel routing to WhatsApp & email',
-        'Zero recurring monthly agency retainer fees',
+        'Full source code handover & zero vendor lock-in',
       ],
       cta: 'Choose Growth Platform',
       primary: true,
@@ -95,18 +95,18 @@ export default function PricingPackages({ onOpenPrototypeModal }) {
         <div className="text-center max-w-3xl mx-auto mb-16 sm:mb-20">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-mono font-semibold bg-white border border-emerald-300 text-emerald-800 mb-4 shadow-sm">
             <ShieldCheck className="w-3.5 h-3.5 text-emerald-600" />
-            <span className="uppercase tracking-wider">ZERO RETAINER DEBT GUARANTEE</span>
+            <span className="uppercase tracking-wider">GENUINE ONE-TIME INVESTMENT • 100% OWNERSHIP</span>
           </div>
 
           <h2 className="text-3xl sm:text-5xl font-black font-display tracking-tight text-slate-950 mb-4">
             Transparent Pricing.{' '}
             <span className="bg-gradient-to-r from-rose-600 via-pink-600 to-amber-600 bg-clip-text text-transparent">
-              You Own 100% Forever.
+              No Hidden Maintenance Bills.
             </span>
           </h2>
 
           <p className="text-sm sm:text-base text-slate-600 max-w-2xl mx-auto leading-relaxed">
-            Traditional agencies lock you into ₹5,000 to ₹15,000 monthly retainers just to keep basic pages online. We build high-speed systems you own outright from day one with ₹0 recurring developer bills.
+            Pay once for the build. We hand over 100% of your source code, domain, and database with zero mandatory maintenance retainers. Clean, honest, and straightforward.
           </p>
         </div>
 
@@ -153,7 +153,7 @@ export default function PricingPackages({ onOpenPrototypeModal }) {
 
                     <div className="mt-3.5 flex items-center gap-1.5 text-[11px] font-mono font-semibold text-emerald-800 bg-emerald-50 border border-emerald-300 px-2.5 py-1 rounded-lg w-fit">
                       <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
-                      <span>₹0 / Year Recurring Retainer Debt</span>
+                      <span>100% Full Ownership • ₹0 Hidden Fees</span>
                     </div>
                   </div>
 

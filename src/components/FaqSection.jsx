@@ -14,7 +14,7 @@ export default function FaqSection({ onOpenPrototypeModal }) {
     },
     {
       q: 'Do you charge any recurring monthly maintenance or retainer fees?',
-      a: 'No. Zero monthly retainer fees. Traditional agencies lock you into ₹5,000 to ₹15,000 monthly retainers just to keep basic plugins alive. We engineer clean, durable code that runs on modern global networks with virtually zero maintenance debt. You fund the build once and you own the asset completely.',
+      a: 'No. Zero mandatory monthly retainers. Traditional agencies lock you into recurring annual maintenance contracts just to keep basic plugins alive. We engineer clean, durable code that runs on modern global networks with virtually zero upkeep. You fund the build once and you own the asset completely.',
     },
     {
       q: 'How do customer enquiries reach me from the website?',
@@ -26,7 +26,7 @@ export default function FaqSection({ onOpenPrototypeModal }) {
     },
     {
       q: 'How long will it take to build and launch my website?',
-      a: 'A standard high-converting business website is typically completed in 5 to 7 business days from our initial conversation. Larger custom catalogs or multi-page platforms take 10 to 14 days. We move fast and keep you updated at every step.',
+      a: 'We build your live working sample on your mobile phone in just 2 days (48 hours). Once you test and approve it, we complete domain hookup and final launch right away.',
     },
     {
       q: 'Do I own 100% of the website and domain?',

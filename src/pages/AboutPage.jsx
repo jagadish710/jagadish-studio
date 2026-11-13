@@ -42,8 +42,8 @@ export default function AboutPage({ onOpenPrototypeModal }) {
     },
     {
       num: '03',
-      title: '₹0 Monthly Retainer Bills',
-      desc: 'You pay once for the website build, that is all. We never bill you ₹5,000 to ₹15,000 every month just to keep your site alive.',
+      title: '₹0 Forced Retainer Contracts',
+      desc: 'You pay once for the website build, that is all. We never trap you into expensive mandatory maintenance contracts just to keep your site alive.',
       icon: Lock,
       bg: 'bg-white',
       border: 'border-rose-200 hover:border-rose-400',
@@ -78,7 +78,7 @@ export default function AboutPage({ onOpenPrototypeModal }) {
           </span>
         </h1>
         <p className="text-xs sm:text-sm text-slate-600 leading-relaxed max-w-2xl mx-auto">
-          We combine enterprise-grade performance, direct founder partnership, and zero retainer debt so your business can move fast and win customers.
+          We combine enterprise-grade performance, direct founder partnership, and full client sovereignty so your business can move fast and win customers.
         </p>
       </div>
 
@@ -151,7 +151,7 @@ export default function AboutPage({ onOpenPrototypeModal }) {
                 During my engineering career at <strong className="text-slate-950">Amazon</strong> and evaluating frontier AI models for clients like <strong className="text-slate-950">Google (Gemini)</strong> via <strong className="text-slate-950">Turing</strong>, I saw how top tech companies build software: fast, simple, and laser-focused on user experience.
               </p>
               <p>
-                When looking at how website agencies treat small and growing businesses in India, I saw an unfair model: agencies build slow WordPress templates that take 8 seconds to load, take 5 days to answer simple emails, and send endless monthly bills of ₹5,000 to ₹15,000 just for "maintenance" that delivers zero value.
+                When looking at how website agencies treat small and growing businesses in India, I saw an unfair model: agencies build slow WordPress templates that take 8 seconds to load, take 5 days to answer simple emails, and push expensive recurring maintenance retainers that deliver zero real value.
               </p>
               <p className="text-slate-900 font-medium bg-rose-50 p-4 rounded-2xl border border-rose-200">
                 Merqurie was created to fix this. We build ultra-fast, mobile-first websites that load in under 1 second, connect directly to your WhatsApp, and give you 100% full ownership from day one — with ₹0 monthly retainer fees forever.

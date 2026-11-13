@@ -17,8 +17,8 @@ export default function TrustedHeritage({ onOpenPrototypeModal }) {
   const pillars = [
     {
       num: '01',
-      title: 'Zero Recurring Retainer Taxes',
-      desc: 'Most agencies bill ₹5,000 to ₹15,000 every single month just to maintain basic templates. With Merqurie, you fund the architecture once and pay ₹0 ongoing retainers forever.',
+      title: 'Zero Forced Retainer Contracts',
+      desc: 'Most agencies bill expensive ongoing maintenance fees just to maintain basic templates. With Merqurie, you fund the architecture once and pay ₹0 forced retainers forever.',
       icon: Lock,
       bg: 'bg-white',
       border: 'border-teal-200 hover:border-teal-400',

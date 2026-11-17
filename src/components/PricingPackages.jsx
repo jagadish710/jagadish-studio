@@ -1,6 +1,7 @@
 import React from 'react';
 import { Check, ShieldCheck, Zap, ArrowRight, Sparkles, Plus, Smartphone, Layers, Lock, X } from 'lucide-react';
 import WhatsAppIcon from './WhatsAppIcon';
+import { trackPlanSelect } from '../lib/analytics';
 
 const whatsapp = 'https://wa.me/917358618789?text=Hi%20Jagadish!%20I%20would%20like%20to%20discuss%20a%20website%20package%20for%20my%20business.';
 
@@ -206,7 +207,10 @@ export default function PricingPackages({ onOpenPrototypeModal }) {
                 {/* Card CTA Button */}
                 <div className="pt-4 border-t border-slate-200">
                   <button
-                    onClick={onOpenPrototypeModal}
+                    onClick={() => {
+                      trackPlanSelect(plan.name, plan.price);
+                      onOpenPrototypeModal();
+                    }}
                     className={`w-full py-3.5 px-4 rounded-2xl font-bold font-mono text-xs uppercase tracking-wider transition-all duration-200 flex items-center justify-center gap-2 cursor-pointer ${plan.buttonStyle}`}
                   >
                     <span>{plan.cta}</span>

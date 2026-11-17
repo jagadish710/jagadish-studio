@@ -15,6 +15,7 @@ import {
 import WhatsAppIcon from './WhatsAppIcon';
 import ThreeCenterpiece3D from './ThreeCenterpiece3D';
 import TalkingTomLuffyMascot from './TalkingTomLuffyMascot';
+import { trackSampleRequest, trackLeadClick } from '../lib/analytics';
 
 const whatsapp = 'https://wa.me/917358618789?text=Hi%20Jagadish!%20I%20would%20like%20to%20discuss%20a%20website%20for%20my%20business.';
 
@@ -162,7 +163,10 @@ export default function Hero({ onOpenPrototypeModal, onNavigateToWork, onNavigat
             {/* CTA Buttons - 100% Side-by-Side on Mobile */}
             <div className="flex flex-row items-center gap-2 sm:gap-3.5 w-full sm:w-auto">
               <button
-                onClick={onOpenPrototypeModal}
+                onClick={() => {
+                  trackSampleRequest('Hero');
+                  onOpenPrototypeModal();
+                }}
                 className="flex-1 sm:flex-initial px-3 sm:px-6 py-3 sm:py-3.5 rounded-2xl font-bold text-[11px] sm:text-sm tracking-wide bg-gradient-to-r from-rose-600 via-rose-500 to-pink-600 text-white shadow-xl shadow-rose-500/25 hover:brightness-105 active:scale-95 transition-all flex items-center justify-center gap-1.5 sm:gap-2 cursor-pointer whitespace-nowrap"
               >
                 <Sparkles className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-white shrink-0" />
@@ -174,6 +178,7 @@ export default function Hero({ onOpenPrototypeModal, onNavigateToWork, onNavigat
                 href={whatsapp}
                 target="_blank"
                 rel="noopener noreferrer"
+                onClick={() => trackLeadClick('Hero', 'WhatsApp')}
                 className="flex-1 sm:flex-initial px-3 sm:px-5 py-3 sm:py-3.5 rounded-2xl font-semibold text-[11px] sm:text-sm bg-emerald-600 hover:bg-emerald-500 text-white shadow-lg shadow-emerald-500/20 active:scale-95 transition-all flex items-center justify-center gap-1.5 sm:gap-2 border border-emerald-400/30 whitespace-nowrap"
               >
                 <WhatsAppIcon className="w-3.5 h-3.5 sm:w-4 sm:h-4 fill-white shrink-0" />

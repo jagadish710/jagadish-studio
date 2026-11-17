@@ -6,12 +6,15 @@ import {
   Zap
 } from 'lucide-react';
 import WhatsAppIcon from '../components/WhatsAppIcon';
+import OceanCanvas from '../components/OceanCanvas';
 import Hero from '../components/Hero';
 import ClientMarquee from '../components/ClientMarquee';
-import CartoonMascotExplainer from '../components/CartoonMascotExplainer';
+import BeforeAfterSection from '../components/BeforeAfterSection';
+import EngineeringCrewSection from '../components/EngineeringCrewSection';
 import ProjectShowcaseCarousel from '../components/ProjectShowcaseCarousel';
 import FounderSpotlight from '../components/FounderSpotlight';
 import PricingPackages from '../components/PricingPackages';
+import InteractiveQuoteBuilder from '../components/InteractiveQuoteBuilder';
 import FaqSection from '../components/FaqSection';
 
 const whatsapp = 'https://wa.me/917358618789?text=Hi%20Jagadish!%20I%20would%20like%20to%20discuss%20a%20website%20for%20my%20business.';
@@ -25,10 +28,22 @@ export default function HomePage({ onOpenPrototypeModal, setActivePage }) {
     }
   };
 
+  const scrollToQuote = () => {
+    const el = document.getElementById('quote-builder');
+    if (el) {
+      el.scrollIntoView({ behavior: 'smooth' });
+    } else if (onOpenPrototypeModal) {
+      onOpenPrototypeModal();
+    }
+  };
+
   return (
-    <div className="space-y-0 text-slate-900 selection:bg-rose-500/15 selection:text-rose-900 bg-[#F8FAFC]">
+    <div className="space-y-0 text-slate-900 selection:bg-treasure-400 selection:text-ocean-950 bg-[#F8FAFC] relative">
       
-      {/* 1. Cinematic Hero with 3D Three.js Liquid Mercury Centerpiece & Live Client Switcher */}
+      {/* Ambient Starlight & Ocean Particle Background */}
+      <OceanCanvas />
+
+      {/* 1. Cinematic Hero with Talking-Tom Style Captain Merq / 3D Loop & Live Device Preview */}
       <Hero 
         onOpenPrototypeModal={onOpenPrototypeModal}
         onNavigateToWork={() => navigateTo('work')}
@@ -38,26 +53,32 @@ export default function HomePage({ onOpenPrototypeModal, setActivePage }) {
       {/* 2. Flowing Client & Architecture Marquee */}
       <ClientMarquee />
 
-      {/* 3. Interactive Cartoon Mascot (Captain Merq) - Simple Plain-English Explainer */}
-      <CartoonMascotExplainer onOpenPrototypeModal={onOpenPrototypeModal} />
+      {/* 3. The Business Reality Check + Live 4G Mobile Speed Race Simulator */}
+      <BeforeAfterSection />
 
-      {/* 4. Interactive Project Showcase Carousel with Authentic Client Screens */}
+      {/* 4. Meet The Merqurie Engineering Crew (Merq, Zoro, Nami, Sanji) */}
+      <EngineeringCrewSection onOpenQuote={scrollToQuote} />
+
+      {/* 5. Interactive Project Showcase Carousel with Authentic Client Screens */}
       <section id="work">
         <ProjectShowcaseCarousel onOpenPrototypeModal={onOpenPrototypeModal} />
       </section>
 
-      {/* 5. Technical Leadership & Studio Standards (Founder Card with Amazon & Turing Badges) */}
+      {/* 6. Technical Leadership & Studio Standards (Founder Card with Amazon & Turing Badges) */}
       <FounderSpotlight onOpenPrototypeModal={onOpenPrototypeModal} />
 
-      {/* 6. Transparent Pricing Packages with 100% Code Ownership Guarantee */}
+      {/* 7. Transparent Pricing Packages with 100% Code Ownership Guarantee */}
       <section id="pricing">
         <PricingPackages onOpenPrototypeModal={onOpenPrototypeModal} />
       </section>
 
-      {/* 7. Frequently Asked Questions */}
+      {/* 8. Interactive Quote Builder + Zero-Risk Free 24h Sample Request */}
+      <InteractiveQuoteBuilder />
+
+      {/* 9. Frequently Asked Questions */}
       <FaqSection onOpenPrototypeModal={onOpenPrototypeModal} />
 
-      {/* 8. Final High-Converting Call to Action Banner */}
+      {/* 10. Final High-Converting Call to Action Banner */}
       <section className="py-20 sm:py-28 px-4 sm:px-6 lg:px-8 relative overflow-hidden bg-white text-slate-900 border-t border-slate-200/80 text-center">
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[350px] rounded-full blur-[140px] pointer-events-none bg-rose-400/10" />
 

@@ -8,6 +8,30 @@ export default {
   theme: {
     extend: {
       colors: {
+        // Grand Line & Ocean Theme Palette
+        ocean: {
+          950: '#040812',
+          900: '#060B16',
+          800: '#0E172A',
+          700: '#1E293B',
+        },
+        treasure: {
+          300: '#FDE047',
+          400: '#FACC15',
+          500: '#F59E0B',
+          600: '#D97706',
+        },
+        crimson: {
+          400: '#FB7185',
+          500: '#F43F5E',
+          600: '#E11D48',
+          700: '#BE123C',
+        },
+        cyanline: {
+          300: '#67E8F9',
+          400: '#22D3EE',
+          500: '#06B6D4',
+        },
         // Quicksilver / Liquid Metal Dark Luxury Palette
         void: "#07070A",
         surface: "#0E0F14",
@@ -41,9 +65,10 @@ export default {
         }
       },
       fontFamily: {
-        sans: ['"Inter"', 'system-ui', '-apple-system', 'sans-serif'],
+        sans: ['"Plus Jakarta Sans"', '"Inter"', 'system-ui', '-apple-system', 'sans-serif'],
+        display: ['"Fredoka"', '"Space Grotesk"', 'cursive', 'sans-serif'],
+        fredoka: ['"Fredoka"', 'cursive', 'sans-serif'],
         mono: ['"Space Grotesk"', 'monospace'],
-        display: ['"Space Grotesk"', '"Inter"', 'sans-serif'],
         serif: ['"Instrument Serif"', 'Georgia', 'serif'],
       },
       boxShadow: {

@@ -8,13 +8,17 @@ import {
   Smartphone,
   Cpu,
   Sparkles,
+  Smile,
+  Compass,
 } from 'lucide-react';
 import WhatsAppIcon from './WhatsAppIcon';
 import ThreeCenterpiece3D from './ThreeCenterpiece3D';
+import TalkingTomLuffyMascot from './TalkingTomLuffyMascot';
 
 const whatsapp = 'https://wa.me/917358618789?text=Hi%20Jagadish!%20I%20would%20like%20to%20discuss%20a%20website%20for%20my%20business.';
 
 export default function Hero({ onOpenPrototypeModal, onNavigateToWork, onNavigateToSolutions }) {
+  const [activeVisual, setActiveVisual] = useState('mascot'); // 'mascot' | '3d'
   const [activeShowcase, setActiveShowcase] = useState('pms');
 
   const showcases = {
@@ -100,12 +104,12 @@ export default function Hero({ onOpenPrototypeModal, onNavigateToWork, onNavigat
           <div className="lg:col-span-7 text-center lg:text-left flex flex-col items-center lg:items-start">
             
             {/* Top Executive Engineering Tag */}
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-mono font-medium mb-4 sm:mb-5 bg-white border border-slate-200/90 text-slate-800 shadow-sm backdrop-blur-md">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-mono font-medium mb-4 sm:mb-5 bg-white border border-emerald-400/50 text-emerald-800 shadow-sm backdrop-blur-md">
               <span className="flex h-2 w-2 relative">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-rose-500 opacity-75" />
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-rose-500" />
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-500 opacity-75" />
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500" />
               </span>
-              <span className="tracking-wider uppercase font-semibold">MERQURIE STUDIO • EX-AMAZON &amp; TURING ENGINEERING</span>
+              <span className="tracking-wider uppercase font-bold text-[11px]">SEE YOUR NEW WEBSITE FREE IN 24 HOURS • PAY ₹0 TODAY</span>
             </div>
 
             {/* Dynamic Animated Headline */}
@@ -119,15 +123,14 @@ export default function Hero({ onOpenPrototypeModal, onNavigateToWork, onNavigat
                 className="flex flex-col items-center lg:items-start"
               >
                 <h1 className="text-3xl sm:text-5xl md:text-6xl font-black tracking-tight text-slate-950 leading-[1.08] mb-3 sm:mb-4 font-display">
-                  {current.headlinePrefix}{' '}
-                  <span className="font-serif italic font-normal text-rose-600">
-                    {current.headlineAccent}
-                  </span>{' '}
-                  <span className="block mt-1 sm:mt-1.5">{current.headlineSuffix}</span>
+                  Your Competitors Have Slow Sites.{' '}
+                  <span className="font-serif italic font-normal text-rose-600 block sm:inline">
+                    We Engineer Your Unfair Advantage.
+                  </span>
                 </h1>
 
                 <p className="text-sm sm:text-base md:text-lg text-slate-600 max-w-xl leading-relaxed mb-6">
-                  {current.subtext}
+                  Every second your website takes to load on mobile data, 20% of buyers press Back and call a competitor. Merqurie hand-crafts ultra-fast websites that open in <strong className="text-slate-900 font-bold">0.24 seconds</strong>, capture <strong className="text-emerald-600 font-bold">1-tap WhatsApp leads</strong>, let you edit text from your phone in 10 seconds, and charge <strong className="text-slate-900 font-bold">₹0 monthly retainers</strong>.
                 </p>
               </motion.div>
             </AnimatePresence>
@@ -179,29 +182,62 @@ export default function Hero({ onOpenPrototypeModal, onNavigateToWork, onNavigat
               </a>
             </div>
 
-            {/* Micro Value Guarantee Badges */}
-            <div className="mt-6 flex flex-wrap items-center justify-center lg:justify-start gap-4 text-xs font-mono text-slate-500">
-              <div className="flex items-center gap-1.5">
-                <ShieldCheck className="w-3.5 h-3.5 text-emerald-600" />
-                <span>100% Code Ownership</span>
+            {/* 4 Hard ROI Proof Badges */}
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5 mt-8 w-full border-t border-slate-200/80 pt-5">
+              <div className="p-3 rounded-2xl bg-white border border-slate-200 shadow-xs text-center lg:text-left">
+                <div className="font-display text-xl sm:text-2xl font-bold text-cyan-600">0.24s</div>
+                <div className="text-[11px] text-slate-500 font-semibold font-mono">4G Mobile Load</div>
               </div>
-              <span>•</span>
-              <div className="flex items-center gap-1.5">
-                <Zap className="w-3.5 h-3.5 text-amber-600" />
-                <span>Sub-1.0s Speed Guaranteed</span>
+              <div className="p-3 rounded-2xl bg-white border border-slate-200 shadow-xs text-center lg:text-left">
+                <div className="font-display text-xl sm:text-2xl font-bold text-amber-600">₹0/mo</div>
+                <div className="text-[11px] text-slate-500 font-semibold font-mono">Monthly Retainer</div>
               </div>
-              <span>•</span>
-              <div className="flex items-center gap-1.5">
-                <span className="w-2 h-2 rounded-full bg-emerald-500" />
-                <span>₹0 Recurring Retainer</span>
+              <div className="p-3 rounded-2xl bg-white border border-slate-200 shadow-xs text-center lg:text-left">
+                <div className="font-display text-xl sm:text-2xl font-bold text-emerald-600">2–3 Days</div>
+                <div className="text-[11px] text-slate-500 font-semibold font-mono">Launch Speed</div>
+              </div>
+              <div className="p-3 rounded-2xl bg-white border border-slate-200 shadow-xs text-center lg:text-left">
+                <div className="font-display text-xl sm:text-2xl font-bold text-rose-600">100%</div>
+                <div className="text-[11px] text-slate-500 font-semibold font-mono">Code Ownership</div>
               </div>
             </div>
 
           </div>
 
-          {/* Right 3D Emblem Centerpiece (5 cols) */}
-          <div className="lg:col-span-5 flex justify-center items-center">
-            <ThreeCenterpiece3D />
+          {/* Right Column: Interactive Mascot vs 3D Centerpiece */}
+          <div className="lg:col-span-5 flex flex-col items-center justify-center">
+            
+            {/* Visual Mode Switcher */}
+            <div className="flex items-center gap-1.5 mb-3 bg-white border border-slate-200 p-1 rounded-2xl shadow-xs">
+              <button
+                onClick={() => setActiveVisual('mascot')}
+                className={`px-3 py-1.5 rounded-xl text-xs font-bold font-mono transition-all flex items-center gap-1.5 cursor-pointer ${
+                  activeVisual === 'mascot'
+                    ? 'bg-slate-950 text-white shadow-sm'
+                    : 'text-slate-600 hover:text-slate-950'
+                }`}
+              >
+                <span>👒</span>
+                <span>Captain Merq</span>
+              </button>
+              <button
+                onClick={() => setActiveVisual('3d')}
+                className={`px-3 py-1.5 rounded-xl text-xs font-bold font-mono transition-all flex items-center gap-1.5 cursor-pointer ${
+                  activeVisual === '3d'
+                    ? 'bg-slate-950 text-white shadow-sm'
+                    : 'text-slate-600 hover:text-slate-950'
+                }`}
+              >
+                <span>✨</span>
+                <span>3D Liquid Gold</span>
+              </button>
+            </div>
+
+            {activeVisual === 'mascot' ? (
+              <TalkingTomLuffyMascot onOpenPrototypeModal={onOpenPrototypeModal} />
+            ) : (
+              <ThreeCenterpiece3D />
+            )}
           </div>
 
         </div>

@@ -4,6 +4,15 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="theme-color" content="#07070A" />
+
+    <!-- Google Tag (gtag.js) / Google Analytics 4 -->
+    <script async src="https://www.googletagmanager.com/gtm.js?id=GTM-5LB4X4TB"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'GTM-5LB4X4TB');
+    </script>
     
     <!-- Primary Title & Meta Description for Google & AI Search Engines -->
     <title>Merqurie — Sub-0.3s Websites • 10-Sec Phone Edits • ₹0 Monthly Retainers</title>
@@ -215,26 +224,6 @@
       }
     </script>
 
-    <!-- Google Analytics 4 (GA4) -->
-    <script>
-      (function() {
-        var gaId = "%VITE_GA_MEASUREMENT_ID%";
-        if (gaId && gaId.indexOf("%") === -1 && gaId !== "G-XXXXXXXXXX") {
-          var s = document.createElement("script");
-          s.async = true;
-          s.src = "https://www.googletagmanager.com/gtag/js?id=" + gaId;
-          document.head.appendChild(s);
-
-          window.dataLayer = window.dataLayer || [];
-          function gtag(){dataLayer.push(arguments);}
-          gtag("js", new Date());
-          gtag("config", gaId);
-        } else {
-          window.dataLayer = window.dataLayer || [];
-          window.gtag = function(){window.dataLayer.push(arguments);};
-        }
-      })();
-    </script>
   </head>
   <body>
     <div id="root"></div>

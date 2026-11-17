@@ -35,5 +35,6 @@ Allow: /
 User-agent: Applebot
 Allow: /
 
-# Canonical Sitemap URL
+# Canonical Sitemap URLs
 Sitemap: https://merqurie.com/sitemap.xml
+Sitemap: https://www.merqurie.com/sitemap.xml

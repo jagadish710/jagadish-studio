@@ -180,17 +180,14 @@ export default function WorkPage({ onOpenPrototypeModal }) {
                   </div>
 
                   {/* Desktop Image Canvas with Instant Preload & Fallback */}
-                  <div className="relative aspect-[16/10] rounded-xl overflow-hidden bg-slate-900 group/screen">
-                    {/* Ambient subtle shimmer placeholder to eliminate any black flash */}
-                    <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 animate-pulse pointer-events-none" />
-
+                  <div className="relative aspect-[16/10] rounded-xl overflow-hidden bg-slate-800 group/screen">
                     <img
                       src={proj.image}
                       alt={proj.name}
-                      loading={idx < 2 ? "eager" : "lazy"}
+                      loading="eager"
                       fetchPriority={idx < 2 ? "high" : "auto"}
-                      decoding="sync"
-                      className="relative z-1 w-full h-full object-cover object-top transition-transform duration-700 ease-out group-hover:scale-104"
+                      decoding="async"
+                      className="relative z-10 w-full h-full object-cover object-top transition-transform duration-700 ease-out group-hover:scale-104"
                     />
 
                     {/* Floating Speed Chip */}

@@ -210,24 +210,24 @@ export default function SolutionsPage({ onOpenPrototypeModal }) {
                   ))}
                 </div>
 
-                {/* Actions */}
-                <div className="pt-2 flex flex-wrap items-center gap-3">
+                {/* Actions - 100% Side-by-Side on Mobile */}
+                <div className="pt-2 flex flex-row items-center gap-2 sm:gap-3 w-full">
                   <button
                     onClick={onOpenPrototypeModal}
-                    className="px-5 py-2.5 rounded-xl font-bold text-xs bg-gradient-to-r from-rose-600 via-rose-500 to-pink-600 text-white shadow-md shadow-rose-500/25 active:scale-95 hover:brightness-105 transition-all flex items-center gap-1.5 cursor-pointer"
+                    className="flex-1 sm:flex-initial px-3 sm:px-5 py-2.5 rounded-xl font-bold text-[11px] sm:text-xs bg-gradient-to-r from-rose-600 via-rose-500 to-pink-600 text-white shadow-md shadow-rose-500/25 active:scale-95 hover:brightness-105 transition-all flex items-center justify-center gap-1 sm:gap-1.5 cursor-pointer whitespace-nowrap"
                   >
-                    <span>Request Free Sample</span>
-                    <ArrowRight className="w-3.5 h-3.5" />
+                    <span>Request Sample</span>
+                    <ArrowRight className="w-3 h-3 sm:w-3.5 sm:h-3.5 shrink-0" />
                   </button>
 
                   <a
                     href={whatsapp}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="px-4 py-2.5 rounded-xl text-xs font-semibold bg-emerald-600 hover:bg-emerald-500 text-white flex items-center gap-1.5 shadow-sm transition-all"
+                    className="flex-1 sm:flex-initial px-3 sm:px-4 py-2.5 rounded-xl text-[11px] sm:text-xs font-semibold bg-emerald-600 hover:bg-emerald-500 text-white flex items-center justify-center gap-1 sm:gap-1.5 shadow-sm transition-all whitespace-nowrap"
                   >
-                    <WhatsAppIcon className="w-3.5 h-3.5 fill-white" />
-                    <span>Chat on WhatsApp</span>
+                    <WhatsAppIcon className="w-3.5 h-3.5 fill-white shrink-0" />
+                    <span>WhatsApp</span>
                   </a>
                 </div>
 

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Check, ShieldCheck, Zap, ArrowRight, Sparkles, Plus, Smartphone, Layers, Lock } from 'lucide-react';
+import { Check, ShieldCheck, Zap, ArrowRight, Sparkles, Plus, Smartphone, Layers, Lock, X } from 'lucide-react';
 import WhatsAppIcon from './WhatsAppIcon';
 
 const whatsapp = 'https://wa.me/917358618789?text=Hi%20Jagadish!%20I%20would%20like%20to%20discuss%20a%20website%20package%20for%20my%20business.';
@@ -28,6 +28,11 @@ export default function PricingPackages({ onOpenPrototypeModal }) {
         '100% full source code & domain ownership',
         '30 days of post-launch warranty included',
       ],
+      notIncluded: [
+        'Interactive product catalog & visual spec configurator',
+        'Visitor intelligence tracking tool (who visited & city)',
+        'Dynamic member database or custom client portal',
+      ],
       cta: 'Choose Starter Edge',
       primary: false,
     },
@@ -39,7 +44,7 @@ export default function PricingPackages({ onOpenPrototypeModal }) {
       popular: true,
       delivery: '2-3 Days Delivery',
       badge: 'RECOMMENDED FOR BUSINESSES',
-      cardStyle: 'bg-gradient-to-b from-amber-50/50 via-white to-white border-2 border-amber-400 shadow-2xl shadow-amber-500/20 ring-4 ring-amber-400/20 lg:-translate-y-4 lg:scale-105 z-20',
+      cardStyle: 'bg-gradient-to-b from-amber-50/70 via-white to-white border-2 border-amber-400 shadow-2xl shadow-amber-500/25 ring-4 ring-amber-400/30 -translate-y-2 scale-[1.02] sm:-translate-y-4 sm:scale-105 z-20',
       badgeStyle: 'bg-amber-100 border-amber-300 text-amber-900',
       accentColor: 'text-amber-600',
       buttonStyle: 'bg-gradient-to-r from-rose-600 via-rose-500 to-amber-600 text-white shadow-xl shadow-rose-500/30 hover:brightness-105 border border-rose-400/40',
@@ -120,13 +125,11 @@ export default function PricingPackages({ onOpenPrototypeModal }) {
                 key={idx}
                 className={`rounded-3xl transition-all duration-300 ease-out flex flex-col justify-between relative p-6 sm:p-8 backdrop-blur-xl ${plan.cardStyle} hover:-translate-y-2 active:scale-[0.99] group`}
               >
-                {/* Popular Choice Badge */}
+                {/* Popular Choice 3D Floating Badge */}
                 {isPopular && (
-                  <div className="mb-4">
-                    <span className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full text-[11px] font-mono font-bold tracking-wider uppercase bg-gradient-to-r from-amber-500 to-rose-600 text-white shadow-md shadow-amber-500/25">
-                      <Sparkles className="w-3.5 h-3.5 text-yellow-200" />
-                      <span>MOST POPULAR FOR BUSINESSES</span>
-                    </span>
+                  <div className="absolute -top-3.5 left-1/2 -translate-x-1/2 px-4 py-1 rounded-full text-[10px] sm:text-[11px] font-mono font-black tracking-wider uppercase bg-gradient-to-r from-amber-500 via-rose-500 to-amber-600 text-white shadow-lg shadow-amber-500/30 border border-amber-300 flex items-center gap-1.5 whitespace-nowrap z-30">
+                    <Sparkles className="w-3.5 h-3.5 text-yellow-200" />
+                    <span>★ MOST POPULAR FOR BUSINESSES</span>
                   </div>
                 )}
 
@@ -169,7 +172,7 @@ export default function PricingPackages({ onOpenPrototypeModal }) {
                   )}
 
                   {/* Feature Checklist */}
-                  <ul className="space-y-3 mb-6">
+                  <ul className="space-y-3 mb-4">
                     {plan.features.map((feature, fIdx) => (
                       <li key={fIdx} className="flex items-start gap-2.5 text-xs sm:text-[13px] text-slate-700 leading-snug">
                         <div className="w-4 h-4 rounded-full bg-emerald-100 border border-emerald-300 flex items-center justify-center shrink-0 mt-0.5">
@@ -179,6 +182,25 @@ export default function PricingPackages({ onOpenPrototypeModal }) {
                       </li>
                     ))}
                   </ul>
+
+                  {/* Negative checklist showing what is not included in Starter */}
+                  {plan.notIncluded && (
+                    <div className="pt-3 pb-2 border-t border-slate-100 mb-4">
+                      <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-rose-500 block mb-2">
+                        Not Included in Starter:
+                      </span>
+                      <ul className="space-y-2.5">
+                        {plan.notIncluded.map((item, nIdx) => (
+                          <li key={nIdx} className="flex items-start gap-2.5 text-xs text-slate-400 leading-snug">
+                            <div className="w-4 h-4 rounded-full bg-rose-50 border border-rose-200 flex items-center justify-center shrink-0 mt-0.5">
+                              <X className="w-2.5 h-2.5 text-rose-500 stroke-[3]" />
+                            </div>
+                            <span className="line-through decoration-rose-300 text-slate-400">{item}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  )}
                 </div>
 
                 {/* Card CTA Button */}

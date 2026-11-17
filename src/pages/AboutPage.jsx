@@ -152,7 +152,7 @@ export default function AboutPage({ onOpenPrototypeModal }) {
               THE STORY &amp; MISSION
             </span>
             <h2 className="text-2xl sm:text-3xl font-extrabold font-display text-slate-950 leading-tight">
-              "Why I Started Merqurie in Chennai"
+              "Why I Started Merqurie"
             </h2>
             <div className="space-y-3.5 text-xs sm:text-sm text-slate-600 leading-relaxed">
               <p>
@@ -166,23 +166,23 @@ export default function AboutPage({ onOpenPrototypeModal }) {
               </p>
             </div>
 
-            <div className="pt-3 flex flex-wrap items-center gap-3">
+            <div className="pt-3 flex flex-row items-center gap-2 sm:gap-3">
               <a
                 href={whatsapp}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="px-6 py-3 rounded-xl text-xs font-bold bg-emerald-600 hover:bg-emerald-500 text-white flex items-center gap-2 shadow-lg shadow-emerald-500/25 transition-all active:scale-95 cursor-pointer"
+                className="flex-1 sm:flex-initial px-3 sm:px-6 py-2.5 sm:py-3 rounded-xl text-[11px] sm:text-xs font-bold bg-emerald-600 hover:bg-emerald-500 text-white flex items-center justify-center gap-1.5 sm:gap-2 shadow-lg shadow-emerald-500/25 transition-all active:scale-95 cursor-pointer text-center whitespace-nowrap"
               >
-                <WhatsAppIcon className="w-4 h-4 fill-white" />
+                <WhatsAppIcon className="w-3.5 h-3.5 sm:w-4 sm:h-4 fill-white shrink-0" />
                 <span>Chat with Jagadish</span>
               </a>
 
               <button
                 onClick={onOpenPrototypeModal}
-                className="px-6 py-3 rounded-xl text-xs font-mono font-bold uppercase tracking-wider bg-gradient-to-r from-rose-600 via-rose-500 to-pink-600 hover:brightness-105 text-white flex items-center gap-1.5 shadow-lg shadow-rose-500/25 transition-all active:scale-95 cursor-pointer border border-rose-400/40"
+                className="flex-1 sm:flex-initial px-3 sm:px-6 py-2.5 sm:py-3 rounded-xl text-[11px] sm:text-xs font-mono font-bold uppercase tracking-wider bg-gradient-to-r from-rose-600 via-rose-500 to-pink-600 hover:brightness-105 text-white flex items-center justify-center gap-1 sm:gap-1.5 shadow-lg shadow-rose-500/25 transition-all active:scale-95 cursor-pointer border border-rose-400/40 text-center whitespace-nowrap"
               >
-                <span>Request Free Sample</span>
-                <ArrowRight className="w-3.5 h-3.5" />
+                <span>Request Sample</span>
+                <ArrowRight className="w-3 h-3 sm:w-3.5 sm:h-3.5 shrink-0" />
               </button>
             </div>
           </div>

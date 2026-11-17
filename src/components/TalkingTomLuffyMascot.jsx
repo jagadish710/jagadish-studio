@@ -227,57 +227,63 @@ export default function TalkingTomLuffyMascot({ onOpenPrototypeModal }) {
       <style>{`
         @keyframes rubberArmLeftAnim {
           0% { transform: scaleX(1) scaleY(1); }
-          30% { transform: scaleX(2.6) scaleY(0.72) translateX(-42px); }
-          65% { transform: scaleX(0.88) scaleY(1.1) translateX(6px); }
-          85% { transform: scaleX(1.06) scaleY(0.96) translateX(-2px); }
-          100% { transform: scaleX(1) scaleY(1) translateX(0); }
+          30% { transform: scaleX(2.4) scaleY(0.85); }
+          65% { transform: scaleX(0.92) scaleY(1.05); }
+          85% { transform: scaleX(1.05) scaleY(0.98); }
+          100% { transform: scaleX(1) scaleY(1); }
         }
         @keyframes rubberArmRightAnim {
           0% { transform: scaleX(1) scaleY(1); }
-          30% { transform: scaleX(2.6) scaleY(0.72) translateX(42px); }
-          65% { transform: scaleX(0.88) scaleY(1.1) translateX(-6px); }
-          85% { transform: scaleX(1.06) scaleY(0.96) translateX(2px); }
-          100% { transform: scaleX(1) scaleY(1) translateX(0); }
+          30% { transform: scaleX(2.4) scaleY(0.85); }
+          65% { transform: scaleX(0.92) scaleY(1.05); }
+          85% { transform: scaleX(1.05) scaleY(0.98); }
+          100% { transform: scaleX(1) scaleY(1); }
         }
         @keyframes rubberLegsAnim {
-          0% { transform: scaleY(1); }
-          32% { transform: scaleY(2.25) scaleX(0.75) translateY(18px); }
-          65% { transform: scaleY(0.86) scaleX(1.12) translateY(-4px); }
-          85% { transform: scaleY(1.05) translateY(2px); }
-          100% { transform: scaleY(1) translateY(0); }
+          0% { transform: scaleY(1) scaleX(1); }
+          32% { transform: scaleY(2.0) scaleX(0.85); }
+          65% { transform: scaleY(0.92) scaleX(1.06); }
+          85% { transform: scaleY(1.04) scaleX(0.98); }
+          100% { transform: scaleY(1) scaleX(1); }
         }
         @keyframes rubberNeckAnim {
           0% { transform: scaleY(1); }
-          32% { transform: scaleY(2.6) translateY(-26px); }
-          65% { transform: scaleY(0.86) translateY(4px); }
-          85% { transform: scaleY(1.06) translateY(-2px); }
-          100% { transform: scaleY(1) translateY(0); }
+          32% { transform: scaleY(2.6); }
+          65% { transform: scaleY(0.92); }
+          85% { transform: scaleY(1.04); }
+          100% { transform: scaleY(1); }
         }
         @keyframes rubberHeadShiftAnim {
           0% { transform: translateY(0); }
-          32% { transform: translateY(-46px) scale(1.08); }
-          65% { transform: translateY(6px) scale(0.96); }
-          85% { transform: translateY(-3px); }
+          32% { transform: translateY(-51px); }
+          65% { transform: translateY(3px); }
+          85% { transform: translateY(-1.5px); }
           100% { transform: translateY(0); }
         }
         .anim-rubber-arm-left {
           animation: rubberArmLeftAnim 1.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+          transform-box: view-box;
           transform-origin: 148px 260px;
         }
         .anim-rubber-arm-right {
           animation: rubberArmRightAnim 1.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+          transform-box: view-box;
           transform-origin: 252px 260px;
         }
         .anim-rubber-legs {
           animation: rubberLegsAnim 1.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+          transform-box: view-box;
           transform-origin: 200px 356px;
         }
         .anim-rubber-neck {
           animation: rubberNeckAnim 1.2s cubic-bezier(0.34, 1.56, 0.64, 1);
-          transform-origin: 200px 220px;
+          transform-box: view-box;
+          transform-origin: 200px 246px;
         }
         .anim-rubber-head-shift {
           animation: rubberHeadShiftAnim 1.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+          transform-box: view-box;
+          transform-origin: 200px 246px;
         }
       `}</style>
       
@@ -444,6 +450,10 @@ export default function TalkingTomLuffyMascot({ onOpenPrototypeModal }) {
           {/* Default Arms - Interactive Rubber Stretch On Click! */}
           {!isVictory && !isBalloon && (
             <g>
+              {/* Permanent Anatomical Shoulder Sockets to ensure 100% attached connection */}
+              <circle cx="148" cy="260" r="13" fill="url(#cuteSkin3D)" />
+              <circle cx="252" cy="260" r="13" fill="url(#cuteSkin3D)" />
+
               {/* Left Arm (Gomu Gomu Pistol) */}
               <g 
                 className={`cursor-pointer ${isRubberArmLeft ? 'anim-rubber-arm-left' : ''}`}

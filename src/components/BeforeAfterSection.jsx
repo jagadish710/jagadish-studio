@@ -20,90 +20,74 @@ export default function BeforeAfterSection() {
         </div>
 
         {/* Comparison Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 items-stretch">
           
           {/* Left: Typical Agency / WordPress Site */}
-          <div className="glass-card rounded-3xl p-7 sm:p-8 border-crimson-500/30 space-y-5">
-            <div className="flex items-center justify-between">
-              <span className="px-3 py-1 rounded-full bg-crimson-500/15 border border-crimson-400/30 text-xs font-extrabold text-crimson-300 font-mono">
-                ✕ Typical Agency / WordPress Site
+          <div className="glass-card rounded-3xl p-5 sm:p-7 border-crimson-500/30 space-y-4">
+            <div className="flex items-center justify-between gap-2">
+              <span className="px-2.5 py-1 rounded-full bg-crimson-500/15 border border-crimson-400/30 text-[11px] sm:text-xs font-bold text-crimson-300 font-mono whitespace-nowrap">
+                ✕ WordPress Agency
               </span>
-              <span className="font-display text-lg font-bold text-crimson-400">
-                6–9 Sec Load
+              <span className="px-2.5 py-1 rounded-full bg-crimson-500/10 border border-crimson-500/20 text-xs sm:text-sm font-bold font-mono text-crimson-400 whitespace-nowrap">
+                6–9s Load
               </span>
             </div>
 
-            <h3 className="font-display text-2xl font-bold text-white">
-              The Leaky Bucket Problem
+            <h3 className="font-display text-xl sm:text-2xl font-bold text-white tracking-tight">
+              The Leaky Bucket
             </h3>
 
-            <ul className="space-y-3.5 text-sm text-slate-300">
-              <li className="flex items-start gap-3">
-                <span className="text-crimson-400 font-bold mt-0.5">✕</span>
-                <span>
-                  <strong className="text-white">White loading screen for 7 seconds:</strong> Impatient mobile visitors close the tab and click the next Google result.
-                </span>
+            <ul className="space-y-2.5 text-xs sm:text-sm text-slate-300">
+              <li className="flex items-center gap-2.5">
+                <span className="w-4 h-4 rounded-full bg-crimson-500/20 text-crimson-400 flex items-center justify-center text-[10px] font-bold shrink-0">✕</span>
+                <span className="truncate">7s blank screen loses 70% of mobile buyers</span>
               </li>
-              <li className="flex items-start gap-3">
-                <span className="text-crimson-400 font-bold mt-0.5">✕</span>
-                <span>
-                  <strong className="text-white">Hard-to-find contact forms:</strong> Customers hate filling out 8 fields when they just want a quick quote on WhatsApp.
-                </span>
+              <li className="flex items-center gap-2.5">
+                <span className="w-4 h-4 rounded-full bg-crimson-500/20 text-crimson-400 flex items-center justify-center text-[10px] font-bold shrink-0">✕</span>
+                <span className="truncate">Tedious 8-field forms drop high-intent leads</span>
               </li>
-              <li className="flex items-start gap-3">
-                <span className="text-crimson-400 font-bold mt-0.5">✕</span>
-                <span>
-                  <strong className="text-white">Hostage monthly fees:</strong> Agencies charge ongoing maintenance just to update plugins or change one phone number.
-                </span>
+              <li className="flex items-center gap-2.5">
+                <span className="w-4 h-4 rounded-full bg-crimson-500/20 text-crimson-400 flex items-center justify-center text-[10px] font-bold shrink-0">✕</span>
+                <span className="truncate">₹8k–₹15k/mo retainers for simple text edits</span>
               </li>
-              <li className="flex items-start gap-3">
-                <span className="text-crimson-400 font-bold mt-0.5">✕</span>
-                <span>
-                  <strong className="text-white">Outdated template look:</strong> Looks identical to 500 other businesses, hurting your brand authority.
-                </span>
+              <li className="flex items-center gap-2.5">
+                <span className="w-4 h-4 rounded-full bg-crimson-500/20 text-crimson-400 flex items-center justify-center text-[10px] font-bold shrink-0">✕</span>
+                <span className="truncate">Generic slow templates hurt brand trust</span>
               </li>
             </ul>
           </div>
 
           {/* Right: The Merqurie Edge Engine */}
-          <div className="glass-card rounded-3xl p-7 sm:p-8 border-2 border-emerald-400/50 shadow-2xl shadow-emerald-500/10 space-y-5">
-            <div className="flex items-center justify-between">
-              <span className="px-3 py-1 rounded-full bg-emerald-500/20 border border-emerald-400/40 text-xs font-extrabold text-emerald-300 font-mono">
-                ✓ The Merqurie Edge Architecture
+          <div className="glass-card rounded-3xl p-5 sm:p-7 border-2 border-emerald-400/50 shadow-2xl shadow-emerald-500/10 space-y-4">
+            <div className="flex items-center justify-between gap-2">
+              <span className="px-2.5 py-1 rounded-full bg-emerald-500/20 border border-emerald-400/40 text-[11px] sm:text-xs font-bold text-emerald-300 font-mono whitespace-nowrap">
+                ✓ Merqurie Edge
               </span>
-              <span className="font-display text-lg font-bold text-emerald-400">
-                0.24 Sec Load
+              <span className="px-2.5 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-xs sm:text-sm font-bold font-mono text-emerald-400 whitespace-nowrap">
+                0.24s Speed
               </span>
             </div>
 
-            <h3 className="font-display text-2xl font-bold text-white">
-              24/7 Customer Conversion Machine
+            <h3 className="font-display text-xl sm:text-2xl font-bold text-white tracking-tight">
+              High-Speed Conversion
             </h3>
 
-            <ul className="space-y-3.5 text-sm text-slate-200">
-              <li className="flex items-start gap-3">
-                <span className="text-emerald-400 font-bold mt-0.5">✓</span>
-                <span>
-                  <strong className="text-white">Opens before they blink (0.24s):</strong> Global edge servers deliver your site instantaneously even on weak mobile signals.
-                </span>
+            <ul className="space-y-2.5 text-xs sm:text-sm text-slate-200">
+              <li className="flex items-center gap-2.5">
+                <span className="w-4 h-4 rounded-full bg-emerald-500/20 text-emerald-400 flex items-center justify-center text-[10px] font-bold shrink-0">✓</span>
+                <span className="truncate">Instant 0.24s paint keeps every mobile visitor</span>
               </li>
-              <li className="flex items-start gap-3">
-                <span className="text-emerald-400 font-bold mt-0.5">✓</span>
-                <span>
-                  <strong className="text-white">1-Tap Pre-Filled WhatsApp Leads:</strong> Buyers tap once and message you directly with the exact product or package they want.
-                </span>
+              <li className="flex items-center gap-2.5">
+                <span className="w-4 h-4 rounded-full bg-emerald-500/20 text-emerald-400 flex items-center justify-center text-[10px] font-bold shrink-0">✓</span>
+                <span className="truncate">1-Tap WhatsApp quotes directly into your chat</span>
               </li>
-              <li className="flex items-start gap-3">
-                <span className="text-emerald-400 font-bold mt-0.5">✓</span>
-                <span>
-                  <strong className="text-white">10-Second Phone Admin Panel:</strong> Change prices, banners, or photos yourself from your phone browser—₹0 monthly retainer.
-                </span>
+              <li className="flex items-center gap-2.5">
+                <span className="w-4 h-4 rounded-full bg-emerald-500/20 text-emerald-400 flex items-center justify-center text-[10px] font-bold shrink-0">✓</span>
+                <span className="truncate">10-Second phone edits with ₹0 monthly retainers</span>
               </li>
-              <li className="flex items-start gap-3">
-                <span className="text-emerald-400 font-bold mt-0.5">✓</span>
-                <span>
-                  <strong className="text-white">Bespoke High-Trust Craft:</strong> Custom interactive design that positions you as the #1 authority in your industry.
-                </span>
+              <li className="flex items-center gap-2.5">
+                <span className="w-4 h-4 rounded-full bg-emerald-500/20 text-emerald-400 flex items-center justify-center text-[10px] font-bold shrink-0">✓</span>
+                <span className="truncate">100% custom code &amp; full asset ownership</span>
               </li>
             </ul>
           </div>

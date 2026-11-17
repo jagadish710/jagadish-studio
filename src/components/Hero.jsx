@@ -159,25 +159,25 @@ export default function Hero({ onOpenPrototypeModal, onNavigateToWork, onNavigat
               })}
             </div>
 
-            {/* CTA Buttons */}
-            <div className="flex flex-col sm:flex-row items-center gap-3.5 w-full sm:w-auto">
+            {/* CTA Buttons - 100% Side-by-Side on Mobile */}
+            <div className="flex flex-row items-center gap-2 sm:gap-3.5 w-full sm:w-auto">
               <button
                 onClick={onOpenPrototypeModal}
-                className="w-full sm:w-auto px-6 py-3.5 rounded-2xl font-bold text-sm tracking-wide bg-gradient-to-r from-rose-600 via-rose-500 to-pink-600 text-white shadow-xl shadow-rose-500/25 hover:brightness-105 active:scale-95 transition-all flex items-center justify-center gap-2 cursor-pointer"
+                className="flex-1 sm:flex-initial px-3 sm:px-6 py-3 sm:py-3.5 rounded-2xl font-bold text-[11px] sm:text-sm tracking-wide bg-gradient-to-r from-rose-600 via-rose-500 to-pink-600 text-white shadow-xl shadow-rose-500/25 hover:brightness-105 active:scale-95 transition-all flex items-center justify-center gap-1.5 sm:gap-2 cursor-pointer whitespace-nowrap"
               >
-                <Sparkles className="w-4 h-4 text-white" />
-                <span>REQUEST FREE SAMPLE PREVIEW</span>
-                <ArrowRight className="w-4 h-4" />
+                <Sparkles className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-white shrink-0" />
+                <span>Free Sample Preview</span>
+                <ArrowRight className="w-3.5 h-3.5 sm:w-4 sm:h-4 shrink-0" />
               </button>
 
               <a
                 href={whatsapp}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full sm:w-auto px-5 py-3.5 rounded-2xl font-semibold text-sm bg-emerald-600 hover:bg-emerald-500 text-white shadow-lg shadow-emerald-500/20 active:scale-95 transition-all flex items-center justify-center gap-2 border border-emerald-400/30"
+                className="flex-1 sm:flex-initial px-3 sm:px-5 py-3 sm:py-3.5 rounded-2xl font-semibold text-[11px] sm:text-sm bg-emerald-600 hover:bg-emerald-500 text-white shadow-lg shadow-emerald-500/20 active:scale-95 transition-all flex items-center justify-center gap-1.5 sm:gap-2 border border-emerald-400/30 whitespace-nowrap"
               >
-                <WhatsAppIcon className="w-4 h-4 fill-white" />
-                <span>Chat with Jagadish</span>
+                <WhatsAppIcon className="w-3.5 h-3.5 sm:w-4 sm:h-4 fill-white shrink-0" />
+                <span>WhatsApp Chat</span>
               </a>
             </div>
 
@@ -242,7 +242,34 @@ export default function Hero({ onOpenPrototypeModal, onNavigateToWork, onNavigat
         </div>
 
         {/* Interactive Floating Modern Device Workstation Frame */}
-        <div className="w-full relative mt-2 group">
+        <div className="w-full relative mt-3 group">
+          {/* Synchronized Workstation Showcase Switcher: Always within thumb-reach on mobile */}
+          <div className="flex items-center justify-start sm:justify-center gap-1.5 mb-3 overflow-x-auto no-scrollbar px-1 py-1">
+            {[
+              { id: 'pms', label: 'PMS Healthcare', icon: ShieldCheck, color: 'text-teal-600' },
+              { id: 'upsks', label: 'UPSKS Karate', icon: Zap, color: 'text-rose-600' },
+              { id: 'admin', label: 'Mobile Admin', icon: Smartphone, color: 'text-indigo-600' },
+              { id: 'ecommerce', label: '1-Tap Orders', icon: ShoppingBag, color: 'text-amber-600' },
+            ].map((pill) => {
+              const isActive = activeShowcase === pill.id;
+              const Icon = pill.icon;
+              return (
+                <button
+                  key={pill.id}
+                  onClick={() => setActiveShowcase(pill.id)}
+                  className={`px-3 py-1.5 rounded-full text-[11px] sm:text-xs font-mono font-medium transition-all duration-200 cursor-pointer flex items-center gap-1.5 whitespace-nowrap shrink-0 ${
+                    isActive
+                      ? 'bg-rose-50 text-rose-700 border-2 border-rose-500 font-bold shadow-sm scale-102'
+                      : 'bg-white text-slate-600 border border-slate-200 hover:border-slate-300 hover:text-slate-900 shadow-xs'
+                  }`}
+                >
+                  <Icon className={`w-3 h-3 sm:w-3.5 sm:h-3.5 ${pill.color} shrink-0`} />
+                  <span>{pill.label}</span>
+                </button>
+              );
+            })}
+          </div>
+
           <div className="absolute -inset-4 sm:-inset-6 bg-gradient-to-r from-rose-400/15 via-cyan-400/15 to-purple-400/15 rounded-3xl blur-2xl pointer-events-none opacity-60 group-hover:opacity-100 transition-opacity duration-700" />
 
           <div className="relative rounded-2xl sm:rounded-3xl border border-slate-200/90 bg-white p-2 sm:p-3 shadow-2xl shadow-slate-300/60 backdrop-blur-xl">

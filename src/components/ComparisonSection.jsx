@@ -97,28 +97,30 @@ export default function ComparisonSection({ onOpenPrototypeModal }) {
             Here is the side-by-side breakdown in plain, simple terms so you know exactly what you are paying for and why our clients never pay a monthly retainer again.
           </p>
 
-          {/* Interactive Filter Pills */}
+          {/* Interactive Filter Pills - ZERO EMOJIS */}
           <div className="flex items-center justify-center gap-2 flex-wrap mt-8">
             {[
-              { id: 'all', label: 'All 5 Key Comparisons' },
-              { id: 'speed', label: '⚡ Speed' },
-              { id: 'flow', label: '💬 WhatsApp Flow' },
-              { id: 'cost', label: '💰 ₹0 Retainer' },
-              { id: 'edits', label: '📱 10s Phone Edits' },
-              { id: 'ownership', label: '🔒 100% Ownership' },
+              { id: 'all', label: 'All 5 Key Comparisons', icon: Sparkles },
+              { id: 'speed', label: 'Speed', icon: Zap },
+              { id: 'flow', label: 'WhatsApp Flow', icon: MessageSquare },
+              { id: 'cost', label: '₹0 Retainer', icon: ShieldCheck },
+              { id: 'edits', label: '10s Phone Edits', icon: Smartphone },
+              { id: 'ownership', label: '100% Ownership', icon: Lock },
             ].map((pill) => {
               const isSelected = activeFilter === pill.id;
+              const Icon = pill.icon;
               return (
                 <button
                   key={pill.id}
                   onClick={() => setActiveFilter(pill.id)}
-                  className={`px-3.5 py-1.5 rounded-full text-xs font-mono transition-all cursor-pointer ${
+                  className={`px-3.5 py-1.5 rounded-full text-xs font-mono transition-all cursor-pointer flex items-center gap-1.5 ${
                     isSelected
                       ? 'bg-rose-50 text-rose-700 font-bold border-2 border-rose-500 shadow-sm scale-105'
                       : 'bg-white text-slate-600 hover:text-slate-950 border border-slate-200 shadow-2xs'
                   }`}
                 >
-                  {pill.label}
+                  <Icon className="w-3.5 h-3.5 shrink-0" />
+                  <span>{pill.label}</span>
                 </button>
               );
             })}

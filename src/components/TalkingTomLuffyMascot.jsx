@@ -1,14 +1,14 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Volume2, VolumeX, Sparkles } from 'lucide-react';
+import { Volume2, VolumeX, Sparkles, Zap, ArrowUpRight, Smile, Flame } from 'lucide-react';
 
 export default function TalkingTomLuffyMascot({ onOpenPrototypeModal }) {
   const [isMuted, setIsMuted] = useState(false);
   const [meatFuel, setMeatFuel] = useState(85);
   const [speech, setSpeech] = useState(
-    '"Shishishi! Tap the buttons below to see my Nose-Pick lag flick, Victory Stretch, Giant Grin, or Meat Balloon!"'
+    '"Shishishi! Click my rubber arms, legs, or neck to watch me stretch, or tap the buttons below!"'
   );
   const [bubbleScale, setBubbleScale] = useState(false);
-  const [currentAction, setCurrentAction] = useState(null);
+  const [currentAction, setCurrentAction] = useState(null); // 'nosepick' | 'victory' | 'giantgrin' | 'balloon' | 'hat' | 'rubber-arm-left' | 'rubber-arm-right' | 'rubber-legs' | 'rubber-neck'
 
   const audioCtxRef = useRef(null);
   const resetTimerRef = useRef(null);
@@ -40,7 +40,17 @@ export default function TalkingTomLuffyMascot({ onOpenPrototypeModal }) {
     osc.connect(gain);
     gain.connect(ctx.destination);
 
-    if (type === 'nosepick') {
+    if (type === 'rubber' || type.startsWith('rubber-')) {
+      // Classic Gomu-Gomu rubber stretch twang + snappy boing
+      osc.type = 'sawtooth';
+      osc.frequency.setValueAtTime(160, now);
+      osc.frequency.exponentialRampToValueAtTime(760, now + 0.2);
+      osc.frequency.exponentialRampToValueAtTime(140, now + 0.38);
+      gain.gain.setValueAtTime(0.22, now);
+      gain.gain.exponentialRampToValueAtTime(0.001, now + 0.42);
+      osc.start(now);
+      osc.stop(now + 0.42);
+    } else if (type === 'nosepick') {
       // Cheeky slide + flick pop
       osc.type = 'triangle';
       osc.frequency.setValueAtTime(240, now);
@@ -140,6 +150,22 @@ export default function TalkingTomLuffyMascot({ onOpenPrototypeModal }) {
       '"BURP! Shishishi! Stuffed with clean code—zero heavy plugins allowed!"',
     ],
     hat: ['"Tipping my hat to smart business owners! Ready for your free 24h sample?"'],
+    'rubber-arm-left': [
+      '"GOMU GOMU NO... PISTOL!! Shishishi! Elastic edge code reaching customers across 300+ CDN nodes!"',
+      '"Rubber punch! Knocking out slow WordPress lag and high maintenance fees!"',
+    ],
+    'rubber-arm-right': [
+      '"GOMU GOMU NO... ROCKET!! Launching your business straight to the top of Google rankings!"',
+      '"Stretching out for another 1-tap WhatsApp lead! Shishishi!"',
+    ],
+    'rubber-legs': [
+      '"GOMU GOMU NO... STAMP!! Bouncy rubber legs leaping over heavy 8-second database queries!"',
+      '"Springing into action! Sub-0.3s lightning mobile speed guaranteed!"',
+    ],
+    'rubber-neck': [
+      '"GOMU GOMU NO... BELL!! Rubber neck spotting high-value buyers from miles away!"',
+      '"Whoa! Stretching my neck to check out your competitors\' clunky websites!"',
+    ],
   };
 
   const techAnswers = {
@@ -169,9 +195,10 @@ export default function TalkingTomLuffyMascot({ onOpenPrototypeModal }) {
       setMeatFuel((prev) => Math.min(100, prev + 15));
     }
 
+    const duration = action.startsWith('rubber-') ? 1400 : 1800;
     resetTimerRef.current = setTimeout(() => {
       setCurrentAction(null);
-    }, 1800);
+    }, duration);
   };
 
   const askCaptain = (topic) => {
@@ -190,23 +217,83 @@ export default function TalkingTomLuffyMascot({ onOpenPrototypeModal }) {
   const isGiantGrin = currentAction === 'giantgrin';
   const isBalloon = currentAction === 'balloon';
   const isHatBounce = currentAction === 'hat';
+  const isRubberArmLeft = currentAction === 'rubber-arm-left';
+  const isRubberArmRight = currentAction === 'rubber-arm-right';
+  const isRubberLegs = currentAction === 'rubber-legs';
+  const isRubberNeck = currentAction === 'rubber-neck';
 
   return (
     <div className="relative w-full max-w-[490px] mascot-stage-bg rounded-3xl p-4 sm:p-5 flex flex-col items-center select-none border border-treasure-400/25 shadow-2xl backdrop-blur-xl">
+      <style>{`
+        @keyframes rubberArmLeftAnim {
+          0% { transform: scaleX(1) scaleY(1); }
+          30% { transform: scaleX(2.6) scaleY(0.72) translateX(-42px); }
+          65% { transform: scaleX(0.88) scaleY(1.1) translateX(6px); }
+          85% { transform: scaleX(1.06) scaleY(0.96) translateX(-2px); }
+          100% { transform: scaleX(1) scaleY(1) translateX(0); }
+        }
+        @keyframes rubberArmRightAnim {
+          0% { transform: scaleX(1) scaleY(1); }
+          30% { transform: scaleX(2.6) scaleY(0.72) translateX(42px); }
+          65% { transform: scaleX(0.88) scaleY(1.1) translateX(-6px); }
+          85% { transform: scaleX(1.06) scaleY(0.96) translateX(2px); }
+          100% { transform: scaleX(1) scaleY(1) translateX(0); }
+        }
+        @keyframes rubberLegsAnim {
+          0% { transform: scaleY(1); }
+          32% { transform: scaleY(2.25) scaleX(0.75) translateY(18px); }
+          65% { transform: scaleY(0.86) scaleX(1.12) translateY(-4px); }
+          85% { transform: scaleY(1.05) translateY(2px); }
+          100% { transform: scaleY(1) translateY(0); }
+        }
+        @keyframes rubberNeckAnim {
+          0% { transform: scaleY(1); }
+          32% { transform: scaleY(2.6) translateY(-26px); }
+          65% { transform: scaleY(0.86) translateY(4px); }
+          85% { transform: scaleY(1.06) translateY(-2px); }
+          100% { transform: scaleY(1) translateY(0); }
+        }
+        @keyframes rubberHeadShiftAnim {
+          0% { transform: translateY(0); }
+          32% { transform: translateY(-46px) scale(1.08); }
+          65% { transform: translateY(6px) scale(0.96); }
+          85% { transform: translateY(-3px); }
+          100% { transform: translateY(0); }
+        }
+        .anim-rubber-arm-left {
+          animation: rubberArmLeftAnim 1.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+          transform-origin: 148px 260px;
+        }
+        .anim-rubber-arm-right {
+          animation: rubberArmRightAnim 1.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+          transform-origin: 252px 260px;
+        }
+        .anim-rubber-legs {
+          animation: rubberLegsAnim 1.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+          transform-origin: 200px 356px;
+        }
+        .anim-rubber-neck {
+          animation: rubberNeckAnim 1.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+          transform-origin: 200px 220px;
+        }
+        .anim-rubber-head-shift {
+          animation: rubberHeadShiftAnim 1.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+      `}</style>
       
       {/* Top Status Bar with Sound Toggle */}
       <div className="w-full flex items-center justify-between gap-2 px-4 py-2 rounded-2xl glass-card mb-2.5 text-xs">
         <div className="flex items-center gap-2">
           <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-          <span className="font-bold text-white font-display">Captain Merq</span>
+          <span className="font-bold text-white font-display">Captain</span>
           <span className="text-[10px] px-2 py-0.5 rounded bg-treasure-500/20 text-treasure-300 font-bold font-mono">
-            Tap Me!
+            Stretch Me!
           </span>
         </div>
 
         <div className="flex items-center gap-3">
           <div className="flex items-center gap-1.5">
-            <span className="text-[10px] font-bold text-slate-400 font-mono">MEAT FUEL</span>
+            <span className="text-[10px] font-bold text-slate-400 font-mono">SPEED FUEL</span>
             <div className="w-16 sm:w-20 h-2 bg-white/10 rounded-full overflow-hidden">
               <div
                 className="h-full bg-gradient-to-r from-treasure-400 to-emerald-400 transition-all duration-500"
@@ -217,7 +304,7 @@ export default function TalkingTomLuffyMascot({ onOpenPrototypeModal }) {
 
           <button
             onClick={() => setIsMuted(!isMuted)}
-            className="w-7 h-7 rounded-lg bg-white/5 hover:bg-white/15 flex items-center justify-center text-treasure-400 transition-colors"
+            className="w-7 h-7 rounded-lg bg-white/5 hover:bg-white/15 flex items-center justify-center text-treasure-400 transition-colors cursor-pointer"
             title={isMuted ? 'Unmute Sound FX' : 'Mute Sound FX'}
           >
             {isMuted ? <VolumeX className="w-3.5 h-3.5 text-slate-400" /> : <Volume2 className="w-3.5 h-3.5 text-treasure-400" />}
@@ -340,8 +427,12 @@ export default function TalkingTomLuffyMascot({ onOpenPrototypeModal }) {
             <ellipse cx="200" cy="112" rx="131" ry="30" fill="url(#hatBrim3D)" />
           </g>
 
-          {/* Legs & Sandals */}
-          <g>
+          {/* Legs & Sandals - Interactive Rubber Stretch On Click! */}
+          <g 
+            className={`cursor-pointer ${isRubberLegs ? 'anim-rubber-legs' : ''}`}
+            onClick={() => triggerAction('rubber-legs')}
+            title="Click to stretch rubber legs!"
+          >
             <rect x="156" y="356" width="23" height="55" rx="11.5" fill="url(#cuteSkin3D)" />
             <rect x="221" y="356" width="23" height="55" rx="11.5" fill="url(#cuteSkin3D)" />
             <ellipse cx="166" cy="415" rx="23" ry="9.5" fill="#F59E0B" stroke="#92400E" strokeWidth="2" />
@@ -350,14 +441,25 @@ export default function TalkingTomLuffyMascot({ onOpenPrototypeModal }) {
             <path d="M219 413 Q234 405 249 413" stroke="#B45309" strokeWidth="3.5" fill="none" strokeLinecap="round" />
           </g>
 
-          {/* Default Arms */}
+          {/* Default Arms - Interactive Rubber Stretch On Click! */}
           {!isVictory && !isBalloon && (
             <g>
-              <g className="cursor-pointer" onClick={() => triggerAction('victory')}>
+              {/* Left Arm (Gomu Gomu Pistol) */}
+              <g 
+                className={`cursor-pointer ${isRubberArmLeft ? 'anim-rubber-arm-left' : ''}`}
+                onClick={() => triggerAction('rubber-arm-left')}
+                title="Click to stretch rubber left arm!"
+              >
                 <path d="M148 260 Q98 272 68 292" stroke="url(#cuteSkin3D)" strokeWidth="23" strokeLinecap="round" fill="none" />
                 <circle cx="60" cy="296" r="18.5" fill="url(#cuteSkin3D)" stroke="#C27849" strokeWidth="2" />
               </g>
-              <g className="cursor-pointer" onClick={() => triggerAction('victory')}>
+
+              {/* Right Arm (Gomu Gomu Rocket) */}
+              <g 
+                className={`cursor-pointer ${isRubberArmRight ? 'anim-rubber-arm-right' : ''}`}
+                onClick={() => triggerAction('rubber-arm-right')}
+                title="Click to stretch rubber right arm!"
+              >
                 <path d="M252 260 Q302 272 332 292" stroke="url(#cuteSkin3D)" strokeWidth="23" strokeLinecap="round" fill="none" />
                 <circle cx="340" cy="296" r="18.5" fill="url(#cuteSkin3D)" stroke="#C27849" strokeWidth="2" />
               </g>
@@ -406,11 +508,25 @@ export default function TalkingTomLuffyMascot({ onOpenPrototypeModal }) {
             </g>
           )}
 
-          {/* Neck */}
-          <rect x="183" y="214" width="34" height="32" rx="12" fill="url(#cuteSkin3D)" />
+          {/* Neck - Interactive Rubber Stretch On Click! */}
+          <rect 
+            x="183" 
+            y="214" 
+            width="34" 
+            height="32" 
+            rx="12" 
+            fill="url(#cuteSkin3D)" 
+            className={`cursor-pointer ${isRubberNeck ? 'anim-rubber-neck' : ''}`}
+            onClick={() => triggerAction('rubber-neck')}
+            title="Click to stretch rubber neck!"
+          />
 
-          {/* Expressive Head & Face */}
-          <g ref={headGroupRef} className="cursor-pointer" onClick={() => triggerAction('giantgrin')}>
+          {/* Expressive Head & Face - Shifts up on Rubber Neck Stretch! */}
+          <g 
+            ref={headGroupRef} 
+            className={`cursor-pointer ${isRubberNeck ? 'anim-rubber-head-shift' : ''}`} 
+            onClick={() => triggerAction('giantgrin')}
+          >
             <ellipse cx="121" cy="164" rx="14" ry="19" fill="url(#cuteSkin3D)" stroke="#C27849" strokeWidth="2" />
             <ellipse cx="279" cy="164" rx="14" ry="19" fill="url(#cuteSkin3D)" stroke="#C27849" strokeWidth="2" />
             <rect x="124" y="92" width="152" height="136" rx="68" fill="url(#cuteSkin3D)" stroke="#C27849" strokeWidth="2" />
@@ -439,7 +555,7 @@ export default function TalkingTomLuffyMascot({ onOpenPrototypeModal }) {
             )}
 
             {/* Eyes */}
-            {!isVictory && !isGiantGrin && !isBalloon && (
+            {!isVictory && !isGiantGrin && !isBalloon && !isRubberNeck && (
               <g className="eye-blink">
                 <circle cx="166" cy="158" r="21" fill="#FFFFFF" stroke="#1E293B" strokeWidth="2.5" />
                 <g ref={leftPupilRef}>
@@ -469,6 +585,15 @@ export default function TalkingTomLuffyMascot({ onOpenPrototypeModal }) {
                 <circle cx="166" cy="158" r="5" fill="#0F172A" />
                 <circle cx="234" cy="158" r="22" fill="#FFFFFF" stroke="#1E293B" strokeWidth="2.5" />
                 <circle cx="234" cy="158" r="5" fill="#0F172A" />
+              </g>
+            )}
+
+            {isRubberNeck && (
+              <g>
+                <circle cx="166" cy="158" r="23" fill="#FFFFFF" stroke="#1E293B" strokeWidth="2.5" />
+                <circle cx="166" cy="158" r="8" fill="#0F172A" />
+                <circle cx="234" cy="158" r="23" fill="#FFFFFF" stroke="#1E293B" strokeWidth="2.5" />
+                <circle cx="234" cy="158" r="8" fill="#0F172A" />
               </g>
             )}
 
@@ -512,8 +637,11 @@ export default function TalkingTomLuffyMascot({ onOpenPrototypeModal }) {
             </g>
           )}
 
-          {/* Straw Hat Crown & Front Brim */}
-          <g className={`cursor-pointer ${isHatBounce ? 'anim-hat-bounce' : ''}`} onClick={() => triggerAction('hat')}>
+          {/* Straw Hat Crown & Front Brim - Shifts up on Rubber Neck Stretch! */}
+          <g 
+            className={`cursor-pointer ${isHatBounce ? 'anim-hat-bounce' : ''} ${isRubberNeck ? 'anim-rubber-head-shift' : ''}`} 
+            onClick={() => triggerAction('hat')}
+          >
             <path d="M132 106 C134 40, 266 40, 268 106 Z" fill="url(#hatCrown3D)" stroke="#A16207" strokeWidth="2.5" />
             <path d="M152 70 Q200 62 248 70" stroke="#D97706" strokeWidth="1.5" strokeDasharray="6 4" fill="none" opacity="0.55" />
             <path d="M142 84 Q200 76 258 84" stroke="#D97706" strokeWidth="1.5" strokeDasharray="6 4" fill="none" opacity="0.55" />
@@ -536,42 +664,42 @@ export default function TalkingTomLuffyMascot({ onOpenPrototypeModal }) {
         </svg>
       </div>
 
-      {/* 4 Interactive Reaction Action Buttons */}
+      {/* 4 Interactive Reaction Action Buttons - STRICTLY SINGLE LINE & ZERO EMOJIS */}
       <div className="w-full grid grid-cols-2 sm:grid-cols-4 gap-2 mt-2 z-20">
         <button
           onClick={() => triggerAction('nosepick')}
-          className="pirate-pill px-2.5 py-2.5 rounded-xl glass-card border-cyanline-400/40 hover:border-cyanline-400 text-xs font-extrabold text-cyanline-300 flex items-center justify-center gap-1.5 shadow-lg cursor-pointer"
+          className="pirate-pill px-2 py-2.5 rounded-xl glass-card border-cyanline-400/40 hover:border-cyanline-400 text-[11px] sm:text-xs font-bold text-cyanline-300 flex items-center justify-center gap-1.5 shadow-lg cursor-pointer whitespace-nowrap overflow-hidden"
         >
-          <span>🤔</span>
-          <span>Flick Lag</span>
+          <Zap className="w-3.5 h-3.5 text-cyanline-400 shrink-0" />
+          <span className="whitespace-nowrap">Flick Lag</span>
         </button>
         <button
           onClick={() => triggerAction('victory')}
-          className="pirate-pill px-2.5 py-2.5 rounded-xl glass-card border-emerald-400/40 hover:border-emerald-400 text-xs font-extrabold text-emerald-300 flex items-center justify-center gap-1.5 shadow-lg cursor-pointer"
+          className="pirate-pill px-2 py-2.5 rounded-xl glass-card border-emerald-400/40 hover:border-emerald-400 text-[11px] sm:text-xs font-bold text-emerald-300 flex items-center justify-center gap-1.5 shadow-lg cursor-pointer whitespace-nowrap overflow-hidden"
         >
-          <span>🙌</span>
-          <span>Arms Up!</span>
+          <ArrowUpRight className="w-3.5 h-3.5 text-emerald-400 shrink-0" />
+          <span className="whitespace-nowrap">Arms Up</span>
         </button>
         <button
           onClick={() => triggerAction('giantgrin')}
-          className="pirate-pill px-2.5 py-2.5 rounded-xl glass-card border-treasure-400/40 hover:border-treasure-400 text-xs font-extrabold text-treasure-300 flex items-center justify-center gap-1.5 shadow-lg cursor-pointer"
+          className="pirate-pill px-2 py-2.5 rounded-xl glass-card border-treasure-400/40 hover:border-treasure-400 text-[11px] sm:text-xs font-bold text-treasure-300 flex items-center justify-center gap-1.5 shadow-lg cursor-pointer whitespace-nowrap overflow-hidden"
         >
-          <span>😁</span>
-          <span>Big Grin</span>
+          <Smile className="w-3.5 h-3.5 text-treasure-400 shrink-0" />
+          <span className="whitespace-nowrap">Big Grin</span>
         </button>
         <button
           onClick={() => triggerAction('balloon')}
-          className="pirate-pill px-2.5 py-2.5 rounded-xl bg-gradient-to-r from-treasure-400 to-amber-500 text-ocean-950 text-xs font-extrabold flex items-center justify-center gap-1.5 shadow-lg shadow-amber-500/30 cursor-pointer"
+          className="pirate-pill px-2 py-2.5 rounded-xl bg-gradient-to-r from-treasure-400 to-amber-500 text-ocean-950 text-[11px] sm:text-xs font-extrabold flex items-center justify-center gap-1.5 shadow-lg shadow-amber-500/30 cursor-pointer whitespace-nowrap overflow-hidden"
         >
-          <span>🍖</span>
-          <span>Meat Belly</span>
+          <Flame className="w-3.5 h-3.5 text-ocean-950 shrink-0" />
+          <span className="whitespace-nowrap">Full Belly</span>
         </button>
       </div>
 
       {/* Plain-English Business Questions */}
       <div className="w-full mt-3 pt-2.5 border-t border-white/10 z-20">
         <div className="text-[10px] uppercase tracking-wider text-slate-400 font-bold text-center mb-2 font-mono">
-          Tap a question — Captain Merq explains in plain English:
+          Tap a question — Captain explains in plain English:
         </div>
         <div className="flex flex-wrap justify-center gap-1.5">
           <button

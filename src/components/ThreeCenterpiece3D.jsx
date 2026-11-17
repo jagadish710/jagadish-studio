@@ -17,8 +17,9 @@ export default function ThreeCenterpiece3D() {
   const shaderPresets = [
     { 
       id: 'mercury', 
-      label: '🔮 Liquid Mercury', 
+      label: 'Liquid Mercury', 
       color: 0xffffff, 
+      dotColor: 'bg-slate-300',
       metalness: 0.98, 
       roughness: 0.04, 
       clearcoat: 1.0,
@@ -27,8 +28,9 @@ export default function ThreeCenterpiece3D() {
     },
     { 
       id: 'gold', 
-      label: '👑 Liquid Gold', 
+      label: 'Liquid Gold', 
       color: 0xffb703, 
+      dotColor: 'bg-amber-400',
       metalness: 0.95, 
       roughness: 0.08, 
       clearcoat: 1.0,
@@ -37,8 +39,9 @@ export default function ThreeCenterpiece3D() {
     },
     { 
       id: 'cyber', 
-      label: '⚡ Cyber Rose', 
+      label: 'Cyber Rose', 
       color: 0xe11d48, 
+      dotColor: 'bg-rose-500',
       metalness: 0.88, 
       roughness: 0.10, 
       clearcoat: 0.9,
@@ -47,8 +50,9 @@ export default function ThreeCenterpiece3D() {
     },
     { 
       id: 'emerald', 
-      label: '🌿 Radiant Jade', 
+      label: 'Radiant Jade', 
       color: 0x10b981, 
+      dotColor: 'bg-emerald-500',
       metalness: 0.85, 
       roughness: 0.10, 
       clearcoat: 1.0,
@@ -287,13 +291,14 @@ export default function ThreeCenterpiece3D() {
             <button
               key={preset.id}
               onClick={() => applyShaderPreset(preset)}
-              className={`px-3 py-1 rounded-full text-[11px] font-medium font-sans whitespace-nowrap transition-all duration-200 cursor-pointer ${
+              className={`px-3 py-1 rounded-full text-[11px] font-medium font-sans whitespace-nowrap transition-all duration-200 cursor-pointer flex items-center gap-1.5 ${
                 isActive
                   ? 'bg-gradient-to-r from-rose-600 via-rose-500 to-pink-600 text-white shadow-md shadow-rose-500/25 font-semibold scale-105'
                   : 'text-slate-600 hover:text-slate-950 hover:bg-slate-100'
               }`}
             >
-              {preset.label}
+              <span className={`w-2 h-2 rounded-full ${preset.dotColor} shrink-0`} />
+              <span>{preset.label}</span>
             </button>
           );
         })}

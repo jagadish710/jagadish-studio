@@ -141,7 +141,7 @@ export default function MobileBottomNav({
           <span className="text-[10px] font-sans leading-none tracking-tight">Services</span>
         </button>
 
-        {/* 3. Selected Work */}
+        {/* 3. Deployments */}
         <button
           onClick={() => handleNav('work')}
           className={`flex flex-col items-center justify-center gap-1 py-1 px-1 rounded-xl transition-all duration-200 active:scale-95 cursor-pointer ${
@@ -149,13 +149,13 @@ export default function MobileBottomNav({
               ? 'text-rose-600 font-bold' 
               : 'text-slate-500 hover:text-slate-900'
           }`}
-          aria-label="Work"
+          aria-label="Deployments"
         >
           <WorkNavIcon active={activePage === 'work'} />
-          <span className="text-[10px] font-sans leading-none tracking-tight">Work</span>
+          <span className="text-[10px] font-sans leading-none tracking-tight">Deploy</span>
         </button>
 
-        {/* 4. Studio / About */}
+        {/* 4. Standards */}
         <button
           onClick={() => handleNav('about')}
           className={`flex flex-col items-center justify-center gap-1 py-1 px-1 rounded-xl transition-all duration-200 active:scale-95 cursor-pointer ${
@@ -163,10 +163,10 @@ export default function MobileBottomNav({
               ? 'text-rose-600 font-bold' 
               : 'text-slate-500 hover:text-slate-900'
           }`}
-          aria-label="Studio"
+          aria-label="Standards"
         >
           <StudioNavIcon active={activePage === 'about'} />
-          <span className="text-[10px] font-sans leading-none tracking-tight">Studio</span>
+          <span className="text-[10px] font-sans leading-none tracking-tight">Standards</span>
         </button>
 
         {/* 5. Direct WhatsApp Button */}

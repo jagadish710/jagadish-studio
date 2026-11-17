@@ -1,5 +1,5 @@
 import React, { useState, useRef } from 'react';
-import { Zap, Play, RotateCcw } from 'lucide-react';
+import { Zap, Play, RotateCcw, AlertTriangle } from 'lucide-react';
 
 export default function LiveSpeedRaceSimulator() {
   const [racing, setRacing] = useState(false);
@@ -29,14 +29,14 @@ export default function LiveSpeedRaceSimulator() {
       setMerqProgress(merqPct);
       setMerqText(
         merqPct >= 100
-          ? '0.24s — OPEN & READY! ⚡'
+          ? '0.24s — OPEN & READY!'
           : `${(progress * 2).toFixed(2)}s...`
       );
 
       setAnchorProgress(progress * 100);
       setAnchorText(
         progress >= 1
-          ? '8.20s — Finished (58% Visitors Left 🐢)'
+          ? '8.20s — Finished (58% Visitors Bounced)'
           : `${(progress * 8.2).toFixed(2)}s (Loading 42 plugins...)`
       );
 
@@ -94,7 +94,8 @@ export default function LiveSpeedRaceSimulator() {
         <div className="p-4 rounded-2xl bg-white/[0.03] border border-white/5">
           <div className="flex justify-between items-center mb-2.5 text-xs sm:text-sm">
             <span className="font-bold text-white font-display flex items-center gap-1.5">
-              <span>⚡ Merqurie Hand-Crafted Edge</span>
+              <Zap className="w-4 h-4 text-emerald-400" />
+              <span>Merqurie Hand-Crafted Edge</span>
             </span>
             <span className="font-mono font-bold text-emerald-400 text-xs">
               {merqText}
@@ -115,7 +116,8 @@ export default function LiveSpeedRaceSimulator() {
         <div className="p-4 rounded-2xl bg-white/[0.03] border border-white/5">
           <div className="flex justify-between items-center mb-2.5 text-xs sm:text-sm">
             <span className="font-bold text-slate-300 font-display flex items-center gap-1.5">
-              <span>⚓ Typical 40-Plugin WordPress Site</span>
+              <AlertTriangle className="w-4 h-4 text-crimson-400" />
+              <span>Typical 40-Plugin WordPress Site</span>
             </span>
             <span className="font-mono font-bold text-crimson-400 text-xs">
               {anchorText}

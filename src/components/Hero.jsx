@@ -10,6 +10,7 @@ import {
   Sparkles,
   Smile,
   Compass,
+  ShoppingBag,
 } from 'lucide-react';
 import WhatsAppIcon from './WhatsAppIcon';
 import ThreeCenterpiece3D from './ThreeCenterpiece3D';
@@ -23,10 +24,9 @@ export default function Hero({ onOpenPrototypeModal, onNavigateToWork, onNavigat
 
   const showcases = {
     pms: {
-      headlinePrefix: 'Fast Sites.',
-      headlineAccent: 'Mirror-Finish',
-      headlineSuffix: 'Zero Retainer.',
-      subtext: 'Mobile-first platforms engineered to turn visitors into enquiries. Tested live on hospital equipment sales and rentals across Chennai.',
+      headlinePrefix: 'Your Competitors Have Slow Sites.',
+      headlineAccent: 'We Engineer 0.24s Speed.',
+      subtext: 'Every second your website takes to load on mobile data, 20% of buyers press Back. For PMS Solution Healthcare, we engineered sub-0.25s load times and 1-tap WhatsApp quotes for ICU beds with ₹0 monthly retainers.',
       title: 'PMS Solution | Hospital Medical Equipment Sales & Rentals',
       speed: '0.24s Edge Load Speed',
       desc: 'Live Chennai healthcare portal managing ICU beds, oxygen concentrators, and hospital setup inquiries with instant WhatsApp lead routing.',
@@ -37,10 +37,9 @@ export default function Hero({ onOpenPrototypeModal, onNavigateToWork, onNavigat
       url: 'https://pmssolution.co.in',
     },
     upsks: {
-      headlinePrefix: 'Immediate',
-      headlineAccent: 'Authority.',
-      headlineSuffix: 'Zero Admin Debt.',
-      subtext: 'From student registries to international tournament rosters, we build digital homes that eliminate chaos and accelerate admissions.',
+      headlinePrefix: 'Martial Arts & Student Academy.',
+      headlineAccent: '1,000+ Enrolled Students.',
+      subtext: 'From class timetables to international tournament rosters, we built UPSKS Karate to eliminate administrative chaos, rank #1 on Google, and route parents straight to chief instructors with 0.22s speed.',
       title: 'Unique Power Shito-Ryu Karate School (UPSKS)',
       speed: '0.22s Edge Load Speed',
       desc: 'Live sports academy platform connecting students across India to international Japanese martial arts heritage, belt rosters, and direct parent WhatsApp communication.',
@@ -51,10 +50,9 @@ export default function Hero({ onOpenPrototypeModal, onNavigateToWork, onNavigat
       url: 'https://upskskarate.com',
     },
     admin: {
-      headlinePrefix: '10-Second',
-      headlineAccent: 'Phone Edits.',
-      headlineSuffix: 'Zero Agency Delays.',
-      subtext: 'Update headlines, product prices, and announcements from your smartphone in seconds. You own the keys with zero developer dependency.',
+      headlinePrefix: '10-Second Phone Admin Cockpit.',
+      headlineAccent: 'Zero Developer Delays.',
+      subtext: 'Never wait 5 days for a web developer to change a price or text. Log into your phone admin cockpit, edit any announcement in 10 seconds, and own 100% of your platform with zero monthly retainer contracts.',
       title: 'Self-Serve Mobile Visual Admin Cockpit',
       speed: '10s Edit Latency',
       desc: 'Update headlines, product prices, announcements, and catalog photos directly from your phone with zero developer dependency.',
@@ -65,10 +63,9 @@ export default function Hero({ onOpenPrototypeModal, onNavigateToWork, onNavigat
       url: null,
     },
     ecommerce: {
-      headlinePrefix: '1-Tap Orders.',
-      headlineAccent: 'Instant Flow.',
-      headlineSuffix: 'Zero Plugin Bloat.',
-      subtext: 'Direct one-tap WhatsApp purchase orders with dynamic spec configurator, sub-second checkout, and zero third-party plugin bloat.',
+      headlinePrefix: 'Instant 1-Tap WhatsApp Store.',
+      headlineAccent: 'Zero Cart Abandonment.',
+      subtext: 'Sell products directly on mobile with an interactive visual catalog. Customers tap 1 button on WhatsApp to order or request quotes—zero confusing checkouts, zero monthly Shopify fees.',
       title: 'Interactive E-Commerce & Product Catalog',
       speed: 'Sub-second Checkout Flow',
       desc: 'Instant one-tap WhatsApp order flow with dynamic spec configurator and inventory management.',
@@ -112,7 +109,7 @@ export default function Hero({ onOpenPrototypeModal, onNavigateToWork, onNavigat
               <span className="tracking-wider uppercase font-bold text-[11px]">SEE YOUR NEW WEBSITE FREE IN 24 HOURS • PAY ₹0 TODAY</span>
             </div>
 
-            {/* Dynamic Animated Headline */}
+            {/* Dynamic Animated Headline - Fully Responsive to Chosen Showcase! */}
             <AnimatePresence mode="wait">
               <motion.div
                 key={activeShowcase}
@@ -123,38 +120,40 @@ export default function Hero({ onOpenPrototypeModal, onNavigateToWork, onNavigat
                 className="flex flex-col items-center lg:items-start"
               >
                 <h1 className="text-3xl sm:text-5xl md:text-6xl font-black tracking-tight text-slate-950 leading-[1.08] mb-3 sm:mb-4 font-display">
-                  Your Competitors Have Slow Sites.{' '}
+                  {current.headlinePrefix}{' '}
                   <span className="font-serif italic font-normal text-rose-600 block sm:inline">
-                    We Engineer Your Unfair Advantage.
+                    {current.headlineAccent}
                   </span>
                 </h1>
 
                 <p className="text-sm sm:text-base md:text-lg text-slate-600 max-w-xl leading-relaxed mb-6">
-                  Every second your website takes to load on mobile data, 20% of buyers press Back and call a competitor. Merqurie hand-crafts ultra-fast websites that open in <strong className="text-slate-900 font-bold">0.24 seconds</strong>, capture <strong className="text-emerald-600 font-bold">1-tap WhatsApp leads</strong>, let you edit text from your phone in 10 seconds, and charge <strong className="text-slate-900 font-bold">₹0 monthly retainers</strong>.
+                  {current.subtext}
                 </p>
               </motion.div>
             </AnimatePresence>
 
-            {/* Interactive Live Case Selector Chips */}
+            {/* Interactive Live Case Selector Chips - STRICTLY NO EMOJIS, SLEEK SVG ICONS */}
             <div className="flex flex-wrap items-center justify-center lg:justify-start gap-2 mb-8">
               {[
-                { id: 'pms', label: '🏥 PMS Healthcare' },
-                { id: 'upsks', label: '🥋 UPSKS Karate' },
-                { id: 'admin', label: '📱 Mobile Admin' },
-                { id: 'ecommerce', label: '⚡ 1-Tap Orders' },
+                { id: 'pms', label: 'PMS Healthcare', icon: ShieldCheck, color: 'text-teal-600' },
+                { id: 'upsks', label: 'UPSKS Karate', icon: Zap, color: 'text-rose-600' },
+                { id: 'admin', label: 'Mobile Admin', icon: Smartphone, color: 'text-indigo-600' },
+                { id: 'ecommerce', label: '1-Tap Orders', icon: ShoppingBag, color: 'text-amber-600' },
               ].map((pill) => {
                 const isActive = activeShowcase === pill.id;
+                const Icon = pill.icon;
                 return (
                   <button
                     key={pill.id}
                     onClick={() => setActiveShowcase(pill.id)}
-                    className={`px-3.5 py-1.5 rounded-full text-xs font-mono font-medium transition-all duration-200 cursor-pointer ${
+                    className={`px-3.5 py-1.5 rounded-full text-xs font-mono font-medium transition-all duration-200 cursor-pointer flex items-center gap-1.5 ${
                       isActive
                         ? 'bg-rose-50 text-rose-700 border-2 border-rose-500 font-bold shadow-sm scale-105'
                         : 'bg-white text-slate-600 border border-slate-200 hover:border-slate-300 hover:text-slate-900 shadow-xs'
                     }`}
                   >
-                    {pill.label}
+                    <Icon className={`w-3.5 h-3.5 ${pill.color} shrink-0`} />
+                    <span>{pill.label}</span>
                   </button>
                 );
               })}
@@ -207,7 +206,7 @@ export default function Hero({ onOpenPrototypeModal, onNavigateToWork, onNavigat
           {/* Right Column: Interactive Mascot vs 3D Centerpiece */}
           <div className="lg:col-span-5 flex flex-col items-center justify-center">
             
-            {/* Visual Mode Switcher */}
+            {/* Visual Mode Switcher - ZERO EMOJIS, SLEEK SVG ICONS */}
             <div className="flex items-center gap-1.5 mb-3 bg-white border border-slate-200 p-1 rounded-2xl shadow-xs">
               <button
                 onClick={() => setActiveVisual('mascot')}
@@ -217,8 +216,8 @@ export default function Hero({ onOpenPrototypeModal, onNavigateToWork, onNavigat
                     : 'text-slate-600 hover:text-slate-950'
                 }`}
               >
-                <span>👒</span>
-                <span>Captain Merq</span>
+                <Zap className="w-3.5 h-3.5 text-treasure-400" />
+                <span>Captain</span>
               </button>
               <button
                 onClick={() => setActiveVisual('3d')}
@@ -228,7 +227,7 @@ export default function Hero({ onOpenPrototypeModal, onNavigateToWork, onNavigat
                     : 'text-slate-600 hover:text-slate-950'
                 }`}
               >
-                <span>✨</span>
+                <Sparkles className="w-3.5 h-3.5 text-amber-400" />
                 <span>3D Liquid Gold</span>
               </button>
             </div>
@@ -298,11 +297,11 @@ export default function Hero({ onOpenPrototypeModal, onNavigateToWork, onNavigat
                 />
               </AnimatePresence>
 
-              {/* Top Floating Edge Speed Chip */}
+              {/* Top Floating Edge Speed Chip - ZERO EMOJIS */}
               <div className="absolute top-3 left-3 sm:top-4 sm:left-4 z-10 hidden sm:block">
                 <span className="px-3 py-1 rounded-xl text-xs font-mono font-bold bg-white/95 text-emerald-700 border border-emerald-300 backdrop-blur-md shadow-lg flex items-center gap-1.5">
-                  <span className="w-2 h-2 rounded-full bg-emerald-500 animate-ping" />
-                  <span>⚡ {current.speed}</span>
+                  <Zap className="w-3 h-3 text-emerald-600 fill-emerald-600" />
+                  <span>{current.speed}</span>
                 </span>
               </div>
 

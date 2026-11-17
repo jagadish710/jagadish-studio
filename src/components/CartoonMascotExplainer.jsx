@@ -14,7 +14,8 @@ export default function CartoonMascotExplainer({ onOpenPrototypeModal }) {
   const topics = [
     {
       id: 'speed',
-      label: '⚡ Why so fast?',
+      label: 'Why so fast?',
+      icon: Zap,
       shortTitle: 'Sub-0.3s Lightning Speed',
       accent: 'from-amber-500 to-orange-500',
       badgeBg: 'bg-amber-50 border-amber-200 text-amber-800',
@@ -30,7 +31,8 @@ export default function CartoonMascotExplainer({ onOpenPrototypeModal }) {
     },
     {
       id: 'whatsapp',
-      label: '📱 How do I get leads?',
+      label: 'How do I get leads?',
+      icon: MessageSquare,
       shortTitle: '1-Tap WhatsApp Conversion',
       accent: 'from-emerald-500 to-teal-500',
       badgeBg: 'bg-emerald-50 border-emerald-200 text-emerald-800',
@@ -46,7 +48,8 @@ export default function CartoonMascotExplainer({ onOpenPrototypeModal }) {
     },
     {
       id: 'pricing',
-      label: '💰 Any hidden fees?',
+      label: 'Any hidden fees?',
+      icon: ShieldCheck,
       shortTitle: 'Pay Once • 100% Yours',
       accent: 'from-rose-500 to-pink-500',
       badgeBg: 'bg-rose-50 border-rose-200 text-rose-800',
@@ -62,7 +65,8 @@ export default function CartoonMascotExplainer({ onOpenPrototypeModal }) {
     },
     {
       id: 'delivery',
-      label: '⏱️ Delivery in 2 days?',
+      label: 'Delivery in 2 days?',
+      icon: Clock,
       shortTitle: '2-Day Working Sample',
       accent: 'from-cyan-500 to-blue-500',
       badgeBg: 'bg-cyan-50 border-cyan-200 text-cyan-800',
@@ -78,7 +82,8 @@ export default function CartoonMascotExplainer({ onOpenPrototypeModal }) {
     },
     {
       id: 'edits',
-      label: '🛠️ Can I edit prices?',
+      label: 'Can I edit prices?',
+      icon: Smartphone,
       shortTitle: '10-Second Phone Cockpit',
       accent: 'from-purple-500 to-indigo-500',
       badgeBg: 'bg-purple-50 border-purple-200 text-purple-800',
@@ -145,6 +150,7 @@ export default function CartoonMascotExplainer({ onOpenPrototypeModal }) {
         <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-2.5 mb-10">
           {topics.map((t) => {
             const isActive = activeTopic === t.id;
+            const Icon = t.icon;
             return (
               <button
                 key={t.id}
@@ -158,6 +164,7 @@ export default function CartoonMascotExplainer({ onOpenPrototypeModal }) {
                     : 'bg-white text-slate-700 border border-slate-200 hover:border-slate-300 hover:bg-slate-50'
                 }`}
               >
+                {Icon && <Icon className="w-3.5 h-3.5 shrink-0" />}
                 <span>{t.label}</span>
               </button>
             );
@@ -283,12 +290,12 @@ export default function CartoonMascotExplainer({ onOpenPrototypeModal }) {
                 {/* Fun "Tap Me" Prompt Pill */}
                 <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-mono font-bold bg-amber-100 text-amber-900 border border-amber-300 shadow-xs mt-1 group-hover:scale-105 transition-transform">
                   <Smile className="w-3.5 h-3.5 text-amber-700" />
-                  <span>Tap Captain Merq! 🎉</span>
+                  <span>Tap Captain!</span>
                 </div>
               </motion.div>
 
               <div className="mt-3">
-                <span className="font-display font-black text-slate-900 text-base">Captain Merq</span>
+                <span className="font-display font-black text-slate-900 text-base">Captain</span>
                 <span className="text-xs text-slate-500 block">Your Fast-Web Navigator</span>
               </div>
             </div>

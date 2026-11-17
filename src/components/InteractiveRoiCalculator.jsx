@@ -10,7 +10,9 @@ import {
   Gift, 
   CheckCircle2,
   XCircle,
-  HelpCircle
+  HelpCircle,
+  ShoppingBag,
+  Cpu
 } from 'lucide-react';
 import confetti from 'canvas-confetti';
 import WhatsAppIcon from './WhatsAppIcon';
@@ -21,7 +23,9 @@ export default function InteractiveRoiCalculator({ onOpenPrototypeModal }) {
   const categories = [
     {
       id: 'clinic',
-      label: '🏥 Clinic & Healthcare',
+      label: 'Clinic & Healthcare',
+      icon: ShieldCheck,
+      color: 'text-teal-600',
       typicalAgencyBuild: 45000,
       monthlyRetainer: 8000,
       merquriePrice: 14999,
@@ -30,7 +34,9 @@ export default function InteractiveRoiCalculator({ onOpenPrototypeModal }) {
     },
     {
       id: 'academy',
-      label: '🥋 Academy & School',
+      label: 'Academy & School',
+      icon: Zap,
+      color: 'text-rose-600',
       typicalAgencyBuild: 50000,
       monthlyRetainer: 8000,
       merquriePrice: 14999,
@@ -39,16 +45,20 @@ export default function InteractiveRoiCalculator({ onOpenPrototypeModal }) {
     },
     {
       id: 'store',
-      label: '🛍️ Store & Product Catalog',
+      label: 'Store & Catalog',
+      icon: ShoppingBag,
+      color: 'text-amber-600',
       typicalAgencyBuild: 75000,
       monthlyRetainer: 12000,
-      merquriePrice: 29999,
+      merquriePrice: 24999,
       deliveryDays: '2-3 Days',
       highlight: 'Interactive catalog with 1-tap WhatsApp order flow & zero Shopify fees',
     },
     {
       id: 'app',
-      label: '⚡ Custom App & Web Portal',
+      label: 'Custom App & Portal',
+      icon: Cpu,
+      color: 'text-purple-600',
       typicalAgencyBuild: 120000,
       monthlyRetainer: 15000,
       merquriePrice: 34999,
@@ -111,6 +121,7 @@ export default function InteractiveRoiCalculator({ onOpenPrototypeModal }) {
         <div className="grid grid-cols-2 md:grid-cols-4 gap-3 max-w-4xl mx-auto mb-10">
           {categories.map((cat) => {
             const isSelected = selectedCategory === cat.id;
+            const Icon = cat.icon;
             return (
               <button
                 key={cat.id}
@@ -121,7 +132,10 @@ export default function InteractiveRoiCalculator({ onOpenPrototypeModal }) {
                     : 'bg-slate-50 border-slate-200 hover:border-slate-300 text-slate-700 shadow-2xs'
                 }`}
               >
-                <span className="text-xs sm:text-sm font-semibold">{cat.label}</span>
+                <div className="flex items-center gap-1.5">
+                  <Icon className={`w-4 h-4 ${cat.color} shrink-0`} />
+                  <span className="text-xs sm:text-sm font-semibold">{cat.label}</span>
+                </div>
                 <span className="text-[10px] font-mono text-emerald-700 font-bold mt-2">
                   Build: ₹{cat.merquriePrice.toLocaleString('en-IN')}
                 </span>

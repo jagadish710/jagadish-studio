@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
-import { Sparkles, Check, ArrowRight, ShieldCheck } from 'lucide-react';
+import { Sparkles, Check, ArrowRight, ShieldCheck, Zap, Smile, CreditCard } from 'lucide-react';
 import WhatsAppIcon from './WhatsAppIcon';
 
 export default function InteractiveQuoteBuilder() {
   const [selectedPlan, setSelectedPlan] = useState({
-    name: 'Growth Commercial Platform',
+    name: 'Growth Engine',
     price: 24999,
   });
   const [addons, setAddons] = useState({
@@ -15,21 +15,21 @@ export default function InteractiveQuoteBuilder() {
 
   const plans = [
     {
-      name: 'Essential Business Website',
-      shortName: 'Essential',
+      name: 'Starter Edge',
+      shortName: 'Starter Edge',
       price: 14999,
       color: 'text-cyanline-400',
     },
     {
-      name: 'Growth Commercial Platform',
-      shortName: 'Growth ★',
+      name: 'Growth Engine',
+      shortName: 'Growth Engine',
       price: 24999,
       color: 'text-treasure-400',
       popular: true,
     },
     {
-      name: 'Custom Commerce & Portal',
-      shortName: 'Custom App',
+      name: 'Custom Cloud',
+      shortName: 'Custom Cloud',
       price: 34999,
       color: 'text-crimson-400',
     },
@@ -41,16 +41,16 @@ export default function InteractiveQuoteBuilder() {
 
   const calculateTotal = () => {
     let total = selectedPlan.price;
-    if (addons.mascot) total += 4500;
-    if (addons.payments) total += 3500;
+    if (addons.mascot) total += 1999;
+    if (addons.payments) total += 1999;
     return total;
   };
 
   const handleWhatsApp = () => {
     const cleanBiz = businessName.trim() || 'my business';
     const chosenAddons = [];
-    if (addons.mascot) chosenAddons.push('Interactive Mascot UI');
-    if (addons.payments) chosenAddons.push('Razorpay / UPI Checkout');
+    if (addons.mascot) chosenAddons.push('Interactive 3D Motion Companion (+₹1,999)');
+    if (addons.payments) chosenAddons.push('Razorpay & UPI Instant Checkout (+₹1,999)');
     const addonText = chosenAddons.length ? ` + ${chosenAddons.join(', ')}` : '';
 
     const text = encodeURIComponent(
@@ -71,8 +71,9 @@ export default function InteractiveQuoteBuilder() {
             {/* Left Builder Column */}
             <div className="lg:col-span-7 space-y-6">
               <div>
-                <span className="text-xs font-extrabold uppercase tracking-[0.2em] text-emerald-400 font-mono">
-                  Zero-Risk Offer • Pay ₹0 Today
+                <span className="text-xs font-extrabold uppercase tracking-[0.2em] text-emerald-400 font-mono flex items-center gap-1.5">
+                  <ShieldCheck className="w-3.5 h-3.5" />
+                  <span>Zero-Risk Offer • Pay ₹0 Today</span>
                 </span>
                 <h2 className="font-display text-2xl sm:text-4xl font-bold text-white mt-1">
                   Claim Your Free 24h Website Sample
@@ -101,8 +102,15 @@ export default function InteractiveQuoteBuilder() {
                             : 'border border-white/10 bg-white/5 hover:border-white/20'
                         }`}
                       >
-                        <div className="font-bold text-xs text-white">{p.shortName}</div>
-                        <div className={`font-display text-base font-bold ${p.color}`}>
+                        <div className="font-bold text-xs text-white flex items-center justify-between">
+                          <span>{p.shortName}</span>
+                          {p.popular && (
+                            <span className="text-[9px] bg-amber-400/20 text-amber-300 px-1.5 py-0.2 rounded font-mono font-bold">
+                              POPULAR
+                            </span>
+                          )}
+                        </div>
+                        <div className={`font-display text-base font-bold ${p.color} mt-1`}>
                           ₹{p.price.toLocaleString('en-IN')}
                         </div>
                       </button>
@@ -111,15 +119,15 @@ export default function InteractiveQuoteBuilder() {
                 </div>
               </div>
 
-              {/* 2. Optional Power-Ups */}
+              {/* 2. Optional Power-Ups - CLEAR CLIENT-FRIENDLY NAMES & PRICING */}
               <div>
                 <label className="block text-xs font-extrabold uppercase tracking-wider text-slate-300 mb-2.5 font-mono">
                   2. Optional Power-Ups
                 </label>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
-                  <label
+                  <div
                     onClick={() => toggleAddon('mascot')}
-                    className={`flex items-center gap-2.5 p-3 rounded-xl border cursor-pointer transition-colors ${
+                    className={`flex items-start gap-2.5 p-3 rounded-xl border cursor-pointer transition-colors ${
                       addons.mascot
                         ? 'border-treasure-400 bg-treasure-500/10'
                         : 'bg-white/5 border-white/10 hover:border-treasure-400/40'
@@ -129,16 +137,22 @@ export default function InteractiveQuoteBuilder() {
                       type="checkbox"
                       checked={addons.mascot}
                       onChange={() => {}}
-                      className="w-4 h-4 accent-amber-400 rounded"
+                      className="w-4 h-4 accent-amber-400 rounded mt-0.5 cursor-pointer"
                     />
-                    <span className="text-xs font-semibold text-slate-200">
-                      Interactive Mascot UI (+₹4,500)
-                    </span>
-                  </label>
+                    <div>
+                      <div className="text-xs font-bold text-slate-200 flex items-center gap-1">
+                        <Smile className="w-3.5 h-3.5 text-treasure-400" />
+                        <span>Interactive 3D Motion Companion (+₹1,999)</span>
+                      </div>
+                      <p className="text-[10px] text-slate-400 mt-0.5">
+                        Animated guide with audio & touch reactions explaining your services.
+                      </p>
+                    </div>
+                  </div>
 
-                  <label
+                  <div
                     onClick={() => toggleAddon('payments')}
-                    className={`flex items-center gap-2.5 p-3 rounded-xl border cursor-pointer transition-colors ${
+                    className={`flex items-start gap-2.5 p-3 rounded-xl border cursor-pointer transition-colors ${
                       addons.payments
                         ? 'border-treasure-400 bg-treasure-500/10'
                         : 'bg-white/5 border-white/10 hover:border-treasure-400/40'
@@ -148,12 +162,18 @@ export default function InteractiveQuoteBuilder() {
                       type="checkbox"
                       checked={addons.payments}
                       onChange={() => {}}
-                      className="w-4 h-4 accent-amber-400 rounded"
+                      className="w-4 h-4 accent-amber-400 rounded mt-0.5 cursor-pointer"
                     />
-                    <span className="text-xs font-semibold text-slate-200">
-                      Razorpay / UPI (+₹3,500)
-                    </span>
-                  </label>
+                    <div>
+                      <div className="text-xs font-bold text-slate-200 flex items-center gap-1">
+                        <CreditCard className="w-3.5 h-3.5 text-emerald-400" />
+                        <span>Razorpay & UPI Instant Checkout (+₹1,999)</span>
+                      </div>
+                      <p className="text-[10px] text-slate-400 mt-0.5">
+                        Accept direct customer payments via GPay, PhonePe, Paytm, and cards.
+                      </p>
+                    </div>
+                  </div>
                 </div>
               </div>
 
@@ -202,15 +222,15 @@ export default function InteractiveQuoteBuilder() {
 
                 <div className="p-3.5 rounded-xl bg-white/5 border border-white/10 text-xs text-slate-300 mb-5 space-y-1.5">
                   <div className="font-bold text-emerald-300 flex items-center gap-1.5">
-                    <span>✓</span>
+                    <Check className="w-3.5 h-3.5 stroke-[3]" />
                     <span>Includes Free 24h Sample Preview</span>
                   </div>
                   <div className="font-bold text-cyanline-300 flex items-center gap-1.5">
-                    <span>✓</span>
+                    <Check className="w-3.5 h-3.5 stroke-[3]" />
                     <span>Includes 10-Sec Phone Admin Cockpit</span>
                   </div>
                   <div className="font-bold text-treasure-300 flex items-center gap-1.5">
-                    <span>✓</span>
+                    <Check className="w-3.5 h-3.5 stroke-[3]" />
                     <span>₹0 Mandatory Monthly Retainer</span>
                   </div>
                 </div>

@@ -314,8 +314,9 @@ export default function SolutionsPage({ onOpenPrototypeModal }) {
                         <span>https://merqurie.com</span>
                       </div>
 
-                      <span className="text-[9px] font-mono font-bold text-emerald-300 bg-emerald-950 px-2 py-0.5 rounded-md border border-emerald-500/40">
-                        ⚡ 0.24s Speed
+                      <span className="text-[9px] font-mono font-bold text-emerald-300 bg-emerald-950 px-2 py-0.5 rounded-md border border-emerald-500/40 flex items-center gap-1">
+                        <Zap className="w-2.5 h-2.5 text-emerald-400" />
+                        <span>0.24s Speed</span>
                       </span>
                     </div>
 

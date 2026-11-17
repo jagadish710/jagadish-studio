@@ -259,14 +259,15 @@ export default function CinematicVideoSection({ onOpenPrototypeModal }) {
           {/* Unified Compact In-Line Selector Bar (Placed right above the device preview for instant rhythm!) */}
           <div className="flex flex-col sm:flex-row items-center justify-center gap-3 mb-8">
             
-            {/* 1. Client Tabs in One Clean Row */}
+            {/* 1. Client Tabs in One Clean Row - ZERO EMOJIS */}
             <div className="inline-flex flex-wrap items-center justify-center gap-2 p-1 rounded-2xl bg-slate-100 border border-slate-200">
               {[
-                { id: 'pms', label: '🏥 PMS Healthcare', speed: '0.24s' },
-                { id: 'upsks', label: '🥋 UPSKS Karate', speed: '0.22s' },
-                { id: 'admin', label: '📱 Phone Cockpit', speed: '10s' },
+                { id: 'pms', label: 'PMS Healthcare', icon: ShieldCheck, color: 'text-teal-600', speed: '0.24s' },
+                { id: 'upsks', label: 'UPSKS Karate', icon: Zap, color: 'text-rose-600', speed: '0.22s' },
+                { id: 'admin', label: 'Phone Cockpit', icon: Smartphone, color: 'text-indigo-600', speed: '10s' },
               ].map((tab) => {
                 const isSelected = selectedDemo === tab.id;
+                const Icon = tab.icon;
                 return (
                   <button
                     key={tab.id}
@@ -277,6 +278,7 @@ export default function CinematicVideoSection({ onOpenPrototypeModal }) {
                         : 'text-slate-600 hover:text-slate-950 hover:bg-slate-200/60'
                     }`}
                   >
+                    <Icon className={`w-3.5 h-3.5 ${tab.color} shrink-0`} />
                     <span>{tab.label}</span>
                     <span className={`text-[10px] px-1.5 py-0.2 rounded-md ${
                       isSelected ? 'bg-emerald-100 text-emerald-800' : 'bg-slate-200 text-slate-600'

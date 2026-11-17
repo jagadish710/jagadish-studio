@@ -135,7 +135,7 @@ export default function WorkPage({ onOpenPrototypeModal }) {
       <div className="text-center max-w-3xl mx-auto mb-16 sm:mb-20">
         <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-mono font-semibold mb-4 bg-white border border-slate-200 text-slate-800 shadow-xs">
           <Sparkles className="w-3.5 h-3.5 text-rose-600" />
-          <span className="uppercase tracking-wider">SELECTED CLIENT WORK</span>
+          <span className="uppercase tracking-wider">VERIFIED DEPLOYMENTS</span>
         </div>
         <h1 className="text-3xl sm:text-5xl font-black font-display text-slate-950 tracking-tight mb-4 leading-tight">
           Real Proof.{' '}
@@ -150,7 +150,7 @@ export default function WorkPage({ onOpenPrototypeModal }) {
 
       {/* Projects Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8 sm:gap-10">
-        {projects.map((proj) => (
+        {projects.map((proj, idx) => (
           <article
             key={proj.name}
             className={`rounded-3xl border ${proj.theme.cardBg} ${proj.theme.border} p-6 sm:p-7 shadow-xl shadow-slate-200/50 backdrop-blur-xl transition-all duration-300 ease-out flex flex-col justify-between group hover:-translate-y-1.5 relative overflow-hidden active:scale-[0.99]`}
@@ -179,14 +179,18 @@ export default function WorkPage({ onOpenPrototypeModal }) {
                     </span>
                   </div>
 
-                  {/* Desktop Image Canvas */}
-                  <div className="relative aspect-[16/10] rounded-xl overflow-hidden bg-slate-950 group/screen">
+                  {/* Desktop Image Canvas with Instant Preload & Fallback */}
+                  <div className="relative aspect-[16/10] rounded-xl overflow-hidden bg-slate-900 group/screen">
+                    {/* Ambient subtle shimmer placeholder to eliminate any black flash */}
+                    <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 animate-pulse pointer-events-none" />
+
                     <img
                       src={proj.image}
                       alt={proj.name}
-                      loading="lazy"
-                      decoding="async"
-                      className="w-full h-full object-cover object-top transition-transform duration-700 ease-out group-hover:scale-104"
+                      loading={idx < 2 ? "eager" : "lazy"}
+                      fetchPriority={idx < 2 ? "high" : "auto"}
+                      decoding="sync"
+                      className="relative z-1 w-full h-full object-cover object-top transition-transform duration-700 ease-out group-hover:scale-104"
                     />
 
                     {/* Floating Speed Chip */}

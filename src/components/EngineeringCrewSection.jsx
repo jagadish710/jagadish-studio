@@ -1,41 +1,54 @@
 import React, { useState } from 'react';
-import { Zap, ShieldCheck, Compass, Utensils, ArrowRight } from 'lucide-react';
+import { Zap, ShieldCheck, Compass, Utensils, ArrowRight, Sparkles, CheckCircle2 } from 'lucide-react';
 
 export default function EngineeringCrewSection({ onOpenQuote }) {
-  const [activeMember, setActiveMember] = useState('merq');
+  const [activeMember, setActiveMember] = useState('captain');
 
   const crewDetails = {
-    merq: {
-      emoji: '⚡',
-      title: 'Captain Merq — Sub-0.3s Edge Speed Guarantee',
-      desc: 'Your customers get instant page loads without spinning wheels, boosting Google rankings and inquiry conversions from Day 1.',
+    captain: {
+      icon: Zap,
+      title: 'Captain — Sovereign Architecture & Sub-0.3s Edge Engine',
+      desc: 'Orchestrates decoupled edge architecture deployed across 300+ global CDN nodes. Delivers instant first-paint speeds with zero database lag and zero vendor lock-in.',
       accent: 'text-treasure-400',
       badgeBg: 'bg-treasure-500/20 text-treasure-300',
+      tag: 'ARCHITECTURE • SUB-0.3S',
+      stat: '0.24s Edge',
+      role: 'Lead Architect & Systems Engineer',
     },
     zoro: {
-      emoji: '⚔️',
-      title: 'Roronoa Z. — Zero-Bug Security & Clean Architecture',
-      desc: 'No fragile WordPress plugins to get hacked or crash during your ad campaigns. Protected by global Cloudflare SSL & 99.99% uptime.',
+      icon: ShieldCheck,
+      title: 'Zoro R. — Zero-Vulnerability Security & Pure Code Standards',
+      desc: 'Eliminates bloated plugins, unpatched PHP vulnerabilities, and memory leaks. Hardens every deployment with automated SSL, DDoS shielding, and 99.99% uptime.',
       accent: 'text-emerald-400',
       badgeBg: 'bg-emerald-500/20 text-emerald-300',
+      tag: 'SECURITY • 0 PLUGINS',
+      stat: '99.99% Uptime',
+      role: 'Core Systems & Infrastructure Security',
     },
     nami: {
-      emoji: '🧭',
-      title: 'Nami N. — Google SEO & WhatsApp Lead Funnel Navigation',
-      desc: 'Every section is engineered to rank on Google and guide mobile visitors directly to your 1-tap WhatsApp quote button.',
+      icon: Compass,
+      title: 'Nami N. — Conversion Psychology & WhatsApp Funnel Routing',
+      desc: 'Charts high-converting buyer navigation paths, structured Google SEO schemas, and friction-free 1-tap WhatsApp quote buttons that turn search traffic into booked clients.',
       accent: 'text-orange-400',
       badgeBg: 'bg-orange-500/20 text-orange-300',
+      tag: 'SEO • CONVERSION FUNNEL',
+      stat: '3x Leads',
+      role: 'Lead Funnel Cartographer & SEO Strategist',
     },
     sanji: {
-      emoji: '🍽️',
-      title: 'Sanji V. — Michelin-Star Mobile UI/UX Craft',
-      desc: 'Whether your customer uses a ₹10,000 Android phone or an iPhone Pro, your brand looks trustworthy, modern, and effortless to buy from.',
+      icon: Utensils,
+      title: 'Sanji V. — Fluid Responsive UI/UX & Visual Polish',
+      desc: 'Crafts responsive interfaces with sub-millisecond interaction feedback, thumb-friendly touch targets, and razor-sharp typographic balance on both flagship and budget phones.',
       accent: 'text-cyanline-400',
       badgeBg: 'bg-cyanline-500/20 text-cyanline-300',
+      tag: 'UI/UX • MOBILE EXCELLENCE',
+      stat: '100% Fluid',
+      role: 'Performance UI/UX & Design Engineer',
     },
   };
 
   const current = crewDetails[activeMember];
+  const CurrentIcon = current.icon;
 
   return (
     <section id="crew" className="py-20 relative border-t border-white/5 bg-ocean-950/70 text-white">
@@ -47,27 +60,28 @@ export default function EngineeringCrewSection({ onOpenQuote }) {
             Four Specialists • One Unstoppable Website
           </span>
           <h2 className="font-display text-3xl sm:text-5xl font-bold text-white">
-            Meet Your <span className="text-gold-gradient">Merqurie Engineering Crew</span>
+            Meet Your <span className="text-gold-gradient">Engineering Crew</span>
           </h2>
           <p className="text-slate-300 text-sm sm:text-base">
-            Every website we build combines four critical disciplines—speed, security, conversion psychology, and Michelin-star mobile design. Tap any specialist below!
+            Every website we build unifies four uncompromising disciplines—sub-0.3s edge speed, zero-vulnerability code, conversion psychology, and precision mobile ergonomics. Tap any specialist below:
           </p>
         </div>
 
-        {/* 4 Crew Cards Grid */}
+        {/* 4 Crew Cards Grid - ZERO EMOJIS, SLEEK SVG ICONS */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           
-          {/* Crew 1: Captain Merq */}
+          {/* Crew 1: Captain */}
           <div
-            onClick={() => setActiveMember('merq')}
+            onClick={() => setActiveMember('captain')}
             className={`crew-card glass-card glass-card-hover rounded-3xl p-6 cursor-pointer flex flex-col justify-between transition-all ${
-              activeMember === 'merq' ? 'border-2 border-treasure-400 shadow-xl shadow-amber-500/15' : 'border-white/10'
+              activeMember === 'captain' ? 'border-2 border-treasure-400 shadow-xl shadow-amber-500/15' : 'border-white/10'
             }`}
           >
             <div>
               <div className="flex items-center justify-between mb-4">
-                <span className="px-2.5 py-1 rounded-lg bg-treasure-500/20 text-treasure-300 text-[11px] font-extrabold font-mono">
-                  CAPTAIN • SPEED
+                <span className="px-2.5 py-1 rounded-lg bg-treasure-500/20 text-treasure-300 text-[11px] font-extrabold font-mono flex items-center gap-1">
+                  <Zap className="w-3 h-3 text-treasure-400" />
+                  <span>CAPTAIN • SPEED</span>
                 </span>
                 <span className="text-xs font-bold text-slate-400 font-mono">0.24s Edge</span>
               </div>
@@ -88,19 +102,20 @@ export default function EngineeringCrewSection({ onOpenQuote }) {
                 </svg>
               </div>
 
-              <h3 className="font-display text-xl font-bold text-white text-center">Captain Merq</h3>
-              <p className="text-xs font-bold text-treasure-400 text-center mb-3">Elastic Speed & Full-Stack Captain</p>
+              <h3 className="font-display text-xl font-bold text-white text-center">Captain</h3>
+              <p className="text-xs font-bold text-treasure-400 text-center mb-3">Sovereign Architecture & Speed</p>
               <p className="text-xs text-slate-300 leading-relaxed text-center">
-                Stretches your site's performance to <strong className="text-white">0.24s load times</strong> with zero plugins so customers never bounce.
+                Stretches your site's performance to <strong className="text-white">0.24s load times</strong> with zero heavy plugins so mobile customers never bounce.
               </p>
             </div>
 
-            <div className="mt-5 pt-3 border-t border-white/10 text-center text-xs font-extrabold text-treasure-300 font-mono">
-              {activeMember === 'merq' ? '● Power Active' : 'Tap to Activate Power ⚡'}
+            <div className="mt-5 pt-3 border-t border-white/10 text-center text-xs font-extrabold text-treasure-300 font-mono flex items-center justify-center gap-1.5">
+              <Zap className="w-3.5 h-3.5" />
+              <span>{activeMember === 'captain' ? 'Specialty Active' : 'Select Specialist'}</span>
             </div>
           </div>
 
-          {/* Crew 2: Roronoa Z. */}
+          {/* Crew 2: Zoro R. */}
           <div
             onClick={() => setActiveMember('zoro')}
             className={`crew-card glass-card glass-card-hover rounded-3xl p-6 cursor-pointer flex flex-col justify-between transition-all ${
@@ -109,8 +124,9 @@ export default function EngineeringCrewSection({ onOpenQuote }) {
           >
             <div>
               <div className="flex items-center justify-between mb-4">
-                <span className="px-2.5 py-1 rounded-lg bg-emerald-500/20 text-emerald-300 text-[11px] font-extrabold font-mono">
-                  SECURITY • ZERO BUGS
+                <span className="px-2.5 py-1 rounded-lg bg-emerald-500/20 text-emerald-300 text-[11px] font-extrabold font-mono flex items-center gap-1">
+                  <ShieldCheck className="w-3 h-3 text-emerald-400" />
+                  <span>SECURITY • ZERO BUGS</span>
                 </span>
                 <span className="text-xs font-bold text-slate-400 font-mono">99.99% Uptime</span>
               </div>
@@ -129,15 +145,16 @@ export default function EngineeringCrewSection({ onOpenQuote }) {
                 </svg>
               </div>
 
-              <h3 className="font-display text-xl font-bold text-white text-center">Roronoa Z.</h3>
-              <p className="text-xs font-bold text-emerald-400 text-center mb-3">Clean-Code & Security Swordsman</p>
+              <h3 className="font-display text-xl font-bold text-white text-center">Zoro R.</h3>
+              <p className="text-xs font-bold text-emerald-400 text-center mb-3">Pure Architecture & Zero-Bug Core</p>
               <p className="text-xs text-slate-300 leading-relaxed text-center">
-                Slices away bloated WordPress plugins, malware vulnerabilities, and server crashes with <strong className="text-white">Cloudflare Edge SSL</strong>.
+                Slices away fragile third-party plugins, security backdoors, and crash points with <strong className="text-white">Cloudflare Edge SSL</strong>.
               </p>
             </div>
 
-            <div className="mt-5 pt-3 border-t border-white/10 text-center text-xs font-extrabold text-emerald-300 font-mono">
-              {activeMember === 'zoro' ? '● Power Active' : 'Tap to Activate Power ⚔️'}
+            <div className="mt-5 pt-3 border-t border-white/10 text-center text-xs font-extrabold text-emerald-300 font-mono flex items-center justify-center gap-1.5">
+              <ShieldCheck className="w-3.5 h-3.5" />
+              <span>{activeMember === 'zoro' ? 'Specialty Active' : 'Select Specialist'}</span>
             </div>
           </div>
 
@@ -150,8 +167,9 @@ export default function EngineeringCrewSection({ onOpenQuote }) {
           >
             <div>
               <div className="flex items-center justify-between mb-4">
-                <span className="px-2.5 py-1 rounded-lg bg-orange-500/20 text-orange-300 text-[11px] font-extrabold font-mono">
-                  SEO • CONVERSION
+                <span className="px-2.5 py-1 rounded-lg bg-orange-500/20 text-orange-300 text-[11px] font-extrabold font-mono flex items-center gap-1">
+                  <Compass className="w-3 h-3 text-orange-400" />
+                  <span>SEO • CONVERSION</span>
                 </span>
                 <span className="text-xs font-bold text-slate-400 font-mono">3x Leads</span>
               </div>
@@ -173,14 +191,15 @@ export default function EngineeringCrewSection({ onOpenQuote }) {
               </div>
 
               <h3 className="font-display text-xl font-bold text-white text-center">Nami N.</h3>
-              <p className="text-xs font-bold text-orange-400 text-center mb-3">Google SEO & Lead Funnel Navigator</p>
+              <p className="text-xs font-bold text-orange-400 text-center mb-3">Google SEO & Funnel Cartographer</p>
               <p className="text-xs text-slate-300 leading-relaxed text-center">
-                Charts high-converting buyer journeys, <strong className="text-white">Google Search rankings</strong>, and 1-tap WhatsApp quote buttons that turn clicks into cash.
+                Engineers buyer psychology, <strong className="text-white">Google SEO rankings</strong>, and 1-tap WhatsApp quote buttons that turn traffic into paying clients.
               </p>
             </div>
 
-            <div className="mt-5 pt-3 border-t border-white/10 text-center text-xs font-extrabold text-orange-300 font-mono">
-              {activeMember === 'nami' ? '● Power Active' : 'Tap to Activate Power 🧭'}
+            <div className="mt-5 pt-3 border-t border-white/10 text-center text-xs font-extrabold text-orange-300 font-mono flex items-center justify-center gap-1.5">
+              <Compass className="w-3.5 h-3.5" />
+              <span>{activeMember === 'nami' ? 'Specialty Active' : 'Select Specialist'}</span>
             </div>
           </div>
 
@@ -193,8 +212,9 @@ export default function EngineeringCrewSection({ onOpenQuote }) {
           >
             <div>
               <div className="flex items-center justify-between mb-4">
-                <span className="px-2.5 py-1 rounded-lg bg-cyanline-500/20 text-cyanline-300 text-[11px] font-extrabold font-mono">
-                  UI/UX • MOBILE
+                <span className="px-2.5 py-1 rounded-lg bg-cyanline-500/20 text-cyanline-300 text-[11px] font-extrabold font-mono flex items-center gap-1">
+                  <Utensils className="w-3 h-3 text-cyanline-400" />
+                  <span>UI/UX • MOBILE</span>
                 </span>
                 <span className="text-xs font-bold text-slate-400 font-mono">100% Fluid</span>
               </div>
@@ -213,24 +233,25 @@ export default function EngineeringCrewSection({ onOpenQuote }) {
               </div>
 
               <h3 className="font-display text-xl font-bold text-white text-center">Sanji V.</h3>
-              <p className="text-xs font-bold text-cyanline-400 text-center mb-3">UI/UX & Mobile Experience Chef</p>
+              <p className="text-xs font-bold text-cyanline-400 text-center mb-3">Mobile UI/UX & Visual Ergonomics</p>
               <p className="text-xs text-slate-300 leading-relaxed text-center">
-                Plates mouth-watering visuals and thumb-friendly layouts that look <strong className="text-white">razor-sharp on every smartphone</strong> and laptop.
+                Plates mouth-watering visuals and thumb-friendly interactions that look <strong className="text-white">mirror-smooth on every phone</strong>.
               </p>
             </div>
 
-            <div className="mt-5 pt-3 border-t border-white/10 text-center text-xs font-extrabold text-cyanline-300 font-mono">
-              {activeMember === 'sanji' ? '● Power Active' : 'Tap to Activate Power 🍽️'}
+            <div className="mt-5 pt-3 border-t border-white/10 text-center text-xs font-extrabold text-cyanline-300 font-mono flex items-center justify-center gap-1.5">
+              <Utensils className="w-3.5 h-3.5" />
+              <span>{activeMember === 'sanji' ? 'Specialty Active' : 'Select Specialist'}</span>
             </div>
           </div>
 
         </div>
 
-        {/* Live Crew Power Banner */}
+        {/* Live Crew Power Banner - ZERO EMOJIS, SLEEK SVG ICON */}
         <div className="mt-8 glass-card rounded-2xl p-5 sm:p-6 border-treasure-400/35 flex flex-col sm:flex-row items-center justify-between gap-4">
           <div className="flex items-center gap-4 text-center sm:text-left">
-            <div className="w-12 h-12 rounded-2xl bg-treasure-500/20 flex items-center justify-center text-2xl shrink-0">
-              {current.emoji}
+            <div className="w-12 h-12 rounded-2xl bg-treasure-500/20 border border-treasure-400/30 flex items-center justify-center text-treasure-400 shrink-0 shadow-lg shadow-amber-500/10">
+              <CurrentIcon className="w-6 h-6 stroke-[2.2]" />
             </div>
             <div>
               <div className="font-display text-lg font-bold text-white">
@@ -244,9 +265,10 @@ export default function EngineeringCrewSection({ onOpenQuote }) {
 
           <button
             onClick={onOpenQuote}
-            className="shrink-0 px-5 py-2.5 rounded-xl bg-treasure-400 hover:bg-treasure-300 text-ocean-950 font-extrabold text-xs transition-all cursor-pointer font-mono"
+            className="shrink-0 px-5 py-2.5 rounded-xl bg-treasure-400 hover:bg-treasure-300 text-ocean-950 font-extrabold text-xs transition-all cursor-pointer font-mono shadow-md shadow-amber-400/25 flex items-center gap-1.5"
           >
-            Put The Crew To Work →
+            <span>Put The Crew To Work</span>
+            <ArrowRight className="w-3.5 h-3.5" />
           </button>
         </div>
 

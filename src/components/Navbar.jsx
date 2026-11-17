@@ -22,8 +22,8 @@ export default function Navbar({
   const navItems = [
     { id: 'home', label: 'Overview' },
     { id: 'solutions', label: 'Services' },
-    { id: 'work', label: 'Selected Work' },
-    { id: 'about', label: 'Studio & Approach' },
+    { id: 'work', label: 'Deployments' },
+    { id: 'about', label: 'Standards' },
   ];
 
   const handleNavClick = (id) => {

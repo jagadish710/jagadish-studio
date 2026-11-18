@@ -13,12 +13,11 @@ import {
   VolumeX, 
   Sparkles, 
   ArrowRight,
-  TrendingUp,
   Award
 } from 'lucide-react';
 
 /* =========================================================================
-   1. PHYSICAL WEB AUDIO FOLEY SYNTHESIZER (Zero external MP3 dependencies)
+   1. PHYSICAL WEB AUDIO FOLEY SYNTHESIZER
    ========================================================================= */
 class FoleySynthesizer {
   constructor() {
@@ -45,14 +44,13 @@ class FoleySynthesizer {
     }
   }
 
-  // Captain Merq: Gomu-Gomu Rubber Stretch Twang + Heavy Impact Punch
   playRubberPunch(tier = 1) {
     if (!this.enabled) return;
     this.init();
     if (!this.ctx) return;
     const now = this.ctx.currentTime;
 
-    // 1. Rubber Tension Twang
+    // Rubber tension twang
     const rubber = this.ctx.createOscillator();
     const rGain = this.ctx.createGain();
     rubber.type = 'sawtooth';
@@ -66,7 +64,7 @@ class FoleySynthesizer {
     rubber.start(now);
     rubber.stop(now + 0.25);
 
-    // 2. Heavy Sub-Bass Impact Thud(s)
+    // Sub-bass heavy impact thud
     const strikes = tier === 3 ? 3 : tier === 2 ? 2 : 1;
     for (let i = 0; i < strikes; i++) {
       const t0 = now + 0.12 + i * 0.08;
@@ -84,14 +82,13 @@ class FoleySynthesizer {
     }
   }
 
-  // Zoro R: Scabbard Click + Supersonic Air Slice + High-Carbon Steel Ring-Out
   playKatana(tier = 1) {
     if (!this.enabled) return;
     this.init();
     if (!this.ctx) return;
     const now = this.ctx.currentTime;
 
-    // 1. Scabbard Metallic Click
+    // Scabbard click
     const clickOsc = this.ctx.createOscillator();
     const clickGain = this.ctx.createGain();
     clickOsc.type = 'triangle';
@@ -104,7 +101,7 @@ class FoleySynthesizer {
     clickOsc.start(now);
     clickOsc.stop(now + 0.045);
 
-    // 2. High-Speed Air Slice Whoosh
+    // Supersonic air slice whoosh
     if (this.noiseBuffer) {
       const whoosh = this.ctx.createBufferSource();
       whoosh.buffer = this.noiseBuffer;
@@ -126,7 +123,7 @@ class FoleySynthesizer {
       whoosh.stop(now + 0.32);
     }
 
-    // 3. High-Carbon Steel Resonant Ring
+    // Steel ringing resonance
     [2340, 3190, 4480, 5620].forEach((freq, i) => {
       const osc = this.ctx.createOscillator();
       const gain = this.ctx.createGain();
@@ -146,14 +143,12 @@ class FoleySynthesizer {
     });
   }
 
-  // Nami N: Clima-Tact Electric Arc + Deep Rolling Thunderclap
   playThunder(tier = 1) {
     if (!this.enabled) return;
     this.init();
     if (!this.ctx) return;
     const now = this.ctx.currentTime;
 
-    // 1. High-Voltage Electric Arc Zap
     const arc = this.ctx.createOscillator();
     const arcGain = this.ctx.createGain();
     arc.type = 'sawtooth';
@@ -166,7 +161,6 @@ class FoleySynthesizer {
     arc.start(now);
     arc.stop(now + 0.14);
 
-    // 2. Rolling Deep Thunderclap
     if (this.noiseBuffer) {
       const thunder = this.ctx.createBufferSource();
       thunder.buffer = this.noiseBuffer;
@@ -187,14 +181,12 @@ class FoleySynthesizer {
     }
   }
 
-  // Sanji V: Sub-Bass Kick Thud + Turbulent Flame Roar
   playFireKick(tier = 1) {
     if (!this.enabled) return;
     this.init();
     if (!this.ctx) return;
     const now = this.ctx.currentTime;
 
-    // 1. Heavy Martial Arts Kick Thud
     const kick = this.ctx.createOscillator();
     const kickGain = this.ctx.createGain();
     kick.type = 'sine';
@@ -207,7 +199,6 @@ class FoleySynthesizer {
     kick.start(now + 0.04);
     kick.stop(now + 0.36);
 
-    // 2. Blazing Fire Combustion Roar
     if (this.noiseBuffer) {
       const fire = this.ctx.createBufferSource();
       fire.buffer = this.noiseBuffer;
@@ -230,7 +221,6 @@ class FoleySynthesizer {
     }
   }
 
-  // All-Out Crew Unison Attack Chime & Fanfare
   playUnisonFanfare() {
     if (!this.enabled) return;
     this.init();
@@ -252,28 +242,28 @@ class FoleySynthesizer {
 }
 
 /* =========================================================================
-   2. CREW TIERS & CALLOUT MESSAGES DATA
+   2. TIERS & LABELS (STRICTLY CONCISE TO PREVENT 2-LINE WRAPPING)
    ========================================================================= */
 const CREW_TIERS = {
   captain: [
-    { label: 'Tier 1 • Jet Pistol', msg: 'GOMU-GOMU: 0.24s EDGE SMASH!' },
-    { label: 'Tier 2 • Jet Gatling', msg: 'GEAR 2ND: 300+ CDN NODES FIRED!' },
-    { label: 'MAX • King Kong Gun', msg: 'AWAKENING: ZERO LATENCY LOCKED!' }
+    { label: 'T1 • JET PISTOL', msg: 'GOMU-GOMU: 0.24s EDGE SMASH!' },
+    { label: 'T2 • GATLING', msg: 'GEAR 2ND: 300+ CDN NODES FIRED!' },
+    { label: 'MAX • KING KONG', msg: 'AWAKENING: ZERO LATENCY LOCKED!' }
   ],
   zoro: [
-    { label: 'Tier 1 • Oni Giri', msg: 'SANTORYU: 40 PLUGINS SLICED!' },
-    { label: 'Tier 2 • Tatsumaki', msg: 'DRAGON TWISTER: ZERO VULNERABILITIES!' },
-    { label: 'MAX • King of Hell', msg: 'ENMA HAKI: 99.99% UPTIME LOCKED!' }
+    { label: 'T1 • ONI GIRI', msg: 'SANTORYU: 40 PLUGINS SLICED!' },
+    { label: 'T2 • TATSUMAKI', msg: 'DRAGON TWISTER: ZERO VULNERABILITIES!' },
+    { label: 'MAX • ENMA HAKI', msg: 'ENMA HAKI: 99.99% UPTIME LOCKED!' }
   ],
   nami: [
-    { label: 'Tier 1 • Thunderbolt', msg: 'THUNDERBOLT TEMPO: #1 GOOGLE SEO!' },
-    { label: 'Tier 2 • Mirage Tempo', msg: 'WHATSAPP FUNNEL: 3X LEADS SURGING!' },
-    { label: 'MAX • Zeus Tempest', msg: 'ZEUS STRIKE: CONVERSION MAXIMUM!' }
+    { label: 'T1 • THUNDER', msg: 'THUNDERBOLT TEMPO: #1 GOOGLE SEO!' },
+    { label: 'T2 • MIRAGE', msg: 'WHATSAPP FUNNEL: 3X LEADS SURGING!' },
+    { label: 'MAX • ZEUS TEMPEST', msg: 'ZEUS STRIKE: CONVERSION MAXIMUM!' }
   ],
   sanji: [
-    { label: 'Tier 1 • Diable Jambe', msg: 'DIABLE JAMBE: CLUNKY UI KICKED!' },
-    { label: 'Tier 2 • Concassé', msg: '60FPS MOBILE UX: BUTTER SMOOTH!' },
-    { label: 'MAX • Ifrit Jambe', msg: 'IFRIT PLASMA: 10s PHONE ADMIN!' }
+    { label: 'T1 • DIABLE', msg: 'DIABLE JAMBE: CLUNKY UI KICKED!' },
+    { label: 'T2 • CONCASSÉ', msg: '60FPS MOBILE UX: BUTTER SMOOTH!' },
+    { label: 'MAX • IFRIT JAMBE', msg: 'IFRIT PLASMA: 10s PHONE ADMIN!' }
   ]
 };
 
@@ -284,7 +274,6 @@ export default function EngineeringCrewSection({ onOpenQuote }) {
   const [isMuted, setIsMuted] = useState(false);
   const [activeAttacks, setActiveAttacks] = useState({ captain: false, zoro: false, nami: false, sanji: false });
 
-  // Refs for Web Audio & Canvas systems
   const foleyRef = useRef(null);
   const timersRef = useRef({});
   const canvasRefs = {
@@ -296,7 +285,6 @@ export default function EngineeringCrewSection({ onOpenQuote }) {
   const vfxSystemsRef = useRef({});
   const animFrameIdRef = useRef(null);
 
-  // Initialize Foley Engine
   useEffect(() => {
     foleyRef.current = new FoleySynthesizer();
     return () => {
@@ -311,7 +299,6 @@ export default function EngineeringCrewSection({ onOpenQuote }) {
     if (foleyRef.current) foleyRef.current.enabled = !next;
   };
 
-  // Helper to compute tier
   const getTier = (hits) => (hits >= 6 ? 3 : hits >= 3 ? 2 : 1);
 
   // Setup Canvas VFX Systems
@@ -459,7 +446,6 @@ export default function EngineeringCrewSection({ onOpenQuote }) {
           const c = this.ctx;
           c.clearRect(0, 0, this.width, this.height);
 
-          // Render Shockwave Rings
           for (let i = this.rings.length - 1; i >= 0; i--) {
             const r = this.rings[i];
             r.radius += (r.maxRadius - r.radius) * 0.16;
@@ -478,7 +464,6 @@ export default function EngineeringCrewSection({ onOpenQuote }) {
             c.restore();
           }
 
-          // Render Zoro Slashes
           for (let i = this.slashes.length - 1; i >= 0; i--) {
             const s = this.slashes[i];
             s.alpha -= 0.048;
@@ -500,7 +485,6 @@ export default function EngineeringCrewSection({ onOpenQuote }) {
             c.restore();
           }
 
-          // Render Nami Lightning Bolts
           for (let i = this.bolts.length - 1; i >= 0; i--) {
             const b = this.bolts[i];
             b.alpha -= 0.055;
@@ -524,7 +508,6 @@ export default function EngineeringCrewSection({ onOpenQuote }) {
             c.restore();
           }
 
-          // Render Particles (Sparks, Flame tongues, Rupee Coins)
           for (let i = this.particles.length - 1; i >= 0; i--) {
             const p = this.particles[i];
             p.x += p.vx;
@@ -589,13 +572,11 @@ export default function EngineeringCrewSection({ onOpenQuote }) {
     };
   }, []);
 
-  // Trigger Individual Specialist Attack
   const triggerAttack = useCallback((hero) => {
     setHitCounts(prev => {
       const nextHits = prev[hero] + 1;
       const tier = getTier(nextHits);
 
-      // Play Foley SFX
       if (foleyRef.current) {
         if (hero === 'captain') foleyRef.current.playRubberPunch(tier);
         if (hero === 'zoro') foleyRef.current.playKatana(tier);
@@ -603,7 +584,6 @@ export default function EngineeringCrewSection({ onOpenQuote }) {
         if (hero === 'sanji') foleyRef.current.playFireKick(tier);
       }
 
-      // Trigger Canvas VFX
       if (vfxSystemsRef.current[hero]) {
         vfxSystemsRef.current[hero].spawnAttack(tier);
       }
@@ -622,7 +602,6 @@ export default function EngineeringCrewSection({ onOpenQuote }) {
     }, 720);
   }, []);
 
-  // All-Out Crew Unison Attack
   const triggerUnison = () => {
     if (foleyRef.current) foleyRef.current.playUnisonFanfare();
     ['captain', 'zoro', 'nami', 'sanji'].forEach((hero, index) => {
@@ -642,8 +621,8 @@ export default function EngineeringCrewSection({ onOpenQuote }) {
 
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-10 space-y-3">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-cyan-500/10 border border-cyan-500/30 text-cyan-300 font-mono text-xs font-bold uppercase tracking-widest">
-            <Sparkles className="w-3.5 h-3.5 text-cyan-400" />
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-cyan-500/10 border border-cyan-500/30 text-cyan-300 font-mono text-xs font-bold uppercase tracking-widest whitespace-nowrap">
+            <Sparkles className="w-3.5 h-3.5 text-cyan-400 shrink-0" />
             <span>Four Disciplines • One Unstoppable Business Site</span>
           </div>
           <h2 className="font-display text-3xl sm:text-5xl font-extrabold tracking-tight text-white">
@@ -659,11 +638,11 @@ export default function EngineeringCrewSection({ onOpenQuote }) {
           
           {/* Global Combo Counter */}
           <div className="flex items-center gap-2">
-            <div className={`px-3 py-1.5 rounded-full bg-amber-500/15 border border-amber-500/40 text-amber-300 font-mono text-xs sm:text-sm font-extrabold flex items-center gap-1.5 transition-transform duration-150 ${comboBump ? 'scale-110 shadow-lg shadow-amber-500/30' : 'scale-100'}`}>
-              <Zap className="w-4 h-4 text-amber-400 fill-amber-400" />
+            <div className={`px-3 py-1.5 rounded-full bg-amber-500/15 border border-amber-500/40 text-amber-300 font-mono text-xs sm:text-sm font-extrabold flex items-center gap-1.5 whitespace-nowrap transition-transform duration-150 ${comboBump ? 'scale-110 shadow-lg shadow-amber-500/30' : 'scale-100'}`}>
+              <Zap className="w-4 h-4 text-amber-400 fill-amber-400 shrink-0" />
               <span>Crew Combo: {totalCombo}</span>
             </div>
-            <span className="text-[11px] text-slate-400 font-mono hidden md:inline">
+            <span className="text-[11px] text-slate-400 font-mono hidden md:inline whitespace-nowrap">
               Tap cards to unleash attacks!
             </span>
           </div>
@@ -672,25 +651,25 @@ export default function EngineeringCrewSection({ onOpenQuote }) {
           <div className="flex items-center gap-2.5">
             <button
               onClick={triggerUnison}
-              className="px-4 py-2 rounded-xl bg-gradient-to-r from-amber-400 via-orange-500 to-rose-500 text-slate-950 font-display font-extrabold text-xs sm:text-sm shadow-lg shadow-orange-500/25 hover:shadow-orange-500/40 hover:scale-[1.02] active:scale-[0.98] transition-all flex items-center gap-2 cursor-pointer"
+              className="px-4 py-2 rounded-xl bg-gradient-to-r from-amber-400 via-orange-500 to-rose-500 text-slate-950 font-display font-extrabold text-xs sm:text-sm shadow-lg shadow-orange-500/25 hover:shadow-orange-500/40 hover:scale-[1.02] active:scale-[0.98] transition-all flex items-center gap-2 cursor-pointer whitespace-nowrap"
             >
-              <Flame className="w-4 h-4 fill-slate-950" />
+              <Flame className="w-4 h-4 fill-slate-950 shrink-0" />
               <span>Trigger All-Out Unison Attack</span>
             </button>
 
             <button
               onClick={toggleSound}
-              className="px-3 py-2 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 text-slate-200 text-xs font-mono font-bold flex items-center gap-1.5 transition-colors cursor-pointer"
+              className="px-3 py-2 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 text-slate-200 text-xs font-mono font-bold flex items-center gap-1.5 transition-colors cursor-pointer whitespace-nowrap"
               title={isMuted ? 'Unmute Foley Audio' : 'Mute Foley Audio'}
             >
               {isMuted ? (
                 <>
-                  <VolumeX className="w-4 h-4 text-slate-400" />
+                  <VolumeX className="w-4 h-4 text-slate-400 shrink-0" />
                   <span className="hidden sm:inline">Muted</span>
                 </>
               ) : (
                 <>
-                  <Volume2 className="w-4 h-4 text-amber-400" />
+                  <Volume2 className="w-4 h-4 text-amber-400 shrink-0" />
                   <span className="hidden sm:inline">Foley ON</span>
                 </>
               )}
@@ -702,15 +681,16 @@ export default function EngineeringCrewSection({ onOpenQuote }) {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
 
           {/* =========================================================================
-              CARD 1: CAPTAIN MERQ (Sovereign Architecture & Sub-0.3s Edge Smash)
+              CARD 1: CAPTAIN MERQ (100% IDENTICAL TO HERO MASCOT + CONNECTED ARM)
              ========================================================================= */}
           <CrewBattleCard
             heroKey="captain"
             name="Captain"
+            heroShortName="Captain"
             role="Sovereign Architecture & Speed"
             metric="0.24s Edge"
             desc="Stretches performance to sub-0.3s load times across 300+ CDN nodes with zero bloated plugins."
-            tagText="SPEED • ARCHITECTURE"
+            tagText="SPEED • 0.24S"
             tagIcon={Zap}
             tagBg="bg-amber-500/20 text-amber-300 border-amber-500/30"
             hits={hitCounts.captain}
@@ -723,117 +703,147 @@ export default function EngineeringCrewSection({ onOpenQuote }) {
             monolithSub="Heavy Bloated DOM"
             monolithClass="monolith-luffy"
           >
-            {/* Captain Merq SVG Rig — 100% Attached Rubber Punch Arm & Exact Cute Face */}
-            <svg viewBox="0 0 280 250" className="w-full h-full overflow-visible select-none pointer-events-none">
+            {/* Captain Merq SVG Rig — 100% Matching Face, Hair & Connected Punch Arm */}
+            <svg viewBox="40 25 320 405" className="w-full h-full overflow-visible select-none pointer-events-none">
               <defs>
-                <radialGradient id="merqCuteSkin" cx="42%" cy="35%" r="65%">
+                <radialGradient id="cardSkin3D" cx="42%" cy="35%" r="65%">
                   <stop offset="0%" stopColor="#FFE7D1" />
                   <stop offset="55%" stopColor="#F9C29B" />
                   <stop offset="100%" stopColor="#D48859" />
                 </radialGradient>
-                <radialGradient id="merqHatCrown" cx="38%" cy="28%" r="72%">
+                <radialGradient id="cardHatCrown3D" cx="38%" cy="28%" r="72%">
                   <stop offset="0%" stopColor="#FEF9C3" />
                   <stop offset="50%" stopColor="#FACC15" />
                   <stop offset="100%" stopColor="#CA8A04" />
                 </radialGradient>
-                <linearGradient id="merqHatBrim" x1="0%" y1="0%" x2="100%" y2="100%">
+                <linearGradient id="cardHatBrim3D" x1="0%" y1="0%" x2="100%" y2="100%">
                   <stop offset="0%" stopColor="#FEF08A" />
                   <stop offset="50%" stopColor="#EAB308" />
                   <stop offset="100%" stopColor="#A16207" />
                 </linearGradient>
-                <radialGradient id="merqVest" cx="35%" cy="30%" r="75%">
+                <radialGradient id="cardVest3D" cx="35%" cy="30%" r="75%">
                   <stop offset="0%" stopColor="#FDA4AF" />
                   <stop offset="45%" stopColor="#E11D48" />
                   <stop offset="100%" stopColor="#9F1239" />
                 </radialGradient>
-                <radialGradient id="merqHakiFist" cx="35%" cy="30%" r="70%">
+                <linearGradient id="cardSash3D" x1="0%" y1="0%" x2="100%" y2="0%">
+                  <stop offset="0%" stopColor="#D97706" />
+                  <stop offset="50%" stopColor="#FDE047" />
+                  <stop offset="100%" stopColor="#B45309" />
+                </linearGradient>
+                <linearGradient id="cardShorts3D" x1="0%" y1="0%" x2="0%" y2="100%">
+                  <stop offset="0%" stopColor="#60A5FA" />
+                  <stop offset="60%" stopColor="#2563EB" />
+                  <stop offset="100%" stopColor="#1E3A8A" />
+                </linearGradient>
+                <radialGradient id="cardHair3D" cx="40%" cy="28%" r="72%">
+                  <stop offset="0%" stopColor="#475569" />
+                  <stop offset="45%" stopColor="#1E293B" />
+                  <stop offset="100%" stopColor="#090D16" />
+                </radialGradient>
+                <radialGradient id="cardHakiFist" cx="35%" cy="30%" r="70%">
                   <stop offset="0%" stopColor="#6366F1" />
                   <stop offset="45%" stopColor="#312E81" />
                   <stop offset="100%" stopColor="#0F172A" />
                 </radialGradient>
               </defs>
 
-              <g className={`transition-transform duration-200 ${activeAttacks.captain ? 'translate-x-3.5 rotate-1' : 'animate-float'}`}>
+              <g className={`transition-transform duration-200 ${activeAttacks.captain ? 'translate-x-3 rotate-1' : 'animate-float'}`}>
                 
-                {/* Straw Hat Crown & Brim */}
-                <ellipse cx="116" cy="62" rx="72" ry="24" transform="rotate(-6 116 62)" fill="url(#merqHatBrim)" stroke="#78350F" strokeWidth="2.2" />
-                <path d="M72 58 C76 22, 150 20, 158 54 Z" fill="url(#merqHatCrown)" stroke="#78350F" strokeWidth="2.2" />
-                <path d="M73 54 Q116 46 157 52 L155 60 Q116 54 74 62 Z" fill="#E11D48" />
+                {/* Back Hat Brim */}
+                <ellipse cx="200" cy="116" rx="134" ry="33" fill="#A16207" />
+                <ellipse cx="200" cy="112" rx="131" ry="30" fill="url(#cardHatBrim3D)" />
 
-                {/* Back Left Arm */}
-                <path d="M74 142 Q50 162 58 190 Q68 202 82 188 L86 156 Z" fill="url(#merqCuteSkin)" stroke="#9A3412" strokeWidth="2" />
+                {/* Legs & Sandals */}
+                <rect x="156" y="356" width="23" height="55" rx="11.5" fill="url(#cardSkin3D)" />
+                <rect x="221" y="356" width="23" height="55" rx="11.5" fill="url(#cardSkin3D)" />
+                <ellipse cx="166" cy="415" rx="23" ry="9.5" fill="#F59E0B" stroke="#92400E" strokeWidth="2" />
+                <path d="M151 413 Q166 405 181 413" stroke="#B45309" strokeWidth="3.5" fill="none" strokeLinecap="round" />
+                <ellipse cx="234" cy="415" rx="23" ry="9.5" fill="#F59E0B" stroke="#92400E" strokeWidth="2" />
+                <path d="M219 413 Q234 405 249 413" stroke="#B45309" strokeWidth="3.5" fill="none" strokeLinecap="round" />
 
-                {/* Torso & Red Vest */}
-                <path d="M78 130 L148 130 L144 204 L82 204 Z" fill="url(#merqCuteSkin)" stroke="#9A3412" strokeWidth="2" />
-                <path d="M74 128 L98 128 L96 202 L72 200 Z" fill="url(#merqVest)" stroke="#881337" strokeWidth="2" />
-                <path d="M128 128 L152 128 L154 200 L130 202 Z" fill="url(#merqVest)" stroke="#881337" strokeWidth="2" />
-                <circle cx="91" cy="150" r="3.2" fill="#FDE047" />
-                <circle cx="91" cy="172" r="3.2" fill="#FDE047" />
-                <circle cx="91" cy="192" r="3.2" fill="#FDE047" />
+                {/* Permanent Anatomical Shoulder Sockets */}
+                <circle cx="148" cy="260" r="13" fill="url(#cardSkin3D)" />
+                <circle cx="252" cy="260" r="13" fill="url(#cardSkin3D)" />
 
-                {/* Golden Sash & Blue Shorts */}
-                <rect x="75" y="196" width="76" height="16" rx="6" fill="#FACC15" stroke="#92400E" strokeWidth="1.8" />
-                <path d="M77 212 L149 212 L153 240 L117 240 L113 226 L109 240 L73 240 Z" fill="#1D4ED8" stroke="#1E3A8A" strokeWidth="2" />
-                <rect x="70" y="234" width="41" height="9" rx="4.5" fill="#FFFFFF" stroke="#94A3B8" strokeWidth="1.5" />
-                <rect x="115" y="234" width="41" height="9" rx="4.5" fill="#FFFFFF" stroke="#94A3B8" strokeWidth="1.5" />
+                {/* Left Arm (Resting) */}
+                <path d="M148 260 Q98 272 68 292" stroke="url(#cardSkin3D)" strokeWidth="23" strokeLinecap="round" fill="none" />
+                <circle cx="60" cy="296" r="18.5" fill="url(#cardSkin3D)" stroke="#C27849" strokeWidth="2" />
 
-                {/* Head, Face & Ears (Exact Cute Chibi Proportions from Mascot) */}
-                <rect x="103" y="112" width="20" height="22" rx="8" fill="url(#merqCuteSkin)" />
-                <ellipse cx="114" cy="86" rx="35" ry="36" fill="url(#merqCuteSkin)" stroke="#9A3412" strokeWidth="2" />
-                <ellipse cx="78" cy="88" rx="6" ry="9" fill="url(#merqCuteSkin)" stroke="#9A3412" strokeWidth="1.6" />
-                <ellipse cx="150" cy="88" rx="6" ry="9" fill="url(#merqCuteSkin)" stroke="#9A3412" strokeWidth="1.6" />
+                {/* Torso: Open Crimson Vest, Chest, Golden Sash, Denim Shorts */}
+                <path d="M144 324 L256 324 L264 372 L208 372 L200 355 L192 372 L136 372 Z" fill="url(#cardShorts3D)" stroke="#1E40AF" strokeWidth="2" />
+                <rect x="133" y="366" width="62" height="11" rx="5.5" fill="#FFFFFF" />
+                <rect x="205" y="366" width="62" height="11" rx="5.5" fill="#FFFFFF" />
+                <path d="M150 240 L250 240 L256 326 L144 326 Z" fill="url(#cardSkin3D)" />
+                <circle cx="200" cy="304" r="2.5" fill="#C27849" opacity="0.65" />
+                <rect x="142" y="312" width="116" height="21" rx="10" fill="url(#cardSash3D)" stroke="#B45309" strokeWidth="2" />
+                <path d="M148 238 L176 238 L168 316 L138 314 Z" fill="url(#cardVest3D)" stroke="#9F1239" strokeWidth="2" />
+                <path d="M252 238 L224 238 L232 316 L262 314 Z" fill="url(#cardVest3D)" stroke="#9F1239" strokeWidth="2" />
+                <circle cx="163" cy="266" r="5" fill="#FEF08A" stroke="#B45309" strokeWidth="1.5" />
+                <circle cx="161" cy="292" r="5" fill="#FEF08A" stroke="#B45309" strokeWidth="1.5" />
 
-                {/* Spiky Jet-Black Hair */}
-                <path d="M77 82 L71 60 L87 68 L95 46 L108 64 L118 43 L128 64 L142 48 L145 68 L156 62 L149 84 Q134 64 114 64 Q92 64 77 82 Z" fill="#0F172A" />
+                {/* Neck */}
+                <rect x="183" y="214" width="34" height="32" rx="12" fill="url(#cardSkin3D)" />
 
-                {/* Cute Rosy Cheeks */}
-                <ellipse cx="90" cy="96" rx="6" ry="3.2" fill="#FB7185" opacity="0.6" />
-                <ellipse cx="138" cy="96" rx="6" ry="3.2" fill="#FB7185" opacity="0.6" />
-                <path d="M86 94 L89 98 M91 94 L94 98 M134 94 L137 98 M139 94 L142 98" stroke="#E11D48" strokeWidth="1.4" strokeLinecap="round" />
+                {/* Head, Face & Ears (100% Identical to Hero Mascot) */}
+                <ellipse cx="121" cy="164" rx="14" ry="19" fill="url(#cardSkin3D)" stroke="#C27849" strokeWidth="2" />
+                <ellipse cx="279" cy="164" rx="14" ry="19" fill="url(#cardSkin3D)" stroke="#C27849" strokeWidth="2" />
+                <rect x="124" y="92" width="152" height="136" rx="68" fill="url(#cardSkin3D)" stroke="#C27849" strokeWidth="2" />
 
-                {/* Anime Expressive Eyes */}
-                <circle cx="100" cy="85" r="10" fill="#FFFFFF" stroke="#0F172A" strokeWidth="2" />
-                <circle cx="100" cy="85" r="5.5" fill="#0F172A" />
-                <circle cx="98" cy="83" r="2.2" fill="#FFFFFF" />
-                <circle cx="102" cy="87" r="1" fill="#FFFFFF" opacity="0.8" />
+                {/* Rosy Cheeks with Tick Marks */}
+                <ellipse cx="150" cy="181" rx="16" ry="9" fill="#FB7185" opacity="0.5" />
+                <ellipse cx="250" cy="181" rx="16" ry="9" fill="#FB7185" opacity="0.5" />
+                <path d="M143 179 L147 184 M150 179 L154 184 M246 179 L250 184 M253 179 L257 184" stroke="#E11D48" strokeWidth="1.8" strokeLinecap="round" />
 
-                <circle cx="128" cy="85" r="10" fill="#FFFFFF" stroke="#0F172A" strokeWidth="2" />
-                <circle cx="128" cy="85" r="5.5" fill="#0F172A" />
-                <circle cx="126" cy="83" r="2.2" fill="#FFFFFF" />
-                <circle cx="130" cy="87" r="1" fill="#FFFFFF" opacity="0.8" />
+                {/* Rounded Anime Hair Bangs (Exact Matching Model) */}
+                <path d="M120 140 Q116 96 155 84 Q200 72 245 84 Q284 96 280 140 Q266 118 252 132 Q242 110 225 130 Q208 106 194 132 Q176 108 162 132 Q146 112 134 134 Z" fill="url(#cardHair3D)" />
 
-                {/* Joyful Mouth */}
-                <path d="M96 102 Q114 118 132 102 Q114 107 96 102 Z" fill="#FFFFFF" stroke="#0F172A" strokeWidth="2" />
+                {/* Eyebrows */}
+                <path d="M148 133 Q166 124 183 133" stroke="#1E293B" strokeWidth="5" strokeLinecap="round" fill="none" />
+                <path d="M217 133 Q234 124 252 133" stroke="#1E293B" strokeWidth="5" strokeLinecap="round" fill="none" />
 
-                {/* 100% ATTACHED RUBBER PUNCH ARM SYSTEM (Anchored at Right Shoulder Socket) */}
-                <g>
-                  {/* Permanent Anatomical Shoulder Socket to ensure zero detachment */}
-                  <circle cx="146" cy="144" r="12" fill="url(#merqCuteSkin)" stroke="#9A3412" strokeWidth="2" />
+                {/* Big Anime Eyes with Specular Highlights */}
+                <circle cx="166" cy="158" r="21" fill="#FFFFFF" stroke="#1E293B" strokeWidth="2.5" />
+                <circle cx="166" cy="158" r="11.5" fill="#0F172A" />
+                <circle cx="161" cy="153" r="4.5" fill="#FFFFFF" />
+                <circle cx="171" cy="163" r="2" fill="#FFFFFF" opacity="0.9" />
 
-                  {/* Stretching Haki Punch Arm — Seamlessly extends from shoulder socket to monolith */}
-                  <g 
-                    className="transition-transform duration-200"
-                    style={{
-                      transformOrigin: '146px 144px',
-                      transform: activeAttacks.captain ? 'translateX(70px) scaleX(1.75) scaleY(1.15)' : 'none'
-                    }}
-                  >
-                    {/* Continuous elastic rubber arm path */}
-                    <path 
-                      d="M 146 144 Q 170 144 195 144" 
-                      stroke="url(#merqCuteSkin)" 
-                      strokeWidth="18" 
-                      strokeLinecap="round" 
-                      fill="none" 
-                    />
+                <circle cx="234" cy="158" r="21" fill="#FFFFFF" stroke="#1E293B" strokeWidth="2.5" />
+                <circle cx="234" cy="158" r="11.5" fill="#0F172A" />
+                <circle cx="229" cy="153" r="4.5" fill="#FFFFFF" />
+                <circle cx="239" cy="163" r="2" fill="#FFFFFF" opacity="0.9" />
 
-                    {/* Haki-Infused Metallic Fist */}
-                    <g transform="translate(192, 126)">
-                      <rect x="0" y="2" width="36" height="34" rx="14" fill="url(#merqHakiFist)" stroke="#F43F5E" strokeWidth="2.4" />
-                      <line x1="12" y1="6" x2="12" y2="30" stroke="#FB7185" strokeWidth="1.6" opacity="0.8" />
-                      <line x1="22" y1="6" x2="22" y2="30" stroke="#FB7185" strokeWidth="1.6" opacity="0.8" />
-                      <circle cx="26" cy="12" r="3.5" fill="#FDA4AF" opacity="0.75" />
-                    </g>
+                {/* Big Open Smile with Teeth */}
+                <path d="M152 196 Q200 236 248 196 Z" fill="#FFFFFF" stroke="#0F172A" strokeWidth="3" />
+                <path d="M152 196 Q200 206 248 196" stroke="#0F172A" strokeWidth="2" fill="none" />
+                <line x1="176" y1="198" x2="176" y2="216" stroke="#CBD5E1" strokeWidth="1.8" />
+                <line x1="200" y1="200" x2="200" y2="220" stroke="#CBD5E1" strokeWidth="1.8" />
+                <line x1="224" y1="198" x2="224" y2="216" stroke="#CBD5E1" strokeWidth="1.8" />
+
+                {/* Front Straw Hat Crown & Red Ribbon */}
+                <path d="M132 106 C134 40, 266 40, 268 106 Z" fill="url(#cardHatCrown3D)" stroke="#A16207" strokeWidth="2.5" />
+                <path d="M152 70 Q200 62 248 70" stroke="#D97706" strokeWidth="1.5" strokeDasharray="6 4" fill="none" opacity="0.55" />
+                <path d="M142 84 Q200 76 258 84" stroke="#D97706" strokeWidth="1.5" strokeDasharray="6 4" fill="none" opacity="0.55" />
+                <ellipse cx="176" cy="66" rx="22" ry="9" transform="rotate(-18 176 66)" fill="rgba(255,255,255,0.4)" />
+                <path d="M133 94 Q200 110 267 94 L268 108 Q200 124 132 108 Z" fill="#F43F5E" stroke="#9F1239" strokeWidth="2" />
+
+                {/* 100% CONNECTED RUBBER PUNCH ARM (Anchored at Right Shoulder Socket) */}
+                <g 
+                  className="transition-transform duration-200"
+                  style={{
+                    transformOrigin: '252px 260px',
+                    transform: activeAttacks.captain ? 'translateX(35px) scaleX(2.1) scaleY(1.08)' : 'none'
+                  }}
+                >
+                  {/* Elastic Rubber Arm extending from shoulder */}
+                  <path d="M252 260 Q286 270 306 288" stroke="url(#cardSkin3D)" strokeWidth="23" strokeLinecap="round" fill="none" />
+                  
+                  {/* Haki-Infused Fist */}
+                  <g transform="translate(304, 276)">
+                    <rect x="0" y="0" width="36" height="34" rx="14" fill="url(#cardHakiFist)" stroke="#F43F5E" strokeWidth="2.2" />
+                    <line x1="12" y1="4" x2="12" y2="30" stroke="#FB7185" strokeWidth="1.6" opacity="0.8" />
+                    <line x1="22" y1="4" x2="22" y2="30" stroke="#FB7185" strokeWidth="1.6" opacity="0.8" />
+                    <circle cx="26" cy="10" r="3" fill="#FDA4AF" opacity="0.75" />
                   </g>
                 </g>
 
@@ -847,10 +857,11 @@ export default function EngineeringCrewSection({ onOpenQuote }) {
           <CrewBattleCard
             heroKey="zoro"
             name="Zoro R."
+            heroShortName="Zoro"
             role="Zero Vulnerabilities & Security"
             metric="0 Plugins"
             desc="Slices 40 bloated plugins, memory leaks, and unpatched PHP risks with pure hardened code."
-            tagText="SECURITY • 0 PLUGINS"
+            tagText="SECURITY • 0 BUGS"
             tagIcon={ShieldCheck}
             tagBg="bg-emerald-500/20 text-emerald-300 border-emerald-500/30"
             hits={hitCounts.zoro}
@@ -927,7 +938,7 @@ export default function EngineeringCrewSection({ onOpenQuote }) {
                   <polygon points="-8,-3.5 102,-2 114,0 102,3.5 -8,3.5" fill="url(#katanaBlade)" stroke="#059669" strokeWidth="1.2" />
                 </g>
 
-                {/* 2 & 3. Dual-Wielded Katanas Rig (Sandai Kitetsu & Enma) */}
+                {/* 2 & 3. Dual-Wielded Katanas Rig */}
                 <g 
                   className="transition-transform duration-200"
                   style={{
@@ -962,10 +973,11 @@ export default function EngineeringCrewSection({ onOpenQuote }) {
           <CrewBattleCard
             heroKey="nami"
             name="Nami N."
+            heroShortName="Nami"
             role="Conversion Psychology & SEO"
             metric="3x Leads"
             desc="Charts high-converting buyer navigation paths and 1-tap WhatsApp funnels that multiply leads."
-            tagText="SEO • CONVERSION FUNNEL"
+            tagText="SEO • #1 RANK"
             tagIcon={Compass}
             tagBg="bg-sky-500/20 text-sky-300 border-sky-500/30"
             hits={hitCounts.nami}
@@ -1058,15 +1070,16 @@ export default function EngineeringCrewSection({ onOpenQuote }) {
           </CrewBattleCard>
 
           {/* =========================================================================
-              CARD 4: SANJI V. (Diable / Ifrit Jambe Blazing Fire Kick & Mobile UX)
+              CARD 4: SANJI V. (ELEGANT MARTIAL ARTS KICK & DIABLE JAMBE FLAME SHOES)
              ========================================================================= */}
           <CrewBattleCard
             heroKey="sanji"
             name="Sanji V."
+            heroShortName="Sanji"
             role="Fluid Responsive UI/UX & Polish"
             metric="100% Fluid"
             desc="Crafts responsive interfaces with sub-millisecond interaction feedback and thumb-friendly touch targets."
-            tagText="UI/UX • MOBILE EXCELLENCE"
+            tagText="UI/UX • 60FPS"
             tagIcon={Flame}
             tagBg="bg-orange-500/20 text-orange-300 border-orange-500/30"
             hits={hitCounts.sanji}
@@ -1079,7 +1092,7 @@ export default function EngineeringCrewSection({ onOpenQuote }) {
             monolithSub="High Bounce Rate"
             monolithClass="monolith-sanji"
           >
-            {/* Sanji V. SVG Rig — VIBRANT, CLEARLY VISIBLE DIABLE/IFRIT JAMBE FLAME KICK */}
+            {/* Sanji V. SVG Rig — Dynamic Martial Arts Roundhouse Kick & Pointed Italian Dress Shoes */}
             <svg viewBox="0 0 280 250" className="w-full h-full overflow-visible select-none pointer-events-none">
               <defs>
                 <linearGradient id="sanjiHair" x1="0%" y1="0%" x2="100%" y2="100%">
@@ -1097,7 +1110,7 @@ export default function EngineeringCrewSection({ onOpenQuote }) {
                   <stop offset="45%" stopColor="#0F172A" />
                   <stop offset="100%" stopColor="#020617" />
                 </linearGradient>
-                {/* Brilliant Diable/Ifrit Jambe Flame Gradient */}
+                {/* Diable Jambe Multi-Stop Flame Gradient */}
                 <linearGradient id="sanjiDiableFlame" x1="0%" y1="0%" x2="100%" y2="100%">
                   <stop offset="0%" stopColor="#FEF08A" />
                   <stop offset="35%" stopColor="#F97316" />
@@ -1105,7 +1118,7 @@ export default function EngineeringCrewSection({ onOpenQuote }) {
                   <stop offset="100%" stopColor="#38BDF8" />
                 </linearGradient>
                 <filter id="sanjiFlameGlow" x="-50%" y="-50%" width="200%" height="200%">
-                  <feGaussianBlur stdDeviation="6" result="blur" />
+                  <feGaussianBlur stdDeviation="5" result="blur" />
                   <feMerge>
                     <feMergeNode in="blur" />
                     <feMergeNode in="SourceGraphic" />
@@ -1113,65 +1126,81 @@ export default function EngineeringCrewSection({ onOpenQuote }) {
                 </filter>
               </defs>
 
-              <g className={`transition-transform duration-200 ${activeAttacks.sanji ? 'translate-x-14 -translate-y-2 rotate-[-12deg] scale-105' : 'animate-float'}`}>
+              <g className={`transition-transform duration-200 ${activeAttacks.sanji ? 'translate-x-10 -translate-y-2 scale-105' : 'animate-float'}`}>
                 
-                {/* Midnight Navy Suit Body & Gold Buttons */}
-                <path d="M76 128 L150 128 L146 204 L80 204 Z" fill="url(#sanjiSuit)" stroke="#020617" strokeWidth="2.2" />
-                <polygon points="98,128 128,128 113,164" fill="#38BDF8" />
-                <polygon points="110,130 116,130 118,156 113,164 108,156" fill="#020617" />
-                <circle cx="101" cy="172" r="3" fill="#FDE047" />
-                <circle cx="125" cy="172" r="3" fill="#FDE047" />
-                <circle cx="101" cy="188" r="3" fill="#FDE047" />
-                <circle cx="125" cy="188" r="3" fill="#FDE047" />
-                <rect x="81" y="201" width="64" height="9" rx="3" fill="#020617" stroke="#334155" strokeWidth="1.4" />
-                <rect x="107" y="199" width="12" height="13" rx="2.5" fill="#E2E8F0" stroke="#475569" strokeWidth="1.4" />
-                <path d="M81 210 L145 210 L149 244 L77 244 Z" fill="url(#sanjiSuit)" stroke="#020617" strokeWidth="2" />
+                {/* Standing Support Leg & Polished Black Shoe Planted on Floor */}
+                <path d="M96 195 L90 238 L114 238 L110 195 Z" fill="url(#sanjiSuit)" stroke="#020617" strokeWidth="1.8" />
+                <path d="M84 236 L118 236 L120 244 L80 244 Z" fill="#020617" stroke="#334155" strokeWidth="1.4" />
+                <line x1="88" y1="238" x2="114" y2="238" stroke="#FFFFFF" strokeWidth="1.2" opacity="0.4" />
 
-                {/* Arms Resting in Pockets */}
-                <path d="M76 130 L64 174 L82 202 L88 196 L76 172 L86 136 Z" fill="url(#sanjiSuit)" stroke="#020617" strokeWidth="1.8" />
-                <path d="M150 130 L162 174 L144 202 L138 196 L150 172 L140 136 Z" fill="url(#sanjiSuit)" stroke="#020617" strokeWidth="1.8" />
+                {/* Midnight Navy Suit Body & Gold Double-Breasted Buttons */}
+                <path d="M76 128 L146 128 L142 202 L78 202 Z" fill="url(#sanjiSuit)" stroke="#020617" strokeWidth="2.2" />
+                <polygon points="96,128 124,128 110,162" fill="#38BDF8" />
+                <polygon points="108,130 114,130 116,154 110,162 106,154" fill="#020617" />
+                <circle cx="98" cy="170" r="2.8" fill="#FDE047" />
+                <circle cx="122" cy="170" r="2.8" fill="#FDE047" />
+                <circle cx="98" cy="186" r="2.8" fill="#FDE047" />
+                <circle cx="122" cy="186" r="2.8" fill="#FDE047" />
 
-                {/* Head, Blonde Swept Hair & Curly Eyebrow */}
-                <rect x="104" y="110" width="18" height="20" rx="7" fill="url(#sanjiSkin)" />
-                <ellipse cx="113" cy="82" rx="30" ry="33" fill="url(#sanjiSkin)" stroke="#9A3412" strokeWidth="2" />
-                <ellipse cx="126" cy="83" rx="6.8" ry="7.4" fill="#FFFFFF" stroke="#0F172A" strokeWidth="1.5" />
-                <circle cx="127" cy="83" r="3.6" fill="#0284C7" />
-                <circle cx="125.5" cy="81.5" r="1.4" fill="#FFFFFF" />
-                <path d="M119 72 Q127 68 134 73 Q136 76 132 76" fill="none" stroke="#A16207" strokeWidth="2.1" strokeLinecap="round" />
-                <path d="M81 82 C78 52, 104 42, 134 50 C148 54, 150 74, 144 82 C136 64, 124 62, 114 68 C108 82, 102 94, 86 98 C81 94, 81 88, 81 82 Z" fill="url(#sanjiHair)" stroke="#A16207" strokeWidth="1.8" />
-                <path d="M104 100 Q116 105 127 98" fill="none" stroke="#7C2D12" strokeWidth="2.2" strokeLinecap="round" />
+                {/* Arms with Hands in Pockets */}
+                <path d="M76 130 L64 172 L82 198 L88 192 L76 170 L86 134 Z" fill="url(#sanjiSuit)" stroke="#020617" strokeWidth="1.8" />
+                <path d="M146 130 L158 172 L140 198 L134 192 L146 170 L136 134 Z" fill="url(#sanjiSuit)" stroke="#020617" strokeWidth="1.8" />
 
-                {/* VIBRANT, ALWAYS VISIBLE DIABLE JAMBE FLAME KICK LEG */}
+                {/* Head, Swept Blonde Hair & Curly Eyebrow */}
+                <rect x="102" y="110" width="18" height="20" rx="7" fill="url(#sanjiSkin)" />
+                <ellipse cx="111" cy="82" rx="30" ry="33" fill="url(#sanjiSkin)" stroke="#9A3412" strokeWidth="2" />
+                <ellipse cx="124" cy="83" rx="6.5" ry="7.2" fill="#FFFFFF" stroke="#0F172A" strokeWidth="1.5" />
+                <circle cx="125" cy="83" r="3.5" fill="#0284C7" />
+                <circle cx="123.5" cy="81.5" r="1.3" fill="#FFFFFF" />
+                <path d="M117 72 Q125 68 132 73 Q134 76 130 76" fill="none" stroke="#A16207" strokeWidth="2.1" strokeLinecap="round" />
+                <path d="M79 82 C76 52, 102 42, 132 50 C146 54, 148 74, 142 82 C134 64, 122 62, 112 68 C106 82, 100 94, 84 98 C79 94, 79 88, 79 82 Z" fill="url(#sanjiHair)" stroke="#A16207" strokeWidth="1.8" />
+                <path d="M102 100 Q114 105 125 98" fill="none" stroke="#7C2D12" strokeWidth="2.2" strokeLinecap="round" />
+
+                {/* DYNAMIC MARTIAL ARTS ROUNDHOUSE KICKING LEG & SHARP ITALIAN DRESS SHOE */}
                 <g 
                   className="transition-transform duration-200"
                   style={{
-                    transformOrigin: '130px 195px',
-                    transform: activeAttacks.sanji ? 'rotate(-24deg) scale(1.18)' : 'rotate(0deg)'
+                    transformOrigin: '125px 190px',
+                    transform: activeAttacks.sanji ? 'rotate(-18deg) scale(1.16)' : 'none'
                   }}
                 >
-                  {/* Outer Blazing Fire Aura Glow */}
+                  {/* Blazing Diable Jambe Flame Aura wrapped around leg and shoe */}
                   <g filter="url(#sanjiFlameGlow)">
+                    {/* Fiery trail path following thigh, knee, and shoe */}
                     <path 
-                      d="M 126 192 L 216 112 L 236 130 L 142 210 Z" 
+                      d="M 125 192 Q 165 170 195 150 Q 230 135 248 118 Q 256 126 238 144 Q 212 165 170 188 Z" 
                       fill="url(#sanjiDiableFlame)" 
                       opacity="0.9" 
                     />
-                    {/* Blazing Flame Crest Tongues curling up the shoe and shin */}
+                    {/* Flame tongues licking upward off the shoe heel and toe */}
                     <path 
-                      d="M 212 110 Q 240 88 248 104 Q 256 122 232 136 Q 250 148 238 162 Q 218 152 208 136 Z" 
+                      d="M 235 116 Q 258 96 264 112 Q 270 128 248 140 Q 262 152 250 164 Q 230 154 220 138 Z" 
                       fill="url(#sanjiDiableFlame)" 
                       opacity="0.95" 
                     />
                   </g>
 
-                  {/* High-Precision Tailored Suit Trouser Leg */}
-                  <path d="M 126 192 L 212 118 L 226 134 L 142 210 Z" fill="url(#sanjiSuit)" stroke="#F97316" strokeWidth="2.4" />
+                  {/* Tailored Black Suit Trouser Leg: Thigh to Bent Knee to Ankle */}
+                  <path 
+                    d="M 124 192 L 168 168 L 216 138 L 226 150 L 176 182 L 134 204 Z" 
+                    fill="url(#sanjiSuit)" 
+                    stroke="#020617" 
+                    strokeWidth="2.2" 
+                  />
 
-                  {/* Diable Jambe Red-Hot Glowing Shoe */}
-                  <path d="M 210 118 L 240 100 Q 252 106 244 120 L 224 134 Z" fill="#020617" stroke="#FDE047" strokeWidth="2.2" />
-                  
+                  {/* Sharp Pointed Italian Dress Shoe (Heel, Arch & Pointed Toe) */}
+                  <path 
+                    d="M 212 144 L 218 156 L 226 154 L 248 132 Q 256 124 252 118 L 234 126 Z" 
+                    fill="#090D16" 
+                    stroke="#FEF08A" 
+                    strokeWidth="1.8" 
+                  />
+                  {/* Shoe Heel Block */}
+                  <rect x="214" y="148" width="8" height="7" rx="1.5" fill="#020617" stroke="#F59E0B" strokeWidth="1.2" />
+                  {/* Gloss Specular Highlight on Patent Leather Shoe */}
+                  <path d="M 226 134 L 244 124" stroke="#FFFFFF" strokeWidth="1.8" strokeLinecap="round" opacity="0.85" />
                   {/* Glowing Core Flame Tongue on Toe Tip */}
-                  <ellipse cx="238" cy="110" rx="8" ry="4" fill="#FEF08A" transform="rotate(-30 238 110)" />
+                  <ellipse cx="250" cy="120" rx="9" ry="4.5" fill="#FEF08A" transform="rotate(-32 250 120)" />
                 </g>
 
               </g>
@@ -1183,8 +1212,8 @@ export default function EngineeringCrewSection({ onOpenQuote }) {
         {/* Bottom Conversion Banner / Guarantee */}
         <div className="mt-14 p-6 sm:p-8 rounded-3xl bg-gradient-to-r from-slate-900/90 via-slate-900/60 to-slate-900/90 border border-white/10 backdrop-blur-xl flex flex-col md:flex-row items-center justify-between gap-6 shadow-2xl">
           <div className="space-y-1.5 text-center md:text-left">
-            <div className="inline-flex items-center gap-1.5 text-amber-400 font-mono text-xs font-extrabold uppercase tracking-widest">
-              <Award className="w-4 h-4" />
+            <div className="inline-flex items-center gap-1.5 text-amber-400 font-mono text-xs font-extrabold uppercase tracking-widest whitespace-nowrap">
+              <Award className="w-4 h-4 shrink-0" />
               <span>Full Code Ownership • Zero Vendor Lock-In</span>
             </div>
             <h3 className="font-display text-xl sm:text-2xl font-bold text-white">
@@ -1200,7 +1229,7 @@ export default function EngineeringCrewSection({ onOpenQuote }) {
             className="w-full md:w-auto px-6 py-3.5 rounded-2xl bg-gradient-to-r from-amber-400 to-amber-500 text-slate-950 font-display font-extrabold text-sm shadow-xl shadow-amber-500/20 hover:shadow-amber-500/35 hover:scale-[1.02] active:scale-[0.98] transition-all flex items-center justify-center gap-2 cursor-pointer whitespace-nowrap"
           >
             <span>Claim Your Free 24h Sample</span>
-            <ArrowRight className="w-4 h-4" />
+            <ArrowRight className="w-4 h-4 shrink-0" />
           </button>
         </div>
 
@@ -1250,11 +1279,12 @@ export default function EngineeringCrewSection({ onOpenQuote }) {
 }
 
 /* =========================================================================
-   3. INDIVIDUAL CREW BATTLE CARD COMPONENT
+   3. INDIVIDUAL CREW BATTLE CARD COMPONENT (STRICT SINGLE-LINE BUTTONS & BADGES)
    ========================================================================= */
 function CrewBattleCard({
   heroKey,
   name,
+  heroShortName,
   role,
   metric,
   desc,
@@ -1283,16 +1313,16 @@ function CrewBattleCard({
           : 'bg-slate-900/75 border-white/10 hover:border-white/20 shadow-xl'
       } ${isAttacking ? 'card-shake' : ''}`}
     >
-      {/* Top Header & Badges */}
+      {/* Top Header & Badges — STRICTLY SINGLE LINE */}
       <div>
-        <div className="flex items-center justify-between gap-2 mb-3">
-          <span className={`px-2.5 py-1 rounded-lg text-[10px] font-extrabold font-mono border flex items-center gap-1 ${tagBg}`}>
-            <TagIcon className="w-3 h-3" />
+        <div className="flex items-center justify-between gap-1 mb-3">
+          <span className={`px-2 py-0.5 rounded-lg text-[9.5px] font-extrabold font-mono border whitespace-nowrap flex items-center gap-1 shrink-0 ${tagBg}`}>
+            <TagIcon className="w-3 h-3 shrink-0" />
             <span>{tagText}</span>
           </span>
 
-          <span className={`text-[10px] font-extrabold font-mono px-2 py-0.5 rounded-full ${
-            isAwakened ? 'bg-amber-400 text-slate-950' : 'bg-white/10 text-slate-300'
+          <span className={`text-[9.5px] font-extrabold font-mono px-2 py-0.5 rounded-full whitespace-nowrap shrink-0 ${
+            isAwakened ? 'bg-amber-400 text-slate-950 font-black' : 'bg-white/10 text-slate-300'
           }`}>
             {tierInfo.label}
           </span>
@@ -1315,7 +1345,7 @@ function CrewBattleCard({
             isAttacking ? 'opacity-100 translate-y-0 scale-100' : 'opacity-0 -translate-y-3 scale-95'
           }`}>
             <div className="px-3 py-1.5 rounded-xl bg-slate-950/95 border border-amber-400/60 shadow-lg shadow-amber-500/25 text-center">
-              <span className="font-display font-black text-[11px] text-amber-300 tracking-wide uppercase">
+              <span className="font-display font-black text-[11px] text-amber-300 tracking-wide uppercase whitespace-nowrap">
                 {tierInfo.msg}
               </span>
             </div>
@@ -1337,12 +1367,12 @@ function CrewBattleCard({
             isAttacking ? `${monolithClass} smashed sliced zapped punted` : ''
           }`}>
             <div className="w-8 h-8 rounded-lg bg-red-500/20 border border-red-500/40 flex items-center justify-center mb-1.5">
-              <MonolithIcon className="w-4 h-4 text-red-400" />
+              <MonolithIcon className="w-4 h-4 text-red-400 shrink-0" />
             </div>
             <span className="font-display font-extrabold text-[10px] text-white leading-tight line-clamp-2">
               {monolithTitle}
             </span>
-            <span className="text-[8px] text-slate-400 font-mono mt-0.5">
+            <span className="text-[8px] text-slate-400 font-mono mt-0.5 whitespace-nowrap">
               {monolithSub}
             </span>
           </div>
@@ -1351,39 +1381,43 @@ function CrewBattleCard({
         {/* Hero Title & Description */}
         <div className="text-center sm:text-left">
           <div className="flex items-center justify-between gap-1 mb-1">
-            <h3 className="font-display text-lg font-bold text-white group-hover:text-amber-400 transition-colors">
+            <h3 className="font-display text-lg font-bold text-white group-hover:text-amber-400 transition-colors whitespace-nowrap">
               {name}
             </h3>
-            <span className="text-xs font-mono font-extrabold text-amber-400">{metric}</span>
+            <span className="text-xs font-mono font-extrabold text-amber-400 whitespace-nowrap">{metric}</span>
           </div>
-          <p className="text-xs font-bold text-slate-400 mb-2">{role}</p>
+          <p className="text-xs font-bold text-slate-400 mb-2 whitespace-nowrap">{role}</p>
           <p className="text-xs text-slate-300 leading-relaxed">
             {desc}
           </p>
         </div>
       </div>
 
-      {/* Attack Button with Live Hit Counter */}
-      <div className="mt-5 pt-3 border-t border-white/10 flex items-center justify-between gap-2">
+      {/* Attack Button with Live Hit Counter — STRICTLY SINGLE LINE & PREMIUM PILL */}
+      <div className="mt-5 pt-3 border-t border-white/10">
         <button
           type="button"
           onClick={(e) => {
             e.stopPropagation();
             onAttack();
           }}
-          className={`w-full py-2 px-3 rounded-xl font-display font-extrabold text-xs flex items-center justify-center gap-1.5 transition-all shadow-md ${
+          className={`w-full py-2.5 px-3.5 rounded-xl font-display font-extrabold text-xs whitespace-nowrap flex items-center justify-between transition-all shadow-md cursor-pointer ${
             isAwakened
-              ? 'bg-gradient-to-r from-amber-400 to-orange-500 text-slate-950 hover:brightness-110 shadow-amber-500/20'
+              ? 'bg-gradient-to-r from-amber-400 via-orange-500 to-rose-500 text-slate-950 hover:brightness-110 shadow-orange-500/25'
               : 'bg-white/10 hover:bg-white/15 text-white border border-white/10'
           }`}
         >
-          <TagIcon className="w-3.5 h-3.5" />
-          <span>Trigger {name}'s Attack</span>
-        </button>
+          <span className="flex items-center gap-1.5 whitespace-nowrap">
+            <TagIcon className="w-3.5 h-3.5 shrink-0 text-current" />
+            <span>Trigger {heroShortName}'s Attack</span>
+          </span>
 
-        <span className="text-[11px] font-mono font-bold text-slate-400 whitespace-nowrap px-2">
-          Hits: {hits}
-        </span>
+          <span className={`px-2 py-0.5 rounded-md font-mono text-[10.5px] font-bold shrink-0 ${
+            isAwakened ? 'bg-black/25 text-slate-950' : 'bg-white/10 text-amber-300'
+          }`}>
+            {hits} Hits
+          </span>
+        </button>
       </div>
     </div>
   );

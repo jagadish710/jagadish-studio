@@ -16,6 +16,8 @@ export default function TalkingTomLuffyMascot({ onOpenPrototypeModal }) {
   const leftPupilRef = useRef(null);
   const rightPupilRef = useRef(null);
   const headGroupRef = useRef(null);
+  const backHatBrimRef = useRef(null);
+  const hatCrownRef = useRef(null);
 
   // Web Audio API Synthesizer
   const getAudioContext = () => {
@@ -111,10 +113,10 @@ export default function TalkingTomLuffyMascot({ onOpenPrototypeModal }) {
 
       leftPupilRef.current.setAttribute('transform', `translate(${offsetX.toFixed(2)}, ${offsetY.toFixed(2)})`);
       rightPupilRef.current.setAttribute('transform', `translate(${offsetX.toFixed(2)}, ${offsetY.toFixed(2)})`);
-      headGroupRef.current.setAttribute(
-        'transform',
-        `translate(${(offsetX * 0.5).toFixed(2)}, ${(offsetY * 0.35).toFixed(2)})`
-      );
+      const headTransform = `translate(${(offsetX * 0.5).toFixed(2)}, ${(offsetY * 0.35).toFixed(2)})`;
+      headGroupRef.current.setAttribute('transform', headTransform);
+      if (backHatBrimRef.current) backHatBrimRef.current.setAttribute('transform', headTransform);
+      if (hatCrownRef.current) hatCrownRef.current.setAttribute('transform', headTransform);
     };
 
     const onMouseMove = (e) => handleMove(e.clientX, e.clientY);
@@ -427,8 +429,11 @@ export default function TalkingTomLuffyMascot({ onOpenPrototypeModal }) {
           {/* Floor Shadow */}
           <ellipse cx="200" cy="430" rx="115" ry="18" fill="url(#floorShadow)" />
 
-          {/* Back Hat Brim */}
-          <g className={isHatBounce ? 'anim-hat-bounce' : ''}>
+          {/* Back Hat Brim - Synchronized with Head & Hat Crown on Rubber Neck Stretch! */}
+          <g 
+            ref={backHatBrimRef}
+            className={`${isHatBounce ? 'anim-hat-bounce' : ''} ${isRubberNeck ? 'anim-rubber-head-shift' : ''}`}
+          >
             <ellipse cx="200" cy="116" rx="134" ry="33" fill="#A16207" />
             <ellipse cx="200" cy="112" rx="131" ry="30" fill="url(#hatBrim3D)" />
           </g>
@@ -649,6 +654,7 @@ export default function TalkingTomLuffyMascot({ onOpenPrototypeModal }) {
 
           {/* Straw Hat Crown & Front Brim - Shifts up on Rubber Neck Stretch! */}
           <g 
+            ref={hatCrownRef}
             className={`cursor-pointer ${isHatBounce ? 'anim-hat-bounce' : ''} ${isRubberNeck ? 'anim-rubber-head-shift' : ''}`} 
             onClick={() => triggerAction('hat')}
           >

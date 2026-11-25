@@ -149,7 +149,7 @@ export default function MobileBottomNav({
               ? 'text-rose-600 font-bold' 
               : 'text-slate-500 hover:text-slate-900'
           }`}
-          aria-label="Deployments"
+          aria-label="Deploy"
         >
           <WorkNavIcon active={activePage === 'work'} />
           <span className="text-[10px] font-sans leading-none tracking-tight">Deploy</span>

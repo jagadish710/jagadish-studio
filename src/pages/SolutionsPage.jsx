@@ -40,7 +40,7 @@ export default function SolutionsPage({ onOpenPrototypeModal }) {
       tagline: 'Ideal for clinics, local businesses, schools, and professional practices.',
       desc: 'A beautiful, modern website designed to make your business look established, win customer trust, and make it effortless for visitors to reach you.',
       desktopImage: '/images/pms_real.webp',
-      mobileImage: '/images/pms_mobile_real.jpg',
+      mobileImage: '/images/pms_mobile_real.webp',
       badge: 'Most Popular for Local Businesses',
       theme: {
         cardBg: 'bg-white',
@@ -60,7 +60,7 @@ export default function SolutionsPage({ onOpenPrototypeModal }) {
       chatPreview: 'Hi! I saw your website and would like to book an appointment.',
       stats: [
         { label: 'Mobile Speed', val: '< 0.3s' },
-        { label: 'Monthly Retainer', val: '₹0 / Month' },
+        { label: 'Monthly Retainer', val: 'Zero / Month' },
         { label: 'Enquiry Flow', val: '1-Tap WhatsApp' },
       ],
     },
@@ -92,7 +92,7 @@ export default function SolutionsPage({ onOpenPrototypeModal }) {
       stats: [
         { label: 'Checkout Flow', val: '1-Tap WhatsApp' },
         { label: 'Plugin Bloat', val: '0 Plugins' },
-        { label: 'Monthly Retainer', val: '₹0 / Month' },
+        { label: 'Monthly Retainer', val: 'Zero / Month' },
       ],
     },
     {
@@ -123,7 +123,7 @@ export default function SolutionsPage({ onOpenPrototypeModal }) {
       stats: [
         { label: 'Lead Delivery', val: 'Instant 0.2s' },
         { label: 'Architecture', val: 'Direct Founder' },
-        { label: 'Ongoing Retainers', val: '₹0 Forever' },
+        { label: 'Ongoing Retainers', val: 'Zero Forever' },
       ],
     },
   ];
@@ -224,7 +224,7 @@ export default function SolutionsPage({ onOpenPrototypeModal }) {
                     href={whatsapp}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex-1 sm:flex-initial px-3 sm:px-4 py-2.5 rounded-xl text-[11px] sm:text-xs font-semibold bg-emerald-600 hover:bg-emerald-500 text-white flex items-center justify-center gap-1 sm:gap-1.5 shadow-sm transition-all whitespace-nowrap"
+                    className="flex-1 sm:flex-initial px-3 sm:px-4 py-2.5 rounded-xl text-[11px] sm:text-xs font-semibold bg-emerald-700 hover:bg-emerald-600 text-white flex items-center justify-center gap-1 sm:gap-1.5 shadow-sm transition-all whitespace-nowrap"
                   >
                     <WhatsAppIcon className="w-3.5 h-3.5 fill-white shrink-0" />
                     <span>WhatsApp</span>
@@ -316,7 +316,7 @@ export default function SolutionsPage({ onOpenPrototypeModal }) {
 
                       <span className="text-[9px] font-mono font-bold text-emerald-300 bg-emerald-950 px-2 py-0.5 rounded-md border border-emerald-500/40 flex items-center gap-1">
                         <Zap className="w-2.5 h-2.5 text-emerald-400" />
-                        <span>0.24s Speed</span>
+                        <span>Sub-1s Speed</span>
                       </span>
                     </div>
 

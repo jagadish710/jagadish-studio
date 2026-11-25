@@ -8,7 +8,7 @@ export default function BeforeAfterSection() {
         
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-14 space-y-3">
-          <span className="text-xs font-extrabold uppercase tracking-[0.25em] text-crimson-400 font-mono">
+          <span className="text-xs font-extrabold uppercase tracking-[0.25em] text-rose-200 font-mono">
             The Business Reality Check
           </span>
           <h2 className="font-display text-3xl sm:text-5xl font-bold text-white">
@@ -48,7 +48,7 @@ export default function BeforeAfterSection() {
               </li>
               <li className="flex items-center gap-2.5">
                 <span className="w-4 h-4 rounded-full bg-crimson-500/20 text-crimson-400 flex items-center justify-center text-[10px] font-bold shrink-0">✕</span>
-                <span className="truncate">₹8k–₹15k/mo retainers for simple text edits</span>
+                <span className="truncate">Monthly agency retainers for simple text edits</span>
               </li>
               <li className="flex items-center gap-2.5">
                 <span className="w-4 h-4 rounded-full bg-crimson-500/20 text-crimson-400 flex items-center justify-center text-[10px] font-bold shrink-0">✕</span>
@@ -64,7 +64,7 @@ export default function BeforeAfterSection() {
                 ✓ Merqurie Edge
               </span>
               <span className="px-2.5 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-xs sm:text-sm font-bold font-mono text-emerald-400 whitespace-nowrap">
-                0.24s Speed
+                Sub-1s Speed
               </span>
             </div>
 
@@ -75,7 +75,7 @@ export default function BeforeAfterSection() {
             <ul className="space-y-2.5 text-xs sm:text-sm text-slate-200">
               <li className="flex items-center gap-2.5">
                 <span className="w-4 h-4 rounded-full bg-emerald-500/20 text-emerald-400 flex items-center justify-center text-[10px] font-bold shrink-0">✓</span>
-                <span className="truncate">Instant 0.24s paint keeps every mobile visitor</span>
+                <span className="truncate">Instant sub-1s paint keeps every mobile visitor</span>
               </li>
               <li className="flex items-center gap-2.5">
                 <span className="w-4 h-4 rounded-full bg-emerald-500/20 text-emerald-400 flex items-center justify-center text-[10px] font-bold shrink-0">✓</span>
@@ -83,7 +83,7 @@ export default function BeforeAfterSection() {
               </li>
               <li className="flex items-center gap-2.5">
                 <span className="w-4 h-4 rounded-full bg-emerald-500/20 text-emerald-400 flex items-center justify-center text-[10px] font-bold shrink-0">✓</span>
-                <span className="truncate">10-Second phone edits with ₹0 monthly retainers</span>
+                <span className="truncate">10-Second phone edits with Zero monthly retainers</span>
               </li>
               <li className="flex items-center gap-2.5">
                 <span className="w-4 h-4 rounded-full bg-emerald-500/20 text-emerald-400 flex items-center justify-center text-[10px] font-bold shrink-0">✓</span>

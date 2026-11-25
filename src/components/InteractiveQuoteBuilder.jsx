@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
-import { Sparkles, Check, ArrowRight, ShieldCheck, Zap, Smile, CreditCard } from 'lucide-react';
+import { Check, ShieldCheck, Smile, CreditCard } from 'lucide-react';
 import WhatsAppIcon from './WhatsAppIcon';
 
 export default function InteractiveQuoteBuilder() {
   const [selectedPlan, setSelectedPlan] = useState({
     name: 'Growth Engine',
-    price: 24999,
+    scope: 'Catalog + WhatsApp orders',
   });
   const [addons, setAddons] = useState({
     mascot: false,
@@ -17,20 +17,20 @@ export default function InteractiveQuoteBuilder() {
     {
       name: 'Starter Edge',
       shortName: 'Starter Edge',
-      price: 14999,
+      scope: '5-page presence build',
       color: 'text-cyanline-400',
     },
     {
       name: 'Growth Engine',
       shortName: 'Growth Engine',
-      price: 24999,
+      scope: 'Catalog + WhatsApp orders',
       color: 'text-treasure-400',
       popular: true,
     },
     {
       name: 'Custom Cloud',
       shortName: 'Custom Cloud',
-      price: 34999,
+      scope: 'Portals & custom apps',
       color: 'text-crimson-400',
     },
   ];
@@ -39,23 +39,17 @@ export default function InteractiveQuoteBuilder() {
     setAddons((prev) => ({ ...prev, [key]: !prev[key] }));
   };
 
-  const calculateTotal = () => {
-    let total = selectedPlan.price;
-    if (addons.mascot) total += 1999;
-    if (addons.payments) total += 1999;
-    return total;
-  };
-
   const handleWhatsApp = () => {
     const cleanBiz = businessName.trim() || 'my business';
     const chosenAddons = [];
-    if (addons.mascot) chosenAddons.push('Interactive 3D Motion Companion (+₹1,999)');
-    if (addons.payments) chosenAddons.push('Razorpay & UPI Instant Checkout (+₹1,999)');
+    if (addons.mascot) chosenAddons.push('Interactive 3D Motion Companion');
+    if (addons.payments) chosenAddons.push('Razorpay & UPI Instant Checkout');
     const addonText = chosenAddons.length ? ` + ${chosenAddons.join(', ')}` : '';
 
     const text = encodeURIComponent(
       `Hi Merqurie! I would like to claim my Free 24h Website Sample for ${cleanBiz}.\n` +
-      `Selected Plan: ${selectedPlan.name}${addonText} (₹${calculateTotal().toLocaleString('en-IN')} one-time build, ₹0 monthly retainer).`
+      `Selected package: ${selectedPlan.name}${addonText}.\n` +
+      `Please share the investment and timeline for this scope in a written proposal.`
     );
 
     window.open(`https://wa.me/917358618789?text=${text}`, '_blank', 'noopener,noreferrer');
@@ -64,29 +58,29 @@ export default function InteractiveQuoteBuilder() {
   return (
     <section id="quote-builder" className="py-20 relative border-t border-white/5 bg-ocean-950/80 text-white">
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-        
+
         <div className="glass-card rounded-3xl p-6 sm:p-10 border-treasure-400/35">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-            
+
             {/* Left Builder Column */}
             <div className="lg:col-span-7 space-y-6">
               <div>
                 <span className="text-xs font-extrabold uppercase tracking-[0.2em] text-emerald-400 font-mono flex items-center gap-1.5">
                   <ShieldCheck className="w-3.5 h-3.5" />
-                  <span>Zero-Risk Offer • Pay ₹0 Today</span>
+                  <span>Zero-Risk Offer • No Payment Today</span>
                 </span>
                 <h2 className="font-display text-2xl sm:text-4xl font-bold text-white mt-1">
                   Claim Your Free 24h Website Sample
                 </h2>
                 <p className="text-xs sm:text-sm text-slate-300 mt-2 leading-relaxed">
-                  Pick your plan below and tell us your business name. We'll build a working sample homepage for your brand within 24 hours so you can test it on your phone before spending a single rupee.
+                  Pick your package below and tell us your business name. We'll build a working sample homepage for your brand within 24 hours so you can test it on your phone before committing to anything.
                 </p>
               </div>
 
               {/* 1. Base Plan Selector */}
               <div>
                 <label className="block text-xs font-extrabold uppercase tracking-wider text-slate-300 mb-2.5 font-mono">
-                  1. Choose Your One-Time Package
+                  1. Choose Your Package
                 </label>
                 <div className="grid grid-cols-1 sm:grid-cols-3 gap-2.5">
                   {plans.map((p) => {
@@ -110,8 +104,8 @@ export default function InteractiveQuoteBuilder() {
                             </span>
                           )}
                         </div>
-                        <div className={`font-display text-base font-bold ${p.color} mt-1`}>
-                          ₹{p.price.toLocaleString('en-IN')}
+                        <div className={`font-display text-sm font-bold ${p.color} mt-1`}>
+                          {p.scope}
                         </div>
                       </button>
                     );
@@ -119,7 +113,7 @@ export default function InteractiveQuoteBuilder() {
                 </div>
               </div>
 
-              {/* 2. Optional Power-Ups - CLEAR CLIENT-FRIENDLY NAMES & PRICING */}
+              {/* 2. Optional Power-Ups */}
               <div>
                 <label className="block text-xs font-extrabold uppercase tracking-wider text-slate-300 mb-2.5 font-mono">
                   2. Optional Power-Ups
@@ -137,15 +131,16 @@ export default function InteractiveQuoteBuilder() {
                       type="checkbox"
                       checked={addons.mascot}
                       onChange={() => {}}
+                      aria-label="Add Interactive 3D Motion Companion"
                       className="w-4 h-4 accent-amber-400 rounded mt-0.5 cursor-pointer"
                     />
                     <div>
                       <div className="text-xs font-bold text-slate-200 flex items-center gap-1">
                         <Smile className="w-3.5 h-3.5 text-treasure-400" />
-                        <span>Interactive 3D Motion Companion (+₹1,999)</span>
+                        <span>Interactive 3D Motion Companion</span>
                       </div>
                       <p className="text-[10px] text-slate-400 mt-0.5">
-                        Animated guide with audio & touch reactions explaining your services.
+                        Animated guide with audio &amp; touch reactions explaining your services.
                       </p>
                     </div>
                   </div>
@@ -162,12 +157,13 @@ export default function InteractiveQuoteBuilder() {
                       type="checkbox"
                       checked={addons.payments}
                       onChange={() => {}}
+                      aria-label="Add Razorpay and UPI instant checkout"
                       className="w-4 h-4 accent-amber-400 rounded mt-0.5 cursor-pointer"
                     />
                     <div>
                       <div className="text-xs font-bold text-slate-200 flex items-center gap-1">
                         <CreditCard className="w-3.5 h-3.5 text-emerald-400" />
-                        <span>Razorpay & UPI Instant Checkout (+₹1,999)</span>
+                        <span>Razorpay &amp; UPI Instant Checkout</span>
                       </div>
                       <p className="text-[10px] text-slate-400 mt-0.5">
                         Accept direct customer payments via GPay, PhonePe, Paytm, and cards.
@@ -201,10 +197,10 @@ export default function InteractiveQuoteBuilder() {
               <div>
                 <div className="flex items-center justify-between border-b border-white/10 pb-3">
                   <span className="text-[11px] font-extrabold uppercase tracking-widest text-treasure-400 font-mono">
-                    ESTIMATED ONE-TIME TOTAL
+                    YOUR SELECTED SCOPE
                   </span>
                   <span className="px-2 py-0.5 rounded bg-emerald-500/15 text-emerald-300 text-[11px] font-bold font-mono">
-                    ₹0 Advance
+                    No Advance
                   </span>
                 </div>
 
@@ -212,11 +208,11 @@ export default function InteractiveQuoteBuilder() {
                   <div className="text-xs font-bold text-cyanline-300 font-display">
                     {selectedPlan.name}
                   </div>
-                  <div className="font-display text-4xl sm:text-5xl font-bold text-gold-gradient mt-1">
-                    ₹{calculateTotal().toLocaleString('en-IN')}
+                  <div className="font-display text-2xl sm:text-3xl font-bold text-gold-gradient mt-1">
+                    Proposal on request
                   </div>
-                  <div className="text-[11px] text-slate-400 mt-1">
-                    Payable only after approving your live site
+                  <div className="text-[11px] text-slate-400 mt-2 leading-relaxed">
+                    Your exact investment, timeline, and inclusions are shared in a written proposal after a short scope call.
                   </div>
                 </div>
 
@@ -231,7 +227,7 @@ export default function InteractiveQuoteBuilder() {
                   </div>
                   <div className="font-bold text-treasure-300 flex items-center gap-1.5">
                     <Check className="w-3.5 h-3.5 stroke-[3]" />
-                    <span>₹0 Mandatory Monthly Retainer</span>
+                    <span>Zero Mandatory Monthly Retainer</span>
                   </div>
                 </div>
               </div>

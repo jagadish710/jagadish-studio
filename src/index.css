@@ -13,15 +13,17 @@
   html, body {
     background-color: #FAFAFC;
     color: #0F172A;
-    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
     overflow-x: hidden;
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
   }
 
   /* Dark Mode Support */
   html.dark, body.dark {
     background-color: #08080A;
     color: #EDEDED;
-    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
     overflow-x: hidden;
   }
   
@@ -29,7 +31,7 @@
   html.light, body.light {
     background-color: #FAFAFC;
     color: #0F172A;
-    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
     overflow-x: hidden;
   }
 
@@ -543,7 +545,7 @@ body.light::-webkit-scrollbar-thumb:hover {
 .site-button-primary:hover { background: #a75033; }
 .site-button-secondary { border: 1px solid #b9afa4; color: #3a342f; }
 .site-button-secondary:hover { background: #ece5d9; }
-.site-button-whatsapp { background: #25D366; color: white; }
+.site-button-whatsapp { background: #25D366; color: #062e1a; }
 .site-hero-art { align-self: stretch; min-height: 510px; position: relative; }
 .site-orbit { border: 1px solid rgba(130, 91, 66, .22); border-radius: 999px; position: absolute; }
 .site-orbit-one { width: 620px; height: 620px; right: -205px; top: -40px; }
@@ -656,3 +658,46 @@ body.light::-webkit-scrollbar-thumb:hover {
 .site-principles h2 { color: #2a241e; font-family: Georgia, 'Times New Roman', serif; font-size: 1.75rem; letter-spacing: -.045em; margin-top: .8rem; }
 .site-principles p { color: #6e655d; font-size: .9rem; line-height: 1.6; margin-top: .6rem; }
 @media (max-width: 700px) { .site-nav nav { display: none; } .site-nav-inner { height: 62px; } .site-nav-cta { font-size: .7rem; } .site-footer-inner { grid-template-columns: 1fr; text-align: center; } .site-footer-actions { justify-content: center; } .site-footer-copy { text-align: center; } .site-page { padding-top: 62px; } .site-offer { grid-template-columns: 1fr; } .site-offer-visual { min-height: 250px; } .site-work-cta { align-items: start; flex-direction: column; } .site-principles { grid-template-columns: 1fr; } .site-principles article:nth-child(odd) { border-right: 0; } }
+
+/* ==========================================================================
+   MOBILE PERFORMANCE & ACCESSIBILITY GUARDS
+   ========================================================================== */
+
+/* Native-feeling momentum swipe on horizontal rails */
+.snap-x {
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Hide the scrollbar on swipe rails without disabling the swipe */
+.no-scrollbar::-webkit-scrollbar,
+.scrollbar-none::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar,
+.scrollbar-none {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* No grey flash on tap; :active states still give feedback */
+button, a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Users who ask for less motion get a static page (also saves phone battery) */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Keep long words from forcing horizontal scroll on narrow phones */
+@media (max-width: 480px) {
+  h1, h2, h3, p {
+    overflow-wrap: break-word;
+    word-break: normal;
+  }
+}

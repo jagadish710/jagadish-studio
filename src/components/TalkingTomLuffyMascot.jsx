@@ -136,19 +136,19 @@ export default function TalkingTomLuffyMascot({ onOpenPrototypeModal }) {
 
   const actionQuips = {
     nosepick: [
-      '"Hmm... 8-second WordPress lag? *Flick!* Gone! Now your site loads in 0.24s!"',
+      '"Hmm... 8-second WordPress lag? *Flick!* Gone! Now your site loads in under a second!"',
       '"Inspecting your competitor\'s slow website... Shishishi, we can beat them easily!"',
     ],
     victory: [
-      '"WOOHOO!! Arms up! 99/100 Google Mobile Speed & ₹0 Monthly Retainer!"',
+      '"WOOHOO!! Arms up! 99/100 Google Mobile Speed & Zero Monthly Retainer!"',
       '"Shishishi!! Ready to launch your new customer-winning site in just 2 days!"',
     ],
     giantgrin: [
       '"SHISHISHI!! Look at that 100% code ownership & instant WhatsApp leads!"',
-      '"Pure joy! Your customers get a blazing-fast site and you pay ₹0 today for a sample!"',
+      '"Pure joy! Your customers get a blazing-fast site and you pay Zero today for a sample!"',
     ],
     balloon: [
-      '"*CHOMP!* MEEAT!! Balloon belly full of high-converting leads & 0.24s edge fuel!"',
+      '"*CHOMP!* MEEAT!! Balloon belly full of high-converting leads & sub-1s edge fuel!"',
       '"BURP! Shishishi! Stuffed with clean code—zero heavy plugins allowed!"',
     ],
     hat: ['"Tipping my hat to smart business owners! Ready for your free 24h sample?"'],
@@ -162,7 +162,7 @@ export default function TalkingTomLuffyMascot({ onOpenPrototypeModal }) {
     ],
     'rubber-legs': [
       '"GOMU GOMU NO... STAMP!! Bouncy rubber legs leaping over heavy 8-second database queries!"',
-      '"Springing into action! Sub-0.3s lightning mobile speed guaranteed!"',
+      '"Springing into action! Sub-1s lightning mobile speed guaranteed!"',
     ],
     'rubber-neck': [
       '"GOMU GOMU NO... BELL!! Rubber neck spotting high-value buyers from miles away!"',
@@ -172,7 +172,7 @@ export default function TalkingTomLuffyMascot({ onOpenPrototypeModal }) {
 
   const techAnswers = {
     sales:
-      '"Plain English: When your site opens in 0.24s on mobile and has 1-tap WhatsApp buttons, 3x more visitors actually message you instead of pressing Back!"',
+      '"Plain English: When your site opens in under 1 second on mobile and has 1-tap WhatsApp buttons, 3x more visitors actually message you instead of pressing Back!"',
     retainer:
       '"Plain English: WordPress sites break every month because of plugins, so agencies charge monthly fees. Our clean edge code doesn\'t break—you pay once and own it!"',
     admin:
@@ -728,7 +728,7 @@ export default function TalkingTomLuffyMascot({ onOpenPrototypeModal }) {
             onClick={() => askCaptain('retainer')}
             className="px-2.5 py-1 rounded-full bg-white/5 hover:bg-treasure-500/20 border border-white/10 hover:border-treasure-400/40 text-[11px] font-semibold text-treasure-300 transition-all cursor-pointer"
           >
-            Why ₹0 Monthly Retainer?
+            Why Zero Monthly Retainer?
           </button>
           <button
             onClick={() => askCaptain('admin')}

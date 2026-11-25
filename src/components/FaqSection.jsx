@@ -102,9 +102,9 @@ export default function FaqSection({ onOpenPrototypeModal }) {
         {/* Bottom Contact Help */}
         <div className="mt-12 text-center p-6 rounded-2xl bg-white border border-slate-200 shadow-sm flex flex-col sm:flex-row items-center justify-between gap-4">
           <div className="text-left">
-            <h4 className="text-sm font-bold text-slate-950">
+            <h3 className="text-sm font-bold text-slate-950">
               Have a specific question about your business website?
-            </h4>
+            </h3>
             <p className="text-xs text-slate-600 mt-0.5">
               Ask Jagadish directly on WhatsApp. No sales pitch, just honest engineering answers.
             </p>
@@ -114,7 +114,7 @@ export default function FaqSection({ onOpenPrototypeModal }) {
             href={whatsapp}
             target="_blank"
             rel="noopener noreferrer"
-            className="px-5 py-2.5 rounded-xl text-xs font-semibold bg-emerald-600 hover:bg-emerald-500 text-white flex items-center gap-1.5 shadow-md shadow-emerald-500/20 transition-all shrink-0"
+            className="px-5 py-2.5 rounded-xl text-xs font-semibold bg-emerald-700 hover:bg-emerald-600 text-white flex items-center gap-1.5 shadow-md shadow-emerald-500/20 transition-all shrink-0"
           >
             <WhatsAppIcon className="w-3.5 h-3.5 fill-current" />
             <span>Chat on WhatsApp</span>

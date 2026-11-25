@@ -25,7 +25,7 @@ export default function AboutPage({ onOpenPrototypeModal }) {
       title: 'Loads in Under 1 Second',
       desc: 'Nobody waits for a slow website. Your site loads instantly on any 4G or 5G mobile phone so customers never bounce to a competitor in frustration.',
       icon: Zap,
-      metric: '0.24s Mobile Paint • 99/100 Google Vitals',
+      metric: 'Sub-1s Mobile Paint • 99/100 Google Vitals',
       gradient: 'from-cyan-500 via-teal-500 to-emerald-500',
       glow: 'bg-teal-400/20',
       border: 'border-teal-300/80 hover:border-teal-500 hover:shadow-teal-500/15',
@@ -46,10 +46,10 @@ export default function AboutPage({ onOpenPrototypeModal }) {
     },
     {
       num: '03',
-      title: '₹0 Forced Retainer Contracts',
+      title: 'Zero Forced Retainer Contracts',
       desc: 'You pay once for the website build, that is all. We never trap you into expensive mandatory maintenance contracts just to keep your site alive.',
       icon: Lock,
-      metric: '100% Legal Code Handover • ₹0 Monthly Bills',
+      metric: '100% Legal Code Handover • Zero Monthly Bills',
       gradient: 'from-rose-500 via-pink-500 to-amber-500',
       glow: 'bg-rose-400/20',
       border: 'border-rose-300/80 hover:border-rose-500 hover:shadow-rose-500/15',
@@ -101,7 +101,7 @@ export default function AboutPage({ onOpenPrototypeModal }) {
               <div className="w-full h-full rounded-[22px] bg-white border border-slate-200 flex flex-col items-center justify-center p-4">
                 <div className="w-28 h-28 rounded-2xl overflow-hidden mb-3 shadow-lg ring-2 ring-rose-500/20 border-2 border-slate-100 bg-slate-100 shrink-0">
                   <img
-                    src="/images/jagadish_founder.png"
+                    src="/images/jagadish_founder.webp"
                     alt="Jagadish - Founder & Lead Engineer"
                     className="w-full h-full object-cover object-top"
                   />
@@ -162,7 +162,7 @@ export default function AboutPage({ onOpenPrototypeModal }) {
                 When looking at how website agencies treat small and growing businesses in India, I saw an unfair model: agencies build slow WordPress templates that take 8 seconds to load, take 5 days to answer simple emails, and push expensive recurring maintenance retainers that deliver zero real value.
               </p>
               <p className="text-slate-900 font-medium bg-rose-50 p-4 rounded-2xl border border-rose-200">
-                Merqurie was created to fix this. We build ultra-fast, mobile-first websites that load in under 1 second, connect directly to your WhatsApp, and give you 100% full ownership from day one — with ₹0 monthly retainer fees forever.
+                Merqurie was created to fix this. We build ultra-fast, mobile-first websites that load in under 1 second, connect directly to your WhatsApp, and give you 100% full ownership from day one — with Zero monthly retainer fees forever.
               </p>
             </div>
 
@@ -171,7 +171,7 @@ export default function AboutPage({ onOpenPrototypeModal }) {
                 href={whatsapp}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex-1 sm:flex-initial px-3 sm:px-6 py-2.5 sm:py-3 rounded-xl text-[11px] sm:text-xs font-bold bg-emerald-600 hover:bg-emerald-500 text-white flex items-center justify-center gap-1.5 sm:gap-2 shadow-lg shadow-emerald-500/25 transition-all active:scale-95 cursor-pointer text-center whitespace-nowrap"
+                className="flex-1 sm:flex-initial px-3 sm:px-6 py-2.5 sm:py-3 rounded-xl text-[11px] sm:text-xs font-bold bg-emerald-700 hover:bg-emerald-600 text-white flex items-center justify-center gap-1.5 sm:gap-2 shadow-lg shadow-emerald-500/25 transition-all active:scale-95 cursor-pointer text-center whitespace-nowrap"
               >
                 <WhatsAppIcon className="w-3.5 h-3.5 sm:w-4 sm:h-4 fill-white shrink-0" />
                 <span>Chat with Jagadish</span>

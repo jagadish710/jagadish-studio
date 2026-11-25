@@ -8,19 +8,19 @@
 Merqurie is an independent software studio that hand-crafts high-performance, mobile-first web platforms for growing businesses, healthcare suppliers, schools, and commercial retailers.
 
 ## Core Guarantees & Philosophy
-- **Sub-0.3s Edge Speed**: Websites open in 0.24 seconds on mobile 4G/5G data, eliminating customer bounce rates.
-- **₹0 Monthly Retainer Fees**: Clients pay once for the custom build. No forced agency maintenance fees or monthly retainer contracts.
+- **Sub-1s Edge Speed**: Websites open in under 1 second on mobile 4G/5G data, eliminating customer bounce rates.
+- **Zero Monthly Retainer Fees**: Clients pay once for the custom build. No forced agency maintenance fees or monthly retainer contracts.
 - **10-Second Phone Admin Cockpit**: Clients can edit headlines, prices, announcements, and photos directly from their smartphone in 10 seconds without developer bills.
 - **1-Tap WhatsApp Lead Funnels**: Frictionless customer enquiry routing directly to business owners on WhatsApp.
 - **100% Client Code Sovereignty**: On launch day, full GitHub repository code, domain DNS, and cloud accounts are transferred to the client. Zero vendor lock-in.
 
 ## Verified Live Deployments
-- **PMS Solution Healthcare (pmssolution.co.in)**: Chennai hospital medical equipment platform for ICU beds and oxygen concentrators with 0.24s speed and 1-tap WhatsApp quotes.
-- **Unique Power Shito-Ryu Karate School (upskskarate.com)**: Sports academy platform managing schedules and parent admissions for 1,000+ students with 0.22s speed.
+- **PMS Solution Healthcare (pmssolution.co.in)**: Chennai hospital medical equipment platform for ICU beds and oxygen concentrators with sub-1s loading and 1-tap WhatsApp quotes.
+- **Unique Power Shito-Ryu Karate School (upskskarate.com)**: Sports academy platform managing schedules and parent admissions for 1,000+ students with sub-1s loading.
 
 ## Pricing Packages
-1. **Starter Edge (₹14,999 one-time build)**: Up to 5 bespoke high-speed mobile pages, 1-tap WhatsApp button, 10s phone admin, Google Maps verification, ₹0 monthly retainer.
-2. **Growth Engine (₹24,999 one-time build)**: Interactive product catalog, spec configurator, 1-tap WhatsApp store checkout, visitor intelligence tool, ₹0 monthly retainer.
-3. **Custom Cloud (Starts at ₹34,999 one-time build)**: Tailored web apps, client databases, student registries, custom portals, and Razorpay/UPI payment gateway integrations.
+1. **Starter Edge (one-time build, priced in your written proposal)**: Up to 5 bespoke high-speed mobile pages, 1-tap WhatsApp button, 10s phone admin, Google Maps verification, Zero monthly retainer.
+2. **Growth Engine (one-time build, priced in your written proposal)**: Interactive product catalog, spec configurator, 1-tap WhatsApp store checkout, visitor intelligence tool, Zero monthly retainer.
+3. **Custom Cloud (custom scope, priced in your written proposal)**: Tailored web apps, client databases, student registries, custom portals, and Razorpay/UPI payment gateway integrations.
 
 Free 24h sample preview available for qualified businesses at https://merqurie.com/.

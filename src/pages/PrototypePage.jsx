@@ -166,7 +166,7 @@ export default function PrototypePage({ onOpenPrototypeModal, isDark }) {
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={() => playCyberTone('click')}
-                className="w-full py-3.5 rounded-xl bg-[#25D366] hover:bg-[#20bd5a] text-white font-mono font-bold text-xs flex items-center justify-center gap-2 shadow-lg shadow-emerald-500/20 active:scale-95 transition-all cursor-pointer"
+                className="w-full py-3.5 rounded-xl bg-[#25D366] hover:bg-[#20bd5a] text-emerald-950 font-mono font-bold text-xs flex items-center justify-center gap-2 shadow-lg shadow-emerald-500/20 active:scale-95 transition-all cursor-pointer"
               >
                 <WhatsAppIcon className="w-4 h-4 text-white fill-current" />
                 <span>Chat Directly on WhatsApp</span>

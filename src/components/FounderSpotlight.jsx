@@ -46,7 +46,7 @@ export default function FounderSpotlight({ onOpenPrototypeModal }) {
                 <div className="w-full h-full rounded-[22px] bg-white border border-slate-200 flex flex-col items-center justify-center p-4">
                   <div className="w-28 h-28 rounded-2xl overflow-hidden mb-3 shadow-lg ring-2 ring-rose-500/20 border-2 border-slate-100 bg-slate-100 shrink-0">
                     <img
-                      src="/images/jagadish_founder.png"
+                      src="/images/jagadish_founder.webp"
                       alt="Jagadish - Principal Systems Architect"
                       className="w-full h-full object-cover object-top"
                     />
@@ -123,7 +123,7 @@ export default function FounderSpotlight({ onOpenPrototypeModal }) {
                   When looking at how local businesses in Chennai and India were being served by agencies, I saw an unfair model: outdated WordPress templates taking 8 seconds to load, slow customer responses, and endless recurring maintenance retainers that deliver zero real value.
                 </p>
                 <p>
-                  Merqurie was built to be the antidote. We engineer modern, mobile-first websites that load in under 1 second, capture direct WhatsApp enquiries, and are 100% owned by the business owner from day one—with ₹0 recurring agency retainers.
+                  Merqurie was built to be the antidote. We engineer modern, mobile-first websites that load in under 1 second, capture direct WhatsApp enquiries, and are 100% owned by the business owner from day one—with Zero recurring agency retainers.
                 </p>
               </div>
 
@@ -158,7 +158,7 @@ export default function FounderSpotlight({ onOpenPrototypeModal }) {
                   href={whatsapp}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-full sm:w-auto px-5 py-3 rounded-xl font-bold text-xs bg-emerald-600 hover:bg-emerald-500 text-white shadow-lg shadow-emerald-500/25 active:scale-95 transition-all flex items-center justify-center gap-2"
+                  className="w-full sm:w-auto px-5 py-3 rounded-xl font-bold text-xs bg-emerald-700 hover:bg-emerald-600 text-white shadow-lg shadow-emerald-500/25 active:scale-95 transition-all flex items-center justify-center gap-2"
                 >
                   <WhatsAppIcon className="w-4 h-4 fill-white" />
                   <span>Chat directly with Jagadish</span>

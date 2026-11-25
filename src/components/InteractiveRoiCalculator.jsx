@@ -260,7 +260,7 @@ export default function InteractiveRoiCalculator({ onOpenPrototypeModal }) {
               <div className="space-y-2 pt-2">
                 <button
                   onClick={handleClaimSample}
-                  className="w-full py-3.5 px-4 rounded-xl font-bold text-xs bg-emerald-600 hover:bg-emerald-500 text-white shadow-lg shadow-emerald-500/25 active:scale-95 transition-all flex items-center justify-center gap-2 cursor-pointer"
+                  className="w-full py-3.5 px-4 rounded-xl font-bold text-xs bg-emerald-700 hover:bg-emerald-600 text-white shadow-lg shadow-emerald-500/25 active:scale-95 transition-all flex items-center justify-center gap-2 cursor-pointer"
                 >
                   <WhatsAppIcon className="w-4 h-4 fill-white" />
                   <span>Claim Free Working Sample on WhatsApp</span>

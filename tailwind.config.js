@@ -65,8 +65,8 @@ export default {
         }
       },
       fontFamily: {
-        sans: ['"Plus Jakarta Sans"', '"Inter"', 'system-ui', '-apple-system', 'sans-serif'],
-        display: ['"Fredoka"', '"Space Grotesk"', 'cursive', 'sans-serif'],
+        sans: ['"Plus Jakarta Sans"', 'system-ui', '-apple-system', 'sans-serif'],
+        display: ['"Fredoka"', '"Plus Jakarta Sans"', 'cursive', 'sans-serif'],
         fredoka: ['"Fredoka"', 'cursive', 'sans-serif'],
         mono: ['"Space Grotesk"', 'monospace'],
         serif: ['"Instrument Serif"', 'Georgia', 'serif'],

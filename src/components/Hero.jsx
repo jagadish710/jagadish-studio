@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, lazy, Suspense } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
   ArrowRight,
@@ -13,8 +13,11 @@ import {
   ShoppingBag,
 } from 'lucide-react';
 import WhatsAppIcon from './WhatsAppIcon';
-import ThreeCenterpiece3D from './ThreeCenterpiece3D';
 import TalkingTomLuffyMascot from './TalkingTomLuffyMascot';
+
+// three.js + canvas-confetti only download when someone opens the 3D mode,
+// which keeps ~600 kB of JavaScript off the first mobile paint.
+const ThreeCenterpiece3D = lazy(() => import('./ThreeCenterpiece3D'));
 import { trackSampleRequest, trackLeadClick } from '../lib/analytics';
 
 const whatsapp = 'https://wa.me/917358618789?text=Hi%20Jagadish!%20I%20would%20like%20to%20discuss%20a%20website%20for%20my%20business.';
@@ -26,13 +29,13 @@ export default function Hero({ onOpenPrototypeModal, onNavigateToWork, onNavigat
   const showcases = {
     pms: {
       headlinePrefix: 'Your Competitors Have Slow Sites.',
-      headlineAccent: 'We Engineer 0.24s Speed.',
-      subtext: 'Every second your website takes to load on mobile data, 20% of buyers press Back. For PMS Solution Healthcare, we engineered sub-0.25s load times and 1-tap WhatsApp quotes for ICU beds with ₹0 monthly retainers.',
+      headlineAccent: 'We Engineer Sub-1s Speed.',
+      subtext: 'Every second your website takes to load on mobile data, 20% of buyers press Back. For PMS Solution Healthcare, we engineered sub-1s load times and 1-tap WhatsApp quotes for ICU beds with Zero monthly retainers.',
       title: 'PMS Solution | Hospital Medical Equipment Sales & Rentals',
-      speed: '0.24s Edge Load Speed',
+      speed: 'Sub-1s Edge Load Speed',
       desc: 'Live Chennai healthcare portal managing ICU beds, oxygen concentrators, and hospital setup inquiries with instant WhatsApp lead routing.',
       image: '/images/pms_real.webp',
-      mobileImage: '/images/pms_mobile_real.jpg',
+      mobileImage: '/images/pms_mobile_real.webp',
       badge: 'Live Production: pmssolution.co.in',
       client: 'Healthcare & Medical Equipment • Chennai',
       url: 'https://pmssolution.co.in',
@@ -40,9 +43,9 @@ export default function Hero({ onOpenPrototypeModal, onNavigateToWork, onNavigat
     upsks: {
       headlinePrefix: 'Martial Arts & Student Academy.',
       headlineAccent: '1,000+ Enrolled Students.',
-      subtext: 'From class timetables to international tournament rosters, we built UPSKS Karate to eliminate administrative chaos, rank #1 on Google, and route parents straight to chief instructors with 0.22s speed.',
+      subtext: 'From class timetables to international tournament rosters, we built UPSKS Karate to eliminate administrative chaos, rank #1 on Google, and route parents straight to chief instructors with sub-1s speed.',
       title: 'Unique Power Shito-Ryu Karate School (UPSKS)',
-      speed: '0.22s Edge Load Speed',
+      speed: 'Sub-1s Edge Load Speed',
       desc: 'Live sports academy platform connecting students across India to international Japanese martial arts heritage, belt rosters, and direct parent WhatsApp communication.',
       image: '/images/upsks_real.webp',
       mobileImage: '/images/upsks_mobile_real.jpg',
@@ -59,7 +62,7 @@ export default function Hero({ onOpenPrototypeModal, onNavigateToWork, onNavigat
       desc: 'Update headlines, product prices, announcements, and catalog photos directly from your phone with zero developer dependency.',
       image: '/images/showcase_admin_portal.webp',
       mobileImage: '/images/showcase_admin_portal.webp',
-      badge: '₹0 Ongoing Retainers',
+      badge: 'Zero Ongoing Retainers',
       client: 'Proprietary Visual Content Management',
       url: null,
     },
@@ -107,7 +110,7 @@ export default function Hero({ onOpenPrototypeModal, onNavigateToWork, onNavigat
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-500 opacity-75" />
                 <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500" />
               </span>
-              <span className="tracking-wider uppercase font-bold text-[11px]">SEE YOUR NEW WEBSITE FREE IN 24 HOURS • PAY ₹0 TODAY</span>
+              <span className="tracking-wider uppercase font-bold text-[11px]">SEE YOUR NEW WEBSITE FREE IN 24 HOURS • PAY Zero TODAY</span>
             </div>
 
             {/* Dynamic Animated Headline - Fully Responsive to Chosen Showcase! */}
@@ -179,7 +182,7 @@ export default function Hero({ onOpenPrototypeModal, onNavigateToWork, onNavigat
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={() => trackLeadClick('Hero', 'WhatsApp')}
-                className="flex-1 sm:flex-initial px-3 sm:px-5 py-3 sm:py-3.5 rounded-2xl font-semibold text-[11px] sm:text-sm bg-emerald-600 hover:bg-emerald-500 text-white shadow-lg shadow-emerald-500/20 active:scale-95 transition-all flex items-center justify-center gap-1.5 sm:gap-2 border border-emerald-400/30 whitespace-nowrap"
+                className="flex-1 sm:flex-initial px-3 sm:px-5 py-3 sm:py-3.5 rounded-2xl font-semibold text-[11px] sm:text-sm bg-emerald-700 hover:bg-emerald-600 text-white shadow-lg shadow-emerald-500/20 active:scale-95 transition-all flex items-center justify-center gap-1.5 sm:gap-2 border border-emerald-400/30 whitespace-nowrap"
               >
                 <WhatsAppIcon className="w-3.5 h-3.5 sm:w-4 sm:h-4 fill-white shrink-0" />
                 <span>WhatsApp Chat</span>
@@ -189,11 +192,11 @@ export default function Hero({ onOpenPrototypeModal, onNavigateToWork, onNavigat
             {/* 4 Hard ROI Proof Badges */}
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5 mt-8 w-full border-t border-slate-200/80 pt-5">
               <div className="p-3 rounded-2xl bg-white border border-slate-200 shadow-xs text-center lg:text-left">
-                <div className="font-display text-xl sm:text-2xl font-bold text-cyan-600">0.24s</div>
+                <div className="font-display text-xl sm:text-2xl font-bold text-cyan-600">Sub-1s</div>
                 <div className="text-[11px] text-slate-500 font-semibold font-mono">4G Mobile Load</div>
               </div>
               <div className="p-3 rounded-2xl bg-white border border-slate-200 shadow-xs text-center lg:text-left">
-                <div className="font-display text-xl sm:text-2xl font-bold text-amber-600">₹0/mo</div>
+                <div className="font-display text-xl sm:text-2xl font-bold text-amber-600">Zero/mo</div>
                 <div className="text-[11px] text-slate-500 font-semibold font-mono">Monthly Retainer</div>
               </div>
               <div className="p-3 rounded-2xl bg-white border border-slate-200 shadow-xs text-center lg:text-left">
@@ -204,6 +207,26 @@ export default function Hero({ onOpenPrototypeModal, onNavigateToWork, onNavigat
                 <div className="font-display text-xl sm:text-2xl font-bold text-rose-600">100%</div>
                 <div className="text-[11px] text-slate-500 font-semibold font-mono">Code Ownership</div>
               </div>
+            </div>
+
+            {/* Mobile-First Engineering Guarantee */}
+            <div className="mt-4 flex flex-wrap items-center justify-center lg:justify-start gap-x-4 gap-y-2">
+              <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-slate-400">
+                Mobile-First Guarantee
+              </span>
+              {[
+                { icon: Smartphone, label: 'Designed at 360px first' },
+                { icon: Zap, label: 'Thumb-reach CTAs' },
+                { icon: ShieldCheck, label: '48px tap targets' },
+              ].map((item) => (
+                <span
+                  key={item.label}
+                  className="inline-flex items-center gap-1.5 text-[10px] sm:text-[11px] font-mono font-semibold text-slate-600 bg-white border border-slate-200 rounded-full px-2.5 py-1 shadow-xs"
+                >
+                  <item.icon className="w-3 h-3 text-emerald-600 shrink-0" />
+                  {item.label}
+                </span>
+              ))}
             </div>
 
           </div>
@@ -240,7 +263,15 @@ export default function Hero({ onOpenPrototypeModal, onNavigateToWork, onNavigat
             {activeVisual === 'mascot' ? (
               <TalkingTomLuffyMascot onOpenPrototypeModal={onOpenPrototypeModal} />
             ) : (
-              <ThreeCenterpiece3D />
+              <Suspense
+                fallback={
+                  <div className="w-full max-w-[340px] aspect-square rounded-3xl bg-white border border-slate-200 flex items-center justify-center text-[11px] font-mono text-slate-400">
+                    Loading 3D centrepiece...
+                  </div>
+                }
+              >
+                <ThreeCenterpiece3D />
+              </Suspense>
             )}
           </div>
 
@@ -248,33 +279,6 @@ export default function Hero({ onOpenPrototypeModal, onNavigateToWork, onNavigat
 
         {/* Interactive Floating Modern Device Workstation Frame */}
         <div className="w-full relative mt-3 group">
-          {/* Synchronized Workstation Showcase Switcher: Always within thumb-reach on mobile */}
-          <div className="flex items-center justify-start sm:justify-center gap-1.5 mb-3 overflow-x-auto no-scrollbar px-1 py-1">
-            {[
-              { id: 'pms', label: 'PMS Healthcare', icon: ShieldCheck, color: 'text-teal-600' },
-              { id: 'upsks', label: 'UPSKS Karate', icon: Zap, color: 'text-rose-600' },
-              { id: 'admin', label: 'Mobile Admin', icon: Smartphone, color: 'text-indigo-600' },
-              { id: 'ecommerce', label: '1-Tap Orders', icon: ShoppingBag, color: 'text-amber-600' },
-            ].map((pill) => {
-              const isActive = activeShowcase === pill.id;
-              const Icon = pill.icon;
-              return (
-                <button
-                  key={pill.id}
-                  onClick={() => setActiveShowcase(pill.id)}
-                  className={`px-3 py-1.5 rounded-full text-[11px] sm:text-xs font-mono font-medium transition-all duration-200 cursor-pointer flex items-center gap-1.5 whitespace-nowrap shrink-0 ${
-                    isActive
-                      ? 'bg-rose-50 text-rose-700 border-2 border-rose-500 font-bold shadow-sm scale-102'
-                      : 'bg-white text-slate-600 border border-slate-200 hover:border-slate-300 hover:text-slate-900 shadow-xs'
-                  }`}
-                >
-                  <Icon className={`w-3 h-3 sm:w-3.5 sm:h-3.5 ${pill.color} shrink-0`} />
-                  <span>{pill.label}</span>
-                </button>
-              );
-            })}
-          </div>
-
           <div className="absolute -inset-4 sm:-inset-6 bg-gradient-to-r from-rose-400/15 via-cyan-400/15 to-purple-400/15 rounded-3xl blur-2xl pointer-events-none opacity-60 group-hover:opacity-100 transition-opacity duration-700" />
 
           <div className="relative rounded-2xl sm:rounded-3xl border border-slate-200/90 bg-white p-2 sm:p-3 shadow-2xl shadow-slate-300/60 backdrop-blur-xl">
@@ -346,7 +350,7 @@ export default function Hero({ onOpenPrototypeModal, onNavigateToWork, onNavigat
                     className="w-full h-full object-cover object-top"
                   />
                   <div className="absolute bottom-2 inset-x-2 z-20">
-                    <div className="py-1 px-1.5 rounded-full bg-[#25D366] text-white text-[7px] font-mono font-bold flex items-center justify-center gap-1 shadow-md">
+                    <div className="py-1 px-1.5 rounded-full bg-[#25D366] text-emerald-950 text-[7px] font-mono font-bold flex items-center justify-center gap-1 shadow-md">
                       <span>Direct WhatsApp</span>
                     </div>
                   </div>

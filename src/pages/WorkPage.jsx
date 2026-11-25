@@ -13,119 +13,9 @@ import {
   Battery 
 } from 'lucide-react';
 import WhatsAppIcon from '../components/WhatsAppIcon';
+import { projects } from '../data/projects';
 
 const whatsapp = 'https://wa.me/917358618789?text=Hi%20Jagadish!%20I%20am%20reviewing%20your%20projects%20and%20would%20like%20to%20discuss%20a%20website%20for%20my%20business.';
-
-const projects = [
-  {
-    id: 'pms',
-    name: 'PMS Solution Healthcare',
-    url: 'https://pmssolution.co.in',
-    domain: 'pmssolution.co.in',
-    sector: 'Hospital Medical Equipment • Chennai',
-    simpleTitle: 'Hospital Equipment Sales & Rentals Platform',
-    desc: 'Prominent Chennai medical platform for ICU beds, oxygen concentrators, and hospital setups. Customers can browse equipment and tap 1 button on WhatsApp to get instant rental quotes.',
-    image: '/images/pms_real.webp',
-    mobileImage: '/images/pms_mobile_real.jpg',
-    speed: '0.24s Mobile Speed',
-    badge: 'Live Client Platform',
-    theme: {
-      cardBg: 'bg-white',
-      border: 'border-teal-200 hover:border-teal-400',
-      glow: 'from-teal-400/20 via-cyan-400/10 to-transparent',
-      dotColor: 'rgba(20, 184, 166, 0.12)',
-      tagBg: 'bg-teal-50 text-teal-800 border-teal-200',
-      speedTag: 'bg-teal-50 text-teal-800 border-teal-200',
-    },
-    chatPreview: 'Hi! Need ICU electric bed rental for home in Chennai.',
-    stats: [
-      { label: 'Mobile Speed', val: '< 0.25s' },
-      { label: 'Monthly Bills', val: '₹0 Forever' },
-      { label: 'Enquiry Route', val: 'Direct WhatsApp' },
-    ],
-  },
-  {
-    id: 'upsks',
-    name: 'Unique Power Shito-Ryu Karate School',
-    url: 'https://upskskarate.com',
-    domain: 'upskskarate.com',
-    sector: 'Sports & Martial Arts Academy • India',
-    simpleTitle: 'Karate Academy Platform for 1,000+ Students',
-    desc: 'High-speed martial arts platform with Japanese heritage. Parents and students view class schedules, check belt grading rosters, and message the chief instructor on WhatsApp for quick admission.',
-    image: '/images/upsks_real.webp',
-    mobileImage: '/images/upsks_mobile_real.jpg',
-    speed: '0.22s Mobile Speed',
-    badge: 'Live Client Platform',
-    theme: {
-      cardBg: 'bg-white',
-      border: 'border-rose-200 hover:border-rose-400',
-      glow: 'from-rose-400/20 via-pink-400/10 to-transparent',
-      dotColor: 'rgba(225, 29, 72, 0.12)',
-      tagBg: 'bg-rose-50 text-rose-800 border-rose-200',
-      speedTag: 'bg-rose-50 text-rose-800 border-rose-200',
-    },
-    chatPreview: 'Hi Sensei! Want to enrol my 7-year-old in evening karate classes.',
-    stats: [
-      { label: 'Active Students', val: '1,000+ Students' },
-      { label: 'Monthly Retainer', val: '₹0 / Month' },
-      { label: 'Google Speed', val: '99/100 Core' },
-    ],
-  },
-  {
-    id: 'ecommerce',
-    name: 'Merqurie WhatsApp E-Store',
-    url: null,
-    domain: 'store.merqurie.com',
-    sector: 'Instant Product Sales',
-    simpleTitle: 'Online Store with 1-Tap WhatsApp Checkout',
-    desc: 'Interactive product catalog with photos and prices. Customers tap 1 button on WhatsApp to order or request price quotes — zero confusing forms, zero monthly Shopify or agency fees.',
-    image: '/images/showcase_ecommerce_catalog.webp',
-    mobileImage: '/images/showcase_ecommerce_catalog.webp',
-    speed: '0.26s Edge Speed',
-    badge: 'Direct WhatsApp Commerce',
-    theme: {
-      cardBg: 'bg-white',
-      border: 'border-emerald-200 hover:border-emerald-400',
-      glow: 'from-emerald-400/20 via-teal-400/10 to-transparent',
-      dotColor: 'rgba(16, 185, 129, 0.12)',
-      tagBg: 'bg-emerald-50 text-emerald-800 border-emerald-200',
-      speedTag: 'bg-emerald-50 text-emerald-800 border-emerald-200',
-    },
-    chatPreview: 'Hello! I want to purchase 2 units with doorstep delivery.',
-    stats: [
-      { label: 'Order Flow', val: '1-Tap WhatsApp' },
-      { label: 'Plugin Bloat', val: '0 Plugins' },
-      { label: 'Speed Score', val: '99/100 Mobile' },
-    ],
-  },
-  {
-    id: 'admin',
-    name: 'Self-Serve Mobile Admin Cockpit',
-    url: null,
-    domain: 'admin.merqurie.com',
-    sector: 'Visual Management System',
-    simpleTitle: '10-Second Phone Control Cockpit',
-    desc: 'Update headlines, product prices, announcements, and catalog photos directly from your phone in seconds. 100% client sovereignty with zero developer dependency.',
-    image: '/images/showcase_admin_portal.webp',
-    mobileImage: '/images/showcase_admin_portal.webp',
-    speed: '10s Edit Time',
-    badge: 'Visual Admin Tool',
-    theme: {
-      cardBg: 'bg-white',
-      border: 'border-indigo-200 hover:border-indigo-400',
-      glow: 'from-indigo-400/20 via-purple-400/10 to-transparent',
-      dotColor: 'rgba(99, 102, 241, 0.12)',
-      tagBg: 'bg-indigo-50 text-indigo-800 border-indigo-200',
-      speedTag: 'bg-indigo-50 text-indigo-800 border-indigo-200',
-    },
-    chatPreview: 'Price updated in 10 seconds live on production website.',
-    stats: [
-      { label: 'Update Speed', val: '10 Seconds' },
-      { label: 'Client Control', val: '100% Full' },
-      { label: 'Agency Delay', val: '0 Days' },
-    ],
-  },
-];
 
 export default function WorkPage({ onOpenPrototypeModal }) {
   return (
@@ -192,7 +82,7 @@ export default function WorkPage({ onOpenPrototypeModal }) {
 
                     {/* Floating Speed Chip */}
                     <div className="absolute top-2.5 left-2.5 z-10">
-                      <span className={`px-2.5 py-0.5 rounded-lg text-[9px] sm:text-[10px] font-mono font-bold backdrop-blur-md shadow-xs border ${proj.theme.speedTag} flex items-center gap-1`}>
+                      <span className={`px-2.5 py-0.5 rounded-lg text-[9px] sm:text-[10px] font-mono font-bold backdrop-blur-md shadow-xs border ${proj.theme.speedBadge} flex items-center gap-1`}>
                         <Zap className="w-2.5 h-2.5 text-amber-500" />
                         <span>{proj.speed}</span>
                       </span>
@@ -252,13 +142,13 @@ export default function WorkPage({ onOpenPrototypeModal }) {
                   {proj.name}
                 </h3>
                 <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
-                  {proj.desc}
+                  {proj.description}
                 </p>
               </div>
 
               {/* 3 Metric Chips */}
               <div className="grid grid-cols-3 gap-2 py-3 border-y border-slate-100 mb-6">
-                {proj.stats.map((st, sIdx) => (
+                {proj.metrics.map((st, sIdx) => (
                   <div key={sIdx} className="text-center p-2 rounded-xl bg-slate-50 border border-slate-200">
                     <span className="text-[9px] font-mono text-slate-500 uppercase tracking-wider block">
                       {st.label}

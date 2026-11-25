@@ -31,7 +31,7 @@ export default function InteractiveCardsSection({ onOpenPrototypeModal, isDark =
       frontDesc: 'Custom-engineered digital storefronts built to turn casual visitors into paying customers. Ranked top on Google with sub-second mobile speed.',
       metrics: [
         { label: 'Google CWV Score', val: '99/100' },
-        { label: 'Monthly Retainers', val: '₹0 / Year' },
+        { label: 'Monthly Retainers', val: 'Zero / Year' },
         { label: 'Lead Capture', val: 'Direct WhatsApp' },
       ],
       backTitle: 'Architectural Blueprint',
@@ -74,7 +74,7 @@ export default function InteractiveCardsSection({ onOpenPrototypeModal, isDark =
       metrics: [
         { label: 'Database', val: 'PostgreSQL Edge' },
         { label: 'Uptime Reliability', val: '99.99%' },
-        { label: 'License Overheads', val: '₹0' },
+        { label: 'License Overheads', val: 'Zero' },
       ],
       backTitle: 'Full-Stack Foundation',
       backPoints: [
@@ -95,7 +95,7 @@ export default function InteractiveCardsSection({ onOpenPrototypeModal, isDark =
       metrics: [
         { label: 'Code Ownership', val: '100%' },
         { label: 'Vendor Lock-in', val: 'None' },
-        { label: 'Hidden Retainers', val: '₹0' },
+        { label: 'Hidden Retainers', val: 'Zero' },
       ],
       backTitle: 'Ownership Protocol',
       backPoints: [
@@ -246,7 +246,7 @@ export default function InteractiveCardsSection({ onOpenPrototypeModal, isDark =
                           <div key={mIdx} className="flex items-center justify-between text-[11px] font-mono">
                             <span className={isDark ? 'text-zinc-500' : 'text-slate-500'}>{m.label}:</span>
                             <span className={`font-bold ${
-                              m.val.includes('₹0') ? 'text-emerald-400' : isDark ? 'text-zinc-200' : 'text-slate-950'
+                              m.val.includes('Zero') ? 'text-emerald-400' : isDark ? 'text-zinc-200' : 'text-slate-950'
                             }`}>{m.val}</span>
                           </div>
                         ))}

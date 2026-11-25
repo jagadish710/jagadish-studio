@@ -221,7 +221,7 @@ export default function ComparisonSection({ onOpenPrototypeModal }) {
               href={whatsapp}
               target="_blank"
               rel="noopener noreferrer"
-              className="px-6 py-3.5 rounded-2xl text-xs sm:text-sm font-bold bg-emerald-600 hover:bg-emerald-500 text-white flex items-center gap-2 shadow-lg shadow-emerald-500/25 transition-all cursor-pointer"
+              className="px-6 py-3.5 rounded-2xl text-xs sm:text-sm font-bold bg-emerald-700 hover:bg-emerald-600 text-white flex items-center gap-2 shadow-lg shadow-emerald-500/25 transition-all cursor-pointer"
             >
               <WhatsAppIcon className="w-4 h-4 fill-white text-white" />
               <span>Discuss on WhatsApp</span>

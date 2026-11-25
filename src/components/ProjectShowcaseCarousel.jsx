@@ -1,4 +1,5 @@
 import React, { useRef, useState } from 'react';
+import { projects } from '../data/projects';
 import { 
   ExternalLink, 
   ArrowRight, 
@@ -22,129 +23,6 @@ export default function ProjectShowcaseCarousel({ onOpenPrototypeModal }) {
   const scrollRef = useRef(null);
   const [canScrollLeft, setCanScrollLeft] = useState(false);
   const [canScrollRight, setCanScrollRight] = useState(true);
-
-  const projects = [
-    {
-      id: 'pms',
-      title: 'PMS Solution Healthcare',
-      subtitle: 'Hospital Equipment Sales & Rentals',
-      sectorBadge: 'Healthcare • Chennai',
-      description: 'Prominent Chennai medical platform managing ICU beds, oxygen concentrators, and hospital setups. Instant multi-channel WhatsApp RFQ routing with zero recurring maintenance fees.',
-      image: '/images/pms_real.webp',
-      mobileImage: '/images/pms_mobile_real.jpg',
-      badge: 'Live Production',
-      url: 'https://pmssolution.co.in',
-      domain: 'pmssolution.co.in',
-      theme: {
-        cardBg: 'bg-white',
-        border: 'border-teal-200 hover:border-teal-400',
-        glow: 'from-teal-400/20 via-cyan-400/10 to-transparent',
-        dotColor: 'rgba(20, 184, 166, 0.12)',
-        tagBg: 'bg-teal-50 border-teal-200 text-teal-800',
-        accentText: 'text-teal-700 font-bold',
-        speedBadge: 'bg-teal-50 text-teal-800 border-teal-200',
-        metricBorder: 'border-slate-200 bg-slate-50',
-        btnHover: 'hover:text-teal-600',
-        phoneAura: 'shadow-teal-400/20',
-      },
-      metrics: [
-        { label: 'Edge Speed', value: '0.24s' },
-        { label: 'Retainer Fee', value: '₹0 / Month' },
-        { label: 'Lead Flow', value: 'WhatsApp RFQ' },
-      ],
-      floatingBadge: 'Lighthouse 99/100',
-    },
-    {
-      id: 'upsks',
-      title: 'UPSKS Karate Academy',
-      subtitle: 'Martial Arts International School',
-      sectorBadge: 'Sports & Admissions • India',
-      description: 'High-speed digital platform connecting students across India to Japanese karate heritage, belt grading registries, tournament schedules, and instant parent WhatsApp admissions.',
-      image: '/images/upsks_real.webp',
-      mobileImage: '/images/upsks_mobile_real.jpg',
-      badge: 'Live Production',
-      url: 'https://upskskarate.com',
-      domain: 'upskskarate.com',
-      theme: {
-        cardBg: 'bg-white',
-        border: 'border-rose-200 hover:border-rose-400',
-        glow: 'from-rose-400/20 via-pink-400/10 to-transparent',
-        dotColor: 'rgba(225, 29, 72, 0.12)',
-        tagBg: 'bg-rose-50 border-rose-200 text-rose-800',
-        accentText: 'text-rose-700 font-bold',
-        speedBadge: 'bg-rose-50 text-rose-800 border-rose-200',
-        metricBorder: 'border-slate-200 bg-slate-50',
-        btnHover: 'hover:text-rose-600',
-        phoneAura: 'shadow-rose-400/20',
-      },
-      metrics: [
-        { label: 'Edge Speed', value: '0.22s' },
-        { label: 'Retainer Fee', value: '₹0 / Month' },
-        { label: 'Inquiries', value: 'Direct Parent' },
-      ],
-      floatingBadge: 'Sub-0.25s Edge',
-    },
-    {
-      id: 'admin',
-      title: 'Self-Serve Phone Admin Cockpit',
-      subtitle: '10-Second Text & Price Management',
-      sectorBadge: 'Visual Management System',
-      description: 'Update headlines, product prices, announcements, and catalog photos directly from your phone in seconds. 100% client sovereignty with zero developer dependency.',
-      image: '/images/showcase_admin_portal.webp',
-      mobileImage: '/images/showcase_admin_portal.webp',
-      badge: 'Visual Cockpit',
-      url: null,
-      domain: 'admin.merqurie.com',
-      theme: {
-        cardBg: 'bg-white',
-        border: 'border-indigo-200 hover:border-indigo-400',
-        glow: 'from-indigo-400/20 via-purple-400/10 to-transparent',
-        dotColor: 'rgba(99, 102, 241, 0.12)',
-        tagBg: 'bg-indigo-50 border-indigo-200 text-indigo-800',
-        accentText: 'text-indigo-700 font-bold',
-        speedBadge: 'bg-indigo-50 text-indigo-800 border-indigo-200',
-        metricBorder: 'border-slate-200 bg-slate-50',
-        btnHover: 'hover:text-indigo-600',
-        phoneAura: 'shadow-indigo-400/20',
-      },
-      metrics: [
-        { label: 'Edit Time', value: '10 Seconds' },
-        { label: 'Control', value: '100% Client' },
-        { label: 'Agency Delay', value: '0 Days' },
-      ],
-      floatingBadge: 'Zero Dev Bills',
-    },
-    {
-      id: 'ecommerce',
-      title: 'Interactive E-Commerce Catalog',
-      subtitle: 'Direct 1-Tap WhatsApp Commerce',
-      sectorBadge: 'Digital Storefront • Commerce',
-      description: 'Sub-second digital storefront with dynamic spec configurator, fast image rendering, and 1-tap WhatsApp order dispatch. Zero plugin vulnerabilities.',
-      image: '/images/showcase_ecommerce_catalog.webp',
-      mobileImage: '/images/showcase_ecommerce_catalog.webp',
-      badge: 'Interactive Storefront',
-      url: null,
-      domain: 'store.merqurie.com',
-      theme: {
-        cardBg: 'bg-white',
-        border: 'border-emerald-200 hover:border-emerald-400',
-        glow: 'from-emerald-400/20 via-teal-400/10 to-transparent',
-        dotColor: 'rgba(16, 185, 129, 0.12)',
-        tagBg: 'bg-emerald-50 border-emerald-200 text-emerald-800',
-        accentText: 'text-emerald-700 font-bold',
-        speedBadge: 'bg-emerald-50 text-emerald-800 border-emerald-200',
-        metricBorder: 'border-slate-200 bg-slate-50',
-        btnHover: 'hover:text-emerald-600',
-        phoneAura: 'shadow-emerald-400/20',
-      },
-      metrics: [
-        { label: 'Checkout', value: '1-Tap Flow' },
-        { label: 'Plugin Bloat', value: '0 Plugins' },
-        { label: 'Speed', value: '< 0.3s Instant' },
-      ],
-      floatingBadge: 'High-Converting',
-    },
-  ];
 
   const updateScrollButtons = () => {
     if (scrollRef.current) {
@@ -191,8 +69,8 @@ export default function ProjectShowcaseCarousel({ onOpenPrototypeModal }) {
             </p>
           </div>
 
-          {/* Carousel Arrows with Touch Feedback */}
-          <div className="flex items-center gap-2.5 self-start md:self-end">
+          {/* Swipe hints + arrows: mobile only, desktop shows the full grid */}
+          <div className="flex items-center gap-2.5 self-start md:hidden">
             <button
               onClick={() => scroll('left')}
               disabled={!canScrollLeft}
@@ -225,13 +103,13 @@ export default function ProjectShowcaseCarousel({ onOpenPrototypeModal }) {
         <div
           ref={scrollRef}
           onScroll={updateScrollButtons}
-          className="flex items-stretch gap-6 sm:gap-8 overflow-x-auto pb-10 pt-2 scrollbar-none snap-x snap-mandatory focus:outline-none select-none"
+          className="grid grid-flow-col auto-cols-[86%] sm:auto-cols-[68%] md:grid-flow-row md:auto-cols-auto md:grid-cols-2 items-stretch gap-5 sm:gap-6 md:gap-8 overflow-x-auto md:overflow-visible pb-8 md:pb-0 pt-2 no-scrollbar snap-x snap-mandatory focus:outline-none select-none"
           style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
         >
           {projects.map((project) => (
             <article
               key={project.id}
-              className={`w-[310px] sm:w-[480px] lg:w-[520px] shrink-0 snap-start rounded-3xl border ${project.theme.cardBg} ${project.theme.border} shadow-xl shadow-slate-200/50 hover:shadow-2xl transition-all duration-300 ease-out flex flex-col justify-between overflow-hidden group hover:-translate-y-2 active:scale-[0.99] relative`}
+              className={`w-full snap-start rounded-3xl border ${project.theme.cardBg} ${project.theme.border} shadow-xl shadow-slate-200/50 hover:shadow-2xl transition-all duration-300 ease-out flex flex-col justify-between overflow-hidden group hover:-translate-y-2 active:scale-[0.99] relative`}
             >
               {/* Subtle Dotted Matrix Texture Overlay */}
               <div 
@@ -320,7 +198,7 @@ export default function ProjectShowcaseCarousel({ onOpenPrototypeModal }) {
 
                           {/* Mobile Bottom WhatsApp CTA Simulation */}
                           <div className="absolute bottom-1.5 inset-x-1.5 z-20">
-                            <div className="py-1 px-1.5 rounded-full bg-[#25D366] text-white text-[7px] font-mono font-bold flex items-center justify-center gap-1 shadow-sm">
+                            <div className="py-1 px-1.5 rounded-full bg-[#25D366] text-emerald-950 text-[7px] font-mono font-bold flex items-center justify-center gap-1 shadow-sm">
                               <MessageSquare className="w-2 h-2 fill-current" />
                               <span>1-Tap WhatsApp</span>
                             </div>

@@ -10,8 +10,8 @@ export default function PricingPackages({ onOpenPrototypeModal }) {
     {
       name: 'Starter Edge',
       tagline: 'High-speed digital presence for local clinics, schools, and professional practices.',
-      price: '₹14,999',
-      period: 'one-time build',
+      price: 'Personal quote',
+      period: 'after a scope call',
       popular: false,
       delivery: '2 Days Delivery',
       badge: 'STARTER ARCHITECTURE',
@@ -23,7 +23,7 @@ export default function PricingPackages({ onOpenPrototypeModal }) {
       features: [
         'Up to 5 bespoke high-speed mobile pages',
         'Direct 1-tap WhatsApp inquiry routing',
-        'Sub-0.3s 4G/5G mobile edge performance',
+        'Sub-1s 4G/5G mobile edge performance',
         '10-second phone admin cockpit for instant text edits',
         'Google Search Console & Google Maps verification',
         '100% full source code & domain ownership',
@@ -40,8 +40,8 @@ export default function PricingPackages({ onOpenPrototypeModal }) {
     {
       name: 'Growth Engine',
       tagline: 'Interactive storefronts, product catalogs, and automated WhatsApp inquiry engines.',
-      price: '₹24,999',
-      period: 'one-time build',
+      price: 'Personal quote',
+      period: 'after a scope call',
       popular: true,
       delivery: '2-3 Days Delivery',
       badge: 'RECOMMENDED FOR BUSINESSES',
@@ -54,7 +54,7 @@ export default function PricingPackages({ onOpenPrototypeModal }) {
         'Interactive product catalog & visual spec configurator',
         '1-tap WhatsApp order flow & instant quote calculator',
         'Visitor Intelligence Tool (see who visited, their city, and what they clicked)',
-        'Sub-0.25s edge speed scoring 99/100 Core Web Vitals',
+        'Sub-1s edge speed scoring 99/100 Core Web Vitals',
         'Self-serve phone admin for price & photo edits in 10s',
         'Automated multi-channel routing to WhatsApp & email',
         'Full source code handover & zero vendor lock-in',
@@ -65,8 +65,8 @@ export default function PricingPackages({ onOpenPrototypeModal }) {
     {
       name: 'Custom Cloud',
       tagline: 'Tailored web portals, client member registries, custom webapps, and booking platforms.',
-      price: 'Starts at ₹34,999',
-      period: 'one-time build',
+      price: 'Personal quote',
+      period: 'after a scope call',
       popular: false,
       delivery: '3-5 Days Delivery',
       badge: 'CUSTOM WEBAPPS & APPS',
@@ -112,7 +112,7 @@ export default function PricingPackages({ onOpenPrototypeModal }) {
           </h2>
 
           <p className="text-sm sm:text-base text-slate-600 max-w-2xl mx-auto leading-relaxed">
-            Pay once for the build. We hand over 100% of your source code, domain, and database with zero mandatory maintenance retainers. Clean, honest, and straightforward.
+            Package scope, inclusions, and delivery timelines are listed in full below. The exact investment is shared privately in your written proposal after a short scope call, so pricing stays fair for every market we work in. You pay once and own 100% of your source code, domain, and database.
           </p>
         </div>
 
@@ -160,7 +160,7 @@ export default function PricingPackages({ onOpenPrototypeModal }) {
                         <Zap className="w-3 h-3 text-emerald-600 fill-emerald-600" />
                         <span>{plan.delivery}</span>
                       </span>
-                      <span className="text-slate-500 font-semibold">₹0 Monthly Retainer</span>
+                      <span className="text-slate-500 font-semibold">Zero Monthly Retainer</span>
                     </div>
                   </div>
 
@@ -187,7 +187,7 @@ export default function PricingPackages({ onOpenPrototypeModal }) {
                   {/* Negative checklist showing what is not included in Starter */}
                   {plan.notIncluded && (
                     <div className="pt-3 pb-2 border-t border-slate-100 mb-4">
-                      <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-rose-500 block mb-2">
+                      <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-rose-700 block mb-2">
                         Not Included in Starter:
                       </span>
                       <ul className="space-y-2.5">
@@ -196,7 +196,7 @@ export default function PricingPackages({ onOpenPrototypeModal }) {
                             <div className="w-4 h-4 rounded-full bg-rose-50 border border-rose-200 flex items-center justify-center shrink-0 mt-0.5">
                               <X className="w-2.5 h-2.5 text-rose-500 stroke-[3]" />
                             </div>
-                            <span className="line-through decoration-rose-300 text-slate-400">{item}</span>
+                            <span className="line-through decoration-rose-300 text-slate-500">{item}</span>
                           </li>
                         ))}
                       </ul>
@@ -217,7 +217,7 @@ export default function PricingPackages({ onOpenPrototypeModal }) {
                     <ArrowRight className="w-3.5 h-3.5" />
                   </button>
                   <p className="text-[10px] text-center text-slate-500 font-mono mt-2">
-                    Free 24h sample preview included • Pay ₹0 today
+                    Free 24h sample preview included • No payment today
                   </p>
                 </div>
 
@@ -246,7 +246,7 @@ export default function PricingPackages({ onOpenPrototypeModal }) {
             href={whatsapp}
             target="_blank"
             rel="noopener noreferrer"
-            className="shrink-0 px-6 py-3 rounded-2xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs uppercase tracking-wider transition-all shadow-lg shadow-emerald-500/20 flex items-center gap-2 cursor-pointer"
+            className="shrink-0 px-6 py-3 rounded-2xl bg-emerald-700 hover:bg-emerald-600 text-white font-bold text-xs uppercase tracking-wider transition-all shadow-lg shadow-emerald-500/20 flex items-center gap-2 cursor-pointer"
           >
             <WhatsAppIcon className="w-4 h-4 fill-white" />
             <span>Chat on WhatsApp</span>

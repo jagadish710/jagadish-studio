@@ -33,7 +33,7 @@ export default function CinematicVideoSection({ onOpenPrototypeModal }) {
       domain: 'pmssolution.co.in',
       sector: 'Hospital & Medical Equipment • Chennai',
       image: '/images/pms_real.webp',
-      mobileImage: '/images/pms_mobile_real.jpg',
+      mobileImage: '/images/pms_mobile_real.webp',
       speed: '0.24s Edge Load',
       tagline: 'Customers browse ICU beds and tap 1 button on WhatsApp for immediate rental rates.',
       whatsappMsg: 'Hi! Looking for ICU electric bed rental in Anna Nagar, Chennai.',
@@ -419,7 +419,7 @@ export default function CinematicVideoSection({ onOpenPrototypeModal }) {
               href={whatsapp}
               target="_blank"
               rel="noopener noreferrer"
-              className="px-4 py-2 rounded-xl text-xs font-semibold bg-emerald-600 hover:bg-emerald-500 text-white shadow-md whitespace-nowrap transition-colors"
+              className="px-4 py-2 rounded-xl text-xs font-semibold bg-emerald-700 hover:bg-emerald-600 text-white shadow-md whitespace-nowrap transition-colors"
             >
               Chat on WhatsApp
             </a>

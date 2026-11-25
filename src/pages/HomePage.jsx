@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { lazy, Suspense } from 'react';
 import { 
   ArrowRight, 
   Sparkles, 
@@ -9,13 +9,16 @@ import WhatsAppIcon from '../components/WhatsAppIcon';
 import OceanCanvas from '../components/OceanCanvas';
 import Hero from '../components/Hero';
 import ClientMarquee from '../components/ClientMarquee';
-import BeforeAfterSection from '../components/BeforeAfterSection';
-import EngineeringCrewSection from '../components/EngineeringCrewSection';
-import ProjectShowcaseCarousel from '../components/ProjectShowcaseCarousel';
-import FounderSpotlight from '../components/FounderSpotlight';
-import PricingPackages from '../components/PricingPackages';
-import InteractiveQuoteBuilder from '../components/InteractiveQuoteBuilder';
-import FaqSection from '../components/FaqSection';
+
+// Everything below the hero is split out of the initial bundle, so the first
+// paint no longer waits on the 3D crew arena, pricing tables and FAQ code.
+const BeforeAfterSection = lazy(() => import('../components/BeforeAfterSection'));
+const EngineeringCrewSection = lazy(() => import('../components/EngineeringCrewSection'));
+const ProjectShowcaseCarousel = lazy(() => import('../components/ProjectShowcaseCarousel'));
+const FounderSpotlight = lazy(() => import('../components/FounderSpotlight'));
+const PricingPackages = lazy(() => import('../components/PricingPackages'));
+const InteractiveQuoteBuilder = lazy(() => import('../components/InteractiveQuoteBuilder'));
+const FaqSection = lazy(() => import('../components/FaqSection'));
 
 const whatsapp = 'https://wa.me/917358618789?text=Hi%20Jagadish!%20I%20would%20like%20to%20discuss%20a%20website%20for%20my%20business.';
 
@@ -54,29 +57,43 @@ export default function HomePage({ onOpenPrototypeModal, setActivePage }) {
       <ClientMarquee />
 
       {/* 3. The Business Reality Check + Live 4G Mobile Speed Race Simulator */}
-      <BeforeAfterSection />
+      <Suspense fallback={<div className="min-h-[70vh]" aria-hidden="true" />}>
+        <BeforeAfterSection />
+      </Suspense>
 
       {/* 4. Meet The Merqurie Engineering Crew (Merq, Zoro, Nami, Sanji) */}
-      <EngineeringCrewSection onOpenQuote={scrollToQuote} />
+      <Suspense fallback={<div className="min-h-[80vh]" aria-hidden="true" />}>
+        <EngineeringCrewSection onOpenQuote={scrollToQuote} />
+      </Suspense>
 
       {/* 5. Interactive Project Showcase Carousel with Authentic Client Screens */}
-      <section id="work">
-        <ProjectShowcaseCarousel onOpenPrototypeModal={onOpenPrototypeModal} />
+      <section id="case-studies">
+        <Suspense fallback={<div className="min-h-[70vh]" aria-hidden="true" />}>
+          <ProjectShowcaseCarousel onOpenPrototypeModal={onOpenPrototypeModal} />
+        </Suspense>
       </section>
 
       {/* 6. Technical Leadership & Studio Standards (Founder Card with Amazon & Turing Badges) */}
-      <FounderSpotlight onOpenPrototypeModal={onOpenPrototypeModal} />
+      <Suspense fallback={<div className="min-h-[70vh]" aria-hidden="true" />}>
+        <FounderSpotlight onOpenPrototypeModal={onOpenPrototypeModal} />
+      </Suspense>
 
       {/* 7. Transparent Pricing Packages with 100% Code Ownership Guarantee */}
       <section id="pricing">
-        <PricingPackages onOpenPrototypeModal={onOpenPrototypeModal} />
+        <Suspense fallback={<div className="min-h-[70vh]" aria-hidden="true" />}>
+          <PricingPackages onOpenPrototypeModal={onOpenPrototypeModal} />
+        </Suspense>
       </section>
 
       {/* 8. Interactive Quote Builder + Zero-Risk Free 24h Sample Request */}
-      <InteractiveQuoteBuilder />
+      <Suspense fallback={<div className="min-h-[60vh]" aria-hidden="true" />}>
+        <InteractiveQuoteBuilder />
+      </Suspense>
 
       {/* 9. Frequently Asked Questions */}
-      <FaqSection onOpenPrototypeModal={onOpenPrototypeModal} />
+      <Suspense fallback={<div className="min-h-[60vh]" aria-hidden="true" />}>
+        <FaqSection onOpenPrototypeModal={onOpenPrototypeModal} />
+      </Suspense>
 
       {/* 10. Final High-Converting Call to Action Banner */}
       <section className="py-20 sm:py-28 px-4 sm:px-6 lg:px-8 relative overflow-hidden bg-white text-slate-900 border-t border-slate-200/80 text-center">
@@ -104,7 +121,7 @@ export default function HomePage({ onOpenPrototypeModal, setActivePage }) {
               href={whatsapp}
               target="_blank"
               rel="noopener noreferrer"
-              className="w-full sm:w-auto px-8 py-4 rounded-2xl font-bold text-sm bg-emerald-600 hover:bg-emerald-500 text-white flex items-center justify-center gap-2.5 shadow-xl shadow-emerald-500/25 transition-all cursor-pointer font-mono"
+              className="w-full sm:w-auto px-8 py-4 rounded-2xl font-bold text-sm bg-emerald-700 hover:bg-emerald-600 text-white flex items-center justify-center gap-2.5 shadow-xl shadow-emerald-500/25 transition-all cursor-pointer font-mono"
             >
               <WhatsAppIcon className="w-5 h-5 fill-white text-white" />
               <span>Get Free Sample on WhatsApp</span>

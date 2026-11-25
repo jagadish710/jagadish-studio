@@ -5,18 +5,36 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="theme-color" content="#07070A" />
 
-    <!-- Google Analytics 4 (GA4) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-D2E9NGZ40Q"></script>
+    <!-- Google Analytics 4 (GA4) — deferred so gtag never blocks first paint
+         or competes with the hero for the main thread on mobile -->
     <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-D2E9NGZ40Q');
+      (function () {
+        var loaded = false;
+        function loadGA() {
+          if (loaded) return;
+          loaded = true;
+          window.dataLayer = window.dataLayer || [];
+          window.gtag = function () { window.dataLayer.push(arguments); };
+          window.gtag('js', new Date());
+          window.gtag('config', 'G-D2E9NGZ40Q');
+          var s = document.createElement('script');
+          s.async = true;
+          s.src = 'https://www.googletagmanager.com/gtag/js?id=G-D2E9NGZ40Q';
+          document.head.appendChild(s);
+        }
+        ['pointerdown', 'keydown', 'touchstart', 'scroll'].forEach(function (e) {
+          window.addEventListener(e, loadGA, { once: true, passive: true });
+        });
+        window.addEventListener('load', function () {
+          if ('requestIdleCallback' in window) requestIdleCallback(loadGA, { timeout: 3000 });
+          else setTimeout(loadGA, 3000);
+        });
+      })();
     </script>
     
     <!-- Primary Title & Meta Description for Google & AI Search Engines -->
-    <title>Merqurie — Sub-0.3s Websites • 10-Sec Phone Edits • ₹0 Monthly Retainers</title>
-    <meta name="description" content="Merqurie engineers ultra-fast websites that open in 0.24 seconds on mobile, capture 1-tap WhatsApp leads, include 10-second phone text editing, and charge ₹0 ongoing monthly retainers. 100% code ownership. Founded by Jagadish (ex-Amazon, Google AI evaluator via Turing)." />
+    <title>Merqurie — Sub-1s Websites • 10-Sec Phone Edits • No Monthly Retainers</title>
+    <meta name="description" content="Merqurie engineers ultra-fast websites that open in under 1 second on mobile, capture 1-tap WhatsApp leads, include 10-second phone text editing, and charge no ongoing monthly retainers. 100% code ownership. Founded by Jagadish (ex-Amazon, Google AI evaluator via Turing)." />
     <meta name="keywords" content="Merqurie, fast websites, zero monthly retainer, sub-second website speed, WhatsApp business website, phone admin cockpit, Jagadish, independent web systems, website design without retainers" />
     <meta name="author" content="Jagadish" />
     <meta name="publisher" content="Merqurie" />
@@ -32,19 +50,16 @@
     <!-- Google Search Console Verification -->
     <meta name="google-site-verification" content="%VITE_GOOGLE_SITE_VERIFICATION%" />
 
-    <!-- Critical Image Preloads for Instant Above-the-Fold Painting (Sub-0.2s) -->
+    <!-- Critical Image Preloads: first paint only (below-the-fold art loads lazily) -->
     <link rel="preload" as="image" href="/images/pms_real.webp" type="image/webp" fetchpriority="high" />
-    <link rel="preload" as="image" href="/images/pms_mobile_real.jpg" type="image/jpeg" fetchpriority="high" />
-    <link rel="preload" as="image" href="/images/upsks_real.webp" type="image/webp" />
-    <link rel="preload" as="image" href="/images/upsks_mobile_real.jpg" type="image/jpeg" />
-    <link rel="preload" as="image" href="/images/jagadish_founder.png" type="image/png" />
+    <link rel="preload" as="image" href="/images/pms_mobile_real.webp" type="image/webp" fetchpriority="high" />
 
     <!-- Open Graph / Facebook / LinkedIn / WhatsApp Rich Previews -->
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://merqurie.com/" />
     <meta property="og:site_name" content="Merqurie" />
-    <meta property="og:title" content="Merqurie — Sub-0.3s Websites • ₹0 Monthly Retainers" />
-    <meta property="og:description" content="Stop losing 53% of mobile buyers to slow websites. Merqurie hand-crafts ultra-fast websites with 1-tap WhatsApp leads, 10s phone edits, and ₹0 monthly retainers." />
+    <meta property="og:title" content="Merqurie — Sub-1s Websites • No Monthly Retainers" />
+    <meta property="og:description" content="Stop losing 53% of mobile buyers to slow websites. Merqurie hand-crafts ultra-fast websites with 1-tap WhatsApp leads, 10s phone edits, and no monthly retainers." />
     <meta property="og:image" content="https://merqurie.com/images/merqurie-brand-card.webp" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
@@ -55,8 +70,8 @@
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:site" content="@merqurie" />
     <meta name="twitter:creator" content="@merqurie" />
-    <meta name="twitter:title" content="Merqurie — Sub-0.3s Websites • ₹0 Monthly Retainers" />
-    <meta name="twitter:description" content="Ultra-fast websites that open in 0.24 seconds, capture 1-tap WhatsApp leads, and charge ₹0 monthly retainers. 100% client code ownership." />
+    <meta name="twitter:title" content="Merqurie — Sub-1s Websites • No Monthly Retainers" />
+    <meta name="twitter:description" content="Ultra-fast websites that open in under 1 second, capture 1-tap WhatsApp leads, and charge no monthly retainers. 100% client code ownership." />
     <meta name="twitter:image" content="https://merqurie.com/images/merqurie-brand-card.webp" />
 
     <!-- Favicons -->
@@ -64,164 +79,180 @@
     <link rel="alternate icon" href="/favicon.ico" />
     <link rel="apple-touch-icon" href="/logo.png" />
 
-    <!-- Web Fonts: Industry Standard Plus Jakarta Sans + Inter + Fredoka (font-display=swap) -->
+    <!-- Web Fonts: loaded non-blocking (media=print -> all) with font-display=swap,
+         so the Google Fonts stylesheet no longer blocks the first paint.
+         Plus Jakarta Sans body, Fredoka display, Instrument Serif accent,
+         Space Grotesk for the mono spec labels -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700;800&family=Instrument+Serif:ital@1&display=swap" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Instrument+Serif:ital@1&family=Space+Grotesk:wght@500;600&display=swap"
+      media="print"
+      onload="this.media='all'"
+    />
+    <noscript>
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Instrument+Serif:ital@1&family=Space+Grotesk:wght@500;600&display=swap" />
+    </noscript>
 
     <!-- Structured Data (JSON-LD) for Google Knowledge Graph & AI Overviews -->
     <script type="application/ld+json">
-      {
-        "@context": "https://schema.org",
-        "@graph": [
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://merqurie.com/#organization",
+      "name": "Merqurie",
+      "alternateName": [
+        "Merqurie Studio",
+        "Merqurie Web Systems"
+      ],
+      "url": "https://merqurie.com/",
+      "logo": "https://merqurie.com/logo.png",
+      "image": "https://merqurie.com/images/merqurie-brand-card.webp",
+      "description": "Merqurie is an independent web engineering studio founded by Jagadish (ex-Amazon, frontier AI evaluator for Google Gemini via Turing). Merqurie hand-crafts sub-1s high-speed websites with 10-second phone admin cockpits, direct 1-tap WhatsApp lead funnels, and no monthly retainer fees.",
+      "founder": {
+        "@type": "Person",
+        "name": "Jagadish",
+        "jobTitle": "Founder & Lead Engineer",
+        "worksFor": {
+          "@id": "https://merqurie.com/#organization"
+        },
+        "alumniOf": [
           {
             "@type": "Organization",
-            "@id": "https://merqurie.com/#organization",
-            "name": "Merqurie",
-            "alternateName": ["Merqurie Studio", "Merqurie Web Systems"],
-            "url": "https://merqurie.com/",
-            "logo": "https://merqurie.com/logo.png",
-            "image": "https://merqurie.com/images/merqurie-brand-card.webp",
-            "description": "Merqurie is an independent web engineering studio founded by Jagadish (ex-Amazon, frontier AI evaluator for Google Gemini via Turing). Merqurie hand-crafts sub-0.3s high-speed websites with 10-second phone admin cockpits, direct 1-tap WhatsApp lead funnels, and ₹0 monthly retainer fees.",
-            "founder": {
-              "@type": "Person",
-              "name": "Jagadish",
-              "jobTitle": "Founder & Lead Engineer",
-              "worksFor": {
-                "@id": "https://merqurie.com/#organization"
-              },
-              "alumniOf": [
-                {
-                  "@type": "Organization",
-                  "name": "Amazon"
-                },
-                {
-                  "@type": "Organization",
-                  "name": "Turing"
-                }
-              ]
-            },
-            "contactPoint": {
-              "@type": "ContactPoint",
-              "telephone": "+91-73586-18789",
-              "contactType": "customer service",
-              "contactOption": "WhatsApp",
-              "areaServed": ["IN", "US", "GB", "AE", "SG"],
-              "availableLanguage": ["English", "Tamil"]
-            },
-            "sameAs": [
-              "https://github.com/jagadish710/jagadish-studio",
-              "https://merqurie.com"
-            ]
+            "name": "Amazon"
           },
           {
-            "@type": "WebSite",
-            "@id": "https://merqurie.com/#website",
-            "url": "https://merqurie.com/",
-            "name": "Merqurie",
-            "publisher": {
-              "@id": "https://merqurie.com/#organization"
-            },
-            "description": "Sub-0.3s fast websites, 10-second mobile phone admin editing, and ₹0 monthly retainer fees."
-          },
+            "@type": "Organization",
+            "name": "Turing"
+          }
+        ]
+      },
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "+91-73586-18789",
+        "contactType": "customer service",
+        "contactOption": "WhatsApp",
+        "areaServed": [
+          "IN",
+          "US",
+          "GB",
+          "AE",
+          "SG"
+        ],
+        "availableLanguage": [
+          "English",
+          "Tamil"
+        ]
+      },
+      "sameAs": [
+        "https://github.com/jagadish710/jagadish-studio",
+        "https://merqurie.com"
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://merqurie.com/#website",
+      "url": "https://merqurie.com/",
+      "name": "Merqurie",
+      "publisher": {
+        "@id": "https://merqurie.com/#organization"
+      },
+      "description": "Sub-1s fast websites, 10-second mobile phone admin editing, and no monthly retainer fees."
+    },
+    {
+      "@type": "ProfessionalService",
+      "@id": "https://merqurie.com/#service",
+      "name": "Merqurie Independent Web Systems",
+      "url": "https://merqurie.com/",
+      "telephone": "+91-73586-18789",
+      "image": "https://merqurie.com/images/pms_real.webp",
+      "parentOrganization": {
+        "@id": "https://merqurie.com/#organization"
+      },
+      "openingHours": "Mo-Sa 09:00-20:00",
+      "paymentAccepted": "UPI, Net Banking, Credit Card, Razorpay",
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Web Systems Packages",
+        "itemListElement": [
           {
-            "@type": "ProfessionalService",
-            "@id": "https://merqurie.com/#service",
-            "name": "Merqurie Independent Web Systems",
-            "url": "https://merqurie.com/",
-            "telephone": "+91-73586-18789",
-            "priceRange": "₹14,999 - ₹34,999",
-            "image": "https://merqurie.com/images/pms_real.webp",
-            "parentOrganization": {
-              "@id": "https://merqurie.com/#organization"
-            },
-            "openingHours": "Mo-Sa 09:00-20:00",
-            "paymentAccepted": "UPI, Net Banking, Credit Card, Razorpay",
-            "hasOfferCatalog": {
-              "@type": "OfferCatalog",
-              "name": "Web Systems Packages",
-              "itemListElement": [
-                {
-                  "@type": "Offer",
-                  "itemOffered": {
-                    "@type": "Service",
-                    "name": "Starter Edge",
-                    "description": "Up to 5 bespoke high-speed mobile pages, 1-tap WhatsApp inquiry button, sub-0.3s edge speed, and 10s phone admin."
-                  },
-                  "price": "14999",
-                  "priceCurrency": "INR"
-                },
-                {
-                  "@type": "Offer",
-                  "itemOffered": {
-                    "@type": "Service",
-                    "name": "Growth Engine",
-                    "description": "Interactive storefronts, product catalog, 1-tap WhatsApp checkout, visitor intelligence tool, and 100% source code ownership."
-                  },
-                  "price": "24999",
-                  "priceCurrency": "INR"
-                },
-                {
-                  "@type": "Offer",
-                  "itemOffered": {
-                    "@type": "Service",
-                    "name": "Custom Cloud",
-                    "description": "Tailored web applications, member registries, custom databases, and payment gateway integrations."
-                  },
-                  "price": "34999",
-                  "priceCurrency": "INR"
-                }
-              ]
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Starter Edge",
+              "description": "Up to 5 bespoke high-speed mobile pages, 1-tap WhatsApp inquiry button, sub-1s edge speed, and 10s phone admin."
             }
           },
           {
-            "@type": "FAQPage",
-            "@id": "https://merqurie.com/#faq",
-            "mainEntity": [
-              {
-                "@type": "Question",
-                "name": "What makes Merqurie websites faster than typical agency sites?",
-                "acceptedAnswer": {
-                  "@type": "Answer",
-                  "text": "Merqurie hand-crafts bespoke modern websites that open in 0.24 seconds on mobile 4G/5G data by removing heavy WordPress plugins, PHP bloat, and monolithic servers, serving code directly from global edge servers."
-                }
-              },
-              {
-                "@type": "Question",
-                "name": "Why does Merqurie charge ₹0 monthly retainer fees?",
-                "acceptedAnswer": {
-                  "@type": "Answer",
-                  "text": "Unlike typical agencies that lock clients into ₹8,000–₹15,000/month maintenance contracts just to update text, Merqurie gives you 100% full source code ownership and a 10-second self-serve phone admin cockpit to edit prices and announcements yourself with zero recurring fees."
-                }
-              },
-              {
-                "@type": "Question",
-                "name": "Can I edit my website from my mobile phone?",
-                "acceptedAnswer": {
-                  "@type": "Answer",
-                  "text": "Yes. Every Merqurie website includes a lightweight, secure mobile phone admin cockpit where you can update headlines, prices, announcements, and photos in 10 seconds without developer dependency."
-                }
-              },
-              {
-                "@type": "Question",
-                "name": "How fast can my new website launch?",
-                "acceptedAnswer": {
-                  "@type": "Answer",
-                  "text": "Standard websites launch in 2 to 3 days. Merqurie also provides a free interactive sample preview within 24 hours with ₹0 down payment."
-                }
-              },
-              {
-                "@type": "Question",
-                "name": "Who builds the websites at Merqurie?",
-                "acceptedAnswer": {
-                  "@type": "Answer",
-                  "text": "Merqurie was founded by Jagadish, an engineer with previous experience at Amazon and evaluating frontier AI models for Google Gemini via Turing. Every project is engineered directly with zero junior handoffs."
-                }
-              }
-            ]
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Growth Engine",
+              "description": "Interactive storefronts, product catalog, 1-tap WhatsApp checkout, visitor intelligence tool, and 100% source code ownership."
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Custom Cloud",
+              "description": "Tailored web applications, member registries, custom databases, and payment gateway integrations."
+            }
           }
         ]
       }
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://merqurie.com/#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What makes Merqurie websites faster than typical agency sites?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Merqurie hand-crafts bespoke modern websites that open in under 1 second on mobile 4G/5G data by removing heavy WordPress plugins, PHP bloat, and monolithic servers, serving code directly from global edge servers."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does Merqurie charge monthly retainer fees?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Unlike typical agencies that lock clients into monthly maintenance contracts just to update text, Merqurie gives you 100% full source code ownership and a 10-second self-serve phone admin cockpit to edit prices and announcements yourself with zero recurring fees."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I edit my website from my mobile phone?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Every Merqurie website includes a lightweight, secure mobile phone admin cockpit where you can update headlines, prices, announcements, and photos in 10 seconds without developer dependency."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How fast can my new website launch?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Standard websites launch in 2 to 3 days. Merqurie also provides a free interactive sample preview within 24 hours with no down payment."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Who builds the websites at Merqurie?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Merqurie was founded by Jagadish, an engineer with previous experience at Amazon and evaluating frontier AI models for Google Gemini via Turing. Every project is engineered directly with zero junior handoffs."
+          }
+        }
+      ]
+    }
+  ]
+}
     </script>
 
   </head>

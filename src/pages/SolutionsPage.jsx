@@ -51,7 +51,7 @@ export default function SolutionsPage({ onOpenPrototypeModal }) {
         speedTag: 'bg-rose-50 text-rose-800 border-rose-200',
       },
       points: [
-        'Loads in under 1 second on any mobile phone',
+        'Built to a strict speed budget — fast on any mobile phone',
         'Direct 1-tap WhatsApp button for instant customer enquiries',
         'Change text, prices, and announcements from your phone in 10 seconds',
         'Setup on Google Search & Google Maps so local customers find you',
@@ -59,7 +59,7 @@ export default function SolutionsPage({ onOpenPrototypeModal }) {
       ],
       chatPreview: 'Hi! I saw your website and would like to book an appointment.',
       stats: [
-        { label: 'Mobile Speed', val: '< 0.3s' },
+        { label: 'Page Weight', val: '≈0.5 MB' },
         { label: 'Monthly Retainer', val: 'Zero / Month' },
         { label: 'Enquiry Flow', val: '1-Tap WhatsApp' },
       ],
@@ -84,7 +84,7 @@ export default function SolutionsPage({ onOpenPrototypeModal }) {
       points: [
         'Clean product catalog with clear photos, specs, and prices',
         '1-tap WhatsApp order button bypassing confusing checkout forms',
-        'Sub-second fast loading with zero lag or frustrating delays',
+        'Lean pages with zero plugin lag or frustrating delays',
         'Easily add new products and edit prices from your smartphone',
         'No monthly Shopify or agency fees — you keep 100% of your profit',
       ],
@@ -116,12 +116,12 @@ export default function SolutionsPage({ onOpenPrototypeModal }) {
         'Customer quote enquiries delivered straight to your WhatsApp & email',
         'Private dashboard to manage students, inventory, or client bookings',
         'Engineered with Amazon & Google AI big-tech precision',
-        'Sub-second speed that scores 99/100 on Google tests',
+        'Speed-budgeted build, Lighthouse-audited before launch',
         'Full transfer of code and database on launch day — 100% owned by you',
       ],
       chatPreview: 'Hi Sensei! Want to enrol my daughter in evening karate batch.',
       stats: [
-        { label: 'Lead Delivery', val: 'Instant 0.2s' },
+        { label: 'Lead Delivery', val: 'Instant' },
         { label: 'Architecture', val: 'Direct Founder' },
         { label: 'Ongoing Retainers', val: 'Zero Forever' },
       ],
@@ -316,7 +316,7 @@ export default function SolutionsPage({ onOpenPrototypeModal }) {
 
                       <span className="text-[9px] font-mono font-bold text-emerald-300 bg-emerald-950 px-2 py-0.5 rounded-md border border-emerald-500/40 flex items-center gap-1">
                         <Zap className="w-2.5 h-2.5 text-emerald-400" />
-                        <span>Sub-1s Speed</span>
+                        <span>Speed-Budgeted</span>
                       </span>
                     </div>
 

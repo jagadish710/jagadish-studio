@@ -79,11 +79,9 @@ export default function HomePage({ onOpenPrototypeModal, setActivePage }) {
       </Suspense>
 
       {/* 7. Transparent Pricing Packages with 100% Code Ownership Guarantee */}
-      <section id="pricing">
-        <Suspense fallback={<div className="min-h-[70vh]" aria-hidden="true" />}>
-          <PricingPackages onOpenPrototypeModal={onOpenPrototypeModal} />
-        </Suspense>
-      </section>
+      <Suspense fallback={<div className="min-h-[70vh]" aria-hidden="true" />}>
+        <PricingPackages onOpenPrototypeModal={onOpenPrototypeModal} />
+      </Suspense>
 
       {/* 8. Interactive Quote Builder + Zero-Risk Free 24h Sample Request */}
       <Suspense fallback={<div className="min-h-[60vh]" aria-hidden="true" />}>

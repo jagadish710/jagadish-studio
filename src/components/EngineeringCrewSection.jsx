@@ -246,7 +246,7 @@ class FoleySynthesizer {
    ========================================================================= */
 const CREW_TIERS = {
   captain: [
-    { label: 'T1 • JET PISTOL', msg: 'GOMU-GOMU: SUB-1S EDGE SMASH!' },
+    { label: 'T1 • JET PISTOL', msg: 'GOMU-GOMU: SPEED BUDGET SMASH!' },
     { label: 'T2 • GATLING', msg: 'GEAR 2ND: 300+ CDN NODES FIRED!' },
     { label: 'MAX • KING KONG', msg: 'AWAKENING: ZERO LATENCY LOCKED!' }
   ],
@@ -629,7 +629,7 @@ export default function EngineeringCrewSection({ onOpenQuote }) {
             Meet Your <span className="bg-gradient-to-r from-amber-400 via-orange-400 to-rose-500 bg-clip-text text-transparent">Engineering Crew</span>
           </h2>
           <p className="text-slate-300 text-sm sm:text-base leading-relaxed">
-            Every website we build unifies four uncompromising disciplines—sub-1s edge speed, zero-vulnerability code, conversion psychology, and thumb-friendly mobile UI. Tap any specialist below to trigger their attack!
+            Every website we build unifies four uncompromising disciplines—speed-budgeted edge delivery, zero-vulnerability code, conversion psychology, and thumb-friendly mobile UI. Tap any specialist below to trigger their attack!
           </p>
         </div>
 
@@ -688,9 +688,9 @@ export default function EngineeringCrewSection({ onOpenQuote }) {
             name="Captain"
             heroShortName="Captain"
             role="Sovereign Architecture & Speed"
-            metric="Sub-1s Edge"
-            desc="Stretches performance to sub-1s load times across 300+ CDN nodes with zero bloated plugins."
-            tagText="SPEED • SUB-1S"
+            metric="Lean Edge"
+            desc="Ships lean, speed-budgeted pages across global edge nodes with zero bloated plugins."
+            tagText="SPEED BUDGETED"
             tagIcon={Zap}
             tagBg="bg-amber-500/20 text-amber-300 border-amber-500/30"
             hits={hitCounts.captain}
@@ -1220,7 +1220,7 @@ export default function EngineeringCrewSection({ onOpenQuote }) {
               Ready to deploy these 4 engineering disciplines on your website?
             </h3>
             <p className="text-slate-400 text-xs sm:text-sm max-w-2xl">
-              Get your custom edge prototype built in 24 hours. If it doesn't load in under 0.3s and outshine your competitors, you pay Zero.
+              Get your custom edge prototype built in 24 hours. If it isn't faster and cleaner than what you run today, you pay Zero.
             </p>
           </div>
 

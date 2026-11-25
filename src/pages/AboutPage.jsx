@@ -22,10 +22,10 @@ export default function AboutPage({ onOpenPrototypeModal }) {
   const standards = [
     {
       num: '01',
-      title: 'Loads in Under 1 Second',
+      title: 'Loads Fast, Measured',
       desc: 'Nobody waits for a slow website. Your site loads instantly on any 4G or 5G mobile phone so customers never bounce to a competitor in frustration.',
       icon: Zap,
-      metric: 'Sub-1s Mobile Paint • 99/100 Google Vitals',
+      metric: '≈0.5 MB Mobile Payload • Lighthouse-Audited',
       gradient: 'from-cyan-500 via-teal-500 to-emerald-500',
       glow: 'bg-teal-400/20',
       border: 'border-teal-300/80 hover:border-teal-500 hover:shadow-teal-500/15',
@@ -162,7 +162,7 @@ export default function AboutPage({ onOpenPrototypeModal }) {
                 When looking at how website agencies treat small and growing businesses in India, I saw an unfair model: agencies build slow WordPress templates that take 8 seconds to load, take 5 days to answer simple emails, and push expensive recurring maintenance retainers that deliver zero real value.
               </p>
               <p className="text-slate-900 font-medium bg-rose-50 p-4 rounded-2xl border border-rose-200">
-                Merqurie was created to fix this. We build ultra-fast, mobile-first websites that load in under 1 second, connect directly to your WhatsApp, and give you 100% full ownership from day one — with Zero monthly retainer fees forever.
+                Merqurie was created to fix this. We build lean, mobile-first websites that load fast on any phone, connect directly to your WhatsApp, and give you 100% full ownership from day one — with Zero monthly retainer fees forever.
               </p>
             </div>
 

@@ -1,12 +1,19 @@
 import React, { useState, useRef } from 'react';
-import { Zap, Play, RotateCcw, AlertTriangle } from 'lucide-react';
+import { Zap, Play, AlertTriangle } from 'lucide-react';
 
+/**
+ * An intentionally illustrative animation, not a benchmark.
+ *
+ * It compares what a lean, hand-built payload feels like next to a plugin-heavy
+ * stack. It never prints invented load times or Lighthouse scores — the numbers
+ * it shows are the page-weight budget (≈0.5 MB) the studio actually builds to.
+ */
 export default function LiveSpeedRaceSimulator() {
   const [racing, setRacing] = useState(false);
   const [merqProgress, setMerqProgress] = useState(100);
   const [anchorProgress, setAnchorProgress] = useState(100);
-  const [merqText, setMerqText] = useState('0.24s (Instant!)');
-  const [anchorText, setAnchorText] = useState('8.20s (58% Bounce)');
+  const [merqText, setMerqText] = useState('≈0.5 MB — ready to use');
+  const [anchorText, setAnchorText] = useState('Heavy plugin stack');
 
   const reqIdRef = useRef(null);
 
@@ -15,8 +22,8 @@ export default function LiveSpeedRaceSimulator() {
     setRacing(true);
     setMerqProgress(0);
     setAnchorProgress(0);
-    setMerqText('Testing 4G Edge...');
-    setAnchorText('Connecting...');
+    setMerqText('Loading lean payload...');
+    setAnchorText('Downloading plugin scripts...');
 
     const startTime = performance.now();
     const totalDuration = 3200; // ms
@@ -29,15 +36,15 @@ export default function LiveSpeedRaceSimulator() {
       setMerqProgress(merqPct);
       setMerqText(
         merqPct >= 100
-          ? '0.24s — OPEN & READY!'
-          : `${(progress * 2).toFixed(2)}s...`
+          ? '≈0.5 MB — ready to use'
+          : 'Loading lean payload...'
       );
 
       setAnchorProgress(progress * 100);
       setAnchorText(
         progress >= 1
-          ? '8.20s — Finished (58% Visitors Bounced)'
-          : `${(progress * 8.2).toFixed(2)}s (Loading 42 plugins...)`
+          ? 'Heavy plugin stack — still working'
+          : 'Downloading plugin scripts...'
       );
 
       if (progress < 1) {
@@ -52,19 +59,19 @@ export default function LiveSpeedRaceSimulator() {
 
   return (
     <div className="glass-card rounded-3xl p-6 sm:p-8 border-cyanline-400/25 my-8">
-      
+
       {/* Header */}
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-5 border-b border-white/10">
         <div>
           <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-cyanline-500/15 border border-cyanline-400/30 text-cyanline-300 text-xs font-mono font-bold mb-2">
             <Zap className="w-3.5 h-3.5" />
-            <span>INTERACTIVE REAL-TIME BENCHMARK</span>
+            <span>ILLUSTRATIVE PAYLOAD COMPARISON</span>
           </div>
           <h3 className="font-display text-xl sm:text-2xl font-bold text-white">
-            Test The Speed Difference Live
+            See What A Lean Build Avoids
           </h3>
-          <p className="text-xs text-slate-400">
-            Simulate loading both websites on a typical 4G smartphone connection
+          <p className="text-xs text-slate-300 max-w-lg">
+            A visual illustration, not a benchmark: we build to ≈0.5 MB per mobile page, so visitors are not waiting on plugin scripts to download.
           </p>
         </div>
 
@@ -76,12 +83,12 @@ export default function LiveSpeedRaceSimulator() {
           {racing ? (
             <>
               <span className="w-2 h-2 rounded-full bg-ocean-950 animate-ping" />
-              <span>Racing on 4G Mobile...</span>
+              <span>Comparing payloads...</span>
             </>
           ) : (
             <>
               <Play className="w-4 h-4 fill-ocean-950" />
-              <span>Run Live 4G Speed Race</span>
+              <span>Run The Comparison</span>
             </>
           )}
         </button>
@@ -89,15 +96,15 @@ export default function LiveSpeedRaceSimulator() {
 
       {/* Progress Bars */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
-        
+
         {/* Merqurie Edge Engine */}
         <div className="p-4 rounded-2xl bg-white/[0.03] border border-white/5">
-          <div className="flex justify-between items-center mb-2.5 text-xs sm:text-sm">
+          <div className="flex justify-between items-center gap-3 mb-2.5 text-xs sm:text-sm">
             <span className="font-bold text-white font-display flex items-center gap-1.5">
               <Zap className="w-4 h-4 text-emerald-400" />
               <span>Merqurie Hand-Crafted Edge</span>
             </span>
-            <span className="font-mono font-bold text-emerald-400 text-xs">
+            <span className="font-mono font-bold text-emerald-400 text-xs text-right">
               {merqText}
             </span>
           </div>
@@ -107,19 +114,19 @@ export default function LiveSpeedRaceSimulator() {
               style={{ width: `${merqProgress}%` }}
             />
           </div>
-          <span className="text-[11px] text-slate-400 mt-2 block">
-            ✓ 0 Plugins • Edge Cached in Chennai • 99/100 Core Web Vitals
+          <span className="text-[11px] text-slate-300 mt-2 block">
+            ✓ 0 plugins • ≈0.5 MB mobile payload • static edge delivery
           </span>
         </div>
 
         {/* Typical WordPress Site */}
         <div className="p-4 rounded-2xl bg-white/[0.03] border border-white/5">
-          <div className="flex justify-between items-center mb-2.5 text-xs sm:text-sm">
+          <div className="flex justify-between items-center gap-3 mb-2.5 text-xs sm:text-sm">
             <span className="font-bold text-slate-300 font-display flex items-center gap-1.5">
               <AlertTriangle className="w-4 h-4 text-crimson-400" />
               <span>Typical 40-Plugin WordPress Site</span>
             </span>
-            <span className="font-mono font-bold text-crimson-400 text-xs">
+            <span className="font-mono font-bold text-crimson-400 text-xs text-right">
               {anchorText}
             </span>
           </div>
@@ -129,8 +136,8 @@ export default function LiveSpeedRaceSimulator() {
               style={{ width: `${anchorProgress}%` }}
             />
           </div>
-          <span className="text-[11px] text-slate-400 mt-2 block">
-            ✕ Heavy SQL database queries • Uncached PHP scripts • 58% bounce rate
+          <span className="text-[11px] text-slate-300 mt-2 block">
+            ✕ Heavy plugin stack • uncached PHP and database calls before first paint
           </span>
         </div>
 

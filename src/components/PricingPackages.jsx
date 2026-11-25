@@ -23,7 +23,7 @@ export default function PricingPackages({ onOpenPrototypeModal }) {
       features: [
         'Up to 5 bespoke high-speed mobile pages',
         'Direct 1-tap WhatsApp inquiry routing',
-        'Sub-1s 4G/5G mobile edge performance',
+        'Speed-budgeted edge delivery (≈0.5 MB page weight)',
         '10-second phone admin cockpit for instant text edits',
         'Google Search Console & Google Maps verification',
         '100% full source code & domain ownership',
@@ -54,7 +54,7 @@ export default function PricingPackages({ onOpenPrototypeModal }) {
         'Interactive product catalog & visual spec configurator',
         '1-tap WhatsApp order flow & instant quote calculator',
         'Visitor Intelligence Tool (see who visited, their city, and what they clicked)',
-        'Sub-1s edge speed scoring 99/100 Core Web Vitals',
+        'Lighthouse-audited build report handed over at launch',
         'Self-serve phone admin for price & photo edits in 10s',
         'Automated multi-channel routing to WhatsApp & email',
         'Full source code handover & zero vendor lock-in',

@@ -29,10 +29,10 @@ export default function Hero({ onOpenPrototypeModal, onNavigateToWork, onNavigat
   const showcases = {
     pms: {
       headlinePrefix: 'Your Competitors Have Slow Sites.',
-      headlineAccent: 'We Engineer Sub-1s Speed.',
-      subtext: 'Every second your website takes to load on mobile data, 20% of buyers press Back. For PMS Solution Healthcare, we engineered sub-1s load times and 1-tap WhatsApp quotes for ICU beds with Zero monthly retainers.',
+      headlineAccent: 'We Engineer Fast, Lean Sites.',
+      subtext: 'Every extra second of mobile load time costs you buyers. For PMS Solution Healthcare we shipped a lean, speed-budgeted build with 1-tap WhatsApp quotes for ICU beds — and zero monthly retainers.',
       title: 'PMS Solution | Hospital Medical Equipment Sales & Rentals',
-      speed: 'Sub-1s Edge Load Speed',
+      speed: 'Speed-Budgeted Build',
       desc: 'Live Chennai healthcare portal managing ICU beds, oxygen concentrators, and hospital setup inquiries with instant WhatsApp lead routing.',
       image: '/images/pms_real.webp',
       mobileImage: '/images/pms_mobile_real.webp',
@@ -43,9 +43,9 @@ export default function Hero({ onOpenPrototypeModal, onNavigateToWork, onNavigat
     upsks: {
       headlinePrefix: 'Martial Arts & Student Academy.',
       headlineAccent: '1,000+ Enrolled Students.',
-      subtext: 'From class timetables to international tournament rosters, we built UPSKS Karate to eliminate administrative chaos, rank #1 on Google, and route parents straight to chief instructors with sub-1s speed.',
+      subtext: 'From class timetables to international tournament rosters, we built UPSKS Karate to eliminate administrative chaos, rank #1 on Google, and route parents straight to chief instructors on a lean, fast build.',
       title: 'Unique Power Shito-Ryu Karate School (UPSKS)',
-      speed: 'Sub-1s Edge Load Speed',
+      speed: 'Speed-Budgeted Build',
       desc: 'Live sports academy platform connecting students across India to international Japanese martial arts heritage, belt rosters, and direct parent WhatsApp communication.',
       image: '/images/upsks_real.webp',
       mobileImage: '/images/upsks_mobile_real.jpg',
@@ -71,7 +71,7 @@ export default function Hero({ onOpenPrototypeModal, onNavigateToWork, onNavigat
       headlineAccent: 'Zero Cart Abandonment.',
       subtext: 'Sell products directly on mobile with an interactive visual catalog. Customers tap 1 button on WhatsApp to order or request quotes—zero confusing checkouts, zero monthly Shopify fees.',
       title: 'Interactive E-Commerce & Product Catalog',
-      speed: 'Sub-second Checkout Flow',
+      speed: 'One-Tap Checkout',
       desc: 'Instant one-tap WhatsApp order flow with dynamic spec configurator and inventory management.',
       image: '/images/showcase_ecommerce_catalog.webp',
       mobileImage: '/images/showcase_ecommerce_catalog.webp',
@@ -110,7 +110,7 @@ export default function Hero({ onOpenPrototypeModal, onNavigateToWork, onNavigat
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-500 opacity-75" />
                 <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500" />
               </span>
-              <span className="tracking-wider uppercase font-bold text-[11px]">SEE YOUR NEW WEBSITE FREE IN 24 HOURS • PAY Zero TODAY</span>
+              <span className="tracking-wider uppercase font-bold text-[11px] whitespace-nowrap">FREE SAMPLE IN 24 HOURS • PAY ZERO TODAY</span>
             </div>
 
             {/* Dynamic Animated Headline - Fully Responsive to Chosen Showcase! */}
@@ -192,8 +192,8 @@ export default function Hero({ onOpenPrototypeModal, onNavigateToWork, onNavigat
             {/* 4 Hard ROI Proof Badges */}
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5 mt-8 w-full border-t border-slate-200/80 pt-5">
               <div className="p-3 rounded-2xl bg-white border border-slate-200 shadow-xs text-center lg:text-left">
-                <div className="font-display text-xl sm:text-2xl font-bold text-cyan-600">Sub-1s</div>
-                <div className="text-[11px] text-slate-500 font-semibold font-mono">4G Mobile Load</div>
+                <div className="font-display text-xl sm:text-2xl font-bold text-cyan-600">≈0.5 MB</div>
+                <div className="text-[11px] text-slate-500 font-semibold font-mono">Mobile Page Weight</div>
               </div>
               <div className="p-3 rounded-2xl bg-white border border-slate-200 shadow-xs text-center lg:text-left">
                 <div className="font-display text-xl sm:text-2xl font-bold text-amber-600">Zero/mo</div>
@@ -209,25 +209,27 @@ export default function Hero({ onOpenPrototypeModal, onNavigateToWork, onNavigat
               </div>
             </div>
 
-            {/* Mobile-First Engineering Guarantee */}
-            <div className="mt-4 flex flex-wrap items-center justify-center lg:justify-start gap-x-4 gap-y-2">
-              <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-slate-400">
-                Mobile-First Guarantee
-              </span>
+            {/* Mobile-First Engineering Guarantee + the one speed number we can prove */}
+            <div className="mt-4 flex flex-wrap items-center justify-center lg:justify-start gap-x-2.5 gap-y-1.5 text-[10px] sm:text-[11px] font-mono font-semibold text-slate-600">
+              <span className="font-bold uppercase tracking-wider text-slate-400">Mobile-first</span>
               {[
-                { icon: Smartphone, label: 'Designed at 360px first' },
+                { icon: Smartphone, label: 'Built at 360px first' },
                 { icon: Zap, label: 'Thumb-reach CTAs' },
                 { icon: ShieldCheck, label: '48px tap targets' },
-              ].map((item) => (
-                <span
-                  key={item.label}
-                  className="inline-flex items-center gap-1.5 text-[10px] sm:text-[11px] font-mono font-semibold text-slate-600 bg-white border border-slate-200 rounded-full px-2.5 py-1 shadow-xs"
-                >
-                  <item.icon className="w-3 h-3 text-emerald-600 shrink-0" />
-                  {item.label}
+              ].map((item, i) => (
+                <span key={item.label} className="inline-flex items-center gap-2.5">
+                  {i > 0 && <span className="text-slate-300" aria-hidden="true">•</span>}
+                  <span className="inline-flex items-center gap-1.5">
+                    <item.icon className="w-3 h-3 text-emerald-600 shrink-0" />
+                    {item.label}
+                  </span>
                 </span>
               ))}
             </div>
+
+            <p className="mt-3 max-w-lg text-[10px] sm:text-[11px] font-mono text-slate-500 text-center lg:text-left leading-relaxed">
+              Measured, not promised: this site ships ≈575 KB on mobile — no page builders, no plugin bloat.
+            </p>
 
           </div>
 

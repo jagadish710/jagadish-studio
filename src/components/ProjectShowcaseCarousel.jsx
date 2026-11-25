@@ -47,7 +47,7 @@ export default function ProjectShowcaseCarousel({ onOpenPrototypeModal }) {
       <div className="absolute top-1/3 left-10 w-96 h-96 rounded-full blur-[140px] pointer-events-none bg-rose-400/10" />
       <div className="absolute bottom-10 right-10 w-96 h-96 rounded-full blur-[140px] pointer-events-none bg-cyan-400/10" />
 
-      <div className="max-w-7xl mx-auto relative z-10">
+      <div className="max-w-6xl mx-auto relative z-10">
         
         {/* Section Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 sm:mb-16 gap-6">
@@ -164,7 +164,7 @@ export default function ProjectShowcaseCarousel({ onOpenPrototypeModal }) {
                       <div className="absolute top-2.5 left-2.5 z-10">
                         <span className={`px-2 sm:px-2.5 py-0.5 rounded-lg text-[9px] sm:text-[10px] font-mono font-bold backdrop-blur-md shadow-xs border ${project.theme.speedBadge} flex items-center gap-1`}>
                           <Zap className="w-2.5 h-2.5 text-amber-500" />
-                          <span>{project.metrics[0].value} Edge</span>
+                          <span>{project.speed}</span>
                         </span>
                       </div>
 
@@ -215,7 +215,7 @@ export default function ProjectShowcaseCarousel({ onOpenPrototypeModal }) {
                   <div>
                     <div className="flex items-center justify-between gap-2 mb-1.5">
                       <span className="text-[10px] sm:text-[11px] font-mono font-bold uppercase tracking-wider text-slate-500">
-                        {project.sectorBadge}
+                        {project.sector}
                       </span>
                       <span className={`text-[10px] font-mono ${project.theme.accentText}`}>
                         {project.floatingBadge}

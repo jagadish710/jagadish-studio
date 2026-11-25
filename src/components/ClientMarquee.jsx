@@ -18,7 +18,7 @@ export default function ClientMarquee() {
     { name: 'UPSKS KARATE', tag: 'upskskarate.com', icon: Activity, sector: 'Martial Arts & Student Platform' },
     { name: 'WHATSAPP E-STORE', tag: 'store.merqurie.com', icon: ShoppingBag, sector: '1-Tap Mobile Commerce' },
     { name: 'VISUAL PHONE COCKPIT', tag: 'admin.merqurie.com', icon: Zap, sector: '10-Second Self-Serve Edits' },
-    { name: 'EDGE SPEED ENGINE', tag: 'merqurie.com', icon: Server, sector: '< 0.3s Global PageSpeed' },
+    { name: 'EDGE SPEED ENGINE', tag: 'merqurie.com', icon: Server, sector: 'Speed-Budgeted Edge Delivery' },
     { name: '100% CODE SOVEREIGNTY', tag: 'git.merqurie.com', icon: ShieldCheck, sector: 'Full Client IP Ownership' },
   ];
 
@@ -47,6 +47,7 @@ export default function ClientMarquee() {
             return (
               <div
                 key={`p-${idx}`}
+                aria-hidden={idx >= platforms.length}
                 className="flex items-center gap-3 px-4 sm:px-5 py-2.5 sm:py-3 rounded-2xl border border-slate-200 bg-slate-50/70 text-slate-900 shadow-xs shrink-0 hover:border-rose-400 transition-colors"
               >
                 <div className="w-8 h-8 rounded-xl flex items-center justify-center shrink-0 border bg-rose-50 border-rose-200 text-rose-600">

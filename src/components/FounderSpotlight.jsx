@@ -13,12 +13,12 @@ const whatsapp = 'https://wa.me/917358618789?text=Hi%20Jagadish!%20I%20would%20l
 
 export default function FounderSpotlight({ onOpenPrototypeModal }) {
   return (
-    <section id="leadership" className="py-20 sm:py-28 px-4 sm:px-6 lg:px-8 relative overflow-hidden bg-slate-50/70 text-slate-900 border-t border-slate-200/80">
+    <section id="leadership" className="py-20 sm:py-28 px-4 sm:px-6 lg:px-8 relative overflow-hidden bg-[#F8FAFC] text-slate-900 border-t border-slate-200/80">
       
       {/* Background Ambient Glow */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[400px] rounded-full blur-[140px] pointer-events-none bg-rose-400/10" />
 
-      <div className="max-w-5xl mx-auto relative z-10">
+      <div className="max-w-6xl mx-auto relative z-10">
         
         {/* Main Executive Leadership VIP Glowing Card */}
         <div className="bg-white border border-slate-200/90 rounded-3xl p-6 sm:p-10 lg:p-12 relative overflow-hidden shadow-2xl shadow-slate-200/60 backdrop-blur-xl">
@@ -123,7 +123,7 @@ export default function FounderSpotlight({ onOpenPrototypeModal }) {
                   When looking at how local businesses in Chennai and India were being served by agencies, I saw an unfair model: outdated WordPress templates taking 8 seconds to load, slow customer responses, and endless recurring maintenance retainers that deliver zero real value.
                 </p>
                 <p>
-                  Merqurie was built to be the antidote. We engineer modern, mobile-first websites that load in under 1 second, capture direct WhatsApp enquiries, and are 100% owned by the business owner from day one—with Zero recurring agency retainers.
+                  Merqurie was built to be the antidote. We engineer modern, mobile-first websites that load fast on any phone, capture direct WhatsApp enquiries, and are 100% owned by the business owner from day one—with Zero recurring agency retainers.
                 </p>
               </div>
 
@@ -147,7 +147,7 @@ export default function FounderSpotlight({ onOpenPrototypeModal }) {
                   </div>
                   <div className="flex items-center gap-2">
                     <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
-                    <span>Sub-1.0s mobile speed SLA</span>
+                    <span>Speed budget audited at launch</span>
                   </div>
                 </div>
               </div>

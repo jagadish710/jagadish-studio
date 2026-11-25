@@ -8,15 +8,15 @@
 Merqurie is an independent software studio that hand-crafts high-performance, mobile-first web platforms for growing businesses, healthcare suppliers, schools, and commercial retailers.
 
 ## Core Guarantees & Philosophy
-- **Sub-1s Edge Speed**: Websites open in under 1 second on mobile 4G/5G data, eliminating customer bounce rates.
+- **Speed-Budgeted Edge Delivery**: Lean, hand-built pages around 0.5 MB on mobile — no page builders, no plugin bloat — audited with Lighthouse at every launch.
 - **Zero Monthly Retainer Fees**: Clients pay once for the custom build. No forced agency maintenance fees or monthly retainer contracts.
 - **10-Second Phone Admin Cockpit**: Clients can edit headlines, prices, announcements, and photos directly from their smartphone in 10 seconds without developer bills.
 - **1-Tap WhatsApp Lead Funnels**: Frictionless customer enquiry routing directly to business owners on WhatsApp.
 - **100% Client Code Sovereignty**: On launch day, full GitHub repository code, domain DNS, and cloud accounts are transferred to the client. Zero vendor lock-in.
 
 ## Verified Live Deployments
-- **PMS Solution Healthcare (pmssolution.co.in)**: Chennai hospital medical equipment platform for ICU beds and oxygen concentrators with sub-1s loading and 1-tap WhatsApp quotes.
-- **Unique Power Shito-Ryu Karate School (upskskarate.com)**: Sports academy platform managing schedules and parent admissions for 1,000+ students with sub-1s loading.
+- **PMS Solution Healthcare (pmssolution.co.in)**: Chennai hospital medical equipment platform for ICU beds and oxygen concentrators with lean, speed-budgeted loading and 1-tap WhatsApp quotes.
+- **Unique Power Shito-Ryu Karate School (upskskarate.com)**: Sports academy platform managing schedules and parent admissions for 1,000+ students with lean, speed-budgeted loading.
 
 ## Pricing Packages
 1. **Starter Edge (one-time build, priced in your written proposal)**: Up to 5 bespoke high-speed mobile pages, 1-tap WhatsApp button, 10s phone admin, Google Maps verification, Zero monthly retainer.

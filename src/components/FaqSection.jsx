@@ -10,7 +10,7 @@ export default function FaqSection({ onOpenPrototypeModal }) {
   const faqs = [
     {
       q: 'Why should I work with you instead of a big agency or cheap template freelancer?',
-      a: 'Big agencies charge inflated retainers and hand your project to inexperienced interns. Cheap freelancers use brittle WordPress templates that break after 3 months and take 8 seconds to load. With Merqurie, you work directly with Jagadish (former Technical Engineer at Amazon & Turing). You get big-tech engineering quality, under 1-second load speeds, direct WhatsApp support, and zero recurring maintenance fees.',
+      a: 'Big agencies charge inflated retainers and hand your project to inexperienced interns. Cheap freelancers use brittle WordPress templates that break after 3 months and take 8 seconds to load. With Merqurie, you work directly with Jagadish (former Technical Engineer at Amazon & Turing). You get big-tech engineering quality, a lean build held to a strict mobile speed budget, direct WhatsApp support, and zero recurring maintenance fees.',
     },
     {
       q: 'Do you charge any recurring monthly maintenance or retainer fees?',

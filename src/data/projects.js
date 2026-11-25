@@ -20,7 +20,7 @@ export const projects = [
     url: 'https://pmssolution.co.in',
     domain: 'pmssolution.co.in',
     live: true,
-    speed: 'Sub-1s Edge Load',
+    speed: 'Speed-Budgeted Build',
     chatPreview: 'Hi! Need ICU electric bed rental for home in Chennai.',
     theme: {
       cardBg: 'bg-white',
@@ -35,11 +35,11 @@ export const projects = [
       phoneAura: 'shadow-teal-400/20',
     },
     metrics: [
-      { label: 'Load Speed', value: 'Sub-1s' },
+      { label: 'Page Weight', value: '≈0.5 MB' },
       { label: 'Retainer Fee', value: 'Zero / Month' },
       { label: 'Lead Flow', value: 'WhatsApp RFQ' },
     ],
-    floatingBadge: 'Sub-1s Live',
+    floatingBadge: 'Live & Lean',
   },
   {
     id: 'upsks',
@@ -55,7 +55,7 @@ export const projects = [
     url: 'https://upskskarate.com',
     domain: 'upskskarate.com',
     live: true,
-    speed: 'Sub-1s Edge Load',
+    speed: 'Speed-Budgeted Build',
     chatPreview: 'Hi Sensei! Want to enrol my 7-year-old in evening karate classes.',
     theme: {
       cardBg: 'bg-white',
@@ -70,11 +70,11 @@ export const projects = [
       phoneAura: 'shadow-rose-400/20',
     },
     metrics: [
-      { label: 'Load Speed', value: 'Sub-1s' },
+      { label: 'Page Weight', value: '≈0.5 MB' },
       { label: 'Retainer Fee', value: 'Zero / Month' },
       { label: 'Inquiries', value: 'Direct Parent' },
     ],
-    floatingBadge: 'Sub-1s Live',
+    floatingBadge: 'Live & Lean',
   },
   {
     id: 'admin',
@@ -118,14 +118,14 @@ export const projects = [
     subtitle: 'Direct 1-Tap WhatsApp Commerce',
     sector: 'Digital Storefront • Commerce',
     description:
-      'Sub-second digital storefront with dynamic spec configurator, fast image rendering, and 1-tap WhatsApp order dispatch. Zero plugin vulnerabilities.',
+      'Lean digital storefront with dynamic spec configurator, fast image rendering, and 1-tap WhatsApp order dispatch. Zero plugin vulnerabilities.',
     image: '/images/showcase_ecommerce_catalog.webp',
     mobileImage: '/images/showcase_ecommerce_catalog.webp',
     badge: 'Interactive Storefront',
     url: null,
     domain: 'store.merqurie.com',
     live: false,
-    speed: 'Sub-1s Edge Load',
+    speed: 'Speed-Budgeted Build',
     chatPreview: 'Hello! I want to purchase 2 units with doorstep delivery.',
     theme: {
       cardBg: 'bg-white',
@@ -142,7 +142,7 @@ export const projects = [
     metrics: [
       { label: 'Checkout', value: '1-Tap Flow' },
       { label: 'Plugin Bloat', value: '0 Plugins' },
-      { label: 'Load Speed', value: 'Sub-1s' },
+      { label: 'Page Weight', value: '≈0.5 MB' },
     ],
     floatingBadge: 'High-Converting',
   },

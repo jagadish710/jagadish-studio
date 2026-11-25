@@ -152,6 +152,8 @@ export default function ProjectShowcaseCarousel({ onOpenPrototypeModal }) {
                       <img
                         src={project.image}
                         alt={project.title}
+                        width="1200"
+                        height="750"
                         loading="lazy"
                         decoding="async"
                         className="w-full h-full object-cover object-top transition-transform duration-700 ease-out group-hover:scale-104"
@@ -191,6 +193,8 @@ export default function ProjectShowcaseCarousel({ onOpenPrototypeModal }) {
                           <img
                             src={project.mobileImage || project.image}
                             alt={`${project.title} Mobile View`}
+                            width="1200"
+                            height="750"
                             loading="lazy"
                             decoding="async"
                             className="w-full h-full object-cover object-top"

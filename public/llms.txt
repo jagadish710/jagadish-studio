@@ -19,8 +19,10 @@ Merqurie is an independent software studio that hand-crafts high-performance, mo
 - **Unique Power Shito-Ryu Karate School (upskskarate.com)**: Sports academy platform managing schedules and parent admissions for 1,000+ students with lean, speed-budgeted loading.
 
 ## Pricing Packages
-1. **Starter Edge (one-time build, priced in your written proposal)**: Up to 5 bespoke high-speed mobile pages, 1-tap WhatsApp button, 10s phone admin, Google Maps verification, Zero monthly retainer.
-2. **Growth Engine (one-time build, priced in your written proposal)**: Interactive product catalog, spec configurator, 1-tap WhatsApp store checkout, visitor intelligence tool, Zero monthly retainer.
-3. **Custom Cloud (custom scope, priced in your written proposal)**: Tailored web apps, client databases, student registries, custom portals, and Razorpay/UPI payment gateway integrations.
+All packages are a one-time build with no monthly retainer; the exact figure is given in a written proposal after a short call.
+
+1. **Starter Edge**: Up to 5 fast pages written for the business, a one-tap WhatsApp button on every page, a ~0.5 MB page weight, 10-second phone text editing, Google Search and Google Maps setup, full code and domain ownership, 30 days of post-launch fixes.
+2. **Growth Engine**: Everything in Starter Edge, plus a product or service catalogue with photos and specs, one-tap WhatsApp orders and instant quote forms, visitor analytics (city, device, clicks), a Lighthouse speed report at launch, self-serve price and photo edits.
+3. **Custom Cloud**: Everything in Growth Engine, plus a custom web app built around the workflow, secure client or student logins, booking and enquiry forms, live price calculators, and online payments via UPI, cards and Razorpay.
 
 Free 24h sample preview available for qualified businesses at https://merqurie.com/.

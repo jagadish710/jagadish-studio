@@ -9,9 +9,10 @@ export default function PricingPackages({ onOpenPrototypeModal }) {
   const plans = [
     {
       name: 'Starter Edge',
+      shortName: 'Starter Edge',
       tagline: 'High-speed digital presence for local clinics, schools, and professional practices.',
       price: 'Personal quote',
-      period: 'after a scope call',
+      period: 'Fixed after one short call',
       popular: false,
       delivery: '2 Days Delivery',
       badge: 'STARTER ARCHITECTURE',
@@ -21,27 +22,28 @@ export default function PricingPackages({ onOpenPrototypeModal }) {
       buttonStyle: 'bg-slate-900 hover:bg-teal-700 text-white shadow-md',
       includesPrevious: null,
       features: [
-        'Up to 5 bespoke high-speed mobile pages',
-        'Direct 1-tap WhatsApp inquiry routing',
-        'Speed-budgeted edge delivery (≈0.5 MB page weight)',
-        '10-second phone admin cockpit for instant text edits',
-        'Google Search Console & Google Maps verification',
-        '100% full source code & domain ownership',
-        '30 days of post-launch warranty included',
+        'Up to 5 fast pages, written for your business',
+        'A one-tap WhatsApp button on every page',
+        'A light build — about 0.5 MB per page',
+        'Edit your own text from your phone in 10 seconds',
+        'Set up on Google Search and Google Maps',
+        'You own the code and the domain, 100%',
+        '30 days of free fixes after launch',
       ],
       notIncluded: [
-        'Interactive product catalog & visual spec configurator',
-        'Visitor intelligence tracking tool (who visited & city)',
-        'Dynamic member database or custom client portal',
+        'A product catalogue or spec picker',
+        'Visitor analytics — who visited and from where',
+        'A client login area or member database',
       ],
       cta: 'Choose Starter Edge',
       primary: false,
     },
     {
       name: 'Growth Engine',
+      shortName: 'Growth Engine',
       tagline: 'Interactive storefronts, product catalogs, and automated WhatsApp inquiry engines.',
       price: 'Personal quote',
-      period: 'after a scope call',
+      period: 'Fixed after one short call',
       popular: true,
       delivery: '2-3 Days Delivery',
       badge: 'RECOMMENDED FOR BUSINESSES',
@@ -51,22 +53,28 @@ export default function PricingPackages({ onOpenPrototypeModal }) {
       buttonStyle: 'bg-gradient-to-r from-rose-600 via-rose-500 to-amber-600 text-white shadow-xl shadow-rose-500/30 hover:brightness-105 border border-rose-400/40',
       includesPrevious: 'Everything in Starter Edge, PLUS:',
       features: [
-        'Interactive product catalog & visual spec configurator',
-        '1-tap WhatsApp order flow & instant quote calculator',
-        'Visitor Intelligence Tool (see who visited, their city, and what they clicked)',
-        'Lighthouse-audited build report handed over at launch',
-        'Self-serve phone admin for price & photo edits in 10s',
-        'Automated multi-channel routing to WhatsApp & email',
-        'Full source code handover & zero vendor lock-in',
+        'A product or service catalogue with photos and specs',
+        'One-tap WhatsApp orders and instant quote forms',
+        'See who visited: their city, device and what they clicked',
+        'A Lighthouse speed report handed to you at launch',
+        'Change prices and photos yourself in 10 seconds',
+        'Every new lead sent to WhatsApp and to your email',
+        'Full code handover — no vendor lock-in',
+      ],
+      notIncluded: [
+        'Secure logins for clients or students',
+        'A custom web app built around your workflow',
+        'Online payments — UPI, cards and Razorpay',
       ],
       cta: 'Choose Growth Engine',
       primary: true,
     },
     {
       name: 'Custom Cloud',
+      shortName: 'Custom Cloud',
       tagline: 'Tailored web portals, client member registries, custom webapps, and booking platforms.',
       price: 'Personal quote',
-      period: 'after a scope call',
+      period: 'Fixed after one short call',
       popular: false,
       delivery: '3-5 Days Delivery',
       badge: 'CUSTOM WEBAPPS & APPS',
@@ -76,13 +84,13 @@ export default function PricingPackages({ onOpenPrototypeModal }) {
       buttonStyle: 'bg-slate-900 hover:bg-purple-700 text-white shadow-md',
       includesPrevious: 'Everything in Growth Engine, PLUS:',
       features: [
-        'Custom web application or progressive app for your business',
-        'Secure client / student login portal & user database',
-        'Custom appointment booking, forms, or dynamic quote calculator',
-        'Direct systems architecture with Jagadish (ex-Amazon/Google AI)',
-        'Razorpay, UPI & third-party payment API integrations',
-        '100% legal intellectual property sovereignty',
-        'Zero vendor lock-in or recurring monthly software subscriptions',
+        'A custom web app built around how your business works',
+        'Secure logins for your clients or students',
+        'Booking, enquiry forms or live price calculators',
+        'You plan it directly with Jagadish — no account managers',
+        'Online payments: UPI, cards and Razorpay',
+        'You own the code, the data and the domain',
+        'No monthly software subscriptions, ever',
       ],
       cta: 'Scope Custom Cloud',
       primary: false,
@@ -146,13 +154,13 @@ export default function PricingPackages({ onOpenPrototypeModal }) {
                       {plan.tagline}
                     </p>
 
-                    <div className="flex items-baseline gap-2">
-                      <span className="text-3xl sm:text-4xl font-black font-display text-slate-950 tracking-tight">
+                    <div>
+                      <div className="text-2xl sm:text-[27px] font-black font-display text-slate-950 tracking-tight leading-tight whitespace-nowrap">
                         {plan.price}
-                      </span>
-                      <span className="text-xs font-mono font-semibold text-slate-500">
-                        / {plan.period}
-                      </span>
+                      </div>
+                      <div className="mt-1 text-[11px] font-mono font-semibold text-slate-500">
+                        {plan.period}
+                      </div>
                     </div>
 
                     <div className="mt-3 flex items-center justify-between text-xs font-mono">
@@ -188,7 +196,7 @@ export default function PricingPackages({ onOpenPrototypeModal }) {
                   {plan.notIncluded && (
                     <div className="pt-3 pb-2 border-t border-slate-100 mb-4">
                       <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-rose-700 block mb-2">
-                        Not Included in Starter:
+                        Not included in {plan.shortName}:
                       </span>
                       <ul className="space-y-2.5">
                         {plan.notIncluded.map((item, nIdx) => (

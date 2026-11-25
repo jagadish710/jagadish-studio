@@ -9,6 +9,10 @@ export default function FaqSection({ onOpenPrototypeModal }) {
 
   const faqs = [
     {
+      q: 'What is Merqurie?',
+      a: 'Merqurie is an independent web engineering studio based in Chennai, India, founded by Jagadish. It builds lean, mobile-first websites for small and growing businesses: pages stay around 0.5 MB, leads arrive with one tap on WhatsApp, and owners can edit their own text from a phone in about 10 seconds. There are no monthly retainers, and every client keeps 100% of the code and domain. The official website is https://merqurie.com.',
+    },
+    {
       q: 'Why should I work with you instead of a big agency or cheap template freelancer?',
       a: 'Big agencies charge inflated retainers and hand your project to inexperienced interns. Cheap freelancers use brittle WordPress templates that break after 3 months and take 8 seconds to load. With Merqurie, you work directly with Jagadish (former Technical Engineer at Amazon & Turing). You get big-tech engineering quality, a lean build held to a strict mobile speed budget, direct WhatsApp support, and zero recurring maintenance fees.',
     },

@@ -84,8 +84,8 @@ export const projects = [
     sector: 'Visual Management System',
     description:
       'Update headlines, product prices, announcements, and catalog photos directly from your phone in seconds. 100% client sovereignty with zero developer dependency.',
-    image: '/images/showcase_admin_portal.webp',
-    mobileImage: '/images/showcase_admin_portal.webp',
+    image: '/images/cockpit_cms.webp',
+    mobileImage: '/images/cockpit_cms.webp',
     badge: 'Visual Cockpit',
     url: null,
     domain: 'admin.merqurie.com',
@@ -119,8 +119,8 @@ export const projects = [
     sector: 'Digital Storefront • Commerce',
     description:
       'Lean digital storefront with dynamic spec configurator, fast image rendering, and 1-tap WhatsApp order dispatch. Zero plugin vulnerabilities.',
-    image: '/images/showcase_ecommerce_catalog.webp',
-    mobileImage: '/images/showcase_ecommerce_catalog.webp',
+    image: '/images/storefront_catalog.webp',
+    mobileImage: '/images/storefront_catalog.webp',
     badge: 'Interactive Storefront',
     url: null,
     domain: 'store.merqurie.com',

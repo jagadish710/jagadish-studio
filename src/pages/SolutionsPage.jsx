@@ -70,8 +70,8 @@ export default function SolutionsPage({ onOpenPrototypeModal }) {
       title: 'Interactive Catalog & WhatsApp Store',
       tagline: 'Ideal for retailers, wholesalers, distributors, and manufacturers.',
       desc: 'Display your entire product line with high-resolution photos, prices, and specifications. Customers browse smoothly and place orders or ask for price quotes directly through WhatsApp.',
-      desktopImage: '/images/showcase_ecommerce_catalog.webp',
-      mobileImage: '/images/showcase_ecommerce_catalog.webp',
+      desktopImage: '/images/storefront_catalog.webp',
+      mobileImage: '/images/storefront_catalog.webp',
       badge: 'Zero Cart Drop-Offs',
       theme: {
         cardBg: 'bg-white',

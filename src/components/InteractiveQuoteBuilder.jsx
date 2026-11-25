@@ -43,7 +43,7 @@ export default function InteractiveQuoteBuilder() {
     const cleanBiz = businessName.trim() || 'my business';
     const chosenAddons = [];
     if (addons.mascot) chosenAddons.push('Interactive 3D Motion Companion');
-    if (addons.payments) chosenAddons.push('Razorpay & UPI Instant Checkout');
+    if (addons.payments) chosenAddons.push('Stripe, Wise, Cards & UPI Checkout');
     const addonText = chosenAddons.length ? ` + ${chosenAddons.join(', ')}` : '';
 
     const text = encodeURIComponent(
@@ -157,16 +157,16 @@ export default function InteractiveQuoteBuilder() {
                       type="checkbox"
                       checked={addons.payments}
                       onChange={() => {}}
-                      aria-label="Add Razorpay and UPI instant checkout"
+                      aria-label="Add Stripe, Wise, Cards and UPI instant checkout"
                       className="w-4 h-4 accent-amber-400 rounded mt-0.5 cursor-pointer"
                     />
                     <div>
                       <div className="text-xs font-bold text-slate-200 flex items-center gap-1">
                         <CreditCard className="w-3.5 h-3.5 text-emerald-400" />
-                        <span>Razorpay &amp; UPI Instant Checkout</span>
+                        <span>Stripe, Wise &amp; UPI Instant Checkout</span>
                       </div>
                       <p className="text-[10px] text-slate-400 mt-0.5">
-                        Accept direct customer payments via GPay, PhonePe, Paytm, and cards.
+                        Accept international cards, Wise, Apple Pay, or UPI / Razorpay.
                       </p>
                     </div>
                   </div>

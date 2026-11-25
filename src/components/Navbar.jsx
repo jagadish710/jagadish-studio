@@ -54,7 +54,7 @@ export default function Navbar({
                 MERQURIE
               </span>
               <span className="text-[10px] text-slate-500 font-mono tracking-wider hidden sm:block">
-                INDEPENDENT WEB SYSTEMS • CHENNAI
+                INDEPENDENT WEB SYSTEMS • GLOBAL
               </span>
             </div>
           </button>

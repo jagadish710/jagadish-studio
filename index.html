@@ -47,10 +47,6 @@
     <meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
     <meta name="bingbot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
 
-    <!-- Local intent signals (Chennai studio, projects worldwide) -->
-    <meta name="geo.region" content="IN-TN" />
-    <meta name="geo.placename" content="Chennai" />
-
     <!-- Google Search Console Verification -->
     <meta name="google-site-verification" content="%VITE_GOOGLE_SITE_VERIFICATION%" />
 
@@ -177,7 +173,7 @@
         "@id": "https://merqurie.com/#organization"
       },
       "openingHours": "Mo-Sa 09:00-20:00",
-      "paymentAccepted": "UPI, Net Banking, Credit Card, Razorpay",
+      "paymentAccepted": "Stripe, Wise, PayPal, Credit Card, Wire Transfer, UPI, Razorpay",
       "hasOfferCatalog": {
         "@type": "OfferCatalog",
         "name": "Web Systems Packages",
@@ -269,7 +265,32 @@
 
   </head>
   <body>
-    <div id="root"></div>
+    <div id="root">
+      <!-- Pre-rendered semantic HTML shell for search engines and AI crawlers; seamlessly replaced when React mounts -->
+      <main style="font-family:system-ui,-apple-system,sans-serif;max-width:960px;margin:0 auto;padding:48px 20px;color:#0f172a;background:#f8fafc;line-height:1.6;">
+        <header>
+          <p style="font-size:12px;letter-spacing:0.15em;text-transform:uppercase;color:#475569;">Merqurie • Independent Web Systems</p>
+          <h1 style="font-size:36px;line-height:1.15;margin:12px 0;">Fast, Lean Websites. 10-Second Phone Edits. Zero Monthly Retainers.</h1>
+          <p>Merqurie is an independent web engineering studio founded by Jagadish (former technical engineer at Amazon and frontier AI systems evaluator for Google Gemini via Turing). We build lean, mobile-first business websites around 0.5 MB per page with 1-tap lead routing, a 10-second phone admin cockpit, and 100% client code ownership.</p>
+        </header>
+        <section>
+          <h2>Live Production Deployments</h2>
+          <ul>
+            <li><a href="https://pmssolution.co.in">PMS Solution Healthcare (pmssolution.co.in)</a> — Hospital medical equipment sales and rentals portal with instant WhatsApp RFQ routing.</li>
+            <li><a href="https://upskskarate.com">Unique Power Shito-Ryu Karate School (upskskarate.com)</a> — Sports academy platform serving 1,000+ enrolled students and parent admissions.</li>
+          </ul>
+        </section>
+        <section>
+          <h2>Packages &amp; Scope</h2>
+          <ul>
+            <li><strong>Starter Edge:</strong> Up to 5 lean pages (~0.5 MB/page), 1-tap WhatsApp lead capture, 10-second phone text editor, Google Search &amp; Maps setup, full code and domain ownership.</li>
+            <li><strong>Growth Engine:</strong> Product and service catalog, instant quote forms, visitor analytics, Lighthouse speed report at launch, and WhatsApp + email lead routing.</li>
+            <li><strong>Custom Cloud:</strong> Custom web applications, secure client or student logins, live calculators, booking workflows, and online payments via Stripe, Wise, cards, and UPI.</li>
+          </ul>
+          <p>Exact project investment is shared in a clear written proposal after a short scope call. Contact Jagadish directly via WhatsApp at +91 73586 18789 or request a free 24-hour homepage preview at <a href="https://merqurie.com/">https://merqurie.com/</a>.</p>
+        </section>
+      </main>
+    </div>
     <script type="module" src="/src/main.jsx"></script>
   </body>
 </html>

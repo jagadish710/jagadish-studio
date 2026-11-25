@@ -10,7 +10,6 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@cloudflare/codemode": "^0.5.6",
     "@gsap/react": "^2.1.2",
     "@supabase/supabase-js": "^2.117.2",
     "canvas-confetti": "^1.9.4",

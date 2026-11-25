@@ -1,9 +1,7 @@
 import React, { lazy, Suspense } from 'react';
 import { 
   ArrowRight, 
-  Sparkles, 
-  ShieldCheck, 
-  Zap
+  Sparkles
 } from 'lucide-react';
 import WhatsAppIcon from '../components/WhatsAppIcon';
 import OceanCanvas from '../components/OceanCanvas';
@@ -111,7 +109,7 @@ export default function HomePage({ onOpenPrototypeModal, setActivePage }) {
           </h2>
 
           <p className="text-sm sm:text-base text-slate-600 max-w-xl mx-auto leading-relaxed">
-            We build your working prototype first. You test it on your mobile phone before paying a single rupee. If you love it, you pay once and own it 100% forever.
+            We build your working prototype first. You test it on your mobile phone before paying anything. If you love it, you pay once and own it 100% forever.
           </p>
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4">

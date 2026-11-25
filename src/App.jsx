@@ -3,7 +3,6 @@ import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import MobileBottomNav from './components/MobileBottomNav';
 import HomePage from './pages/HomePage';
-import Box3DLoader from './components/Box3DLoader';
 
 const SolutionsPage = lazy(() => import('./pages/SolutionsPage'));
 const WorkPage = lazy(() => import('./pages/WorkPage'));
@@ -12,7 +11,6 @@ const PrototypeModal = lazy(() => import('./components/PrototypeModal'));
 
 export default function App() {
   const [prototypeModalOpen, setPrototypeModalOpen] = useState(false);
-  const [showLoader, setShowLoader] = useState(true);
   const [activePage, setActivePage] = useState(() => {
     const hash = window.location.hash.replace('#', '');
     return ['home', 'solutions', 'work', 'about'].includes(hash) ? hash : 'home';
@@ -47,11 +45,6 @@ export default function App() {
   return (
     <div className="min-h-screen bg-[#F8FAFC] text-slate-900 font-sans antialiased selection:bg-rose-500/15 selection:text-rose-900">
       
-      {/* 3D Perspective Cube Loader */}
-      {showLoader && (
-        <Box3DLoader onComplete={() => setShowLoader(false)} />
-      )}
-
       {/* Top Studio Navbar */}
       <Navbar
         onOpenPrototypeModal={openPlan}

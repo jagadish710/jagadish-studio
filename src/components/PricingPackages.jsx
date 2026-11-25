@@ -64,7 +64,7 @@ export default function PricingPackages({ onOpenPrototypeModal }) {
       notIncluded: [
         'Secure logins for clients or students',
         'A custom web app built around your workflow',
-        'Online payments — UPI, cards and Razorpay',
+        'Online payments — Stripe, Wise, cards & UPI',
       ],
       cta: 'Choose Growth Engine',
       primary: true,
@@ -88,7 +88,7 @@ export default function PricingPackages({ onOpenPrototypeModal }) {
         'Secure logins for your clients or students',
         'Booking, enquiry forms or live price calculators',
         'You plan it directly with Jagadish — no account managers',
-        'Online payments: UPI, cards and Razorpay',
+        'Online payments: Stripe, Wise, cards, and UPI / Razorpay',
         'You own the code, the data and the domain',
         'No monthly software subscriptions, ever',
       ],
